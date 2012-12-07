@@ -1,4 +1,6 @@
-﻿Name: Training Demo
+﻿NEXT STATION: If you're done reading throught this file go to Controllers/YourFirstOrchardController
+
+Name: Training Demo
 AntiForgery: enabled
 Author: The Orchard Hungary Team
 Website: http://orchardtrainingdemo.codeplex.com/
@@ -9,9 +11,9 @@ Features:
     OrchardHUN.TrainingDemo:
 		Name: Training Demo
 		Category: Demo
-        Description: This is the base feature of the module: it has the same name as the module itself.
-	OrchardHUN.TrainingDemo:
+        Description: This is the base feature of the module: it has the same name as the module itself. We'll use this first.
+	OrchardHUN.TrainingDemo.Extensions:
 		Name: Training Demo Extensions
 		Category: Demo
-        Description: This is a second feature of the module. As you can see it depend on the base feature and on the built-in jQuery module (more precisely: on the Orchard.jQuery feature).
+        Description: This is a second feature of the module. As you can see it depends on the base feature and on the built-in jQuery module (more precisely: on the Orchard.jQuery feature).
 		Dependencies: OrchardHUN.TrainingDemo, Orchard.jQuery
