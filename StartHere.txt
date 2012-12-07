@@ -1,0 +1,6 @@
+﻿Hi there!
+
+Good to see you want to learn the ins and outs of Orchard module creation. Reading code is always a good way for this!
+Head over to Module.txt. That file is the module's manifest; a Module.txt is required for Orchard modules. For more info see: http://docs.orchardproject.net/Documentation/manifest-files
+
+This demo module is based on Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by the Orchard Hungary team (http://english.orchardproject.hu/).
