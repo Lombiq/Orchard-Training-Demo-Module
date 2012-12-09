@@ -70,7 +70,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             // notifications will be dismissed.
             return RedirectToAction("Index", "YourFirstOrchard");
 
-            // NEXT STATION:
+            // NEXT STATION: Models/PersonRecord
         }
     }
 }

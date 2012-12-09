@@ -82,12 +82,14 @@
       <Name>Orchard.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Compile Include="Controllers\DependencyInjectionController.cs" />
+    <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\YourFirstOrchardController.cs" />
+    <Compile Include="Migrations.cs" />
+    <Compile Include="Models\PersonRecord.cs" />
+    <Compile Include="Services\PersonManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\YourFirstOrchard\Index.cshtml" />
