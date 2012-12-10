@@ -42,12 +42,20 @@ namespace OrchardHUN.TrainingDemo.Services
     {
         // IRepository<T> is the standard way of interacting with records. This is a low-level data access service.
         private readonly IRepository<PersonRecord> _personRepository;
+        private readonly IEnumerable<IPersonFilter> _filters;
 
 
-        // IRepository is also a dependency
-        public PersonManager(IRepository<PersonRecord> personRepository)
+        /* IRepository is also a dependency
+         * 
+         * Take a look at IPersonFilter and its implementations at the bottom. As you can see we have multiple implementations for the same
+         * interface. If we would inject just an IPersonFilter we'd get an instance of the last implementation registered; with injecting
+         * an IEnumerable<IPersonFilter> we get all the implementations.
+         * Later we'll also see another technique Orchard makes possible for such event handlers.
+         */
+        public PersonManager(IRepository<PersonRecord> personRepository, IEnumerable<IPersonFilter> filters)
         {
             _personRepository = personRepository;
+            _filters = filters;
         }
 
 
@@ -77,7 +85,37 @@ namespace OrchardHUN.TrainingDemo.Services
             person.BirthDateUtc = birthDateUtc;
             person.Biography = biography;
 
-            // NEXT STATION: Controllers/PersonController
+            // Running filters
+            // Normally we don't persist the result of filter though.
+            foreach (var filter in _filters)
+            {
+                person.Biography = filter.FilterBiography(person.Biography);
+            }
         }
     }
+
+    public interface IPersonFilter : IDependency
+    {
+        string FilterBiography(string biography);
+    }
+
+    public class BadwordFilter : IPersonFilter
+    {
+        public string FilterBiography(string biography)
+        {
+            return biography.Replace("damn", "cute");
+        }
+    }
+
+    public class ShortBiographyFilter : IPersonFilter
+    {
+        public string FilterBiography(string biography)
+        {
+            if (biography.Length < 10) return "This person has a too short biography.";
+
+            return biography;
+        }
+    }
+
+    // NEXT STATION: Controllers/PersonController
 }

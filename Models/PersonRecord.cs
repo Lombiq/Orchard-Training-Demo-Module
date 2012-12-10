@@ -32,6 +32,7 @@ namespace OrchardHUN.TrainingDemo.Models
         public virtual Sex Sex { get; set; }
 
         // Best practice for DateTimes is that they should always be nullable (note the question mark).
+        // Most of the time the best is to store dates in UTC.
         public virtual DateTime? BirthDateUtc { get; set; }
 
         // This attribute tells that the string can has infinite lenght. If we wouldn't use it the string could be truncated.
