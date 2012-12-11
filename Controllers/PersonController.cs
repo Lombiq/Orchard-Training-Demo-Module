@@ -59,6 +59,6 @@ namespace OrchardHUN.TrainingDemo.Controllers
             return String.Join("<br><br>", persons.Select(person => person.Name + ", " + person.Sex + ", " + person.BirthDateUtc +  ", " + person.Biography));
         }
 
-        // NEXT STATION: 
+        // NEXT STATION: let's create a content part and a content type! Go to Models/PersonListPart
     }
 }

@@ -1,0 +1,28 @@
+﻿@*It's conventional that the Parts_PersonList shape name maps to the Parts.PersonList template name. However it also maps to Parts/PersonList:
+this means if you have a lot of part templates you can place them into subfolders.*@
+
+@*Display templates have a dynamic Model object. You can see in the debugger if you set a break point into the next block what its contents are.*@
+@{
+    // Model.ContentPart is automatically filled for content part shapes. There's also Model.ContentItem containing the whole item but we don't
+    // need it now.
+    var part = (OrchardHUN.TrainingDemo.Models.PersonListPart)Model.ContentPart;
+}
+
+@*Remember the DisplayType dynamic property we added to the shape in the driver? It's here.
+Also, this is the way to have localized strings with dynamically injected content.*@
+@T("You're currently looking at me in \"{0}\" display type", Model.DisplayType)
+
+@*Accessing the LazyField's value*@
+<ul>
+    @foreach (var person in part.Persons)
+    {
+        <li>@person.Name</li>   
+    }
+</ul>
+
+@*
+Our content part is now complete so go ahead and create a content item and a widget with it! Don't forget to enable the Training Demo Contents
+feature first :-).
+*@
+
+@*NEXT STATION: *@

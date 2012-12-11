@@ -1,0 +1,12 @@
+﻿<!--
+Make sure that this file and any other non-cs files (like view templates) have the build action set to Content!
+Also make sure to read the corresponding documentation: http://docs.orchardproject.net/Documentation/Understanding-placement-info
+This Placement.info is very simple, there are much more options.
+-->
+
+<Placement>
+  <Place Parts_PersonList_Edit="Content:5"
+         Parts_PersonList="Content:5"/>
+</Placement>
+
+<!--NEXT STATION: our shapes don't have a rendering (i.e. a template) yet. Let's create them: go to Views/EditorTemplates/Parts.PersonList-->

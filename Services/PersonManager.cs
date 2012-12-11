@@ -33,6 +33,13 @@ namespace OrchardHUN.TrainingDemo.Services
         IEnumerable<PersonRecord> GetPersons();
 
         /// <summary>
+        /// Retrieves all persons having the specified sex
+        /// </summary>
+        /// <param name="sex">Sex to filter on</param>
+        /// <param name="maxCount">Maximal number of persons retrieved</param>
+        IEnumerable<PersonRecord> GetPersons(Sex sex, int maxCount);
+
+        /// <summary>
         /// Saves a person; if the person with the same name exists, modifies its data
         /// </summary>
         void SavePerson(string name, Sex sex, DateTime birthDateUtc, string biography);
@@ -65,6 +72,12 @@ namespace OrchardHUN.TrainingDemo.Services
             // Feel freee to discover what IRepository offers. In the end you can use the Table property that's IQueryable so you have full
             // LINQ support.
             return _personRepository.Table;
+        }
+
+        // We'll need this later for PersonListPart.
+        public IEnumerable<PersonRecord> GetPersons(Sex sex, int maxCount)
+        {
+            return _personRepository.Fetch(record => record.Sex == sex).Take(maxCount);
         }
 
         public void SavePerson(string name, Sex sex, DateTime birthDateUtc, string biography)

@@ -1,0 +1,30 @@
+﻿@*The file name is conventional. Editor templates should be in the EditorTemplates folder in Views. Note that in the driver we 
+specified the "Parts.PersonList" name for this template, hence its name. But we could have named it "Parts/PersonList" (another
+convention), then we'd have placed the template into the Parts subfolder.*@
+
+@*Editor templates are statically typed so we have to declare the model type first.*@
+@model OrchardHUN.TrainingDemo.Models.PersonListPart
+
+@*
+This piece of html will be injected into the editor form of every content item whose type has PersonListPart attached.
+Good practice is to place your editor fields into their own fieldset.
+*@
+<fieldset>
+    @*Remember to always use the T method to generate user-readable strings. This way they can be easily localized.*@
+    <legend>@T("Person List Settings")</legend>
+    @*Input fields are best organized into an ordered list.*@
+    <ol>
+        <li>
+            @Html.LabelFor(model => model.Sex, T("Sex"))
+            @Html.DropDownListFor(model => model.Sex, new SelectList(new[] { new SelectListItem { Text = T("Male").Text, Value = "Male" }, new SelectListItem { Text = T("Female").Text, Value = "Female" } }, "Text", "Value"))
+            @Html.ValidationMessageFor(model => model.Sex)
+        </li>
+        <li>
+            @Html.LabelFor(model => model.MaxCount, T("Max item count"))
+            @Html.TextBoxFor(model => model.MaxCount, new { @class = "text text-small" })
+            @Html.ValidationMessageFor(model => model.MaxCount)
+        </li>
+    </ol>
+</fieldset>
+
+@*NEXT STATION: Let's see the display template in Views/Parts.PersonList*@

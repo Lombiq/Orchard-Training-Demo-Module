@@ -64,6 +64,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Placement.info">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="StartHere.txt" />
     <Content Include="Web.config" />
     <Content Include="Views\Web.config" />
@@ -82,17 +85,26 @@
       <Name>Orchard.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts.PersonList.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContentsMigrations.cs" />
     <Compile Include="Controllers\DependencyInjectionController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\YourFirstOrchardController.cs" />
+    <Compile Include="Drivers\PersonListPartDriver.cs" />
+    <Compile Include="Handlers\PersonListPartHandler.cs" />
     <Compile Include="Migrations.cs" />
+    <Compile Include="Models\PersonListPart.cs" />
     <Compile Include="Models\PersonRecord.cs" />
     <Compile Include="Services\PersonManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\YourFirstOrchard\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Parts.PersonList.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
