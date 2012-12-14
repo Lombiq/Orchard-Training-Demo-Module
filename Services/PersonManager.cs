@@ -16,7 +16,7 @@ namespace OrchardHUN.TrainingDemo.Services
 {
     /*
      * We've seen that dependencies are requested through their interfaces (this way implementations can be changed). So we create our own
-     * and derive it from the IDependency marker interface. This means it will get instantiated on each http request where it's requested
+     * and derive it from the IDependency marker interface. This means it will get instantiated on each HTTP-request where it's requested
      * in a ctor. For 99% of cases you'll need IDependency.
      * Note: we've declared interface and implementation in the same code file here for the sake of simplicity, but normally you'd place them
      * into separate files.

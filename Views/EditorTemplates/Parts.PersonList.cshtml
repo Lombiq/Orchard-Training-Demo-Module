@@ -6,9 +6,10 @@ convention), then we'd have placed the template into the Parts subfolder.*@
 @model OrchardHUN.TrainingDemo.Models.PersonListPart
 
 @*
-This piece of html will be injected into the editor form of every content item whose type has PersonListPart attached.
+This piece of HTML will be injected into the editor form of every content item whose type has PersonListPart attached.
 Good practice is to place your editor fields into their own fieldset.
 *@
+
 <fieldset>
     @*Remember to always use the T method to generate user-readable strings. This way they can be easily localized.*@
     <legend>@T("Person List Settings")</legend>
@@ -16,7 +17,11 @@ Good practice is to place your editor fields into their own fieldset.
     <ol>
         <li>
             @Html.LabelFor(model => model.Sex, T("Sex"))
-            @Html.DropDownListFor(model => model.Sex, new SelectList(new[] { new SelectListItem { Text = T("Male").Text, Value = "Male" }, new SelectListItem { Text = T("Female").Text, Value = "Female" } }, "Text", "Value"))
+            @Html.DropDownListFor(model => model.Sex, new SelectList(new[] 
+                {
+                    new SelectListItem { Text = T("Male").Text, Value = "Male" },
+                    new SelectListItem { Text = T("Female").Text, Value = "Female" }
+                }, "Text", "Value"))
             @Html.ValidationMessageFor(model => model.Sex)
         </li>
         <li>

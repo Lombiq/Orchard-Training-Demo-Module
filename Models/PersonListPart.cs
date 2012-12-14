@@ -28,7 +28,7 @@ namespace OrchardHUN.TrainingDemo.Models
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
     /* Notice that a part should derive from ContentPart or ContentPart<TRecord>. We now use the latter one. This means that our part uses a record
      * to store data. This however is not mandatory: e.g. you could have a part that fetches data from some other source (like if this part would 
-     * only contain that LazyField) but doesn't storeanyting. Then you wouldn't need a record, so you could let the part derive from ContentPart.
+     * only contain that LazyField) but doesn't store anyting. Then you wouldn't need a record, so you could let the part derive from ContentPart.
      */
     public class PersonListPart : ContentPart<PersonListPartRecord>
     {

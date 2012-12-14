@@ -1,9 +1,9 @@
 ﻿/*
  * Another pretty simple controller, but here we get to know how dependency injection works within Orchard. If you're not yet
- * familiar with DI make sure to study the concept first.
+ * familiar with DI make sure to study the concept first: http://en.wikipedia.org/wiki/Dependency_injection.
  * 
- * Orchard gives us built-in constructor injection for dependencies. This means that you request a dependency by its interface
- * in your class's constructor. Orchard will automatically inject an active implementation for you.
+ * Orchard gives us built-in constructor injection for dependencies. This means that if you request a dependency by its interface
+ * in your class's constructor, Orchard will automatically inject an active implementation for you.
  * 
  * In the form of ILogger and Localizer we also get to know to exceptions.
  */
@@ -59,7 +59,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
         public ActionResult NotifyMe()
         {
             // The notifier requires a localized string. This means if we'd have a corresponding entry for this string in a .po file
-            // then it would appear in e.g. Hungarian if we would have the locale set to hu-HU. See: http://docs.orchardproject.net/Documentation/Creating-global-ready-applications
+            // then it would appear in e.g. Hungarian if we would have the locale set to hu-HU.
+            // See: http://docs.orchardproject.net/Documentation/Creating-global-ready-applications
             _notifier.Information(T("Please continue testing."));
 
             // This will get into the logs, really. Check the latest log in App_Data/Logs!

@@ -109,7 +109,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             if (id == 0) _contentManager.Create(item);
 
             // Updating the item with the model binder through this controller from POST data.
-            // The method returns an updated editor shape (that has filled out what the user has filled out) what we can use to display if
+            // The method returns an updated editor shape (that is filled out with the input the user gave) what we can use to display if
             // there were validation errors.
             var editorShape = _contentManager.UpdateEditor(item, this);
 
@@ -169,7 +169,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // items
                                     .Query(VersionOptions.Latest, "PersonList")
                 // This is like an inner join with the PersonListPartRecord table. By default Orchard loads parts' records lazily, when needed.
-                // If we know we'll use a part's data it's better to prefetch the record because this way we'll have on query instead of one
+                // If we know we'll use a part's data it's better to prefetch the record because this way we'll have one query instead of one
                 // per item.
                                     .Join<PersonListPartRecord>()
                 // Also joining in CommonPartRecord. You remember we added CommonPart to PersonList, right? Go back to ContentsMigrations

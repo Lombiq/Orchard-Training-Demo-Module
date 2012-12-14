@@ -29,7 +29,7 @@ namespace OrchardHUN.TrainingDemo
         {
             // This means the menu item (we don't have a hierarchy here, just one menu item) will point to our Person List dashboard
             // and be shown only to users having the AccessPersonListDashboard permission.
-            // Warning: this doesn't mean other won't be able to access it directly: we have to check in the controller too!
+            // Warning: this doesn't mean others won't be able to access it directly: we have to check in the controller too!
             menu
                 .Action("PersonListDashboard", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
                 .Permission(Permissions.AccessPersonListDashboard);

@@ -14,7 +14,7 @@ namespace OrchardHUN.TrainingDemo
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
     public class Permissions : IPermissionProvider
     {
-        // Everything pretty self-explanatory
+        // Everything's pretty self-explanatory
         public static readonly Permission EditPersonList = new Permission { Description = "Edit Person List items", Name = "EditPersonList" };
         // ImpliedBy means that everybody who has the EditPersonList permission also automatically possesses the AccessPersonListDashboard permission
         // as well. Be aware that because of this AccessPersonListDashboard should be written after EditPersonList.
@@ -33,7 +33,7 @@ namespace OrchardHUN.TrainingDemo
 
         public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
         {
-            // Giving some defaults: what user group should possess which permissions
+            // Giving some defaults: which user groups should possess which permissions
             return new[]
             {
                 new PermissionStereotype

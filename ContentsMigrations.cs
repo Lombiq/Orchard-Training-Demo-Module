@@ -33,7 +33,7 @@ namespace OrchardHUN.TrainingDemo
 
             /*
              * We create a new content type. Note that there's only an alter method: this will create the type if it doesn't exist or modify it
-             * is it does. Make sure you understand what content types are: http://docs.orchardproject.net/Documentation/Content-types
+             * if it does. Make sure you understand what content types are: http://docs.orchardproject.net/Documentation/Content-types
              * The content type's name is arbitrary, but choose a meaningful one.
              * Notice that we attach parts by specifying their name. For our own parts we use typeof().Name: this is not mandatory but serves
              * great if we change the part's name during development. (The same goes for record name BTW.)
@@ -49,7 +49,7 @@ namespace OrchardHUN.TrainingDemo
                         // for PersonList. Take a look at AutoroutePart settings on the type editor UI of PersonList to see what these mean.
                         .WithSetting("AutorouteSettings.AllowCustomPattern", "true")
                         .WithSetting("AutorouteSettings.AutomaticAdjustmentOnEdit", "false")
-                        // Specifying a custom url pattern for PersonList items
+                        // Specifying a custom URL-pattern for PersonList items
                         .WithSetting("AutorouteSettings.PatternDefinitions", "[{Name:'Title', Pattern: 'person-lists/{Content.Slug}', Description: 'my-list'}]")
                         .WithSetting("AutorouteSettings.DefaultPatternIndex", "0"))
                     .WithPart(typeof(PersonListPart).Name)

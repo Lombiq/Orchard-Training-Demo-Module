@@ -46,11 +46,11 @@ namespace OrchardHUN.TrainingDemo
          */
         public int UpdateFrom1()
         {
-            // The initial version of our module did not store the person's name! What a mistake. We've brought disgrace to our family.
+            // The initial version of our module did not store the person's name! What a mistake. We've brought disgrace to our families.
             // We quickly fix the issue by pushing out an update that modifies the schema to add the Name.
             SchemaBuilder.AlterTable(typeof(PersonRecord).Name,
                 table => table
-                    .AddColumn<string>("Name")
+                    .AddColumn<string>("Name", column => column.WithLength(500))
             );
 
             /*
