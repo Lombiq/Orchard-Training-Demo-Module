@@ -6,10 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
+using System.Web.Routing;
 using Orchard.ContentManagement.Handlers;
 using Orchard.Data;
 using Orchard.Environment;
 using Orchard.Environment.Extensions;
+using Orchard.Mvc;
 using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
 
@@ -42,8 +45,25 @@ namespace OrchardHUN.TrainingDemo.Handlers
                     // persons by running this lambda here. I.e. if the list of persons is not needed we won't work on loading them.
                     part.PersonsField.Loader(() => personManagerWork.Value.GetPersons(part.Sex, part.MaxCount));
                 });
-
-            // NEXT STATION: Drivers/PersonListPartDriver
         }
+
+
+        // You can do all kinds of crazy things from handlers, like overriding metadata of items as well.
+        // Here we override the edit url of Person List items to point to our own controller (you'll soon see it).
+        protected override void GetItemMetadata(GetContentItemMetadataContext context)
+        {
+            if (context.ContentItem.ContentType != "PersonList") return;
+
+            // You'll soon see the full route decaration for this!
+            context.Metadata.EditorRouteValues = new RouteValueDictionary
+                                                    {
+                                                        {"area", "OrchardHUN.TrainingDemo"},
+                                                        {"controller", "ContentsAdmin"},
+                                                        {"action", "PersonListDashboard"},
+                                                        {"id", context.ContentItem.Id}
+                                                    };
+        }
+
+        // NEXT STATION: Drivers/PersonListPartDriver
     }
 }

@@ -33,14 +33,14 @@ namespace OrchardHUN.TrainingDemo
                 // We use the standard MVC routing-related types here
                 new RouteDescriptor
                 {
-                    Name = "CreatePersonListRoute",
+                    Name = "PersonListDashboardRoute",
                     Route = new Route(
-                        "CreatePersonList", // We'll be able to access the action from under the ~/CreatePersonList route
-                        new RouteValueDictionary
+                        "PersonListDashboard", // We'll be able to access the action from under the short ~/PersonListDashboard route
+                        new RouteValueDictionary // Remember? We used these values to set the editor route for Person List items.
                         {
                             {"area", "OrchardHUN.TrainingDemo"},
                             {"controller", "ContentsAdmin"},
-                            {"action", "Create"}
+                            {"action", "PersonListDashboard"}
                         },
                         new RouteValueDictionary(),
                         new RouteValueDictionary

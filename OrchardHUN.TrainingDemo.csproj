@@ -100,6 +100,7 @@
     <Compile Include="Migrations.cs" />
     <Compile Include="Models\PersonListPart.cs" />
     <Compile Include="Models\PersonRecord.cs" />
+    <Compile Include="Permissions.cs" />
     <Compile Include="Routes.cs" />
     <Compile Include="Services\PersonManager.cs" />
   </ItemGroup>
@@ -110,7 +111,10 @@
     <Content Include="Views\Parts.PersonList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\PersonListEditor.cshtml" />
+    <Content Include="Views\PersonListDashboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ComplimentaryEncouragement.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

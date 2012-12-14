@@ -2,10 +2,39 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using Orchard;
+using Orchard.Environment.Extensions;
+using Orchard.UI.Navigation;
 
 namespace OrchardHUN.TrainingDemo
 {
-    public class AdminMenu
+    /*
+     * Yet another provider we have here.
+     * Note that we derive from the Component class. This is just for convenience: it already includes a Localizer reference (and one for
+     * Logger, but we won't use that here).
+     */
+    [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
+    public class AdminMenu : Component, INavigationProvider
     {
+        // The task of deciphering what the following line can mean is up to the gentle reader :-).
+        public string MenuName { get { return "admin"; } }
+
+        public void GetNavigation(NavigationBuilder builder)
+        {
+            // We commonly use a separate method for actually building the menu
+            builder.Add(T("Person List dashboard"), "5", BuildMenu);
+        }
+
+        private void BuildMenu(NavigationItemBuilder menu)
+        {
+            // This means the menu item (we don't have a hierarchy here, just one menu item) will point to our Person List dashboard
+            // and be shown only to users having the AccessPersonListDashboard permission.
+            // Warning: this doesn't mean other won't be able to access it directly: we have to check in the controller too!
+            menu
+                .Action("PersonListDashboard", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                .Permission(Permissions.AccessPersonListDashboard);
+        }
+
+        // NEXT STATION: Let's head back to Controllers/ContentsAdminController!
     }
 }
