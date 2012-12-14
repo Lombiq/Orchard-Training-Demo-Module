@@ -1,0 +1,10 @@
+﻿<h1>@Html.TitleForPage(T("Person List editor").ToString())</h1>
+
+@Html.ValidationSummary(T("The Person List could not be edited. Please correct the errrors below.").ToString()) 
+
+@using (Html.BeginFormAntiForgeryPost())
+{
+    @Display(Model.EditorShape())
+}
+
+@*NEXT STATION:*@
