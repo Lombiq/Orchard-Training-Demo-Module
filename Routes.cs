@@ -4,14 +4,11 @@
  * registration happens a bit different than in standard ASP.NET MVC applications: we use IRouteProvider.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using System.Web.Routing;
 using Orchard.Environment.Extensions;
 using Orchard.Mvc.Routes;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace OrchardHUN.TrainingDemo
 {

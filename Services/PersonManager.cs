@@ -4,13 +4,12 @@
  * discover business-critical sinergies ASAP.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Orchard;
 using Orchard.Data;
 using OrchardHUN.TrainingDemo.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OrchardHUN.TrainingDemo.Services
 {

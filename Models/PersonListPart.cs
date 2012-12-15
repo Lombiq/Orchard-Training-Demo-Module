@@ -6,15 +6,12 @@
  * http://docs.orchardproject.net/Documentation/Writing-a-content-part
  */
 
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Web;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Records;
 using Orchard.Core.Common.Utilities;
 using Orchard.Environment.Extensions;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace OrchardHUN.TrainingDemo.Models
 {

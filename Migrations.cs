@@ -1,14 +1,11 @@
-﻿/*
+﻿using Orchard.Data.Migration;
+using OrchardHUN.TrainingDemo.Models;
+/*
  * Previously we've seen how to describe a record. We also have to declare how to store it as well. This is where we need migrations.
  * (Again, make sure to read through this page: http://docs.orchardproject.net/Documentation/Understanding-data-access)
  * Migrations are automatically run by the framework. You can use them to describe DB schema changes.
  */
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Orchard.Data.Migration;
-using OrchardHUN.TrainingDemo.Models;
 
 namespace OrchardHUN.TrainingDemo
 {

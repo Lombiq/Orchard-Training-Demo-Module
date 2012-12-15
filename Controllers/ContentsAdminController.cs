@@ -3,11 +3,6 @@
  * This controller is an admin controller: the user will be able to only access it with sufficient privilages to access the dashboard.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
@@ -17,8 +12,10 @@ using Orchard.Localization;
 using Orchard.Mvc;
 using Orchard.Security;
 using Orchard.UI.Admin;
-using OrchardHUN.TrainingDemo.Models;
 using Orchard.UI.Notify;
+using OrchardHUN.TrainingDemo.Models;
+using System.Linq;
+using System.Web.Mvc;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
