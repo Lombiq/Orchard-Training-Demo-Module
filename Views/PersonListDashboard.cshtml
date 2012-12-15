@@ -5,10 +5,6 @@ in ContentsAdminController. Therefore it also has the dynamic properties we fill
 Be warned, this won't look too nice from the browser, but probably we can live with it for now :-).
 *@
 
-@* This using declaration is needed for the As<T>() extension method we use when listing items below. *@
-@using Orchard.ContentManagement
-
-
 @*TitleForPage also adds the title to the title tag*@
 <h1>@Html.TitleForPage(T("Person List dashboard").ToString())</h1>
 
@@ -16,29 +12,8 @@ Be warned, this won't look too nice from the browser, but probably we can live w
 @* When the id is 0 we display the editor for a new item *@
 @Html.Link(T("Create new Person List").Text, Url.Action("PersonListDashboard", new { Id = 0 }))
 
-
-<h2>@T("Latest Person List")</h2>
 @*
-We display the display shape of the latest Person List here with the Display method. This is the step where Orchard will find the appropriate
-templates for the shape.
-*@
-@Display(Model.LatestPersonListDisplayShape)
-
-
-<h2>@T("List of latest Person Lists")</h2>
-<ol>
-    @foreach (var item in (IEnumerable<Orchard.ContentManagement.ContentItem>)Model.LatestPersonLists)
-    {
-        <li>
-            @(item.As<Orchard.Core.Title.Models.TitlePart>().Title) - 
-            @Html.ItemEditLink(T("Edit").Text, item), @Html.ItemDisplayLink(T("Display").Text, item)
-        </li>
-    }
-</ol>
-
-
-@*
-Displaying another ad-hoc shape. As you can see we can create shapes here as well through the New property. We can also pass it arguments just we
+Displaying an ad-hoc shape. As you can see we can create shapes here as well through the New property. We can also pass it arguments just as we
 did from the controller. This shape will be rendered by the Views/ComplimentaryEncouragement template but having a template with the same name
 in our theme we can override it (also see: http://docs.orchardproject.net/Documentation/Alternates).
 

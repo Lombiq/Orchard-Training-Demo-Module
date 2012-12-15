@@ -131,26 +131,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             // NEXT STATION: 
         }
 
-        #region IUpdateModel members
-        // Model binding of content items will use these two methods
-        bool IUpdateModel.TryUpdateModel<TModel>(TModel model, string prefix, string[] includeProperties, string[] excludeProperties)
+        public ActionResult LatestPersonLists()
         {
-            return TryUpdateModel(model, prefix, includeProperties, excludeProperties);
-        }
-
-        void IUpdateModel.AddModelError(string key, LocalizedString errorMessage)
-        {
-            ModelState.AddModelError(key, errorMessage.ToString());
-        }
-        #endregion
-
-
-        private ShapeResult PersonListDashboardShapeResult(ContentItem item)
-        {
-            // The editor shape is the tree of shapes containing every shape needed to build the editor of the item. E.g. it contains all the parts'
-            // editor shapes that build up the item.
-            var itemEditorShape = _contentManager.BuildEditor(item);
-
             /*
              * All right, slow down here because this is some serious business. Now we query content items!
              * 
@@ -185,7 +167,14 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // If we would like all the items we would have used List().
                                     .Slice(1, 10);
 
-            // We've skipped the first (latest) item, but why? Because we want to display it individually! So let's build its display shape.
+            // We're passing the queried objects to the ad-hoc created shape, which will use the template in Views/LatestPersonLists.cshtml
+            return new ShapeResult(this, _orchardServices.New.LatestPersonLists(LatestPersonLists: latestPersonLists));
+        }
+
+        public ActionResult LatestPersonList()
+        {
+            // We've skipped the first (latest) item from LatestPersonLists, but why?
+            // Because we want to display it individually! So let's build its display shape.
             var latestPersonList = _contentManager
                                         .Query(VersionOptions.Latest, "PersonList")
                 // IContentQuery<TPart, TRecord> is needed for WithQueryHintsFor() in the next step. This is returned from OrderBy* among others.
@@ -199,8 +188,27 @@ namespace OrchardHUN.TrainingDemo.Controllers
                                         .First();
 
             // Building the display shape for the item, here for the Summary display type what is also used when the item is displayed in a list.
-            var latestPersonListDisplayShape = _contentManager.BuildDisplay(latestPersonList, "Summary");
+            return new ShapeResult(this, _contentManager.BuildDisplay(latestPersonList, "Summary"));
+        }
 
+        #region IUpdateModel members
+        // Model binding of content items will use these two methods
+        bool IUpdateModel.TryUpdateModel<TModel>(TModel model, string prefix, string[] includeProperties, string[] excludeProperties)
+        {
+            return TryUpdateModel(model, prefix, includeProperties, excludeProperties);
+        }
+
+        void IUpdateModel.AddModelError(string key, LocalizedString errorMessage)
+        {
+            ModelState.AddModelError(key, errorMessage.ToString());
+        }
+        #endregion
+
+        private ShapeResult PersonListDashboardShapeResult(ContentItem item)
+        {
+            // The editor shape is the tree of shapes containing every shape needed to build the editor of the item. E.g. it contains all the parts'
+            // editor shapes that build up the item.
+            var itemEditorShape = _contentManager.BuildEditor(item);
 
             /* 
              * Now this is interesting! We've created a new ad-hoc shape here, called PersonListDashboard and passed it some data.
@@ -216,11 +224,11 @@ namespace OrchardHUN.TrainingDemo.Controllers
              * You could also create a statically typed view model and use standard MVC views too of course.
              * 
              * NEXT STATION: Check out Views/PersonListDashboard and come back here!
+             * 
+             * NEXT STATION: Check out the two other actions in this controller: LatestPersonLists and LatestPersonList!
+             * 
              */
-            var editorShape = _orchardServices.New.PersonListDashboard(
-                                EditorShape: itemEditorShape,
-                                LatestPersonListDisplayShape: latestPersonListDisplayShape,
-                                LatestPersonLists: latestPersonLists);
+            var editorShape = _orchardServices.New.PersonListDashboard(EditorShape: itemEditorShape);
 
             return new ShapeResult(this, editorShape);
         }
