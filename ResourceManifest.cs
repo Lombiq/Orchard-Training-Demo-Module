@@ -35,15 +35,10 @@ namespace OrchardHUN.TrainingDemo
                 // when a given resource is used.
                 .SetDependencies("OrchardHUN.TrainingDemo.Dependency");
 
-            manifest
-                // We'll look at the declaration of script resources too.
-                .DefineScript("OrchardHUN.TrainingDemo.jQuery")
-                // It is possible to include CDN-hosted resources too. Please note that Orchard contains a module
-                // which carries jQuery and registers it with the resource name "jQuery", this is only for the
-                // sake of demonstration.
-                .SetCdn("http://code.jquery.com/jquery-1.8.3.min.js");
-
             // You can also assign cultures and versions to the resources using SetCultures and SetVersion.
+            // If you want to use a resource that is hosted by a CDN, you can define it's URL with SetCnd (besides/instead of SetUrl).
+            // For registering script resources, use the DefineScript method in the same way as DefineStyle and of course
+            // all previously mentioned methods are available too.
         }
     }
 }
