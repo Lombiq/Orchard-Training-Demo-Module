@@ -33,14 +33,38 @@ namespace OrchardHUN.TrainingDemo
 
         private void BuildMenu(NavigationItemBuilder menu)
         {
-            // This means the menu item (we don't have a hierarchy here, just one menu item) will point to our Person List dashboard
-            // and be shown only to users having the AccessPersonListDashboard permission.
-            // Warning: this doesn't mean others won't be able to access it directly: we have to check in the controller too!
             menu
-                .Add(item => item
+                // This means that the top-level menu item also will point to the action where it's first child item points.
+                .LinkToFirstChild(true)
+
+                // This means that the first child menu item will point to our Person List dashboard
+                // and be shown only to users having the AccessPersonListDashboard permission.
+                // Warning: this doesn't mean others won't be able to access it directly: we have to check in the controller too!
+                .Add(subitem => subitem
+                    .Caption(T("Create"))
                     .Action("PersonListDashboard", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
                     .Permission(Permissions.AccessPersonListDashboard)
+                )
+                .Add(subitem => subitem
+                    .Caption(T("View"))
+                    .LinkToFirstChild(true)
+
+                    .Add(subsubitem => subsubitem
+                        .Caption(T("Most recent one"))
+                        .Action("LatestPersonList", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                        // This will make the item not appear as a child item in left-side menu, but as a tab on the top.
+                        .LocalNav(true)
+                        .Permission(Permissions.AccessPersonListDashboard)
+                    )
+
+                    .Add(subsubitem => subsubitem
+                        .Caption(T("Latest lists"))
+                        .Action("LatestPersonLists", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                        .LocalNav(true)
+                        .Permission(Permissions.AccessPersonListDashboard)
+                    )
                 );
+
         }
 
         // NEXT STATION: Let's head back to Controllers/ContentsAdminController!
