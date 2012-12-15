@@ -3,7 +3,23 @@ This is a shape template. It looks just like an ordinary view template, but the 
 in ContentsAdminController. Therefore it also has the dynamic properties we filled up in the controller, so we'll also use them.
 
 Be warned, this won't look too nice from the browser, but probably we can live with it for now :-).
+
+To make itt a little nicer, you may want to apply additional stylesheets to your templates or to implement some client-side logic you'll need JS/jQuery.
+Orchard gives you the ability to render (yes, render is the correct word) stylesheets and scripts in a given template. The are "rendered", because they
+are shapes (it wasn't always like that) and thus it is possible to override them! Pretty thoughtful, right?
+Now it turns out that we lied and we're going to have a call stack deeper than one sublevel. You'll do fine.
+Please check out ResourceManifest.cs in the root to see how can you declare resources and come back here to see how to use them!
 *@
+
+@*
+We'll "Require" (because that's what we do with local resources) the "Other" stylesheet and place in the Head section. You can place resources to the
+Footer using AtFoot(). The resource named "OrchardHUN.TrainingDemo.Dependecy" will also be embedded, since "Other" depends on it.
+After that, we'll "Include" (because that's what we do with remote resources) the jQuery from it's official CDN and place it in the Footer.
+*@
+@{
+    Style.Require("OrchardHUN.TrainingDemo.Other").AtHead();
+    Script.Include("OrchardHUN.TrainingDemo.jQuery").AtFoot();
+}
 
 @*TitleForPage also adds the title to the title tag*@
 <h1>@Html.TitleForPage(T("Person List dashboard").ToString())</h1>
