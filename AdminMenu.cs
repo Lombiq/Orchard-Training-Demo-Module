@@ -21,8 +21,14 @@ namespace OrchardHUN.TrainingDemo
 
         public void GetNavigation(NavigationBuilder builder)
         {
-            // We commonly use a separate method for actually building the menu
-            builder.Add(T("Person List dashboard"), "5", BuildMenu);
+            builder
+                // By defining an ImageSet, Orchard will automatically discover a corresponding CSS file, in which you can
+                // apply your own properties to the menu items. In this case, we'll use it for adding icons to the top-level menu item.
+                // The naming convention is the following: if you name your ImageSet "example", then Orchard will look for a CSS file
+                // named menu.example-admin.css in the Styles folder. Let's check out Styles/menu.person-list-dashboard-admin.css!
+                .AddImageSet("person-list-dashboard")
+                // We commonly use a separate method for actually building the menu: BuildMenu.
+                .Add(T("Person List dashboard"), "5", BuildMenu);
         }
 
         private void BuildMenu(NavigationItemBuilder menu)
@@ -31,8 +37,10 @@ namespace OrchardHUN.TrainingDemo
             // and be shown only to users having the AccessPersonListDashboard permission.
             // Warning: this doesn't mean others won't be able to access it directly: we have to check in the controller too!
             menu
-                .Action("PersonListDashboard", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
-                .Permission(Permissions.AccessPersonListDashboard);
+                .Add(item => item
+                    .Action("PersonListDashboard", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                    .Permission(Permissions.AccessPersonListDashboard)
+                );
         }
 
         // NEXT STATION: Let's head back to Controllers/ContentsAdminController!

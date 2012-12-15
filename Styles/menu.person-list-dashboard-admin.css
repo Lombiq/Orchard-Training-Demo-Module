@@ -1,0 +1,18 @@
+﻿/*
+    The way Orchard names the classes of the menu items is that it starts with "navicon",
+    and then comes each word in the caption of the menu item separated with a dash.
+    For example, a menu item named "Example" will be applied with a class named:
+        navicon-example
+    In our case, the caption is "Person List dashboard", so the class will be:
+        navicon-person-list-dashboard
+    For submenu items, the class's name will start with "subnavicon", instead of "navicon".
+    NEXT STATION: Let's go back to AdminMenu.cs!
+*/
+
+.navicon-person-list-dashboard {
+    background-image: url(images/menu.person-list-dashboard.png) !important
+}
+
+.navicon-person-list-dashboard:hover {
+    background-position: 0 -30px !important;
+}
