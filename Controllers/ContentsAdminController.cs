@@ -125,7 +125,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
             return RedirectToAction("PersonListDashboard");
 
-            // NEXT STATION: 
+            // NEXT STATION: Let's see the "filters" provided by MVC and how Orchard extends this funtionality in Filters/ResourceFilters.cs!
         }
 
         public ActionResult LatestPersonLists()

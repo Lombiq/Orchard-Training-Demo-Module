@@ -64,6 +64,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\orchardhun-trainingdemo-filtered.js" />
     <Content Include="Styles\orchardhun-trainingdemo-other.css" />
     <Content Include="Styles\orchardhun-trainingdemo-dependency.css" />
     <Content Include="Styles\images\menu.person-list-dashboard.png" />
@@ -100,6 +101,7 @@
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\YourFirstOrchardController.cs" />
     <Compile Include="Drivers\PersonListPartDriver.cs" />
+    <Compile Include="Filters\ResourceFilter.cs" />
     <Compile Include="Handlers\PersonListPartHandler.cs" />
     <Compile Include="Migrations.cs" />
     <Compile Include="Models\PersonListPart.cs" />

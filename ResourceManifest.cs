@@ -38,7 +38,12 @@ namespace OrchardHUN.TrainingDemo
             // You can also assign cultures and versions to the resources using SetCultures and SetVersion.
             // If you want to use a resource that is hosted by a CDN, you can define it's URL with SetCnd (besides/instead of SetUrl).
             // For registering script resources, use the DefineScript method in the same way as DefineStyle and of course
-            // all previously mentioned methods are available too.
+            // all previously mentioned methods are available too, as you can see below (we're adding a script resource
+            // for later use):
+
+            manifest
+                .DefineScript("OrchardHUN.TrainingDemo.Filtered")
+                .SetUrl("orchardhun-trainingdemo-filtered.js");
         }
     }
 }
