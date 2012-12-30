@@ -7,18 +7,28 @@ namespace OrchardHUN.TrainingDemo.Controllers
     // Nothing new here.
     public class CacheController : Controller
     {
-        private readonly IDateCachingService _dateCachingService;
+        private readonly IDateTimeCachingService _dateTimeCachingService;
 
-        public CacheController(IDateCachingService dateCachingService)
+        public CacheController(IDateTimeCachingService dateTimeCachingService)
         {
-            _dateCachingService = dateCachingService;
+            _dateTimeCachingService = dateTimeCachingService;
         }
 
-        // Go to ~/OrchardHUN.TrainingDemo/Cache/DateTime to see the result.
-        public DateTime DateTime()
+        // Go to ~/OrchardHUN.TrainingDemo/Cache/GetDateTime to see the result.
+        public DateTime GetDateTime()
         {
             // Nothing fancy, just the date and time displayed with plain text.
-            return _dateCachingService.GetCachedDateTime();
+            return _dateTimeCachingService.GetCachedDateTime();
+        }
+
+        // We're exposing the trigger for the signal in a normal controller action,
+        // reachable at ~/OrchardHUN.TrainingDemo/Cache/InvalidateDateTime.
+        public ActionResult InvalidateDateTime()
+        {
+            _dateTimeCachingService.InvalidateCachedDateTime();
+
+            // After invalidating the cache entry, we'll show the regenerated data.
+            return RedirectToAction("GetDateTime");
         }
     }
 }
