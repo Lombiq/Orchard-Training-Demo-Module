@@ -48,4 +48,4 @@ namespace OrchardHUN.TrainingDemo.Filters
     }
 }
 
-// NEXT STATION:
+// NEXT STATION: To see a simple example for caching data in an Orchard-y way, please go to Services/DateCachingService.cs!

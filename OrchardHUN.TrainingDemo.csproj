@@ -96,6 +96,7 @@
   <ItemGroup>
     <Compile Include="AdminMenu.cs" />
     <Compile Include="ContentsMigrations.cs" />
+    <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\ContentsAdminController.cs" />
     <Compile Include="Controllers\DependencyInjectionController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
