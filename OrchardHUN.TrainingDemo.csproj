@@ -109,6 +109,7 @@
     <Compile Include="Permissions.cs" />
     <Compile Include="ResourceManifest.cs" />
     <Compile Include="Routes.cs" />
+    <Compile Include="Services\DateCachingService.cs" />
     <Compile Include="Services\PersonManager.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -40,7 +40,8 @@ namespace OrchardHUN.TrainingDemo.Filters
             // This is a simple and elegant way to check if we're on Admin UI or not.
             if (!Orchard.UI.Admin.AdminFilter.IsApplied(filterContext.RequestContext))
             {
-                // We'll just add a script resource that is already declared in the ResourceManifest.cs.
+                // We'll just add a script resource (which is already declared in the ResourceManifest.cs)
+                // to the result being generated if we're not on the admin UI.
                 _resourceManager.Require("script", "OrchardHUN.TrainingDemo.Filtered").AtHead();
             }
         }
