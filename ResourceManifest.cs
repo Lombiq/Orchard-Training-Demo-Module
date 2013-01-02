@@ -14,10 +14,9 @@ namespace OrchardHUN.TrainingDemo
             var manifest = builder.Add();
 
             manifest
-                // We're registering a stylesheet with DefineStyle and defining it's name. Since stylesheets and
-                // script are shapes, it's possible to override them, so you should try to avoid name collisions.
-                // There is no strict naming convention, but we can give you and advice how to choose a unique name:
-                // It should contain the module's full namespace followed by a meaningful name.
+                // We're registering a stylesheet with DefineStyle and defining it's name. It's a global name, so choose
+                // wisely. There is no strict naming convention, but we can give you and advice how to choose a unique name:
+                // it should contain the module's full namespace followed by a meaningful name.
                 .DefineStyle("OrchardHUN.TrainingDemo.Dependency")
                 // This is the actual stylesheet that will be assigned to the resource name. By default, Orchard
                 // will look for this file in the Styles folder, but you can override it using SetBasePath:
@@ -25,7 +24,9 @@ namespace OrchardHUN.TrainingDemo
                 // BasePath(manifest.BasePath + "Bedsheets") will cause that Orchard will look for the given
                 // resource in the Bedsheets folder in the project root.
                 // Please note that the naming of the file itself is following similiar rules as the resource name,
-                // with some modifications applied.
+                // with some modifications applied as it's a file name. Since stylesheets and script are shapes, it's 
+                // possible to override them, so you should try to avoid name collisions: file names (not the full path,
+                // just the name!) should be globally unique.
                 .SetUrl("orchardhun-trainingdemo-dependency.css");
 
             manifest
