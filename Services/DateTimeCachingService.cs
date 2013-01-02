@@ -75,10 +75,6 @@ namespace OrchardHUN.TrainingDemo.Services
                     // Use this if you want to invalidate the cache entry explicitly.
                     ctx.Monitor(_signals.When(InvalidateDateTimeCacheSignal));
 
-                    // We'll put the thread to sleep for 1 second to be able to easily determine if we're getting
-                    // cached data or not.
-                    Thread.Sleep(1000);
-
                     return DateTime.Now;
                 });
         }
