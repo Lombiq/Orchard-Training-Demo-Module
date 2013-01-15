@@ -20,6 +20,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
         // Simple actions here, just for sake of demonstration
 
+        // Here and a few times elsewhere in this module we have GET action that modify the state of the application (e.g. writing to the DB or to 
+        // the file system). Of course this is purely for the sake of simple demonstration (so you can try them out quickly), in real life GETs 
+        // should never alter the state of the application.
         public string CreateGoodPersons()
         {
             _personManager.SavePerson("Jacob Gips", Sex.Male, new DateTime(1977, 3, 14), "I was born on a damn farm in South-North Neverland.");
