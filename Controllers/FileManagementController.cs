@@ -133,4 +133,6 @@ namespace OrchardHUN.TrainingDemo.Controllers
             }
         }
     }
+
+    // NEXT STATION: Services/BackgroundTask.cs
 }

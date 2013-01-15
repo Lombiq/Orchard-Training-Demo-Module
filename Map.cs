@@ -118,7 +118,9 @@ namespace OrchardHUN.TrainingDemo
 
 
             // Event bus and event handlers
-            // TODO
+            _temp = typeof(BackgroundTask);
+            _temp = typeof(ScheduledTask);
+            _temp = typeof(DynamicEventHandler);
 
 
             // Permissions and authorization
@@ -126,8 +128,9 @@ namespace OrchardHUN.TrainingDemo
             _temp = typeof(ContentsAdminController);
 
 
-            // Background tasks
-            // TODO
+            // Background and scheduled tasks
+            _temp = typeof(BackgroundTask);
+            _temp = typeof(ScheduledTask);
 
 
             // Caching: ICacheManager and ICacheService, ISignals
