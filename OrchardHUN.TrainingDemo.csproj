@@ -103,6 +103,9 @@
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\YourFirstOrchardController.cs" />
     <Compile Include="Drivers\PersonListPartDriver.cs" />
+    <Compile Include="Events\BackgroundTaskHandler.cs" />
+    <Compile Include="Events\IBackgroundEventHandler.cs" />
+    <Compile Include="Events\ScheduledTaskHandler.cs" />
     <Compile Include="Filters\ResourceFilter.cs" />
     <Compile Include="Handlers\PersonListPartHandler.cs" />
     <Compile Include="Map.cs" />
@@ -112,8 +115,11 @@
     <Compile Include="Permissions.cs" />
     <Compile Include="ResourceManifest.cs" />
     <Compile Include="Routes.cs" />
+    <Compile Include="Services\BackgroundTask.cs" />
     <Compile Include="Services\DateTimeCachingService.cs" />
+    <Compile Include="Services\DynamicEventHandler.cs" />
     <Compile Include="Services\PersonManager.cs" />
+    <Compile Include="Services\ScheduledTask.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\YourFirstOrchard\Index.cshtml" />
@@ -130,6 +136,7 @@
   <ItemGroup>
     <Content Include="Views\LatestPersonLists.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
