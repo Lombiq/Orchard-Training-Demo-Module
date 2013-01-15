@@ -98,7 +98,7 @@ namespace OrchardHUN.TrainingDemo.Services
             person.Biography = biography;
 
             // Running filters
-            // Normally we don't persist the result of filter though.
+            // Normally we don't persist the result of filters though.
             foreach (var filter in _filters)
             {
                 person.Biography = filter.FilterBiography(person.Biography);
