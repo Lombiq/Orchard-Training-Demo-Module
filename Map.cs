@@ -18,103 +18,126 @@ namespace OrchardHUN.TrainingDemo
 
         private static void Treasure()
         {
-            // 1. StartHere.txt - introduction and some basic information
+            // Module.txt: features and dependencies
 
-            // 2. Module.txt
 
-            /* 3. See the controller itself, its sole Index action and
-             * Views/YourFirstOrchard/Index.cshtml
-             * Themed, Controller, Action, Razor
-             */
+            // Static resources: styles and scripts
+                // Declaration
+                _temp = typeof(ResourceManifest);
+
+                // Usage: require/include
+                // Views/PersonListDashboard
+
+
+            // [Themed]: Integrating with the current theme
             _temp = typeof(YourFirstOrchardController);
 
-            /* 4.
-             * Dependency Injection, Localizer, Notifier, Logger
-             */
-            _temp = typeof(DependencyInjectionController);
 
-            /* 5. 
-             * ORM, NHibernate, Record
-             */
-            _temp = typeof(PersonRecord);
+            // Dependency injection and basic services
+                // Dependency injection and types of dependencies, Logger, Localizer, Notifier
+                _temp = typeof(DependencyInjectionController);
 
-            /* 6. 
-             * Migrations, UpdateFromX
-             */
-            _temp = typeof(Migrations);
+                // WorkContext and OrchardServices
+                // Views/PersonListDashboard.cshtml
+                _temp = typeof(ContentsAdminController);
 
-            /* 7. 
-             * Dependency Injection, IRepository
-             */
-            _temp = typeof(PersonManager);
+                // Ways of injections
+                    // Single
+                    _temp = typeof(DependencyInjectionController);
 
-            /* 8. 
-             * Fatal exception
-             */
-            _temp = typeof(PersonController);
+                    // IEnumberable<T>
+                    _temp = typeof(PersonManager);
 
-            /* 9. 
-             * OrchardFeature attribute, ContentPart, ContentPartRecord, Lazy<T>
-             */
+                    // Lazy<T>
+                    _temp = typeof(PersonListPart);
+
+                    // Work<T>
+                    _temp = typeof(PersonListPartHandler);
+
+
+            // Data storage
+                // Record
+                _temp = typeof(PersonRecord);
+
+                // Repository
+                _temp = typeof(PersonManager);
+
+                // Record migrations
+                _temp = typeof(Migrations);
+
+                // ContentManager
+                _temp = typeof(ContentsAdminController);
+
+                // Abstracted file storage with IStorageProvider
+                _temp = typeof(FileManagementController);
+
+
+            // Exception handling
+                // OrchardException
+                _temp = typeof(FileManagementController);
+
+                // IsFatal()
+                _temp = typeof(PersonController);
+
+
+            // Ad-hoc shape creation: Views/PersonListDashboard.cshtml
+
+
+            // OrchardFeature attribute
             _temp = typeof(PersonListPart);
 
-            /* 10.
-             * Widget
-             */
-            _temp = typeof(ContentsMigrations);
 
-            /* 11.
-             * Content Handler, Work<T>, On* events, Storage Filter
-             */
-            _temp = typeof(PersonListPartHandler);
+            // ContentPart development
+                // ContentPart, ContentPartRecord
+                _temp = typeof(PersonListPart);
 
-            /* 12.
-             * Prefix, Shape, ContentShape, Editor, Display, Import, Export
-             */
-            _temp = typeof(PersonListPartDriver);
+                // ContentType migrations
+                _temp = typeof(ContentsMigrations);
 
-            // 13. Placement.info
+                // Drivers: shapes, display and edit methods, export/import
+                _temp = typeof(ContentsAdminController);
+                _temp = typeof(PersonListPartDriver);
 
-            // 14. Views/EditorTemplates/Parts.PersonList.cshtml
+                // Handlers and filters
+                _temp = typeof(PersonListPartHandler);
 
-            // 15. Views/Parts.PersonList.cshtml
+                // Placement.info
 
-            /* 16.
-             * OrchardServices, Authorizer, ContentManager, WorkContext, Shape
-             */
+
+            // Custom routes
+            _temp = typeof(Routes);
+
+
+            // Navigation providers: implementing an admin menu (with corresponding admin controller)
+            _temp = typeof(AdminMenu);
             _temp = typeof(ContentsAdminController);
 
-                /* 16.1 */
-                _temp = typeof(Routes);
 
-                /* 16.2 */
-                _temp = typeof(Permissions);
-
-                /* 16.3 */
-                _temp = typeof(AdminMenu);
-
-                // 16.4 Views/PersonListDashboard: Style/Script Require/Include
-
-                    /* 16.4.1 */
-                    _temp = typeof(ResourceManifest);
-
-                    // 16.4.2 Views/ComplimentaryEncouragement.cshtml
-
-                // 16.5 Views/LatestPersonLists.cshtml
-
-            /* 17. 
-             * FilterProvider, AdminFilter, ResourceManager
-             */
+            // Filters: result and action filters, FilterProvider
             _temp = typeof(ResourceFilter);
 
-            /* 18.
-             * ICacheManager, ICacheService, IClock, ISignals
-             */
-            _temp = typeof(IDateTimeCachingService);
 
-            /* 19. */
+            // Event bus and event handlers
+            // TODO
+
+
+            // Permissions and authorization
+            _temp = typeof(Permissions);
+            _temp = typeof(ContentsAdminController);
+
+
+            // Background tasks
+            // TODO
+
+
+            // Caching: ICacheManager and ICacheService, ISignals
+            _temp = typeof(IDateTimeCachingService);
             _temp = typeof(CacheController);
 
+
+            // Unit tests
+                // IClock
+                _temp = typeof(IDateTimeCachingService);
         }
     }
 }
