@@ -141,6 +141,10 @@ namespace OrchardHUN.TrainingDemo
             // Unit tests
                 // IClock
                 _temp = typeof(IDateTimeCachingService);
+
+                /* Check out the OrchardHUN.TrainingDemo.Tests folder in the project folder of this module for a complete
+                 * unit test, starting with StartHere.txt
+                 */
         }
     }
 }

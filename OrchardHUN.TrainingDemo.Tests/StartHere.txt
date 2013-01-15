@@ -1,4 +1,4 @@
-﻿Hello and welcome again to the Training Demo module!
+﻿Hello and again, welcome to the Training Demo module!
 
 
 
@@ -28,4 +28,4 @@ We use the built-in NUnit framework for testing, because it's not only already b
 use any other unit testing framework if you'd like to but you're on your own :-).
 
 
-To start head over to Services/PersonManagerTests!
+To start, head over to Services/PersonManagerTests!
