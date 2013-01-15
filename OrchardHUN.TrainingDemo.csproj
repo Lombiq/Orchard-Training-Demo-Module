@@ -99,6 +99,7 @@
     <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\ContentsAdminController.cs" />
     <Compile Include="Controllers\DependencyInjectionController.cs" />
+    <Compile Include="Controllers\FileManagementController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\YourFirstOrchardController.cs" />
     <Compile Include="Drivers\PersonListPartDriver.cs" />
