@@ -11,6 +11,8 @@ using System.Web.Mvc;
 using Orchard.FileSystems.Media;
 using Orchard.Exceptions;
 using System.IO;
+using Orchard;
+using Orchard.Localization;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
@@ -40,6 +42,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
         private const string DemoFolderPath = "DemoFolder/";
         private const string DemoFile1Path = DemoFolderPath + "MyFile.txt";
         private const string DemoFile2Path = DemoFolderPath + "MyFile2.txt";
+
+        public Localizer T { get; set; }
 
 
         public FileManagementController(IStorageProvider storageProvider)
@@ -88,7 +92,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 using (var streamReader = new StreamReader(stream))
                 {
                     var content = streamReader.ReadToEnd();
-                    if (!content.Equals("Hello there!")) throw new ApplicationException("Well, this is awkward.");
+                    // If you don't have to choose a specific exception class for throwing and exception, you should use
+                    // OrchardException, for it's message is localizable.
+                    if (!content.Equals("Hello there!")) throw new OrchardException(T("Well, this is awkward."));
                 }
 
                 // Renaming is nothing special.

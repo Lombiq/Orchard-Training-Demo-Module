@@ -25,7 +25,7 @@ they solve similar tasks. You have the whole Orchard source at your hands: let i
 
 Later on, you may want to take a look at Map.cs (remember, "X marks the spot!") in the project root for
 reminders regarding specific solutions, structured along the "Module development and Orchard APIs" section of the
-training overview on our website.
+training overview on our website (http://english.orchardproject.hu/Training/).
 
 Head over to Module.txt. That file is the module's manifest; a Module.txt is required for Orchard modules. For more info 
 see: http://docs.orchardproject.net/Documentation/manifest-files
