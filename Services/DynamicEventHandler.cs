@@ -51,4 +51,9 @@ namespace OrchardHUN.TrainingDemo.Services
      * on it but if the user doesn't want to use that feature it's not mandatory for her/him to install that other module (in contrary to having a 
      * .NET project reference).
     */
+
+
+    // NEXT STATION: we'll dive into unit testing! This module's folder contains a test suite: it's a project called OrchardHUN.TrainingDemo.Tests
+    // in the folder named the same. If you haven't already add it to the Test solution folder and open it up! You'll be surprised but it contains
+    // a StartHere.txt. Don't start there! And by that I mean do start there!
 }
