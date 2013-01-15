@@ -105,6 +105,7 @@
     <Compile Include="Drivers\PersonListPartDriver.cs" />
     <Compile Include="Filters\ResourceFilter.cs" />
     <Compile Include="Handlers\PersonListPartHandler.cs" />
+    <Compile Include="Map.cs" />
     <Compile Include="Migrations.cs" />
     <Compile Include="Models\PersonListPart.cs" />
     <Compile Include="Models\PersonRecord.cs" />
