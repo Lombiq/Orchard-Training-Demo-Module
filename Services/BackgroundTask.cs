@@ -3,13 +3,7 @@
  * Sometimes you want a specific job to be run automatically periodically or at a given time. Orchard has background tasks for this.
  */
 
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Orchard.Tasks;
-using OrchardHUN.TrainingDemo.Events;
 
 namespace OrchardHUN.TrainingDemo.Services
 {

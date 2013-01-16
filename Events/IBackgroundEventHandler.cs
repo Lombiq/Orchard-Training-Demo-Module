@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using Orchard.Events;
+﻿using Orchard.Events;
 
 namespace OrchardHUN.TrainingDemo.Events
 {

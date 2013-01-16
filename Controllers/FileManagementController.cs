@@ -3,16 +3,13 @@
  */
 
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Orchard.FileSystems.Media;
-using Orchard.Exceptions;
-using System.IO;
 using Orchard;
+using Orchard.Exceptions;
+using Orchard.FileSystems.Media;
 using Orchard.Localization;
+using System;
+using System.IO;
+using System.Web.Mvc;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {

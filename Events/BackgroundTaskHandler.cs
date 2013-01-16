@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace OrchardHUN.TrainingDemo.Events
+﻿namespace OrchardHUN.TrainingDemo.Events
 {
     public class BackgroundTaskHandler : IBackgroundEventHandler
     {

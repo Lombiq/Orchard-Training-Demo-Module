@@ -4,10 +4,6 @@
  * but really a message broadcasted on the event bus. This makes it possible such crazy things like handling an event without having a reference to it!
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Orchard.Events;
 
 namespace OrchardHUN.TrainingDemo.Services

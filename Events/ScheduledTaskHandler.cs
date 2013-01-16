@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace OrchardHUN.TrainingDemo.Events
+﻿namespace OrchardHUN.TrainingDemo.Events
 {
     // You could ask: what's a scheduled task? We'll soon see :-).
     public class ScheduledTaskHandler : IBackgroundEventHandler
