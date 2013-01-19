@@ -4,6 +4,7 @@ using OrchardHUN.TrainingDemo.Filters;
 using OrchardHUN.TrainingDemo.Handlers;
 using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
+using System;
 
 /* In this file, you'll find the index of the whole (or at least most of the)
  * module's classes for easier navigation between topics.
@@ -30,7 +31,8 @@ namespace OrchardHUN.TrainingDemo
 
 
             // [Themed]: Integrating with the current theme
-            Factory<YourFirstOrchardController>();
+            Factory<YourFirstOrchardController>()
+                .Index();
 
 
             // Dependency injection and basic services
@@ -60,13 +62,13 @@ namespace OrchardHUN.TrainingDemo
                 Factory<PersonRecord>();
 
                 // Repository
-                Factory<PersonManager>();
+                Factory<PersonManager>().SavePerson("", Sex.Female, DateTime.Now, "");
 
                 // Record migrations
                 Factory<Migrations>();
 
                 // ContentManager
-                Factory<ContentsAdminController>();
+                Factory<ContentsAdminController>().LatestPersonLists();
 
                 // Abstracted file storage with IStorageProvider
                 Factory<FileManagementController>();
@@ -74,10 +76,10 @@ namespace OrchardHUN.TrainingDemo
 
             // Exception handling
                 // OrchardException
-                Factory<FileManagementController>();
+                Factory<FileManagementController>().Create();
 
                 // IsFatal()
-                Factory<PersonController>();
+                Factory<PersonController>().CreateBadPerson();
 
 
             // Ad-hoc shape creation: Views/PersonListDashboard.cshtml
@@ -90,13 +92,14 @@ namespace OrchardHUN.TrainingDemo
             // ContentPart development
                 // ContentPart, ContentPartRecord
                 Factory<PersonListPart>();
+                Factory<PersonListPartRecord>();
 
                 // ContentType migrations
                 Factory<ContentsMigrations>();
 
                 // Drivers: shapes, display and edit methods, export/import
-                Factory<ContentsAdminController>();
                 Factory<PersonListPartDriver>();
+                Factory<ContentsAdminController>().LatestPersonLists();
 
                 // Handlers and filters
                 Factory<PersonListPartHandler>();
@@ -125,7 +128,7 @@ namespace OrchardHUN.TrainingDemo
 
             // Permissions and authorization
             Factory<Permissions>();
-            Factory<ContentsAdminController>();
+            Factory<ContentsAdminController>().PersonListDashboard();
 
 
             // Background and scheduled tasks
