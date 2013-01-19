@@ -7,14 +7,14 @@ using OrchardHUN.TrainingDemo.Services;
 
 /* In this file, you'll find the index of the whole (or at least most of the)
  * module's classes for easier navigation between topics.
- * You can navigate directly to classes and interfaces by clicking on their
- * names (enclosed in a typeof() ) and pressing F12.
+ * You can navigate directly to classes and their methods by clicking
+ * on their names (enclosed in a Factory<T>() ) and pressing F12.
  */
 namespace OrchardHUN.TrainingDemo
 {
     static class Map
     {
-        private static dynamic _temp;
+        private static T Factory<T>() { return default(T); }
 
         private static void Treasure()
         {
@@ -23,124 +23,124 @@ namespace OrchardHUN.TrainingDemo
 
             // Static resources: styles and scripts
                 // Declaration
-                _temp = typeof(ResourceManifest);
+                Factory<ResourceManifest>();
 
                 // Usage: require/include
                 // Views/PersonListDashboard
 
 
             // [Themed]: Integrating with the current theme
-            _temp = typeof(YourFirstOrchardController);
+            Factory<YourFirstOrchardController>();
 
 
             // Dependency injection and basic services
                 // Dependency injection and types of dependencies, Logger, Localizer, Notifier
-                _temp = typeof(DependencyInjectionController);
+                Factory<DependencyInjectionController>();
 
                 // WorkContext and OrchardServices
                 // Views/PersonListDashboard.cshtml
-                _temp = typeof(ContentsAdminController);
+                Factory<ContentsAdminController>();
 
                 // Ways of injections
                     // Single
-                    _temp = typeof(DependencyInjectionController);
+                    Factory<DependencyInjectionController>();
 
                     // IEnumberable<T>
-                    _temp = typeof(PersonManager);
+                    Factory<PersonManager>();
 
                     // Lazy<T>
-                    _temp = typeof(PersonListPart);
+                    Factory<PersonListPart>();
 
                     // Work<T>
-                    _temp = typeof(PersonListPartHandler);
+                    Factory<PersonListPartHandler>();
 
 
             // Data storage
                 // Record
-                _temp = typeof(PersonRecord);
+                Factory<PersonRecord>();
 
                 // Repository
-                _temp = typeof(PersonManager);
+                Factory<PersonManager>();
 
                 // Record migrations
-                _temp = typeof(Migrations);
+                Factory<Migrations>();
 
                 // ContentManager
-                _temp = typeof(ContentsAdminController);
+                Factory<ContentsAdminController>();
 
                 // Abstracted file storage with IStorageProvider
-                _temp = typeof(FileManagementController);
+                Factory<FileManagementController>();
 
 
             // Exception handling
                 // OrchardException
-                _temp = typeof(FileManagementController);
+                Factory<FileManagementController>();
 
                 // IsFatal()
-                _temp = typeof(PersonController);
+                Factory<PersonController>();
 
 
             // Ad-hoc shape creation: Views/PersonListDashboard.cshtml
 
 
             // OrchardFeature attribute
-            _temp = typeof(PersonListPart);
+            Factory<PersonListPart>();
 
 
             // ContentPart development
                 // ContentPart, ContentPartRecord
-                _temp = typeof(PersonListPart);
+                Factory<PersonListPart>();
 
                 // ContentType migrations
-                _temp = typeof(ContentsMigrations);
+                Factory<ContentsMigrations>();
 
                 // Drivers: shapes, display and edit methods, export/import
-                _temp = typeof(ContentsAdminController);
-                _temp = typeof(PersonListPartDriver);
+                Factory<ContentsAdminController>();
+                Factory<PersonListPartDriver>();
 
                 // Handlers and filters
-                _temp = typeof(PersonListPartHandler);
+                Factory<PersonListPartHandler>();
 
                 // Placement.info
 
 
             // Custom routes
-            _temp = typeof(Routes);
+            Factory<Routes>();
 
 
             // Navigation providers: implementing an admin menu (with corresponding admin controller)
-            _temp = typeof(AdminMenu);
-            _temp = typeof(ContentsAdminController);
+            Factory<AdminMenu>();
+            Factory<ContentsAdminController>();
 
 
             // Filters: result and action filters, FilterProvider
-            _temp = typeof(ResourceFilter);
+            Factory<ResourceFilter>();
 
 
             // Event bus and event handlers
-            _temp = typeof(BackgroundTask);
-            _temp = typeof(ScheduledTask);
-            _temp = typeof(DynamicEventHandler);
+            Factory<BackgroundTask>();
+            Factory<ScheduledTask>();
+            Factory<DynamicEventHandler>();
 
 
             // Permissions and authorization
-            _temp = typeof(Permissions);
-            _temp = typeof(ContentsAdminController);
+            Factory<Permissions>();
+            Factory<ContentsAdminController>();
 
 
             // Background and scheduled tasks
-            _temp = typeof(BackgroundTask);
-            _temp = typeof(ScheduledTask);
+            Factory<BackgroundTask>();
+            Factory<ScheduledTask>();
 
 
             // Caching: ICacheManager and ICacheService, ISignals
-            _temp = typeof(IDateTimeCachingService);
-            _temp = typeof(CacheController);
+            Factory<DateTimeCachingService>();
+            Factory<CacheController>();
 
 
             // Unit tests
                 // IClock
-                _temp = typeof(IDateTimeCachingService);
+                Factory<DateTimeCachingService>();
 
                 /* Check out the OrchardHUN.TrainingDemo.Tests folder in the project folder of this module for a complete
                  * unit test, starting with StartHere.txt
