@@ -1,8 +1,8 @@
-﻿using Orchard.Environment;
+﻿using System.Linq;
+using Orchard.Environment;
 using Orchard.Services;
 using Orchard.Tasks.Scheduling;
 using OrchardHUN.TrainingDemo.Events;
-using System.Linq;
 
 namespace OrchardHUN.TrainingDemo.Services
 {

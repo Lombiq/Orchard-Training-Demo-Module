@@ -1,6 +1,6 @@
-﻿using OrchardHUN.TrainingDemo.Services;
-using System;
+﻿using System;
 using System.Web.Mvc;
+using OrchardHUN.TrainingDemo.Services;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {

@@ -8,12 +8,12 @@
  * In the form of ILogger and Localizer we also get to know to exceptions.
  */
 
-using Orchard.Localization;
-using Orchard.Logging;
-using Orchard.UI.Notify;
 using System.Web.Mvc;
 using Orchard;
+using Orchard.Localization;
+using Orchard.Logging;
 using Orchard.Mvc;
+using Orchard.UI.Notify;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {

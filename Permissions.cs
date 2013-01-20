@@ -1,7 +1,7 @@
-﻿using Orchard.Environment.Extensions;
+﻿using System.Collections.Generic;
+using Orchard.Environment.Extensions;
 using Orchard.Environment.Extensions.Models;
 using Orchard.Security.Permissions;
-using System.Collections.Generic;
 
 namespace OrchardHUN.TrainingDemo
 {
