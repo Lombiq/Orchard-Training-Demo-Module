@@ -8,11 +8,13 @@ this means if you have a lot of part templates you can place them into subfolder
     var part = (OrchardHUN.TrainingDemo.Models.PersonListPart)Model.ContentPart;
 }
 
-@*Remember the DisplayType dynamic property we added to the shape in the driver? It's here.
-Also, this is the way to have localized strings with dynamically injected content.*@
+@*Remember the DisplayType dynamic property we added to the shape in the driver? It's here.*@
 @T("You're currently looking at me in \"{0}\" display type", Model.DisplayType)
 
-@*Accessing the LazyField's value*@
+@*Accessing the LazyField's value for the first time. Its loader will now be evaluated. Later accesses will get the cached value. 
+Also this is the way to have pluralised T-strings.*@
+@T.Plural("There is one person.", "There are {0} persons.", part.Persons.Count(), part.Persons.Count())
+
 <ul>
     @foreach (var person in part.Persons)
     {
