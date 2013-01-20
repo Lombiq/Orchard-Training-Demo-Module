@@ -26,8 +26,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
         }
 
         // Differentiator is a must, when you're attaching multiple instances of the same field to a part (or the ghost-part of a type);
-        // this will make those fields distinguishable: the unique name of the field will be generated from the name of the field and
-        // the name of the part it is attached to.
+        // this will make those fields distinguishable by giving them a unique name when creating them on the Admin UI.
         private static string GetDifferentiator(ContentField field, ContentPart part)
         {
             return field.Name;
