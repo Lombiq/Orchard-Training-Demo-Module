@@ -3,6 +3,8 @@
  * This controller is an admin controller: the user will be able to only access it with sufficient privilages to access the dashboard.
  */
 
+using System.Linq;
+using System.Web.Mvc;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
@@ -14,8 +16,6 @@ using Orchard.Security;
 using Orchard.UI.Admin;
 using Orchard.UI.Notify;
 using OrchardHUN.TrainingDemo.Models;
-using System.Linq;
-using System.Web.Mvc;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
@@ -104,6 +104,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
             // Create() actually persists the item
             if (id == 0) _contentManager.Create(item);
+
+            // Notice that there's also a _contentManager.Remove(item) method you can use for removing content item. Beware though that removals in
+            // Orchard are soft deletes: really nothing is deleted from the database.
 
             // Updating the item with the model binder through this controller from POST data.
             // The method returns an updated editor shape (that is filled out with the input the user gave) what we can use to display if
@@ -212,9 +215,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
              * Now this is interesting! We've created a new ad-hoc shape here, called PersonListDashboard and passed it some data.
              * 
              * Essentially we instantiated a new dynamic shape object here (called PersonListDashboard) and added properties to it. We use the shape
-             * here as a kind of view model here. However since this shape, inside a ShapeResult, is returned from our action it will be used
-             * like a view too: Orchard will display it (just as we call Display() on the Person List item's editor shape in the editor template
-             * as you'll soon see), meaning Orchard will try to find a corresponding template for the shape.
+             * here as a kind of view model. However since this shape, inside a ShapeResult, is returned from our action it will be used like a view 
+             * too: Orchard will display it (just as we call Display() on the Person List item's editor shape in the editor template as you'll soon 
+             * see), meaning Orchard will try to find a corresponding template for the shape.
              * 
              * Orchard will try to find a corresponding template by probing for conventionally named files. We happen to have one under 
              * Views/PersonListDashboard.

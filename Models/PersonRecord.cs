@@ -8,8 +8,8 @@
 
 // NEXT STATION: Migrations
 
-using Orchard.Data.Conventions;
 using System;
+using Orchard.Data.Conventions;
 
 namespace OrchardHUN.TrainingDemo.Models
 {

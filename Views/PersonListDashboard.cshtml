@@ -40,8 +40,7 @@ templates of those parts can be individually overridden from the theme, giving f
 
 That's a bit similar to the standard MVC RenderPartial().
 
-Also notice that we use the WorkContext object: it's also in IOrchardServices and contains much contextual data (including the current user).
-Feel free to look into it!
+Also notice that we use the WorkContext object here again. Feel free to look into the objects available in views!
 *@
 <h2>@T("Complimentary encouragement")</h2>
 @Display(New.ComplimentaryEncouragement(Name: WorkContext.CurrentUser.UserName))

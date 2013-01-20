@@ -2,13 +2,13 @@
  * We'll write a handler for our part so make sure you understand what handlers are: http://docs.orchardproject.net/Documentation/Understanding-content-handlers
  */
 
+using System.Web.Routing;
 using Orchard.ContentManagement.Handlers;
 using Orchard.Data;
 using Orchard.Environment;
 using Orchard.Environment.Extensions;
 using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
-using System.Web.Routing;
 
 namespace OrchardHUN.TrainingDemo.Handlers
 {
@@ -24,6 +24,9 @@ namespace OrchardHUN.TrainingDemo.Handlers
          * it possible to resolve dependencies not just from the scope the class requesting them (e.g. an ISingletonDependency belongs to
          * the "shell" scope but you can use IDependency types from it through Work<T>).
          * However most possibly you will only need Work<T> for lazy resolving (what can have a positive performance impact).
+         * 
+         * If just lazy injection is needed (i.e. only to resolve a dependency when really needed) you could also inject Lazy<T> and user it
+         * in the same way as Work<T>.
          */
         public PersonListPartHandler(
             IRepository<PersonListPartRecord> repository,

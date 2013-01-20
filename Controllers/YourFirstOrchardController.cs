@@ -5,8 +5,8 @@
  * ASP.NET MVC skills. Of course we want more than that, so let's take a closer look.
  */
 
-using Orchard.Themes;
 using System.Web.Mvc;
+using Orchard.Themes;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
