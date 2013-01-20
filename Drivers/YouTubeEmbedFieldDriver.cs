@@ -18,6 +18,8 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         public Localizer T { get; set; }
 
+
+        // The prefix is for similar use as with parts.
         private static string GetPrefix(ContentField field, ContentPart part)
         {
             return part.PartDefinition.Name + "." + field.Name;
