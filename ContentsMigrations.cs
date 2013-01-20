@@ -74,7 +74,38 @@ namespace OrchardHUN.TrainingDemo
 
             return 1;
 
+            // Please don't read UpdateFrom1() yet.
+
+            // You read it, didn't you? Stop spoiling.
+
             // NEXT STATION: Handlers/PersonListPartHandler
+        }
+
+
+        /* Parts can decide how the data they need is stored (if they are backed by some data at all) and most of the time they're stored
+         * as records in the database. Fields however are always stored as serialized XMLs together with the item's record. 
+         * This means that if the data stored should be queried in various ways you should use parts (since they can be queried freely
+         * with LINQ and indexed in the DB); but if there can be an unknown number of pieces attached to a content type then
+         * fields are the way to go. You have to keep in mind though that due to the serialization process, fields can potentially perform worse
+         * if there are many items to be fetched. On the other hand parts, since they're stored in separate tables and thus are joined in
+         * or even sometimes loaded lazily one by one may also have impact on performance (since the content record, where fields are stored,
+         * is always loaded for a content item, so there's no subsequent DB call for fetching fields).
+         * All in all there's no real rule of thumb: deciding how to model a piece of functionality should be decided on a case by case basis,
+         * weighting the drawbacks and advantages. When in doubt, use a part.
+         */
+        public int UpdateFrom1()
+        {
+            // We're attaching the YouTubeEmbedField to the PersonListPart, which is already attached to the PersonList type.
+            ContentDefinitionManager.AlterPartDefinition(typeof(PersonListPart).Name,
+                builder => builder
+                    .WithField(typeof(YouTubeEmbedField).Name,
+                    f => f
+                        .WithDisplayName("YouTube Video ID")
+                        .OfType(typeof(YouTubeEmbedField).Name)));
+
+            return 2;
+
+            // NEXT STATION: Drivers/YouTubeEmbedFieldDriver.cs
         }
     }
 }

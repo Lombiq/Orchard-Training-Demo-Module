@@ -95,7 +95,7 @@ namespace OrchardHUN.TrainingDemo
                 Factory<PersonListPartRecord>();
 
                 // ContentType migrations
-                Factory<ContentsMigrations>();
+                Factory<ContentsMigrations>().Create();
 
                 // Drivers: shapes, display and edit methods, export/import
                 Factory<PersonListPartDriver>();
@@ -105,6 +105,17 @@ namespace OrchardHUN.TrainingDemo
                 Factory<PersonListPartHandler>();
 
                 // Placement.info
+
+
+            // ContentField development, very similiar to ContentPart development
+                // ContentField
+                Factory<YouTubeEmbedField>();
+
+                // Attaching a field to a part
+                Factory<ContentsMigrations>().UpdateFrom1();
+
+                // Driver for the field
+                Factory<YouTubeEmbedFieldDriver>();
 
 
             // Custom routes

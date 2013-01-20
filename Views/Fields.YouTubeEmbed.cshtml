@@ -1,0 +1,10 @@
+﻿@{
+    var id = Model.ContentField.VideoID;
+}
+
+@if (!string.IsNullOrEmpty(id))
+{
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/@id" frameborder="0" allowfullscreen></iframe>   
+}
+
+@* NEXT STATION: We're finished with this section about content fields, so let's go to Controllers/ContentsAdminController! *@
