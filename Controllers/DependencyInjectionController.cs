@@ -90,8 +90,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             var currentUserName = currentUser == null ? "&lt;subject name here&gt;" : currentUser.UserName;
 
             // The below is the same as _wca.GetContext().HttpContext.Request.Url.ToString()
-            // Not that if you use the WorkContext multiple times in the same method of course you can save it to a variable instead of 
-            // calling GetContext() multiple times.
+            // Note that if you use the WorkContext multiple times in the same method of course you can save it to a variable instead of 
+            // calling GetContext() each time.
             var currentUrl = _hca.Current().Request.Url.ToString();
 
             // The notifier requires a localized string. This means if we'd have a corresponding entry for this string in a .po file
