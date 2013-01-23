@@ -19,7 +19,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
 {
     public class DependencyInjectionController : Controller
     {
-        /* INotifier is one of Orchard's most basic services. It is used to display notifications on the UI.
+        /* 
+         * INotifier is one of Orchard's most basic services. It is used to display notifications on the UI.
          * 
          * Take a look at the interface (just press F12 when the cursor is on the type). What's important for us that it derives
          * from IDependency. IDependency is a marker interface used for the auto-discovery of dependencies. This page:
