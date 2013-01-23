@@ -5,7 +5,7 @@
  * Orchard gives us built-in constructor injection for dependencies. This means that if you request a dependency by its interface
  * in your class's constructor, Orchard will automatically inject an active implementation for you.
  * 
- * In the form of ILogger and Localizer we also get to know to exceptions.
+ * In the form of ILogger and Localizer we also get to know two exceptions.
  */
 
 using System.Web.Mvc;
