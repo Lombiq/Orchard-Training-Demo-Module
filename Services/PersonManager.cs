@@ -76,7 +76,10 @@ namespace OrchardHUN.TrainingDemo.Services
         // We'll need this later for PersonListPart.
         public IEnumerable<PersonRecord> GetPersons(Sex sex, int maxCount)
         {
-            return _personRepository.Fetch(record => record.Sex == sex).Take(maxCount);
+            // _personRepository.Fetch(record => record.Sex == sex).Take(maxCount) would produce the same result. However
+            // since Fetch() returns an IEnumerable, not an IQueryable, Take() would run on objects, not translated to SQL.
+            // Hence the below version can perform better.
+            return _personRepository.Table.Where(record => record.Sex == sex).Take(maxCount);
         }
 
         public void SavePerson(string name, Sex sex, DateTime birthDateUtc, string biography)
