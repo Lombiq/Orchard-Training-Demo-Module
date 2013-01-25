@@ -20,7 +20,8 @@ namespace OrchardHUN.TrainingDemo
                     .Column<int>("MaxCount")
             );
 
-            /* We make PersonListPart attachable. This means from the admin UI you'll be able to attach this part to any conent type. This step
+            /* 
+             * We make PersonListPart attachable. This means from the admin UI you'll be able to attach this part to any conent type. This step
              * is not necessary to attach the part to types from migrations like we do it from here.
              * Default is not attachable.
              */
