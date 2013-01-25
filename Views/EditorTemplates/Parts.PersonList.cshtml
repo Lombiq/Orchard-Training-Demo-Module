@@ -21,7 +21,7 @@ Good practice is to place your editor fields into their own fieldset.
                 {
                     new SelectListItem { Text = T("Male").Text, Value = "Male" },
                     new SelectListItem { Text = T("Female").Text, Value = "Female" }
-                }, "Text", "Value"))
+                }, "Value", "Text"))
             @Html.ValidationMessageFor(model => model.Sex)
         </li>
         <li>
