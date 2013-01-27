@@ -12,6 +12,7 @@ Features:
 		Name: Training Demo
 		Category: Demo
         Description: This is the base feature of the module: it has the same name as the module itself. We'll use this first.
+		Dependencies: Orchard.jQuery
 	OrchardHUN.TrainingDemo.Contents:
 		Name: Training Demo Contents
 		Category: Demo

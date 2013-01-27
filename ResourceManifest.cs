@@ -42,9 +42,11 @@ namespace OrchardHUN.TrainingDemo
             // all previously mentioned methods are available too, as you can see below (we're adding a script resource
             // for later use):
 
+            // Take a look at this script to see some tips regarding JS development.
             manifest
                 .DefineScript("OrchardHUN.TrainingDemo.Filtered")
-                .SetUrl("orchardhun-trainingdemo-filtered.js");
+                .SetUrl("orchardhun-trainingdemo-filtered.js")
+                .SetDependencies("jQuery"); // That's why the feature depends on Orchard.jQuery
         }
     }
 }
