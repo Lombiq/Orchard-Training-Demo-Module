@@ -51,6 +51,7 @@ namespace OrchardHUN.TrainingDemo.Models
          * LazyFields are filled from the outside. This is also needed because parts (just as records) should have a parameterless ctor: this
          * means they can't use dependencies to fetch data themselves.
          * We'll fill this field with data from a handler in a later step.
+         * Note that there is another LazyField: Orchard.Core.Common.Utilities.LazyField<T>. That one also has a setter delegate
          */
         private readonly LazyField<IEnumerable<PersonRecord>> _persons = new LazyField<IEnumerable<PersonRecord>>();
         public LazyField<IEnumerable<PersonRecord>> PersonsField { get { return _persons; } }
