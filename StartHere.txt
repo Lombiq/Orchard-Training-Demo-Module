@@ -28,6 +28,8 @@ Later on, you may want to take a look at Map.cs (remember, "X marks the spot!") 
 reminders regarding specific solutions, structured along the "Module development and Orchard APIs" section of the
 training overview on our website (http://english.orchardproject.hu/Training/).
 
+Make sure that this module is in the OrchardHUN.TrainingDemo folder under the Modules directory.
+
 Head over to Module.txt. That file is the module's manifest; a Module.txt is required for Orchard modules. For more info 
 see: http://docs.orchardproject.net/Documentation/manifest-files
 
