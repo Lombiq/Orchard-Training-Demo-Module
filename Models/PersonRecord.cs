@@ -6,8 +6,6 @@
  * Make sure to read the corresponding documentation (http://docs.orchardproject.net/Documentation/Understanding-data-access) first!
  */
 
-// NEXT STATION: Migrations
-
 using System;
 using Orchard.Data.Conventions;
 
@@ -50,3 +48,5 @@ namespace OrchardHUN.TrainingDemo.Models
         Female
     }
 }
+
+// NEXT STATION: Migrations
