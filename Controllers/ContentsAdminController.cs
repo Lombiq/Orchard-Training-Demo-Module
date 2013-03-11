@@ -184,9 +184,12 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // content items.
                                         .WithQueryHintsFor("PersonList")
                                         .Slice(1)
-                // We here assume that there is at least one PersonList item. Otherwise we'd use FirstOrDefault() and check for null, but you
-                // created some PersonList items, didn't you?
-                                        .First();
+                // This will return null if there are no existing PersonList items.
+                                        .FirstOrDefault();
+
+            // If there is no item yet, we just display a message from a template that corresponds to an ad-hoc shape we here create through
+            // the shape factory.
+            if (latestPersonList == null) return new ShapeResult(this, _orchardServices.New.LatestPersonListEmpty());
 
             // Building the display shape for the item, here for the Summary display type what is also used when the item is displayed in a list.
             return new ShapeResult(this, _contentManager.BuildDisplay(latestPersonList, "Summary"));

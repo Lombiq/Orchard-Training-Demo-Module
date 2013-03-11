@@ -39,6 +39,7 @@ namespace OrchardHUN.TrainingDemo.Tests.Services
         }
 
         // Test initialisation
+        // This method runs before every test method.
         public override void Init()
         {
             base.Init();
