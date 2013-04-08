@@ -21,6 +21,7 @@ namespace OrchardHUN.TrainingDemo.Services
         void ScheduledTaskFired(dynamic context);
     }
 
+
     // Despite that DynamicEventHandler doesn't implement the original IBackgroundEventHandler the event methods will be called.
     public class DynamicEventHandler : IBackgroundEventHandler
     {

@@ -83,6 +83,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             Logger = NullLogger.Instance;
         }
 
+
         public ActionResult NotifyMe()
         {
             // Note that CurrentUser is an IUser instance which is an IContent derivation. Thus users are content items too!

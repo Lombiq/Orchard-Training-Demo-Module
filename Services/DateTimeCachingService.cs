@@ -19,6 +19,7 @@ namespace OrchardHUN.TrainingDemo.Services
         void InvalidateCachedDateTime();
     }
 
+
     public class DateTimeCachingService : IDateTimeCachingService
     {
         // For now we'll use ICacheManager but you should know that there is already another caching service,

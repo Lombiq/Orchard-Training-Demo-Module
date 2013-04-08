@@ -63,6 +63,7 @@ namespace OrchardHUN.TrainingDemo.Models
         }
     }
 
+
     /*
      * A part record should derive from ContentPartRecord but otherwise the same rules apply as for normal records (see PersonRecord).
      * Here we write a ContentPart, meaning that the part won't get versioned. We could also write a versionable part that's data is stored
@@ -74,6 +75,7 @@ namespace OrchardHUN.TrainingDemo.Models
 	{
         public virtual Sex Sex { get; set; }
         public virtual int MaxCount { get; set; }
+
 
         public PersonListPartRecord()
         {

@@ -15,6 +15,7 @@ namespace OrchardHUN.TrainingDemo
         // The task of deciphering what the following line can mean is up to the gentle reader :-).
         public string MenuName { get { return "admin"; } }
 
+
         public void GetNavigation(NavigationBuilder builder)
         {
             builder
@@ -26,6 +27,7 @@ namespace OrchardHUN.TrainingDemo
                 // We commonly use a separate method for actually building the menu: BuildMenu.
                 .Add(T("Person List dashboard"), "5", BuildMenu);
         }
+
 
         private void BuildMenu(NavigationItemBuilder menu)
         {

@@ -11,12 +11,13 @@ namespace OrchardHUN.TrainingDemo.Drivers
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
     public class YouTubeEmbedFieldDriver : ContentFieldDriver<YouTubeEmbedField>
     {
+        public Localizer T { get; set; }
+
+
         public YouTubeEmbedFieldDriver()
         {
             T = NullLocalizer.Instance;
         }
-
-        public Localizer T { get; set; }
 
 
         // The prefix is for similar use as with parts.

@@ -18,6 +18,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             _personManager = personManager;
         }
 
+
         // Simple actions here, just for sake of demonstration
 
         // Here and a few times elsewhere in this module we have GET action that modify the state of the application (e.g. writing to the DB or to 

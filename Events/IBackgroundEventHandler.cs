@@ -17,6 +17,7 @@ namespace OrchardHUN.TrainingDemo.Events
         void ScheduledTaskFired(ScheduledTaskFiredContext context);
     }
 
+
     // A very simple context object, but you get the idea :-).
     public class ScheduledTaskFiredContext
     {

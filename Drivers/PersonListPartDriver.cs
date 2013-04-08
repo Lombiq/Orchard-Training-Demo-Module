@@ -22,6 +22,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
             get { return "OrchardHUN.TrainingDemo.Contents.PersonListPart"; }
         }
 
+
         // This method gets called when building the display shape of the content item the part is attached to.
         protected override DriverResult Display(PersonListPart part, string displayType, dynamic shapeHelper)
         {

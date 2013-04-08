@@ -208,6 +208,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
         }
         #endregion
 
+
         private ShapeResult PersonListDashboardShapeResult(ContentItem item)
         {
             // The editor shape is the tree of shapes containing every shape needed to build the editor of the item. E.g. it contains all the parts'

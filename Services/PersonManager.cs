@@ -44,6 +44,7 @@ namespace OrchardHUN.TrainingDemo.Services
         void SavePerson(string name, Sex sex, DateTime birthDateUtc, string biography);
     }
 
+
     public class PersonManager : IPersonManager
     {
         // IRepository<T> is the standard way of interacting with records. This is a low-level data access service.

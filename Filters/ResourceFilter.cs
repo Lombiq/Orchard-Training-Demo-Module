@@ -27,10 +27,12 @@ namespace OrchardHUN.TrainingDemo.Filters
         // Let's inject a ResourceManager to be able to manage static resources like scripts or stylesheets.
         private readonly IResourceManager _resourceManager;
 
+
         public ResourceFilter(IResourceManager resourceManager)
         {
             _resourceManager = resourceManager;
         }
+
 
         // This method will be called after the action result is executed.
         public void OnResultExecuted(ResultExecutedContext filterContext) { }

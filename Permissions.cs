@@ -19,6 +19,7 @@ namespace OrchardHUN.TrainingDemo
 
         public virtual Feature Feature { get; set; }
 
+
         public IEnumerable<Permission> GetPermissions()
         {
             return new[]
