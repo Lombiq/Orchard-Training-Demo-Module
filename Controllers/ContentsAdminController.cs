@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
+using Orchard.Core.Title.Models;
 using Orchard.Data;
 using Orchard.Environment.Extensions;
 using Orchard.Localization;
@@ -90,7 +91,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
             /* 
              * The workflow you see below for content item editing is standard practice:
-             * 1) Fetch existing item from the ContentManager or isntantiate new one
+             * 1) Fetch existing item from the ContentManager or instantiate new one
              * 2) Create item if it's new
              * 3) Update
              * 4) Check for validity:
@@ -101,7 +102,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             var item = GetItem(id);
             if (item == null) return new HttpNotFoundResult();
 
-            // Create() actually persists the item
+            // If the item's id is 0 then it's not yet persisted; Create() actually persists the item
             if (id == 0) _contentManager.Create(item);
 
             // Notice that there's also a _contentManager.Remove(item) method you can use for removing content item. Beware though that removals in
@@ -111,6 +112,11 @@ namespace OrchardHUN.TrainingDemo.Controllers
             // The method returns an updated editor shape (that is filled out with the input the user gave) what we can use to display if
             // there were validation errors.
             var editorShape = _contentManager.UpdateEditor(item, this);
+
+            // Here we were updating a content item from POST data with the model binder. This is the case if you take user input and want to update
+            // an item with it. However you can directly modify a content item's parts' data directly, by "casting" the item to a part, as following:
+            //item.As<PersonListPart>().MaxCount = 5;
+            //item.As<TitlePart>().Title = "Custom title"; It works with any other part too, of course!
 
             if (!ModelState.IsValid)
             {
