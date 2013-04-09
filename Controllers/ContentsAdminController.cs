@@ -44,17 +44,16 @@ namespace OrchardHUN.TrainingDemo.Controllers
          * 
          * IOrchardServices is a collection of the most important services. It also includes the Notifier we've used in the beginning.
          * 
-         * ITransactionManager - and if you aren't sitting, sit down now, because this will get you by surprise - is used to manage transactions.
+         * TransactionManager - and if you aren't sitting, sit down now, because this will get you by surprise - is used to manage transactions.
          * As you may know every request in Orchard is one big transaction. If anything fails badly, everything will be rolled back. We'll
          * use it when saving content items.
          */
-        public ContentsAdminController(IOrchardServices orchardServices, ITransactionManager transactionManager)
+        public ContentsAdminController(IOrchardServices orchardServices)
         {
             _orchardServices = orchardServices;
             _authorizer = orchardServices.Authorizer; // If we use a service multiple times it's convenient to store its reference individually
             _contentManager = orchardServices.ContentManager;
-
-            _transactionManager = transactionManager;
+            _transactionManager = orchardServices.TransactionManager;
 
             T = NullLocalizer.Instance;
         }
