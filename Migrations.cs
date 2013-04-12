@@ -22,7 +22,7 @@ namespace OrchardHUN.TrainingDemo
                     .Column<string>("Name", column => column.WithLength(500))
                     .Column<string>("Sex") // Best to store enums as strings
                     .Column<DateTime>("BirthDateUtc")
-                    .Column<string>("Biography", column => column.Unlimited()) // An infinite strings Unlimited() set!
+                    .Column<string>("Biography", column => column.Unlimited()) // An infinite string should have Unlimited() set!
             ).AlterTable(typeof(PersonRecord).Name,
                 table => table
                     // You can create indices from AlterTable
