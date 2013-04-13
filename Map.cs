@@ -65,7 +65,7 @@ namespace OrchardHUN.TrainingDemo
                 // Record migrations
                 Factory<Migrations>();
 
-                // ContentManager
+                // ContentManager to handle content items programmatically
                 Factory<ContentsAdminController>().LatestPersonLists();
 
                 // Abstracted file storage with IStorageProvider
