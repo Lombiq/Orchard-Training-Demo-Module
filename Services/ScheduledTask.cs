@@ -35,7 +35,7 @@ namespace OrchardHUN.TrainingDemo.Services
             // Scheduled tasks, as they are run at a given time, should be first registered. What we write now is a self-renewing scheduled task,
             // essentially a periodic background task where we choose the interval between calls. Remember though that this is just a common scenario,
             // but not the only one of course: another scheduled task scenario would be to schedule a task for a future date and only run it once.
-            CreateTaskIfNew();
+            CreateTaskIfNew(false);
         }
 
         // When the Orchard instance is torn down, this event is fired. We don't need it now.
@@ -57,7 +57,7 @@ namespace OrchardHUN.TrainingDemo.Services
             // Check out in the debugger: this should be called every 3 minutes.
             _eventHandler.ScheduledTaskFired(new ScheduledTaskFiredContext { TaskType = TaskType });
 
-            CreateTaskIfNew(); // Renewing the task
+            CreateTaskIfNew(true); // Renewing the task
         }
 
         
@@ -65,11 +65,14 @@ namespace OrchardHUN.TrainingDemo.Services
         // unique key: multiple tasks with the same type can exist. Thus if there's an uncompleted task in the system already (because e.g. Orchard
         // was torn down before it could run) simply creating the task would create a new one. This in turn would have the effect that our Process()
         // method would run for both tasks, resulting in more frequent execution than what we want.
-        private void CreateTaskIfNew()
+        private void CreateTaskIfNew(bool calledFromTaskProcess)
         {
             var outdatedTaskCount = _taskManager.GetTasks(TaskType, _clock.UtcNow).Count();
             var taskCount = _taskManager.GetTasks(TaskType).Count();
-            if (taskCount != 0 && taskCount - outdatedTaskCount > 0) return; // If outdated tasks exists, don't create a new one.
+
+            // calledFromTaskProcess is necessary as when this is called from Proces() the current task will still be in the DB, thus there
+            // will be at least a single task there.
+            if ((!calledFromTaskProcess || taskCount != 1) && taskCount != 0 && taskCount - outdatedTaskCount >= 0) return; // If outdated tasks exists, don't create a new one.
 
             // This task wil run in three minutes.
             // The third parameter could be a content item that represents the context for the task, but we don't need it now.
