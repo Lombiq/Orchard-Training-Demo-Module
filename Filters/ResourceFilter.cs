@@ -42,6 +42,8 @@ namespace OrchardHUN.TrainingDemo.Filters
         {
             // This is a simple and elegant way to check if we're on Admin UI or not.
             if (Orchard.UI.Admin.AdminFilter.IsApplied(filterContext.RequestContext)) return;
+            // This way we can check if the current request renders a PartialView.
+            if (filterContext.Result is PartialViewResult) return;
 
             // We'll just add a script resource (which is already declared in the ResourceManifest.cs)
             // to the result being generated if we're not on the admin UI.
