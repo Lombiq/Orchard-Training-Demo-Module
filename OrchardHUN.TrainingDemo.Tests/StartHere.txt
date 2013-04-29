@@ -18,7 +18,7 @@ This is not trivial as test projects need many references; this project has almo
 to be able to correctly run unit tests. Some stubs and base classes are already implemented in the built-in test projects so those are referenced as
 well.
 
-To actually run unit tests you'll need a unit test runner. We advise you to check out the TestDriver.Net VS add-in (http://www.testdriven.net/)
+To actually run unit tests you'll need a unit test runner. We advise you to check out the TestDriven.Net VS add-in (http://www.testdriven.net/)
 that makes executing a test suite a matter of right click-click.
 
 You may have noticed that the structure of the unit test project is conveniently the same as the module's, e.g. tests for services are in the 
