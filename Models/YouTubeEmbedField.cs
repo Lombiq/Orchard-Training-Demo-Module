@@ -1,7 +1,7 @@
-﻿using Orchard.ContentManagement;
+﻿using System;
+using Orchard.ContentManagement;
 using Orchard.ContentManagement.FieldStorage;
 using Orchard.Environment.Extensions;
-using System;
 
 /* Just like with content part development, we'll start with creating a model class.
  * We don't need anything too complex, just store a string for a YouTube video ID,

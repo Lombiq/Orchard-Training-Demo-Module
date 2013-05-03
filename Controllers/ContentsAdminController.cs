@@ -8,7 +8,6 @@ using System.Web.Mvc;
 using Orchard;
 using Orchard.ContentManagement;
 using Orchard.Core.Common.Models;
-using Orchard.Core.Title.Models;
 using Orchard.Data;
 using Orchard.Environment.Extensions;
 using Orchard.Localization;
