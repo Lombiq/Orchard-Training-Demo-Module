@@ -2,6 +2,7 @@
  * Make sure you understand what drivers are: http://docs.orchardproject.net/Documentation/Content-types
  * Basically all the drivers of a content type's parts are called when building the display or editor shape of a content item (and also when
  * importing/exporting).
+ * Note that the same part can have multiple drivers: e.g. you could write a driver for even TitlePart.
  */
 
 using System;
@@ -26,12 +27,20 @@ namespace OrchardHUN.TrainingDemo.Drivers
         // This method gets called when building the display shape of the content item the part is attached to.
         protected override DriverResult Display(PersonListPart part, string displayType, dynamic shapeHelper)
         {
-            // We'll use the same shape type name specified here later in the Placement.info file.
-            // The namings are conventional.
-            return ContentShape("Parts_PersonList",
-                // Here a display shape is built (see: http://docs.orchardproject.net/Documentation/Accessing-and-rendering-shapes).
-                // The part is automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
-                () => shapeHelper.Parts_PersonList(DisplayType: displayType));
+            // For the sake of demonstration we use Combined() here. It makes it possible to return multiple shapes from a driver method.
+            // Use this if you'd like to return different shapes that can be used e.g. with different display types.
+            return Combined(
+                // We'll use the same shape type name specified here later in the Placement.info file.
+                // The namings are conventional.
+                ContentShape("Parts_PersonList",
+                    // Here a display shape is built (see: http://docs.orchardproject.net/Documentation/Accessing-and-rendering-shapes).
+                    // The part is automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
+                    () => shapeHelper.Parts_PersonList(DisplayType: displayType)),
+                // A shape for the summary: this will be only used when e.g. listing the item. See Placement.info how it's used. 
+                // Naming is conventional.
+                ContentShape("Parts_PersonList_Summary",
+                    () => shapeHelper.Parts_PersonList_Summary())
+                );
         }
 
         // Building the editor shape.

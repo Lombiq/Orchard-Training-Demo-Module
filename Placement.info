@@ -6,7 +6,10 @@ This Placement.info is very simple, there are much more options.
 
 <Placement>
   <Place Parts_PersonList_Edit="Content:5"
-         Parts_PersonList="Content:5"/>
+         Parts_PersonList="Content:5"/> <!-- Parts_PersonList will be displayed every time. --> 
+  <Match DisplayType="Summary">
+    <Place Parts_PersonList_Summary="Content:5" /> <!-- Parts_PersonList_Summary will be displayed only in Summary display type. -->
+  </Match>
 
   <!-- YouTubeEmbedField -->
   <Place Fields_YouTubeEmbed_Edit="Content:after"/>
