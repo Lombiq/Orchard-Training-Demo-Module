@@ -30,10 +30,12 @@ namespace OrchardHUN.TrainingDemo.Models
          * 
          * The call to Storage we see here is the usage of the underlying serialized storage.
          */
-        public string VideoID
+        public string VideoId
         {
-            get { return Storage.Get<string>(); }
-            set { Storage.Set(value ?? String.Empty); }
+            // Get and Set have overrides without requiring a name. If you don't specify a name here the field's default (single) value
+            // storage will be used.
+            get { return Storage.Get<string>("VideoId"); }
+            set { Storage.Set("VideoId", value ?? String.Empty); }
         }
     }
 }
