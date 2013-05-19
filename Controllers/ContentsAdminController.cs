@@ -1,6 +1,9 @@
 ﻿/*
  * In this controller we'll dive a bit deeper into the built-in services of Orchard as well as learn how to create and edit content items.
  * This controller is an admin controller: the user will be able to only access it with sufficient privilages to access the dashboard.
+ * 
+ * Note that although we demonstrate content management in an admin controller here you can use the exact same techniques in a frontend
+ * controller too.
  */
 
 using System.Linq;
