@@ -1,4 +1,5 @@
 ﻿using System;
+using OrchardHUN.TrainingDemo.Commands;
 using OrchardHUN.TrainingDemo.Controllers;
 using OrchardHUN.TrainingDemo.Drivers;
 using OrchardHUN.TrainingDemo.Filters;
@@ -122,6 +123,10 @@ namespace OrchardHUN.TrainingDemo
 
                 // Accessing site settings from code
                 Factory<DemoSettingsController>();
+
+
+            // Command line
+                Factory<DemoSettingsCommands>();
 
 
             // Custom routes
