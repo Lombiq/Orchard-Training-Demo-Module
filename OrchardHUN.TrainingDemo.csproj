@@ -100,19 +100,23 @@
     <Compile Include="ContentsMigrations.cs" />
     <Compile Include="Controllers\CacheController.cs" />
     <Compile Include="Controllers\ContentsAdminController.cs" />
+    <Compile Include="Controllers\DemoSettingsController.cs" />
     <Compile Include="Controllers\DependencyInjectionController.cs" />
     <Compile Include="Controllers\FileManagementController.cs" />
     <Compile Include="Controllers\PersonController.cs" />
     <Compile Include="Controllers\YourFirstOrchardController.cs" />
+    <Compile Include="Drivers\DemoSettingsPartDriver.cs" />
     <Compile Include="Drivers\PersonListPartDriver.cs" />
     <Compile Include="Drivers\YouTubeEmbedFieldDriver.cs" />
     <Compile Include="Events\BackgroundTaskHandler.cs" />
     <Compile Include="Events\IBackgroundEventHandler.cs" />
     <Compile Include="Events\ScheduledTaskHandler.cs" />
     <Compile Include="Filters\ResourceFilter.cs" />
+    <Compile Include="Handlers\DemoSettingsPartHandler.cs" />
     <Compile Include="Handlers\PersonListPartHandler.cs" />
     <Compile Include="Map.cs" />
     <Compile Include="Migrations.cs" />
+    <Compile Include="Models\DemoSettingsPart.cs" />
     <Compile Include="Models\PersonListPart.cs" />
     <Compile Include="Models\PersonRecord.cs" />
     <Compile Include="Models\YouTubeEmbedField.cs" />
@@ -124,6 +128,7 @@
     <Compile Include="Services\DynamicEventHandler.cs" />
     <Compile Include="Services\PersonManager.cs" />
     <Compile Include="Services\ScheduledTask.cs" />
+    <Compile Include="SettingsMigrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\YourFirstOrchard\Index.cshtml" />
@@ -145,6 +150,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Parts.PersonList.Summary.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\EditorTemplates\Parts.DemoSettings.SiteSettings.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

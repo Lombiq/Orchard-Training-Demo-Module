@@ -116,6 +116,14 @@ namespace OrchardHUN.TrainingDemo
                 Factory<YouTubeEmbedFieldDriver>();
 
 
+            // Site settings
+                // Site settings part
+                Factory<DemoSettingsPart>();
+
+                // Accessing site settings from code
+                Factory<DemoSettingsController>();
+
+
             // Custom routes
             Factory<Routes>();
 

@@ -5,6 +5,7 @@ This Placement.info is very simple, there are much more options.
 -->
 
 <Placement>
+  <!-- PersonListPart -->
   <Place Parts_PersonList_Edit="Content:5"
          Parts_PersonList="Content:5"/> <!-- Parts_PersonList will be displayed every time. --> 
   <Match DisplayType="Summary">
@@ -12,8 +13,11 @@ This Placement.info is very simple, there are much more options.
   </Match>
 
   <!-- YouTubeEmbedField -->
-  <Place Fields_YouTubeEmbed_Edit="Content:after"/>
-  <Place Fields_YouTubeEmbed="Content:after"/>
+  <Place Fields_YouTubeEmbed_Edit="Content:after"
+         Fields_YouTubeEmbed="Content:after"/>
+  
+  <!-- Site settings -->
+  <Place Parts_DemoSettings_SiteSettings="Content:5"/>
 </Placement>
 
 <!--NEXT STATION: our shapes don't have a rendering (i.e. a template) yet. Let's create them: go to Views/EditorTemplates/Parts.PersonList-->
