@@ -31,7 +31,9 @@ namespace OrchardHUN.TrainingDemo
                 new RouteDescriptor
                 {
                     Route = new Route(
-                        "PersonListDashboard", // We'll be able to access the action from under the short ~/PersonListDashboard route
+                        // We'll be able to access the action from under the short ~/Admin/PersonListDashboard route.
+                        // It's good practice to re-route your admin controllers to under Admin/.
+                        "Admin/PersonListDashboard",
                         new RouteValueDictionary // Remember? We used these values to set the editor route for Person List items.
                         {
                             {"area", "OrchardHUN.TrainingDemo"},
