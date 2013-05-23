@@ -10,6 +10,7 @@ this means if you have a lot of part templates you can place them into subfolder
 
 @*Remember the DisplayType dynamic property we added to the shape in the driver? It's here.*@
 @T("You're currently looking at me in \"{0}\" display type", Model.DisplayType)
+@* We could use UpperDisplayType in the same way: Model.UpperDisplayType *@
 
 @*Accessing the LazyField's value for the first time. Its loader will now be evaluated. Later accesses will get the cached value. 
 Also this is the way to have pluralised T-strings.*@
