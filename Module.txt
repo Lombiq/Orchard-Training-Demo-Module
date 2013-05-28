@@ -2,7 +2,7 @@
 
 Name: Training Demo
 AntiForgery: enabled
-Author: The Orchard Hungary Team
+Author: The Orchard Hungary Team / Lombiq
 Website: http://orchardtrainingdemo.codeplex.com/
 Version: 1.0
 OrchardVersion: 1.6

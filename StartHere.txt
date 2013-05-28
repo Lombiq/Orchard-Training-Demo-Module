@@ -17,6 +17,9 @@ Before you dive deep into this module it'd be best if you made sure that you hav
 We've invested a lot of time creating this module. If you have ideas regarding it or have found mistakes, please let us
 know on the project page: http://orchardtrainingdemo.codeplex.com/
 
+If you'd like to get trained instead of self-learning or you need help in form of mentoring sessions take a look at Orchard Dojo's 
+trainings: http://orcharddojo.net/orchard-training
+
 Although the module has no function apart from serving as a demonstration we've written everything in a way that it really
 runs and you can try it out in action. Don't forget to run it in Debug mode and break into the code to be able to look
 into some specific details.
@@ -26,7 +29,7 @@ they solve similar tasks. You have the whole Orchard source at your hands: let i
 
 Later on, you may want to take a look at Map.cs (remember, "X marks the spot!") in the project root for
 reminders regarding specific solutions, structured along the "Module development and Orchard APIs" section of the
-training overview on our website (http://english.orchardproject.hu/Training/).
+training guidelines on Orchard Dojo (http://orcharddojo.net/orchard-resources/Library/Training/Guidelines/).
 
 Make sure that this module is in the OrchardHUN.TrainingDemo folder under the Modules directory.
 
@@ -35,7 +38,7 @@ see: http://docs.orchardproject.net/Documentation/manifest-files
 
 
 This demo is heavily inspired by Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U) and 
-brought to you by the Orchard Hungary team (http://english.orchardproject.hu/).
+brought to you by the Orchard Hungary team (http://english.orchardproject.hu/) and Lombiq (http://lombiq.com/).
 
 This module was created with the code generation tool and the "codegen module OrchardHUN.TrainingDemo" command. For more
 info see: http://docs.orchardproject.net/Documentation/Command-line-scaffolding
