@@ -67,7 +67,7 @@
     <Content Include="Scripts\orchardhun-trainingdemo-filtered.js" />
     <Content Include="Styles\orchardhun-trainingdemo-other.css" />
     <Content Include="Styles\orchardhun-trainingdemo-dependency.css" />
-    <Content Include="Styles\Images2\menu.person-list-dashboard.png" />
+    <Content Include="Styles\Images\menu.person-list-dashboard.png" />
     <Content Include="Placement.info">
       <SubType>Designer</SubType>
     </Content>
