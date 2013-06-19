@@ -138,7 +138,7 @@
     <Content Include="Views\Parts.PersonList.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\PersonListDashboard.cshtml" />
+    <Content Include="Views\TrainingDemo.PersonListDashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\ComplimentaryEncouragement.cshtml" />

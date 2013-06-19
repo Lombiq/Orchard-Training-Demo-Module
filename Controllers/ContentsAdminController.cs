@@ -231,7 +231,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
              * see), meaning Orchard will try to find a corresponding template for the shape.
              * 
              * Orchard will try to find a corresponding template by probing for conventionally named files. We happen to have one under 
-             * Views/PersonListDashboard.
+             * Views/TrainingDemo.PersonListDashboard. Notice two things: first, dots in template names are converted to underscores in shape
+             * names (and dashes to double underscores) and that we use a kind of namespacing by prefixing the name with the module's name. Since
+             * shape names are global, this way the uniqueness can be ensured.
              * 
              * You could also create a statically typed view model and use standard MVC views too of course.
              * 
@@ -240,7 +242,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
              * NEXT STATION: Check out the two other actions in this controller: LatestPersonLists and LatestPersonList!
              * 
              */
-            var editorShape = _orchardServices.New.PersonListDashboard(EditorShape: itemEditorShape);
+            var editorShape = _orchardServices.New.TrainingDemo_PersonListDashboard(EditorShape: itemEditorShape);
 
             return new ShapeResult(this, editorShape);
         }
