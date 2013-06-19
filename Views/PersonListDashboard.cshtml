@@ -29,6 +29,7 @@ Since Orchard is shipped with jQuery included (in the Orchard.jQuery module), th
 
 @* When the id is 0 we display the editor for a new item *@
 @Html.Link(T("Create new Person List").Text, Url.Action("PersonListDashboard", new { Id = 0 }))
+@* Note that we constructed the URL for the link dynamically. Never wire in URLs directly! See the other Url.X() helpers too! *@
 
 @*
 Displaying an ad-hoc shape. As you can see we can create shapes here as well through the New property. We can also pass it arguments just as we
