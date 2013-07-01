@@ -199,6 +199,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             if (latestPersonList == null) return new ShapeResult(this, _orchardServices.New.LatestPersonListEmpty());
 
             // Building the display shape for the item, here for the Summary display type what is also used when the item is displayed in a list.
+            // Note that we use Summary here as it's already implemented and we also use it on the frontend. For admin lists however the widely
+            // used display type is SummaryAdmin (and BTW the third common one is Detail: this is if you open an item from the frontend).
             return new ShapeResult(this, _contentManager.BuildDisplay(latestPersonList, "Summary"));
         }
 
