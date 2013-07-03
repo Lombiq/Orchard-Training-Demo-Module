@@ -23,7 +23,8 @@ namespace OrchardHUN.TrainingDemo
                     .Column<string>("Sex") // Best to store enums as strings
                     .Column<DateTime>("BirthDateUtc")
                     .Column<string>("Biography", column => column.Unlimited()) // An infinite string should have Unlimited() set!
-            ).AlterTable(typeof(PersonRecord).Name,
+                )
+            .AlterTable(typeof(PersonRecord).Name,
                 table => table
                     // You can create indices from AlterTable
                     .CreateIndex("Name", new string[] { "Name" }) // We index Name so we can retrieve by name faster
@@ -48,7 +49,7 @@ namespace OrchardHUN.TrainingDemo
             SchemaBuilder.AlterTable(typeof(PersonRecord).Name,
                 table => table
                     .AddColumn<string>("Name", column => column.WithLength(500))
-            );
+                );
 
             /*
              * By returning 2 we can chain an UpdateFrom2 method to the list of updates and thus update the schema from this state later.

@@ -18,7 +18,7 @@ namespace OrchardHUN.TrainingDemo
                     .ContentPartRecord()
                     .Column<string>("Sex")
                     .Column<int>("MaxCount")
-            );
+                );
 
             /* 
              * We make PersonListPart attachable. This means from the admin UI you'll be able to attach this part to any conent type. This step
@@ -55,7 +55,7 @@ namespace OrchardHUN.TrainingDemo
                     // ordering).
                     .WithPart("CommonPart")
                     .Creatable() // This means users will be able to create such items from the admin UI. Default is the opposite.
-            );
+                );
 
             /*
              * With the same part we also create a widget. That's why this feature also depends on Orchard.Widgets!
@@ -70,7 +70,7 @@ namespace OrchardHUN.TrainingDemo
                     .WithPart("WidgetPart")
                     .WithPart("CommonPart")
                     .WithSetting("Stereotype", "Widget")
-            );
+                );
 
 
             return 1;
