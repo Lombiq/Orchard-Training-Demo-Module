@@ -57,12 +57,17 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
             try
             {
-                // Remember that CreateFile() can throw an exception if the file already exists. That's why we wrap it in a try-catch.
-                // Why don't we check the existence of the file beforehand! Good question! Because we can't, but soon will be able to:
-                // https://orchard.codeplex.com/workitem/18279
                 // The paths used as arguments here are relative to the tenant's media folder: this translates to 
                 // ~/Media/TenantName/DemoFolder/MyFile.txt where TenantName is the tenant's technical name ("Default" if for the first tenant).
-                var file = _storageProvider.CreateFile(DemoFile1Path);
+                IStorageFile file;
+                if (!_storageProvider.FileExists(DemoFile1Path))
+                {
+                    file = _storageProvider.CreateFile(DemoFile1Path);
+                }
+                else
+                {
+                    file = _storageProvider.GetFile(DemoFile1Path);
+                }
                 // Notice that the DemoFolder folder is implicitly created if it doesn't exist but we could explicitly create folder with
                 // _storageProvider.CreateFolder("FolderPath");
 
@@ -73,24 +78,24 @@ namespace OrchardHUN.TrainingDemo.Controllers
                     streamWriter.Write("Hello there!");
                 }
 
-                // Equivalent shorthand for creating a file
+                // Equivalent shorthand for creating a file. SaveStream() will throw an exception if the file exists.
                 using (var stream = new MemoryStream())
                 using (var streamWriter = new StreamWriter(stream))
                 {
                     streamWriter.Write("Hello there!");
                     _storageProvider.SaveStream(DemoFile2Path, stream);
                     // SaveStream has a counterpart, TrySaveStream that returns a bool indicating whether the operation was successful or not, it
-                    // doesn't throw an exception if the file exists. However internall it also catches exceptions...
+                    // doesn't throw an exception if the file exists. However internally it also catches exceptions...
                 }
 
                 // ...and equally for reading.
-                // OpenRead() can throw an exception if the file doesn't exist.
+                // OpenRead() throws an exception if the file doesn't exist.
                 using (var stream = file.OpenRead())
                 using (var streamReader = new StreamReader(stream))
                 {
                     var content = streamReader.ReadToEnd();
                     // If you don't have to choose a specific exception class for throwing and exception, you should use
-                    // OrchardException, for it's message is localizable.
+                    // OrchardException, for its message is localizable.
                     if (!content.Equals("Hello there!")) throw new OrchardException(T("Well, this is awkward."));
                 }
 
