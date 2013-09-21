@@ -26,7 +26,7 @@ Good practice is to place your editor fields into their own fieldset.
         </li>
         <li>
             @Html.LabelFor(model => model.MaxCount, T("Max item count"))
-            @Html.TextBoxFor(model => model.MaxCount, new { @class = "text text-small" })
+            @Html.TextBoxFor(model => model.MaxCount, new { @class = "text small" })
             @Html.ValidationMessageFor(model => model.MaxCount)
         </li>
     </ol>
