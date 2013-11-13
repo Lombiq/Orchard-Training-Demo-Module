@@ -56,7 +56,7 @@ namespace OrchardHUN.TrainingDemo.Models
          * Note that there is another LazyField: Orchard.Core.Common.Utilities.LazyField<T>. That one also has a setter delegate
          */
         private readonly LazyField<IEnumerable<PersonRecord>> _persons = new LazyField<IEnumerable<PersonRecord>>();
-        public LazyField<IEnumerable<PersonRecord>> PersonsField { get { return _persons; } }
+        internal LazyField<IEnumerable<PersonRecord>> PersonsField { get { return _persons; } }
         public IEnumerable<PersonRecord> Persons
         {
             get { return _persons.Value; }
