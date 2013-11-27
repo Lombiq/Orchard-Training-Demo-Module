@@ -107,6 +107,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             }
             catch (Exception ex)
             {
+                // Sometimes we can't know what type of exception a service can throw so the best we can do is catch
+                // Exception and then check whether it's fatal.
                 // For clarification see: http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
                 if (ex.IsFatal()) throw;
 
@@ -117,22 +119,16 @@ namespace OrchardHUN.TrainingDemo.Controllers
         // Use this action to remove everything created with Create() so you can run the latter again.
         public string CleanUp()
         {
-            // Since delete methods can throw exceptions if the file/folder doesn't exist we wrap this in a try-catch as well.
-            try
+            // Deleting the folder also deletes every file inside it, surprisingly :-).
+            if (_storageProvider.FolderExists(DemoFolderPath))
             {
-                // Deleting the folder also deletes every file inside it, surprisingly :-).
                 _storageProvider.DeleteFolder(DemoFolderPath);
-
-                // But we could also delete individual files of course.
-                //_storageProvider.DeleteFile(DemoFile1Path);
-
-                return "Everything OK";
             }
-            catch (Exception ex)
-            {
-                if (ex.IsFatal()) throw;
-                return "Something went terribly wrong: " + ex.Message;
-            }
+
+            // But we could also delete individual files of course.
+            //_storageProvider.DeleteFile(DemoFile1Path);
+
+            return "Everything OK";
         }
     }
 
