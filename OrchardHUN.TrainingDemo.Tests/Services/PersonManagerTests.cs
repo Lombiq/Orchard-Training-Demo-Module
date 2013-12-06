@@ -95,8 +95,6 @@ namespace OrchardHUN.TrainingDemo.Tests.Services
             _personManager.SavePerson("James Ytong", Sex.Male, new DateTime(1989, 12, 4), "<insert subject biography here>");
             _personManager.SavePerson("Maria Brick", Sex.Female, new DateTime(1969, 10, 6), "Not much.");
 
-            // Aaand although this should work it isn't here in the test. Don't ask why, TODO :-). But now you can see an example of a failing
-            // test :-).
             var persons = _personManager.GetPersons(Sex.Female, 1).ToList();
 
             Assert.That(persons.Count, Is.EqualTo(1));
