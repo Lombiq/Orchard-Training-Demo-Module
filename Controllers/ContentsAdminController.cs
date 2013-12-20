@@ -94,7 +94,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             /* 
              * The workflow you see below for content item editing is standard practice:
              * 1) Fetch existing item from the ContentManager or instantiate new one
-             * 2) Create item if it's new
+             * 2) Create item if it's new. Important: the item should be created as Draft.
              * 3) Update
              * 4) Check for validity:
              *      - Cancel transaction if model state is invalid
@@ -104,8 +104,10 @@ namespace OrchardHUN.TrainingDemo.Controllers
             var item = GetItem(id);
             if (item == null) return new HttpNotFoundResult();
 
-            // If the item's id is 0 then it's not yet persisted; Create() actually persists the item
-            if (id == 0) _contentManager.Create(item);
+            // If the item's id is 0 then it's not yet persisted; Create() actually persists the item.
+            // The version should be Draft so any handler (e.g the one of Autoroute) that depends on the item's content being set runs only when
+            // the item is already filled with data and published then.
+            if (id == 0) _contentManager.Create(item, VersionOptions.Draft);
 
             // Notice that there's also a _contentManager.Remove(item) method you can use for removing content item. Beware though that removals in
             // Orchard are soft deletes: really nothing is deleted from the database.
@@ -129,6 +131,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // The user will see the filled out form with validation errors emphasized
                 return PersonListDashboardShapeResult(item);
             }
+
+            // Publish the item. This will also run all the handlers (e.g the one of Autoroute) that depend on the item's content being set.
+            _contentManager.Publish(item);
 
             // We use the notifier again and access the current user's data from the WorkContext again
             _orchardServices.Notifier.Information(T("{0}, the Person List item was successfully saved.", _orchardServices.WorkContext.CurrentUser.UserName));
