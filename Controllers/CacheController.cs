@@ -17,10 +17,10 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
 
         // Go to ~/OrchardHUN.TrainingDemo/Cache/GetDateTime to see the result.
-        public DateTime GetDateTime()
+        public DateTime GetDateTime(string service = "CacheService")
         {
             // Nothing fancy, just the date and time displayed with plain text.
-            return _dateTimeCachingService.GetCachedDateTime();
+            return _dateTimeCachingService.GetCachedDateTime(service);
         }
 
         // We're exposing the trigger for the signal in a normal controller action,

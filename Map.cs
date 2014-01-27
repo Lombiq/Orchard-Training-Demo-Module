@@ -158,7 +158,7 @@ namespace OrchardHUN.TrainingDemo
             Factory<ScheduledTask>();
 
 
-            // Caching: ICacheManager and ICacheService, ISignals
+            // Caching: ICacheService, ICacheManager and ICacheService, ISignals
             Factory<DateTimeCachingService>();
             Factory<CacheController>();
 
