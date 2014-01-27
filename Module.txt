@@ -5,7 +5,7 @@ AntiForgery: enabled
 Author: The Orchard Hungary Team / Lombiq
 Website: http://orchardtrainingdemo.codeplex.com/
 Version: 1.0
-OrchardVersion: 1.6
+OrchardVersion: 1.8
 Description: Demo Orchard module for training purposes. Based on Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U).
 Features:
     OrchardHUN.TrainingDemo:
