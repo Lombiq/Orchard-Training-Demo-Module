@@ -134,7 +134,6 @@
     <Compile Include="Services\DynamicEventHandler.cs" />
     <Compile Include="Services\PersonManager.cs" />
     <Compile Include="Services\ScheduledTask.cs" />
-    <Compile Include="SettingsMigrations.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\YourFirstOrchard\Index.cshtml" />

@@ -41,19 +41,5 @@ namespace OrchardHUN.TrainingDemo.Drivers
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
         }
-
-        protected override void Exporting(DemoSettingsPart part, ExportContentContext context)
-        {
-            var element = context.Element(part.PartDefinition.Name);
-
-            element.SetAttributeValue("Message", part.Message);
-        }
-
-        protected override void Importing(DemoSettingsPart part, ImportContentContext context)
-        {
-            var partName = part.PartDefinition.Name;
-
-            context.ImportAttribute(partName, "Message", value => part.Message = value);
-        }
     }
 }

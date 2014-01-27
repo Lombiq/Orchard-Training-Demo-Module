@@ -17,22 +17,17 @@ using Orchard.Environment.Extensions;
 namespace OrchardHUN.TrainingDemo.Models
 {
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
-    public class DemoSettingsPart : ContentPart<DemoSettingsPartRecord>
+    public class DemoSettingsPart : ContentPart
     {
-        // For demonstration purposes we'll only store this single value. But we alread know how to store data, right?
+        // For demonstration purposes we'll only store this single value. Notice that here we only use the infoset (what we also used in 
+        // PersonListPart). Since this is a site settings part nobody would want to use Message for filtering or ordering in a query:
+        // thus we don't need a record for storing it, it will be only saved in the infoset.
         public string Message
         {
-            get { return Record.Message; }
-            set { Record.Message = value; }
+            get { return this.Retrieve(x => x.Message); }
+            set { this.Store(x => x.Message, value); }
         }
     }
 
-
-    [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
-    public class DemoSettingsPartRecord : ContentPartRecord
-    {
-        public virtual string Message { get; set; }
-    }
-
-    // NEXT STATION: for the sake of clarity we have the migrations in a separate class for this record. Go to SettingsMigrations!
+    // NEXT STATION: Handlers/DemoSettingsPartHandler!
 }

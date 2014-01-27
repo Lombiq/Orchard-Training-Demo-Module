@@ -166,15 +166,18 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // This is like an inner join with the PersonListPartRecord table. By default Orchard loads parts' records lazily, when needed.
                 // If we know we'll use a part's data it's better to prefetch the record because this way we'll have one query instead of one
                 // per item.
+                // However, this is not really needed here: PersonListPart is a "shifted" part (using infoset storage) so it doesn't need this
+                // optimization, it's fast out of the box.
                                     .Join<PersonListPartRecord>()
                 // Also joining in CommonPartRecord. You remember we added CommonPart to PersonList, right? Go back to ContentsMigrations
                 // if you'd like to refresh your memories on how we built our type.
                                     .Join<CommonPartRecord>()
-                // We also use CommonPartRecord' ModifiedUtc property for ordering.
+                // We use CommonPartRecord's ModifiedUtc property for ordering.
                                     .OrderByDescending(record => record.ModifiedUtc)
                 // Query hints are also a tool for optimization: by specifying what to eagerly load we can also cut down on the number of DB queries
                 // if we know what we'll use later. Here we tell Orchard to eagerly load AutoroutePartRecord and TitlePartRecord too; we've already
                 // told it to join in PersonListPartRecord and CommonPartRecord.
+                // Again this is something not needed for these parts as they're shifted. Should you deal with unshifted parts this comes handy.
                                     .WithQueryHints(new QueryHints().ExpandRecords(new string[] { "AutoroutePartRecord", "TitlePartRecord" }))
                 // Skipping the first item and only taking the first 10 items. This method also executes the query and returns the items.
                 // If we would like all the items we would have used List().

@@ -70,6 +70,9 @@ namespace OrchardHUN.TrainingDemo.Drivers
             return Editor(part, shapeHelper);
         }
 
+        // Exporting and Importing is called when the content items hacing PersonListPart are exported or imported. However since the part is
+        // using infoset storage we really don't have to deal with export/import ourselves, with infoset we get if for free!
+        // So these two methods are here for demonstration only, you don't need to implement them if your part uses infoset storage.
         protected override void Exporting(PersonListPart part, ExportContentContext context)
         {
             var element = context.Element(part.PartDefinition.Name);
@@ -87,5 +90,5 @@ namespace OrchardHUN.TrainingDemo.Drivers
         }
     }
 
-    // NEXT STATION: We should now define where the shapes returned from here are displayed. So let's look at Placement.info
+    // NEXT STATION: We should now define where the shapes returned from here are displayed. So let's look at Placement.info!
 }

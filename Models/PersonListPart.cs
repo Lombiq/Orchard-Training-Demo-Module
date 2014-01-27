@@ -36,15 +36,20 @@ namespace OrchardHUN.TrainingDemo.Models
         [Required]
         public Sex Sex
         {
-            get { return Record.Sex; }
-            set { Record.Sex = value; }
+            // Notice this Retrieve() and Store()? These are Orchard's infoset helpers: by using these our data is not only stored in
+            // the record but also in the so called infoset. The infoset is an XML document inside the content item: it can be used to
+            // store arbitrary data. Because it's always loaded accessing its content is very fast; by using these helpers the record
+            // will be only accessed when really needed (like when filtering on its properties when querying), otherwise data is loaded
+            // from the infoset. For more information see: http://orcharddojo.net/orchard-resources/Library/Wiki/InfosetPart
+            get { return Retrieve(x => x.Sex); }
+            set { Store(x => x.Sex, value); }
         }
 
         [Required]
         public int MaxCount
         {
-            get { return Record.MaxCount; }
-            set { Record.MaxCount = value; }
+            get { return Retrieve(x => x.MaxCount); }
+            set { Store(x => x.MaxCount, value); }
         }
 
         /*
