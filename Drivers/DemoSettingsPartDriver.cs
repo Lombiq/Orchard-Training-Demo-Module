@@ -1,5 +1,9 @@
 ﻿/*
- * Really nothing special in this driver.
+ * Really nothing special in this driver. BUT! If we'd like to have this editor under a different editor group than the default one (i.e.
+ * we'd like to display the editor not under Settings/General but Settings/Something else) then it changes which edito builds the shape!
+ * So if you use editor groups (see editor groups samples here: http://orcharddojo.net/orchard-resources/Library/Examples/) make sure to 
+ * employ the technique of building the shape from the second Editor() method, and checking the updater for null inside (as shown in the
+ * samples).
  * 
  * NEXT STATION: after you've enjoyed looking head over to EditorTemplates/Parts.DemoSettings
  */
