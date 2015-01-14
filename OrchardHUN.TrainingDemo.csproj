@@ -136,6 +136,7 @@
     <Compile Include="Services\BackgroundTask.cs" />
     <Compile Include="Services\DateTimeCachingService.cs" />
     <Compile Include="Services\DynamicEventHandler.cs" />
+    <Compile Include="Services\OwinMiddleware.cs" />
     <Compile Include="Services\PersonManager.cs" />
     <Compile Include="Services\ScheduledTask.cs" />
   </ItemGroup>
