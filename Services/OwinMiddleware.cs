@@ -74,7 +74,7 @@
 //                            // for example then we could just leave this out.
 //                            await next.Invoke();
 //                            // Think twice when wrapping this call into a try-catch: here you'd catch all exceptions that would normally
-//                            // result in a 404 or an 503, so it's maybe better to alway let them bubble up. But keep in mind that any
+//                            // result in a 404 or an 503, so it's maybe better to always let them bubble up. But keep in mind that any
 //                            // uncaught exception here in your code will result in a YSOD.
 
 
