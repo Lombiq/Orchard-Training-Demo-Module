@@ -1,4 +1,4 @@
-Copyright © 2014, Lombiq Technologies Ltd., lombiq.com.
+Copyright © 2015, Lombiq Technologies Ltd., lombiq.com.
 
 All rights reserved.
 
