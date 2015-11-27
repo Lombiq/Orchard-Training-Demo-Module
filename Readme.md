@@ -1,4 +1,4 @@
-# Combinator Orchard module Readme
+# Orchard Training Demo module Readme
 
 
 
