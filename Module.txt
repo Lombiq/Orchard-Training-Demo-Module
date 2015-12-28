@@ -1,11 +1,11 @@
-﻿NEXT STATION: If you're done reading throught this file go to Controllers/YourFirstOrchardController
+NEXT STATION: If you're done reading throught this file go to Controllers/YourFirstOrchardController
 
 Name: Training Demo
 AntiForgery: enabled
 Author: The Orchard Hungary Team / Lombiq
 Website: https://github.com/Lombiq/Orchard-Training-Demo-Module
 Version: 1.0
-OrchardVersion: 1.8
+OrchardVersion: 1.9.0
 Description: Demo Orchard module for training purposes. Based on Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U).
 Features:
     OrchardHUN.TrainingDemo:
