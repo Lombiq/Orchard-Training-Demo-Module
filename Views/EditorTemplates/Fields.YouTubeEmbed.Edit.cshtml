@@ -6,7 +6,7 @@
     </div>
     <div class="editor-field">
         @Html.TextBoxFor(m => m.VideoId, new { @class = "text" })
-        <span class="hint">@T("ID of a YouTube video, usually 11 characters.")</span>
+        @Html.Hint(T("ID of a YouTube video, usually 11 characters."))
         @*Notice the class hint. It's a built-in CSS class to format hint texts.*@
     </div>
 </fieldset>
