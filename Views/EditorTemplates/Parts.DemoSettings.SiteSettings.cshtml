@@ -7,7 +7,7 @@
             @Html.LabelFor(m => m.Message, T("Message"))
             @Html.TextBoxFor(m => m.Message, new { @class = "text large" })
             @Html.ValidationMessageFor(m => m.Message)
-            <span class="hint">@T("This message will be displayed as a demonstration.")</span>
+            @Html.Hint(T("This message will be displayed as a demonstration."))
         </li>
     </ol>
 </fieldset>
