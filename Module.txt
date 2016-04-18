@@ -5,14 +5,14 @@ AntiForgery: enabled
 Author: The Orchard Hungary Team / Lombiq
 Website: https://github.com/Lombiq/Orchard-Training-Demo-Module
 Version: 1.0
-OrchardVersion: 1.9.3
+OrchardVersion: 1.10
 Description: Demo Orchard module for training purposes. Based on Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U).
 Features:
     OrchardHUN.TrainingDemo:
 		Name: Training Demo
 		Category: Demo
         Description: This is the base feature of the module: it has the same name as the module itself. We'll use this first.
-		Dependencies: Orchard.jQuery, Orchard.Caching
+		Dependencies: Orchard.Resources, Orchard.Caching
 	OrchardHUN.TrainingDemo.Contents:
 		Name: Training Demo Contents
 		Category: Demo
