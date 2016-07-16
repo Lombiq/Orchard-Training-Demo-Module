@@ -11,8 +11,8 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using Orchard.ContentManagement;
+using Orchard.ContentManagement.Utilities;
 using Orchard.ContentManagement.Records;
-using Orchard.Core.Common.Utilities;
 using Orchard.Environment.Extensions;
 
 namespace OrchardHUN.TrainingDemo.Models
