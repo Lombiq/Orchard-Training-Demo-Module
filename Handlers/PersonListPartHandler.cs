@@ -1,5 +1,6 @@
 ﻿/*
- * We'll write a handler for our part so make sure you understand what handlers are: http://docs.orchardproject.net/Documentation/Understanding-content-handlers
+ * We'll write a handler for our part so make sure you understand what handlers are: 
+ * http://docs.orchardproject.net/Documentation/Understanding-content-handlers
  */
 
 using System.Web.Routing;
@@ -18,15 +19,17 @@ namespace OrchardHUN.TrainingDemo.Handlers
         /*
          * Injecting necessary dependencies.
          * 
-         * Notice Work<T>. This construct is used to lazily inject dependencies. This means that a dependency injected with Work<T> (here 
-         * IPersonManager) won't get resolved until it is really needed (i.e. when accessing the Work object's Value property). Also, Work<T>
-         * uses a different dependency lifetime scope than the scope of the request (hence the name: the scope's name is "work"). This makes
-         * it possible to resolve dependencies not just from the scope the class requesting them (e.g. an ISingletonDependency belongs to
-         * the "shell" scope but you can use IDependency types from it through Work<T>).
-         * However most possibly you will only need Work<T> for lazy resolving (what can have a positive performance impact).
+         * Notice Work<T>. This construct is used to lazily inject dependencies. This means that a dependency injected 
+         * with Work<T> (here IPersonManager) won't get resolved until it is really needed (i.e. when accessing the 
+         * Work object's Value property). Also, Work<T> uses a different dependency lifetime scope than the scope of 
+         * the request (hence the name: the scope's name is "work"). This makes it possible to resolve dependencies not 
+         * just from the scope the class requesting them (e.g. an ISingletonDependency belongs to the "shell" scope but 
+         * you can use IDependency types from it through Work<T>).
+         * However most possibly you will only need Work<T> for lazy resolving (what can have a positive performance 
+         * impact).
          * 
-         * If just lazy injection is needed (i.e. only to resolve a dependency when really needed) you could also inject Lazy<T> and user it
-         * in the same way as Work<T>.
+         * If just lazy injection is needed (i.e. only to resolve a dependency when really needed) you could also inject 
+         * Lazy<T> and user it in the same way as Work<T>.
          */
         public PersonListPartHandler(
             IRepository<PersonListPartRecord> repository,
@@ -38,8 +41,9 @@ namespace OrchardHUN.TrainingDemo.Handlers
             // We hook into the OnActivated event of PersonListPart. Check out the other On* events.
             OnActivated<PersonListPart>((context, part) =>
                 {
-                    // This means: when the LazyField's Value (i.e. the Persons property on our part) is first accessed it will load the 
-                    // persons by running this lambda here. I.e. if the list of persons is not needed we won't work on loading them.
+                    // This means: when the LazyField's Value (i.e. the Persons property on our part) is first accessed
+                    // it will load the persons by running this lambda here. I.e. if the list of persons is not needed we
+                    // won't work on loading them.
                     part.PersonsField.Loader(() => personManagerWork.Value.GetPersons(part.Sex, part.MaxCount));
                 });
         }

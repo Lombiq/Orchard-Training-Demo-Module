@@ -21,9 +21,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
         // Simple actions here, just for sake of demonstration
 
-        // Here and a few times elsewhere in this module we have GET action that modify the state of the application (e.g. writing to the DB or to 
-        // the file system). Of course this is purely for the sake of simple demonstration (so you can try them out quickly), in real life GETs 
-        // should never alter the state of the application.
+        // Here and a few times elsewhere in this module we have GET action that modify the state of the application
+        // (e.g. writing to the DB or to the file system). Of course this is purely for the sake of simple demonstration
+        // (so you can try them out quickly), in real life GETs should never alter the state of the application.
         public string CreateGoodPersons()
         {
             _personManager.SavePerson("Jacob Gips", Sex.Male, new DateTime(1977, 3, 14), "I was born on a damn farm in South-North Neverland.");
@@ -42,13 +42,12 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // Something obviously has gone wrong here...
                 _personManager.SavePerson(null, Sex.Male, new DateTime(2077, 1, 1), "asdf");
             }
-            // Catching the base Exception looks ugly, but strictly speaking you can't assume more: you only know the service's interface!
-            // More info: http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
-            catch (Exception ex)
+            // Catching the base Exception looks ugly, but strictly speaking you can't assume more: you only know the
+            // service's interface! More info:
+            // http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
+            // It will bubble through if it's e.g. an OutOfMemoryException.
+            catch (Exception ex) when (!ex.IsFatal())
             {
-                // Rethrow if e.g. OutOfMemoryException
-                if (ex.IsFatal()) throw;
-
                 return "This is embarrassing, but... Somebody messed this method up.";
             }
 
@@ -58,7 +57,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
         public string ListPersons()
         {
             var persons = _personManager.GetPersons();
-            return String.Join("<br><br>", persons.Select(person => person.Name + ", " + person.Sex + ", " + person.BirthDateUtc +  ", " + person.Biography));
+            return string.Join("<br><br>", persons.Select(person => person.Name + ", " + person.Sex + ", " + person.BirthDateUtc +  ", " + person.Biography));
         }
 
         // NEXT STATION: let's create a content part and a content type! Go to Models/PersonListPart

@@ -1,6 +1,6 @@
 ﻿/*
-    The way Orchard names the classes of the menu items is that it starts with "navicon",
-    and then comes each word in the caption of the menu item separated with a dash.
+    The way Orchard names the classes of the menu items is that it starts with "navicon", and then comes each word in 
+    the caption of the menu item separated with a dash.
     For example, a menu item named "Example" will be applied with a class named:
         navicon-example
     In our case, the caption is "Person List dashboard", so the class will be:

@@ -20,8 +20,8 @@ namespace OrchardHUN.TrainingDemo.Drivers
         }
 
 
-        // The other difference is that the methods of a field's driver receive an additional parameter, which is the field itself.
-        // We still need the part that the field is attached to.
+        // The other difference is that the methods of a field's driver receive an additional parameter, which is the
+        // field itself. We still need the part that the field is attached to.
         protected override DriverResult Display(ContentPart part, YouTubeEmbedField field, string displayType, dynamic shapeHelper)
         {
             return ContentShape("Fields_YouTubeEmbed",
@@ -57,7 +57,8 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         protected override void Describe(DescribeMembersContext context)
         {
-            // A field can have multiple values stored. If there are multiple values you should add them in such a form here.
+            // A field can have multiple values stored. If there are multiple values you should add them in such a form
+            // here.
             context.Member("VideoId", typeof(string), T("Video ID"), T("The ID of the video."));
         }
 
@@ -68,14 +69,16 @@ namespace OrchardHUN.TrainingDemo.Drivers
             return part.PartDefinition.Name + "." + field.Name;
         }
 
-        // Differentiator is a must, when you're attaching multiple instances of the same field to a part (or the ghost-part of a type);
-        // this will make those fields distinguishable by giving them a unique name when creating them on the Admin UI.
+        // Differentiator is a must, when you're attaching multiple instances of the same field to a part (or the
+        // ghost-part of a type); this will make those fields distinguishable by giving them a unique name when creating
+        // them on the Admin UI.
         private static string GetDifferentiator(ContentField field, ContentPart part)
         {
             return field.Name;
         }
 
-        // NEXT STATION: We've already been at Placement.info (check it out to see the placement of the editor and display shapes),
-        // so let's take a look at the editor shape first: GOTO Views/EditorTemplates/Fields.YouTubeEmbed.Edit.cshtml!
+        // NEXT STATION: We've already been at Placement.info (check it out to see the placement of the editor and
+        // display shapes), so let's take a look at the editor shape first: GOTO
+        // Views/EditorTemplates/Fields.YouTubeEmbed.Edit.cshtml!
     }
 }

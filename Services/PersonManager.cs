@@ -1,7 +1,7 @@
 ﻿/*
  * We'll write our first service, what is a dependency BTW.
- * We name it "PersonManager" because it sounds enterprisy and management will buy the idea of moving to Orchard. And also because it helps
- * discover business-critical sinergies ASAP.
+ * We name it "PersonManager" because it sounds enterprisy and management will buy the idea of moving to Orchard. And 
+ * also because it helps discover business-critical sinergies ASAP.
  */
 
 using System;
@@ -14,11 +14,11 @@ using OrchardHUN.TrainingDemo.Models;
 namespace OrchardHUN.TrainingDemo.Services
 {
     /*
-     * We've seen that dependencies are requested through their interfaces (this way implementations can be changed). So we create our own
-     * and derive it from the IDependency marker interface. This means it will get instantiated on each HTTP-request where it's requested
-     * in a ctor. For 99% of cases you'll need IDependency.
-     * Note: we've declared interface and implementation in the same code file here for the sake of simplicity, but normally you'd place them
-     * into separate files.
+     * We've seen that dependencies are requested through their interfaces (this way implementations can be changed). 
+     * So we create our own and derive it from the IDependency marker interface. This means it will get instantiated on 
+     * each HTTP-request where it's requested in a ctor. For 99% of cases you'll need IDependency.
+     * Note: we've declared interface and implementation in the same code file here for the sake of simplicity, but 
+     * normally you'd place them into separate files.
      */
     public interface IPersonManager : IDependency
     {
@@ -26,8 +26,9 @@ namespace OrchardHUN.TrainingDemo.Services
         /// Retrieves all persons
         /// </summary>
         /// <remarks>
-        /// If there's one thing not to learn from the Orchard code base it's the lack of inline documentation. Write comments, comments rock!
-        /// BTW normally we wouldn't directly return records from a service. For the sake of our brain cells we no use this simplification.
+        /// If there's one thing not to learn from the Orchard code base it's the lack of inline documentation. Write
+        /// comments, comments rock! BTW normally we wouldn't directly return records from a service. For the sake of our
+        /// brain cells we no use this simplification.
         /// </remarks>
         IEnumerable<PersonRecord> GetPersons();
 
@@ -54,9 +55,9 @@ namespace OrchardHUN.TrainingDemo.Services
 
         /* IRepository is also a dependency
          * 
-         * Take a look at IPersonFilter and its implementations at the bottom. As you can see we have multiple implementations for the same
-         * interface. If we would inject just an IPersonFilter we'd get an instance of the last implementation registered; with injecting
-         * an IEnumerable<IPersonFilter> we get all the implementations.
+         * Take a look at IPersonFilter and its implementations at the bottom. As you can see we have multiple 
+         * implementations for the same interface. If we would inject just an IPersonFilter we'd get an instance of the 
+         * last implementation registered; with injecting an IEnumerable<IPersonFilter> we get all the implementations.
          * Later we'll also see another technique Orchard makes possible for such event handlers.
          */
         public PersonManager(IRepository<PersonRecord> personRepository, IEnumerable<IPersonFilter> filters)
@@ -68,9 +69,8 @@ namespace OrchardHUN.TrainingDemo.Services
 
         public IEnumerable<PersonRecord> GetPersons()
         {
-            // Normally service methods are a bit more complex...
-            // Feel freee to discover what IRepository offers. In the end you can use the Table property that's IQueryable so you have full
-            // LINQ support.
+            // Normally service methods are a bit more complex... Feel freee to discover what IRepository offers. In the
+            // end you can use the Table property that's IQueryable so you have full LINQ support.
             return _personRepository.Table;
         }
 
@@ -78,8 +78,8 @@ namespace OrchardHUN.TrainingDemo.Services
         public IEnumerable<PersonRecord> GetPersons(Sex sex, int maxCount)
         {
             // _personRepository.Fetch(record => record.Sex == sex).Take(maxCount) would produce the same result. However
-            // since Fetch() returns an IEnumerable, not an IQueryable, Take() would run on objects, not translated to SQL.
-            // Hence the below version can perform better.
+            // since Fetch() returns an IEnumerable, not an IQueryable, Take() would run on objects, not translated to
+            // SQL. Hence the below version can perform better.
             return _personRepository.Table.Where(record => record.Sex == sex).Take(maxCount);
         }
 
@@ -110,10 +110,12 @@ namespace OrchardHUN.TrainingDemo.Services
         }
     }
 
+
     public interface IPersonFilter : IDependency
     {
         string FilterBiography(string biography);
     }
+
 
     public class BadwordFilter : IPersonFilter
     {
@@ -122,6 +124,7 @@ namespace OrchardHUN.TrainingDemo.Services
             return biography.Replace("damn", "cute");
         }
     }
+
 
     public class ShortBiographyFilter : IPersonFilter
     {

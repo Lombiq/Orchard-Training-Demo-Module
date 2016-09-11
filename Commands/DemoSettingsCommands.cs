@@ -51,6 +51,7 @@ namespace OrchardHUN.TrainingDemo.Commands
 
         // Go ahead, try out the commands from Orchard.exe! Watch as the saved message changes.
 
-        // NEXT STATION: let's go to Controllers/ContentsAdminController! We'll deal with content items from code, now big time.
+        // NEXT STATION: let's go to Controllers/ContentsAdminController! We'll deal with content items from code, now 
+        // big time.
     }
 }

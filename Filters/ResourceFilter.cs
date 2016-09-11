@@ -4,18 +4,17 @@ using Orchard.UI.Resources;
 
 /* What you're now looking at is an extension point for the available filters in this Orchard application.
  * Filters in Orchard work based on MVC's filters, so please read the short tutorial available at
- * http://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/understanding-action-filters-cs
- * if you're not yet familiar with the basic concept.
+ * http://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/understanding-action-filters-cs if you're not 
+ * yet familiar with the basic concept.
  * 
  * "Fast forwarding Memory to a more recent one."
  * 
- * As you now know, filters in MVC are implementations of one of the four basic filter interfaces
- * (IActionFilter, IAuthorizationFilter, IResultFilter, IExceptionFilter) and can be applied to actions
- * using attributes. You can stick with that, but Orchard provides a little addition to that. If your filter
- * class inherits from FilterProvider, your filter will be applied to every request (so you don't have to
- * add attributes to any action for the filter to be applied), but you have to perform a check in
- * the filter's method(s) to determine whether it's necessary to run the code in the given method,
- * e.g. by checking a condition related to the context.
+ * As you now know, filters in MVC are implementations of one of the four basic filter interfaces (IActionFilter, 
+ * IAuthorizationFilter, IResultFilter, IExceptionFilter) and can be applied to actions using attributes. You can stick 
+ * with that, but Orchard provides a little addition to that. If your filter class inherits from FilterProvider, your 
+ * filter will be applied to every request (so you don't have to add attributes to any action for the filter to be 
+ * applied), but you have to perform a check in the filter's method(s) to determine whether it's necessary to run the 
+ * code in the given method, e.g. by checking a condition related to the context.
  */
 
 namespace OrchardHUN.TrainingDemo.Filters
@@ -54,4 +53,5 @@ namespace OrchardHUN.TrainingDemo.Filters
     }
 }
 
-// NEXT STATION: To see a simple example for caching data in an Orchard-y way, please go to Services/DateTimeCachingService.cs!
+// NEXT STATION: To see a simple example for caching data in an Orchard-y way, please go to
+// Services/DateTimeCachingService.cs!

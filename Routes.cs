@@ -1,7 +1,8 @@
 ﻿/*
- * This is a route *provider*. Such providers are very common in Orchard: to hook into some services, to extend some functionality you have to
- * implement an interface. Because of the extensible nature of Orchard and because one should be able to switch modules on and off route 
- * registration happens a bit different than in standard ASP.NET MVC applications: we use IRouteProvider.
+ * This is a route *provider*. Such providers are very common in Orchard: to hook into some services, to extend some 
+ * functionality you have to implement an interface. Because of the extensible nature of Orchard and because one should 
+ * be able to switch modules on and off route registration happens a bit different than in standard ASP.NET MVC 
+ * applications: we use IRouteProvider.
  */
 
 using System.Collections.Generic;
@@ -34,7 +35,8 @@ namespace OrchardHUN.TrainingDemo
                         // We'll be able to access the action from under the short ~/Admin/PersonListDashboard route.
                         // It's good practice to re-route your admin controllers to under Admin/.
                         "Admin/PersonListDashboard",
-                        new RouteValueDictionary // Remember? We used these values to set the editor route for Person List items.
+                        // Remember? We used these values to set the editor route for Person List items.
+                        new RouteValueDictionary
                         {
                             {"area", "OrchardHUN.TrainingDemo"},
                             {"controller", "ContentsAdmin"},

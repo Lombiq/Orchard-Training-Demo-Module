@@ -1,10 +1,11 @@
 ﻿/*
- * Really nothing special in this driver. BUT! If we'd like to have this editor under a different editor group than the default one (i.e.
- * we'd like to display the editor not under Settings/General but Settings/Something else) then it changes which edito builds the shape!
- * So if you use editor groups (see editor groups samples here: http://orcharddojo.net/orchard-resources/Library/Examples/) make sure to 
- * employ the technique of building the shape from the second Editor() method, and checking the updater for null inside (as shown in the
- * samples).
- * 
+ * Really nothing special in this driver. BUT! If we'd like to have this editor under a different editor group than the 
+ * default one (i.e. we'd like to display the editor not under Settings/General but Settings/Something else) then it 
+ * changes which edito builds the shape!
+ * So if you use editor groups (see editor groups samples here: http://orcharddojo.net/orchard-resources/Library/Examples/) 
+ * make sure to employ the technique of building the shape from the second Editor() method, and checking the updater for 
+ * null inside (as shown in the samples).
+ *
  * NEXT STATION: after you've enjoyed looking head over to EditorTemplates/Parts.DemoSettings
  */
 
@@ -31,8 +32,8 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         protected override DriverResult Editor(DemoSettingsPart part, dynamic shapeHelper)
         {
-            // Site settings are sometimes conventionally suffixed with SiteSettings.
-            // Not surprisingly there's a corresponding entry in Placement.info too.
+            // Site settings are sometimes conventionally suffixed with SiteSettings. Not surprisingly there's a
+            // corresponding entry in Placement.info too.
             return ContentShape("Parts_DemoSettings_SiteSettings",
                 () => shapeHelper.EditorTemplate(
                     TemplateName: "Parts.DemoSettings.SiteSettings",
@@ -46,8 +47,8 @@ namespace OrchardHUN.TrainingDemo.Drivers
             return Editor(part, shapeHelper);
         }
 
-        // Note that we don't care about import/export. This is because site settings (more precisely: public readable/writable properties
-        // of site settings parts that are of type string, bool or int; but see: https://orchard.codeplex.com/workitem/21145) are 
-        // automatically exported/imported.
+        // Note that we don't care about import/export. This is because site settings (more precisely: public
+        // readable/writable properties of site settings parts that are of type string, bool or int; but see:
+        // https://orchard.codeplex.com/workitem/21145) are automatically exported/imported.
     }
 }

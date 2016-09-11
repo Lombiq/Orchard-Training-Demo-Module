@@ -9,12 +9,10 @@ namespace OrchardHUN.TrainingDemo.Controllers
     {
         private readonly IDateTimeCachingService _dateTimeCachingService;
 
-
         public CacheController(IDateTimeCachingService dateTimeCachingService)
         {
             _dateTimeCachingService = dateTimeCachingService;
         }
-
 
         // Go to ~/OrchardHUN.TrainingDemo/Cache/GetDateTime to see the result.
         public DateTime GetDateTime(string service = "CacheService")
@@ -23,8 +21,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             return _dateTimeCachingService.GetCachedDateTime(service);
         }
 
-        // We're exposing the trigger for the signal in a normal controller action,
-        // reachable at ~/OrchardHUN.TrainingDemo/Cache/InvalidateDateTime.
+        // We're exposing the trigger for the signal in a normal controller action, reachable at 
+        // ~/OrchardHUN.TrainingDemo/Cache/InvalidateDateTime.
         public ActionResult InvalidateDateTime()
         {
             _dateTimeCachingService.InvalidateCachedDateTime();

@@ -1,7 +1,7 @@
 ﻿/*
  * Make sure you understand what drivers are: http://docs.orchardproject.net/Documentation/Content-types
- * Basically all the drivers of a content type's parts are called when building the display or editor shape of a content item (and also when
- * importing/exporting).
+ * Basically all the drivers of a content type's parts are called when building the display or editor shape of a content 
+ * item (and also when importing/exporting).
  * Note that the same part can have multiple drivers: e.g. you could write a driver for even TitlePart.
  */
 
@@ -27,25 +27,28 @@ namespace OrchardHUN.TrainingDemo.Drivers
         // This method gets called when building the display shape of the content item the part is attached to.
         protected override DriverResult Display(PersonListPart part, string displayType, dynamic shapeHelper)
         {
-            // For the sake of demonstration we use Combined() here. It makes it possible to return multiple shapes from a driver method.
-            // Use this if you'd like to return different shapes that can be used e.g. with different display types.
+            // For the sake of demonstration we use Combined() here. It makes it possible to return multiple shapes from
+            // a driver method. Use this if you'd like to return different shapes that can be used e.g. with different
+            // display types.
             return Combined(
                 // We'll use the same shape type name specified here later in the Placement.info file.
                 // The namings are conventional.
                 ContentShape("Parts_PersonList",
-                // Here a display shape is built (see: http://docs.orchardproject.net/Documentation/Accessing-and-rendering-shapes).
-                // The part is automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
+                // Here a display shape is built (see:
+                // http://docs.orchardproject.net/Documentation/Accessing-and-rendering-shapes). The part is
+                // automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
                     () =>
                     {
-                        // Note that the shape is produced from this factory delegate (you can see its shorthand form at 
-                        // Parts_PersonList_Summary below). The reason behind using a factory is that if the shape is not displayed
-                        // (because e.g. it's hidden from Placement) then its factory won't be run either. So use the factory to produce
-                        // value that are costly to compute and are only needed if the shape is displayed.
+                        // Note that the shape is produced from this factory delegate (you can see its shorthand form at
+                        // Parts_PersonList_Summary below). The reason behind using a factory is that if the shape is not
+                        // displayed (because e.g. it's hidden from Placement) then its factory won't be run either. So
+                        // use the factory to produce value that are costly to compute and are only needed if the shape
+                        // is displayed.
                         var upperCaseDisplayType = displayType.ToUpperInvariant(); // This is a "costly" computation here :-).
                         return shapeHelper.Parts_PersonList(DisplayType: displayType, UpperDisplayType: upperCaseDisplayType);
                     }),
-                // A shape for the summary: this will be only used when e.g. listing the item. See Placement.info how it's used. 
-                // Naming is conventional.
+                // A shape for the summary: this will be only used when e.g. listing the item. See Placement.info how
+                // it's used. Naming is conventional.
                 ContentShape("Parts_PersonList_Summary",
                     () => shapeHelper.Parts_PersonList_Summary())
                 );
@@ -65,7 +68,8 @@ namespace OrchardHUN.TrainingDemo.Drivers
         // This editor method will be called when the editor form is posted.
         protected override DriverResult Editor(PersonListPart part, IUpdateModel updater, dynamic shapeHelper)
         {
-            // We could check if the model state is valid through TryUpdateModel's return value, e.g. is Sex properly set?
+            // We could check if the model state is valid through TryUpdateModel's return value, e.g. is Sex properly
+            // set?
             updater.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
         }
@@ -88,5 +92,6 @@ namespace OrchardHUN.TrainingDemo.Drivers
         }
     }
 
-    // NEXT STATION: We should now define where the shapes returned from here are displayed. So let's look at Placement.info!
+    // NEXT STATION: We should now define where the shapes returned from here are displayed. So let's look at
+    // Placement.info!
 }

@@ -34,7 +34,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             return _siteService.GetSiteSettings().As<DemoSettingsPart>().Message;
 
             // Go ahead, try to modify the settings and see if it really works :-).
-            // NEXT STATION: how about modifying these settings from the command line? Jump over to Commands/DemoSettingsCommands!
+            // NEXT STATION: how about modifying these settings from the command line? Jump over to 
+            // Commands /DemoSettingsCommands!
         }
     }
 }

@@ -16,23 +16,27 @@ namespace OrchardHUN.TrainingDemo.Controllers
     public class FileManagementController : Controller
     {
         /*
-         * There are several services in Ochard that provide an abstraction to file system access. You should generally use these instead of
-         * directly accessing the file system through the .NET libraries as because of the variety of hosting services direct file access is
-         * not always possible (e.g. media files can be outsourced to an external storage provider like an Amazon cloud service or an Azure 
-         * blob: you can't access files stored there directly); these services however give you a consistent API, regardless of the implementation.
+         * There are several services in Ochard that provide an abstraction to file system access. You should generally 
+         * use these instead of directly accessing the file system through the .NET libraries as because of the variety
+         * of hosting services direct file access is not always possible (e.g. media files can be outsourced to an 
+         * external storage provider like an Amazon cloud service or an Azure Blob Storage: you can't access files stored 
+         * there directly); these services however give you a consistent API, regardless of the implementation.
          * 
          * Orchard file system access services:
-         * *    IStorageProvider: we'll use this here as this is the most important probably. With this service you can access files stored in the
-         *      Media folder of the tenant (each tenant has its own folder in the Media directory). The Media directory is accessible to anyone!
+         * *    IStorageProvider: we'll use this here as this is the most important probably. With this service you can 
+         *      access files stored in the Media folder of the tenant (each tenant has its own folder in the Media 
+         *      directory). The Media directory is accessible to anyone!
          *      Also keep in mind that the Media folder's content is accessible from the dashboard through the Media module
-         *      (http://docs.orchardproject.net/Documentation/Adding-and-managing-media-content) so your users are able to directly access them.
+         *      (http://docs.orchardproject.net/Documentation/Adding-and-managing-media-content) so your users are able 
+         *      to directly access them.
          *      However a hidden, "technical" media folder is under consideration.
-         * *    IMediaService: a higher level service to access the Media folder as well, but it also contains additional functionality to 
-         *      lower-level file access e.g. for handling uploaded files. It also honours the settings configured under Media settings on the 
-         *      dashboard.
-         * *    IVirtualPathProvider: this is the service for accessing files outside the Media folder, like any file in modules' directories.
-         *      Use this only if you want to have the lowest level file access that most likely corresponds to the local file system (in contrary
-         *      to the two other services that, as mentioned, can point to external file systems).
+         * *    IMediaService: a higher level service to access the Media folder as well, but it also contains additional 
+         *      functionality to lower-level file access e.g. for handling uploaded files. It also honours the settings 
+         *      configured under Media settings on the dashboard.
+         * *    IVirtualPathProvider: this is the service for accessing files outside the Media folder, like any file in 
+         *      modules' directories.
+         *      Use this only if you want to have the lowest level file access that most likely corresponds to the local 
+         *      file system (in contrary to the two other services that, as mentioned, can point to external file systems).
          */
         private readonly IStorageProvider _storageProvider;
 
@@ -57,8 +61,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
             try
             {
-                // The paths used as arguments here are relative to the tenant's media folder: this translates to 
-                // ~/Media/TenantName/DemoFolder/MyFile.txt where TenantName is the tenant's technical name ("Default" if for the first tenant).
+                // The paths used as arguments here are relative to the tenant's media folder: this translates to
+                // ~/Media/TenantName/DemoFolder/MyFile.txt where TenantName is the tenant's technical name ("Default" 
+                // if for the first tenant).
                 IStorageFile file;
                 if (!_storageProvider.FileExists(DemoFile1Path))
                 {
@@ -68,8 +73,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 {
                     file = _storageProvider.GetFile(DemoFile1Path);
                 }
-                // Notice that the DemoFolder folder is implicitly created if it doesn't exist but we could explicitly create folder with
-                // _storageProvider.CreateFolder("FolderPath");
+                // Notice that the DemoFolder folder is implicitly created if it doesn't exist but we could explicitly
+                // create folder with _storageProvider.CreateFolder("FolderPath");
 
                 // Simple interface for writing...
                 using (var stream = file.OpenWrite())
@@ -84,8 +89,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 {
                     streamWriter.Write("Hello there!");
                     _storageProvider.SaveStream(DemoFile2Path, stream);
-                    // SaveStream has a counterpart, TrySaveStream that returns a bool indicating whether the operation was successful or not, it
-                    // doesn't throw an exception if the file exists. However internally it also catches exceptions...
+                    // SaveStream has a counterpart, TrySaveStream that returns a bool indicating whether the operation
+                    // was successful or not, it doesn't throw an exception if the file exists. However internally it
+                    // also catches exceptions...
                 }
 
                 // ...and equally for reading.
@@ -102,16 +108,15 @@ namespace OrchardHUN.TrainingDemo.Controllers
                 // Renaming is nothing special.
                 _storageProvider.RenameFile(DemoFile2Path, DemoFolderPath + "HiddenSecretDontOpen.txt");
 
-                // Fetching the public URL of the file. We can use this to access the file from the outside world, e.g. from a link.
+                // Fetching the public URL of the file. We can use this to access the file from the outside world, e.g.
+                // from a link.
                 return _storageProvider.GetPublicUrl(DemoFile1Path);
             }
-            catch (Exception ex)
+            // Sometimes we can't know what type of exception a service can throw so the best we can do is catch
+            // Exception and then check whether it's fatal. For clarification see:
+            // http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
+            catch (Exception ex) when (!ex.IsFatal())
             {
-                // Sometimes we can't know what type of exception a service can throw so the best we can do is catch
-                // Exception and then check whether it's fatal.
-                // For clarification see: http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
-                if (ex.IsFatal()) throw;
-
                 return "Something went terribly wrong: " + ex.Message;
             }
         }

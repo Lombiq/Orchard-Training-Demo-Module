@@ -1,10 +1,11 @@
-﻿@*It's conventional that the Parts_PersonList shape name maps to the Parts.PersonList template name. However it also maps to Parts/PersonList:
-this means if you have a lot of part templates you can place them into subfolders.*@
+﻿@*It's conventional that the Parts_PersonList shape name maps to the Parts.PersonList template name. However it also maps 
+to Parts/PersonList: this means if you have a lot of part templates you can place them into subfolders.*@
 
-@*Display templates have a dynamic Model object. You can see in the debugger if you set a break point into the next block what its contents are.*@
+@*Display templates have a dynamic Model object. You can see in the debugger if you set a break point into the next block 
+what its contents are.*@
 @{
-    // Model.ContentPart is automatically filled for content part shapes. There's also Model.ContentItem containing the whole item but we don't
-    // need it now.
+    // Model.ContentPart is automatically filled for content part shapes. There's also Model.ContentItem containing the 
+    // whole item but we don't need it now.
     var part = (OrchardHUN.TrainingDemo.Models.PersonListPart)Model.ContentPart;
 }
 
@@ -12,8 +13,8 @@ this means if you have a lot of part templates you can place them into subfolder
 @T("You're currently looking at me in \"{0}\" display type", Model.DisplayType)
 @* We could use UpperDisplayType in the same way: Model.UpperDisplayType *@
 
-@*Accessing the LazyField's value for the first time. Its loader will now be evaluated. Later accesses will get the cached value. 
-Also this is the way to have pluralised T-strings.*@
+@*Accessing the LazyField's value for the first time. Its loader will now be evaluated. Later accesses will get the cached 
+value. Also this is the way to have pluralised T-strings.*@
 @T.Plural("There is one person.", "There are {0} persons.", part.Persons.Count(), part.Persons.Count())
 
 <ul>
@@ -24,8 +25,8 @@ Also this is the way to have pluralised T-strings.*@
 </ul>
 
 @*
-Our content part is now complete so go ahead and create a content item and a widget with it! Don't forget to enable the Training Demo Contents
-feature first :-).
+Our content part is now complete so go ahead and create a content item and a widget with it! Don't forget to enable the 
+Training Demo Contents feature first :-).
 *@
 
 @*NEXT STATION: Now that we've seen how to develop a content part, we'll also look at a similiar process:

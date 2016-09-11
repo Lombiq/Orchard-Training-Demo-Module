@@ -12,10 +12,21 @@ namespace OrchardHUN.TrainingDemo
     public class Permissions : IPermissionProvider
     {
         // Everything's pretty self-explanatory
-        public static readonly Permission EditPersonList = new Permission { Description = "Edit Person List items", Name = "EditPersonList" };
-        // ImpliedBy means that everybody who has the EditPersonList permission also automatically possesses the AccessPersonListDashboard permission
-        // as well. Be aware that because of this AccessPersonListDashboard should be written after EditPersonList.
-        public static readonly Permission AccessPersonListDashboard = new Permission { Description = "Access the Person List dashboard", Name = "AccessPersonListDashboard", ImpliedBy = new[] { EditPersonList } };
+        public static readonly Permission EditPersonList = new Permission
+        {
+            Description = "Edit Person List items",
+            Name = "EditPersonList"
+        };
+
+        // ImpliedBy means that everybody who has the EditPersonList permission also automatically possesses the
+        // AccessPersonListDashboard permission as well. Be aware that because of this AccessPersonListDashboard should
+        // be written after EditPersonList.
+        public static readonly Permission AccessPersonListDashboard = new Permission
+        {
+            Description = "Access the Person List dashboard",
+            Name = "AccessPersonListDashboard",
+            ImpliedBy = new[] { EditPersonList }
+        };
 
         public virtual Feature Feature { get; set; }
 

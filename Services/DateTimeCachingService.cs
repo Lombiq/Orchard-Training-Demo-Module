@@ -24,17 +24,17 @@ namespace OrchardHUN.TrainingDemo.Services
     public class DateTimeCachingService : IDateTimeCachingService
     {
         // Orchard has two services for caching application data and they serve differently:
-        // *    ICacheService can have implementations for distributed caching (like memcached or Azure Cache) so items stored
-        //      in the cache are available for every instance in a multi-instance (i.e. multi-node, multi-server, web farm)
-        //      setup. ICacheService resides in the Orchard.Caching module so your module should depend on it (like this one).
-        //      This cache can react on memory pressure (i.e. it can throw away items if free memory is low).
-        // *    ICacheManager is an instance-specific cache: everything you store there will be available for that Orchard
-        //      instance only. ICacheManager is one of Orchard's core services, you can just use it.
-        //      This cache won't deal with memory pressure, i.e. items will be kept in the cache even if free memory is low.
-        // Both services are tenant-specific, i.e. if you cache something you'll only be able to access it from the
-        // same tenant (see http://docs.orchardproject.net/Documentation/Setting-up-a-multi-tenant-orchard-site for
-        // multi-tenancy).
-        // We'll compare the usage of both services. Most of the time you'll need ICacheService.
+        // *    ICacheService can have implementations for distributed caching (like memcached or Azure Cache) so items
+        //      stored in the cache are available for every instance in a multi-instance (i.e. multi-node, multi-server,
+        //      web farm) setup. ICacheService resides in the Orchard.Caching module so your module should depend on it
+        //      (like this one). This cache can react on memory pressure (i.e. it can throw away items if free memory is
+        //      low).
+        // *    ICacheManager is an instance-specific cache: everything you store there will be available for that
+        //      Orchard instance only. ICacheManager is one of Orchard's core services, you can just use it. This cache
+        //      won't deal with memory pressure, i.e. items will be kept in the cache even if free memory is low. Both
+        // services are tenant-specific, i.e. if you cache something you'll only be able to access it from the same
+        // tenant (see http://docs.orchardproject.net/Documentation/Setting-up-a-multi-tenant-orchard-site for
+        // multi-tenancy). We'll compare the usage of both services. Most of the time you'll need ICacheService.
         private readonly ICacheService _cacheService;
         private readonly ICacheManager _cacheManager;
 
@@ -42,7 +42,7 @@ namespace OrchardHUN.TrainingDemo.Services
         // Also it serves as a cache monitor; you'll see the usage shortly.
         private readonly IClock _clock;
 
-        // We're using ISignals to be able to send a signal to the cache to invalidate the given entry: with 
+        // We're using ISignals to be able to send a signal to the cache to invalidate the given entry: with
         // ICacheManager entries are not directly invalidated but through sending invalidating signals.
         private readonly ISignals _signals;
 
