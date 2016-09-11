@@ -73,8 +73,8 @@ namespace OrchardHUN.TrainingDemo.Services
             var outdatedTaskCount = _taskManager.GetTasks(TaskType, _clock.UtcNow).Count();
             var taskCount = _taskManager.GetTasks(TaskType).Count();
 
-            // calledFromTaskProcess is necessary as when this is called from Proces() the current task will still be in the DB, thus there
-            // will be at least a single task there.
+            // calledFromTaskProcess is necessary as when this is called from Proces() the current task will still be in
+            // the DB, thus there will be at least a single task there.
             if ((!calledFromTaskProcess || taskCount != 1) && taskCount != 0 && taskCount - outdatedTaskCount >= 0)
             {
                 // If outdated tasks exists, don't create a new one.
@@ -86,7 +86,7 @@ namespace OrchardHUN.TrainingDemo.Services
             _taskManager.CreateTask(TaskType, _clock.UtcNow.AddMinutes(3), null);
 
             // BTW this helper method and many more libraries aiding Orchard development are contained in the Helpful
-            // Libraries module: http://helpfullibraries.codeplex.com/
+            // Libraries module: https://github.com/Lombiq/Helpful-Libraries
         }
     }
 

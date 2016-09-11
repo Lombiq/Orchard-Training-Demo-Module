@@ -49,6 +49,6 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         // Note that we don't care about import/export. This is because site settings (more precisely: public
         // readable/writable properties of site settings parts that are of type string, bool or int; but see:
-        // https://orchard.codeplex.com/workitem/21145) are automatically exported/imported.
+        // https://github.com/OrchardCMS/Orchard/issues/4974) are automatically exported/imported.
     }
 }
