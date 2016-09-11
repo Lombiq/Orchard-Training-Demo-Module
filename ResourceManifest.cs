@@ -46,7 +46,7 @@ namespace OrchardHUN.TrainingDemo
             manifest
                 .DefineScript("OrchardHUN.TrainingDemo.Filtered")
                 .SetUrl("orchardhun-trainingdemo-filtered.js")
-                .SetDependencies("jQuery"); // That's why the feature depends on Orchard.jQuery
+                .SetDependencies("jQuery"); // That's why the feature depends on Orchard.Resources
         }
     }
 }

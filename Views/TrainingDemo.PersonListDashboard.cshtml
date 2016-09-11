@@ -16,7 +16,7 @@ Please check out ResourceManifest.cs in the root to see how can you declare reso
 We'll "Require" (because that's what we do with local resources) the "Other" stylesheet and place it in the Head section. You can place resources to the
 Footer using AtFoot(). The resource named "OrchardHUN.TrainingDemo.Dependecy" will also be embedded, since "Other" depends on it.
 After that, we'll "Include" (because that's what we do with remote resources) the jQuery from it's official CDN and place it in the Footer.
-Since Orchard is shipped with jQuery included (in the Orchard.jQuery module), the correct way to use jQuery would be: Script.Require("jQuery").AtHead();
+Since Orchard is shipped with jQuery included (in the Orchard.Resources module), the correct way to use jQuery would be: Script.Require("jQuery").AtHead();
 *@
 @{
     Style.Require("OrchardHUN.TrainingDemo.Other");
