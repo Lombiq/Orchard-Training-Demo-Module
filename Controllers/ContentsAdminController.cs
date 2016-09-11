@@ -31,7 +31,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
      * "AdminController" for the same effect).
      * This means that some authorization automatically happens: only users with sufficient privilages to access the
      * dashboard will be able to access this controller. If we want more fine-grained access control we have to implement 
-     * our own permissions, what we will!
+     * our own permissions, which we will!
      * 
      * Implementing IUpdateModel is needed so we can use model binding for content items through this controller. You'll 
      * see it down here.

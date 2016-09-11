@@ -5,7 +5,7 @@ the controller, so we'll also use them.
 
 Be warned, this won't look too nice from the browser, but probably we can live with it for now :-).
 
-To make itt a little nicer, you may want to apply additional stylesheets to your templates or to implement some 
+To make it a little nicer, you may want to apply additional stylesheets to your templates or to implement some 
 client-side logic you'll need JS/jQuery.
 Orchard gives you the ability to render (yes, render is the correct word) stylesheets and scripts in a given template. 
 The are "rendered", because they are shapes (it wasn't always like that) and thus it is possible to override them! 
@@ -17,7 +17,7 @@ use them!
 
 @*
 We'll "Require" (because that's what we do with local resources) the "Other" stylesheet and place it in the Head section. 
-You can place resources to the Footer using AtFoot(). The resource named "OrchardHUN.TrainingDemo.Dependecy" will also 
+You can place resources to the Footer using AtFoot(). The resource named "OrchardHUN.TrainingDemo.Dependency" will also 
 be embedded, since "Other" depends on it.
 After that, we'll "Include" (because that's what we do with remote resources) the jQuery from it's official CDN and place 
 it in the Footer. Since Orchard is shipped with jQuery included (in the Orchard.Resources module), the correct way to 
@@ -55,7 +55,7 @@ Also notice that we use the WorkContext object here again. Feel free to look int
 
 
 <h2>@T("Edit Person List")</h2>
-@Html.ValidationSummary(T("The Person List could not be edited. Please correct the errrors below.").ToString())
+@Html.ValidationSummary(T("The Person List could not be edited. Please correct the errors below.").ToString())
 
 @* The editor shape only contains the inside of the form, so we have to wrap it into a form. The method we use here builds 
 a XSS-protected form. *@
