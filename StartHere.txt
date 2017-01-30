@@ -18,20 +18,20 @@ We've invested a lot of time creating this module. If you have ideas regarding i
 know on the project page: https://github.com/Lombiq/Orchard-Training-Demo-Module
 
 If you'd like to get trained instead of self-learning or you need help in form of mentoring sessions take a look at Orchard 
-Dojo's  trainings: http://orcharddojo.net/orchard-training
+Dojo's  trainings: https://orcharddojo.net/orchard-training
 
 Although the module has no function apart from serving as a demonstration we've written everything in a way that it really
-runs and you can try it out in action. Don't forget to run it in Debug mode and break into the code to be able to look
-into some specific details.
+runs and you can try it out in action. Just download the latest source of Orchard (https://github.com/OrchardCMS/Orchard/),
+add this module is in the OrchardHUN.TrainingDemo folder under the Modules directory, open the solution and add the 
+module's project to it. Don't forget to run the solution in Debug mode and break into the code to be able to look into
+some specific details!
 
 After you complete this tutorial (or even during walking through it) you're encouraged to look at the built-in modules 
 how they solve similar tasks. You have the whole Orchard source at your hands: let it be your tutor :-).
 
 Later on, you may want to take a look at Map.cs (remember, "X marks the spot!") in the project root for
 reminders regarding specific solutions, structured along the "Module development and Orchard APIs" section of the
-training guidelines on Orchard Dojo (http://orcharddojo.net/orchard-resources/Library/Training/Guidelines/).
-
-Make sure that this module is in the OrchardHUN.TrainingDemo folder under the Modules directory.
+training guidelines on Orchard Dojo (https://orcharddojo.net/orchard-resources/Library/Training/Guidelines/).
 
 Head over to Module.txt. That file is the module's manifest; a Module.txt is required for Orchard modules. For more info 
 see: http://docs.orchardproject.net/Documentation/manifest-files
