@@ -4,7 +4,6 @@ using Orchard.ContentManagement.MetaData;
 using Orchard.Data.Migration;
 using OrchardHUN.TrainingDemo.Constants;
 using OrchardHUN.TrainingDemo.Models;
-using static OrchardHUN.TrainingDemo.Constants.ContentFieldNames;
 
 namespace OrchardHUN.TrainingDemo.Migrations
 {
@@ -23,18 +22,18 @@ namespace OrchardHUN.TrainingDemo.Migrations
         {
             _contentDefinitionManager.AlterPartDefinition(nameof(PersonPart), builder => builder
                 .Attachable()
-                .WithField(nameof(Name), cfg => cfg
+                .WithField(nameof(PersonPart.Name), cfg => cfg
                     .OfType(nameof(TextField))
                     .WithDisplayName("The name of the person."))
-                .WithField(nameof(ContentFieldNames.Sex), cfg => cfg
+                .WithField(nameof(PersonPart.Sex), cfg => cfg
                     .OfType(nameof(TextField))
                     .WithDisplayName("The sex of the person."))
-                .WithField(nameof(ProfessionalProfile), cfg => cfg
+                .WithField(nameof(PersonPart.ProfessionalProfile), cfg => cfg
                     .OfType(nameof(LinkField))
                     .WithDisplayName("The professional profile URL of the person.")
                     .WithSetting("LinkFieldSettings.DefaultUrl", "https://lombiq.com")
                     .WithSetting("LinkFieldSettings.DefaultText", "Lombiq.com"))
-                .WithField(nameof(Biograpy), cfg => cfg
+                .WithField(nameof(PersonPart.Biography), cfg => cfg
                     .OfType(nameof(TextField))
                     .WithDisplayName("The short biography of the person."))
             );
@@ -46,7 +45,7 @@ namespace OrchardHUN.TrainingDemo.Migrations
             );
 
             // Creating the PersonWithAddresses content type with the reusable AddressParts.
-            _contentDefinitionManager.AlterTypeDefinition(nameof(PersonWithAddresses), builder => builder
+            _contentDefinitionManager.AlterTypeDefinition(nameof(ContentTypeNames.PersonWithAddresses), builder => builder
                 .Creatable()
                 .WithPart(nameof(PersonPart))
                 .WithPart("HomeAddress", nameof(AddressPart), cfg => cfg
