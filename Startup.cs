@@ -11,8 +11,11 @@ using Orchard.Environment.Navigation;
 using OrchardHUN.DisplayManagement.Descriptors;
 using OrchardHUN.TrainingDemo.Commands;
 using OrchardHUN.TrainingDemo.ContentElementDisplays;
+using OrchardHUN.TrainingDemo.Migrations;
+using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
 using System;
+using YesSql.Core.Indexes;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -26,7 +29,22 @@ namespace OrchardHUN.TrainingDemo
             //    template: "YourFirstOrchard/Index",
             //    defaults: new { controller = "YourFirstOrchard", action = "Index" }
             //);
-            
+
+            routes.MapAreaRoute(
+                name: "NotifyMeRoute",
+                areaName: nameof(TrainingDemo),
+                template: $"{nameof(Controllers.DependencyInjectionController)}/{nameof(Controllers.DependencyInjectionController.NotifyMe)}",
+                defaults: new { controller = nameof(Controllers.DependencyInjectionController), action = nameof(Controllers.DependencyInjectionController.NotifyMe) }
+            );
+
+            routes.MapAreaRoute(
+                name: "ListPersons",
+                areaName: nameof(TrainingDemo),
+                template: $"{nameof(Controllers.PersonController)}/{nameof(Controllers.PersonController.Index)}",
+                defaults: new { controller = nameof(Controllers.PersonController), action = nameof(Controllers.PersonController.Index) }
+            );
+
+
             //builder.UseMiddleware<NonBlockingMiddleware>();
             //builder.UseMiddleware<BlockingMiddleware>();
         }
@@ -40,7 +58,10 @@ namespace OrchardHUN.TrainingDemo
             //services.AddShapeAttributes<DemoShapeProvider>();
             //services.AddScoped<INavigationProvider, AdminMenu>();
             //services.AddScoped<IContentDisplayDriver, TestContentElementDisplay>();
-            //services.AddScoped<IDataMigration, Migrations>();
+            services.AddScoped<IDataMigration, PersonMigration>();
+            services.AddScoped<IDataMigration, AddressMigration>();
+            services.AddScoped<IIndexProvider, PersonPartIndexProvider>();
+            services.AddScoped<IPersonManager, PersonManager>();
         }
     }
 }
