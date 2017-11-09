@@ -51,11 +51,11 @@ namespace OrchardHUN.TrainingDemo.Services
                     Configure = app =>
                         // This delegate is the actual middleware. Make sure to add using Owin; otherwise you won't get
                         // why the following line won't compile. The context is the Owin context, something similar to
-                        // HttpContext; the next delegate is the next middleware in the pipelien. Note that you could
+                        // HttpContext; the next delegate is the next middleware in the pipeline. Note that you could
                         // write multiple configuration steps here, not just this one.
                         app.Use(async (context, next) =>
                         {
-                            // Note that although your IOwinMiddlewareProvider behaves like an ordinay Orchard
+                            // Note that although your IOwinMiddlewareProvider behaves like an ordinary Orchard
                             // dependency, the middleware delegate lives on its own and will run detached from the
                             // provider! Because of this you'll need to either access the Work Context as we do here, or
                             // inject your dependencies as Work<TDependency> objects. If you build multiple middlewares
