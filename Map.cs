@@ -6,6 +6,7 @@ using OrchardHUN.TrainingDemo.Filters;
 using OrchardHUN.TrainingDemo.Handlers;
 using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
+using OrchardHUN.TrainingDemo.Tokens;
 
 /* 
  * In this file, you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
@@ -165,6 +166,9 @@ namespace OrchardHUN.TrainingDemo
 
             // Owin middleware
             Factory<OwinMiddleware>();
+
+            // Tokens
+            Factory<UtcNowTokens>();
 
 
             // Unit tests

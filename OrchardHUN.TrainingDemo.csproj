@@ -135,6 +135,10 @@
       <Project>{7528bf74-25c7-4abe-883a-443b4eec4776}</Project>
       <Name>Orchard.Caching</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Tokens\Orchard.Tokens.csproj">
+      <Project>{6F759635-13D7-4E94-BCC9-80445D63F117}</Project>
+      <Name>Orchard.Tokens</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\EditorTemplates\Parts.PersonList.cshtml" />
@@ -174,6 +178,7 @@
     <Compile Include="Services\OwinMiddleware.cs" />
     <Compile Include="Services\PersonManager.cs" />
     <Compile Include="Services\ScheduledTask.cs" />
+    <Compile Include="Tokens\UtcNowTokens.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\YourFirstOrchard\Index.cshtml" />
