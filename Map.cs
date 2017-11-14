@@ -1,4 +1,5 @@
 ﻿using System;
+using OrchardHUN.TrainingDemo.Activities;
 using OrchardHUN.TrainingDemo.Commands;
 using OrchardHUN.TrainingDemo.Controllers;
 using OrchardHUN.TrainingDemo.Drivers;
@@ -170,14 +171,15 @@ namespace OrchardHUN.TrainingDemo
             // Tokens
             Factory<UtcNowTokens>();
 
+            // Workflows
+            Factory<WarningActivity>();
 
             // Unit tests
-                // IClock
-                Factory<DateTimeCachingService>();
-
-                /* Check out the OrchardHUN.TrainingDemo.Tests folder in the project folder of this module for a complete
-                 * unit test, starting with StartHere.txt
-                 */
+            // IClock
+            Factory<DateTimeCachingService>();
+            /* Check out the OrchardHUN.TrainingDemo.Tests folder in the project folder of this module for a complete
+            * unit test, starting with StartHere.txt
+            */
         }
     }
 }

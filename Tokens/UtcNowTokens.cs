@@ -52,10 +52,7 @@ namespace OrchardHUN.TrainingDemo.Tokens
                 .Chain("Default", "Text", dateTime => dateTime.ToString());
 
 
-            // NEXT STATION: we'll dive into unit testing! This module's folder contains a test suite: it's a project 
-            // called OrchardHUN.TrainingDemo.Tests in the folder named the same. If you haven't already add it to the 
-            // Test solution folder and open it up! You'll be surprised but it contains a StartHere.txt. Don't start 
-            // there! And by that I mean do start there!
+            // NEXT STATION: see how Workflows can be extended in WarningActivity!
         }
     }
 }

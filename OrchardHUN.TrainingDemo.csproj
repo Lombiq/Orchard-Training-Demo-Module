@@ -135,15 +135,24 @@
       <Project>{7528bf74-25c7-4abe-883a-443b4eec4776}</Project>
       <Name>Orchard.Caching</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Orchard.Forms\Orchard.Forms.csproj">
+      <Project>{642A49D7-8752-4177-80D6-BFBBCFAD3DE0}</Project>
+      <Name>Orchard.Forms</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Orchard.Tokens\Orchard.Tokens.csproj">
       <Project>{6F759635-13D7-4E94-BCC9-80445D63F117}</Project>
       <Name>Orchard.Tokens</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Orchard.Workflows\Orchard.Workflows.csproj">
+      <Project>{7059493C-8251-4764-9C1E-2368B8B485BC}</Project>
+      <Name>Orchard.Workflows</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\EditorTemplates\Parts.PersonList.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Activities\WarningActivity.cs" />
     <Compile Include="AdminMenu.cs" />
     <Compile Include="Commands\DemoSettingsCommands.cs" />
     <Compile Include="ContentsMigrations.cs" />
