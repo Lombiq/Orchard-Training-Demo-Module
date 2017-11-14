@@ -171,7 +171,7 @@ namespace OrchardHUN.TrainingDemo
             // Tokens
             Factory<UtcNowTokens>();
 
-            // Workflows
+            // Workflows Activities
             Factory<WarningActivity>();
 
             // Unit tests

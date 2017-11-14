@@ -18,7 +18,8 @@ namespace OrchardHUN.TrainingDemo.Activities
     // could start (trigger) a Workflow.
     public class WarningActivity : Task
     {
-        public const string FormName = "ActivityWarning";
+        public const string FormName = "WarningActivity";
+        public const string MessageFieldName = "Message";
 
         private readonly INotifier _notifier;
 
@@ -65,7 +66,7 @@ namespace OrchardHUN.TrainingDemo.Activities
         public override IEnumerable<LocalizedString> Execute(WorkflowContext workflowContext, ActivityContext activityContext)
         {
             // What was previously saved via the form can be fetched from the Workflow's state here.
-            var message = activityContext.GetState<string>("Message");
+            var message = activityContext.GetState<string>(MessageFieldName);
             _notifier.Warning(T(message));
             yield return T("Done");
         }
@@ -96,7 +97,8 @@ namespace OrchardHUN.TrainingDemo.Activities
                 Id: WarningActivity.FormName,
                 // Creating a textbox for configuring the message. You could also add custom ad-hoc shapes here.
                 _Message: _shapeFactory.Textbox(
-                    Id: "message", Name: "Message",
+                    Id: WarningActivity.MessageFieldName,
+                    Name: WarningActivity.MessageFieldName,
                     Title: T("Message"),
                     Description: T("The warning message to display."),
                     Classes: new[] { "text medium", "tokenized" })
