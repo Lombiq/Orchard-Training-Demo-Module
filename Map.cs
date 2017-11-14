@@ -163,6 +163,9 @@ namespace OrchardHUN.TrainingDemo
             Factory<DateTimeCachingService>();
             Factory<CacheController>();
 
+            // Owin middleware
+            Factory<OwinMiddleware>();
+
 
             // Unit tests
                 // IClock

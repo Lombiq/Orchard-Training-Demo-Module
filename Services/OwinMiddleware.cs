@@ -12,6 +12,8 @@ using Owin;
 
 namespace OrchardHUN.TrainingDemo.Services
 {
+    // Here we'll write a so called Owin middleware with which you can extend the Orchard request processing pipeline.
+    // If you haven't heard of Owin before check out http://owin.org/.
     public class OwinMiddleware : IOwinMiddlewareProvider
     {
         // Mostly you'll only need the WCA, see below why.
@@ -100,6 +102,11 @@ namespace OrchardHUN.TrainingDemo.Services
                                 "The request to " + url + " on the site " + siteSettings.SiteName + " had taken " + requestDuration + "time.");
 
                             // You see, we've done something useful!
+
+                            // NEXT STATION: we'll dive into unit testing! This module's folder contains a test suite: 
+                            // it's a project called OrchardHUN.TrainingDemo.Tests in the folder named the same. If you 
+                            // haven't already add it to the Test solution folder and open it up! You'll be surprised 
+                            // but it contains a StartHere.txt. Don't start there! And by that I mean do start there!
                         })
                 }
             };
