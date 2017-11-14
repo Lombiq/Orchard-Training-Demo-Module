@@ -4,9 +4,9 @@
 
 ## Project Description
 
-Demo Orchard module for training purposes. This module completes the training materials at [http://orcharddojo.net/orchard-resources](http://orcharddojo.net/orchard-resources).
+Demo Orchard module for training purposes. This module completes the training materials at [https://orcharddojo.net/orchard-resources](https://orcharddojo.net/orchard-resources).
 
-**For all our training materials and Orchard trainings please visit [Orchard Dojo](http://orcharddojo.net/).**
+**For all our training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
 
 ## Documentation
@@ -22,4 +22,4 @@ The module's source is available in two public source repositories, automaticall
 Bug reports, feature requests and comments are warmly welcome, **please do so via GitHub**.
 Feel free to send pull requests too, no matter which source repository you choose for this purpose.
 
-This project is developed by [Lombiq Technologies Ltd](http://lombiq.com/). Commercial-grade support is available through Lombiq.
+This project is developed by [Lombiq Technologies Ltd](https://lombiq.com/). Commercial-grade support is available through Lombiq.
