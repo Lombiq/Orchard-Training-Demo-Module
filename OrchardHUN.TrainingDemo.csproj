@@ -25,6 +25,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -112,6 +113,7 @@
     </Content>
     <Content Include="StartHere.txt" />
     <Content Include="Styles\menu.person-list-dashboard-admin.css" />
+    <Content Include="Styles\workflows-activity-warning.css" />
     <Content Include="Views\EditorTemplates\Fields.YouTubeEmbed.Edit.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Scripts\Web.config" />
