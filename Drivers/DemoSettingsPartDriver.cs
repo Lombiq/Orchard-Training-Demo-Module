@@ -19,10 +19,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
     public class DemoSettingsPartDriver : ContentPartDriver<DemoSettingsPart>
     {
-        protected override string Prefix
-        {
-            get { return "OrchardHUN.TrainingDemo.DemoSettingsPart"; }
-        }
+        protected override string Prefix => "OrchardHUN.TrainingDemo.DemoSettingsPart";
 
 
         protected override DriverResult Editor(DemoSettingsPart part, dynamic shapeHelper) =>

@@ -13,7 +13,7 @@ namespace OrchardHUN.TrainingDemo
     public class AdminMenu : Component, INavigationProvider
     {
         // The task of deciphering what the following line can mean is up to the gentle reader :-).
-        public string MenuName { get { return "admin"; } }
+        public string MenuName => "admin";
 
 
         public void GetNavigation(NavigationBuilder builder) => builder

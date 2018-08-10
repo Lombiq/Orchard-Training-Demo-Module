@@ -18,10 +18,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
     public class PersonListPartDriver : ContentPartDriver<PersonListPart>
     {
         // This prefix will be used to distinguish between similarly named input fields when building the editor form
-        protected override string Prefix
-        {
-            get { return "OrchardHUN.TrainingDemo.Contents.PersonListPart"; }
-        }
+        protected override string Prefix => "OrchardHUN.TrainingDemo.Contents.PersonListPart";
 
 
         // This method gets called when building the display shape of the content item the part is attached to.

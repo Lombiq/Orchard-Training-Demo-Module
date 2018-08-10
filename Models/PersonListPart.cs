@@ -63,12 +63,9 @@ namespace OrchardHUN.TrainingDemo.Models
 		 * should have a parameterless ctor: this means they can't use dependencies to fetch data themselves.
 		 * We'll fill this field with data from a handler in a later step.
 		 */
-		private readonly LazyField<IEnumerable<PersonRecord>> _persons = new LazyField<IEnumerable<PersonRecord>>();
-		internal LazyField<IEnumerable<PersonRecord>> PersonsField { get { return _persons; } }
-		public IEnumerable<PersonRecord> Persons
-		{
-			get { return _persons.Value; }
-		}
+		internal LazyField<IEnumerable<PersonRecord>> PersonsField { get; } = new LazyField<IEnumerable<PersonRecord>>();
+
+		public IEnumerable<PersonRecord> Persons => PersonsField.Value;
 	}
 
 

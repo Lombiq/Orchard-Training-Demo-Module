@@ -32,26 +32,14 @@ namespace OrchardHUN.TrainingDemo.Activities
 
 
         // Configuring some metadata of the activity.
-        public override string Name
-        {
-            get { return "Warning"; }
-        }
+        public override string Name => "Warning";
 
-        public override LocalizedString Category
-        {
-            get { return T("Notification"); }
-        }
+        public override LocalizedString Category => T("Notification");
 
-        public override LocalizedString Description
-        {
-            get { return T("Display a warning notification."); }
-        }
+        public override LocalizedString Description => T("Display a warning notification.");
 
         // The name of the form which can be used to configure the activity. For the form itself see below.
-        public override string Form
-        {
-            get { return FormName; }
-        }
+        public override string Form => FormName;
 
         // The activity can have multiple outcomes, i.e. multiple branches that other activities can be linked onto.
         public override IEnumerable<LocalizedString> GetPossibleOutcomes(WorkflowContext workflowContext, ActivityContext activityContext)
