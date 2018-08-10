@@ -47,10 +47,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
         public Localizer T { get; set; }
 
 
-        public FileManagementController(IStorageProvider storageProvider)
-        {
-            _storageProvider = storageProvider;
-        }
+        public FileManagementController(IStorageProvider storageProvider) => _storageProvider = storageProvider;
 
 
         // Creating/writing some files. Don't forget to check them out after running this action in the Media folder!

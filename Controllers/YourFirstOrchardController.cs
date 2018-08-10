@@ -18,17 +18,13 @@ namespace OrchardHUN.TrainingDemo.Controllers
         // rendered view into the layout. I.e. the view returned by this action will get wrapped into the layout provided
         // by the current theme.
         [Themed]
-        public ActionResult Index()
-        {
+        public ActionResult Index() =>
             // For now we just return an empty view. This action is accessible from under
             // OrchardHUN.TrainingDemo/YourFirstOrchard route (appended to your site's root path; so using defaults it
             // would look something like this:
             // http://localhost:30320/OrchardLocal/OrchardHUN.TrainingDemo/YourFirstOrchard) If you don't know how this
             // path gets together take a second look at how ASP.NET MVC routing works!
 
-            return View();
-
-            // NEXT STEP: take a look at the view we're using at Views/YourFirstOrchard/Index
-        }
+            View();// NEXT STEP: take a look at the view we're using at Views/YourFirstOrchard/Index
     }
 }

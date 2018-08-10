@@ -27,10 +27,7 @@ namespace OrchardHUN.TrainingDemo.Filters
         private readonly IResourceManager _resourceManager;
 
 
-        public ResourceFilter(IResourceManager resourceManager)
-        {
-            _resourceManager = resourceManager;
-        }
+        public ResourceFilter(IResourceManager resourceManager) => _resourceManager = resourceManager;
 
 
         // This method will be called after the action result is executed.

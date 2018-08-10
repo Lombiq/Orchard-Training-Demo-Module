@@ -234,15 +234,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
         #region IUpdateModel members
         // Model binding of content items will use these two methods
-        bool IUpdateModel.TryUpdateModel<TModel>(TModel model, string prefix, string[] includeProperties, string[] excludeProperties)
-        {
-            return TryUpdateModel(model, prefix, includeProperties, excludeProperties);
-        }
+        bool IUpdateModel.TryUpdateModel<TModel>(TModel model, string prefix, string[] includeProperties, string[] excludeProperties) => TryUpdateModel(model, prefix, includeProperties, excludeProperties);
 
-        void IUpdateModel.AddModelError(string key, LocalizedString errorMessage)
-        {
-            ModelState.AddModelError(key, errorMessage.ToString());
-        }
+        void IUpdateModel.AddModelError(string key, LocalizedString errorMessage) => ModelState.AddModelError(key, errorMessage.ToString());
         #endregion
 
 
@@ -280,12 +274,10 @@ namespace OrchardHUN.TrainingDemo.Controllers
             return new ShapeResult(this, editorShape);
         }
 
-        private bool IsAuthorized()
-        {
+        private bool IsAuthorized() =>
             // Authorizing the current user against a permission
-            return _authorizer.Authorize(
+            _authorizer.Authorize(
                 Permissions.AccessPersonListDashboard, T("You're not allowed to access the Person List dashboard!"));
-        }
 
         private ContentItem GetItem(int id)
         {

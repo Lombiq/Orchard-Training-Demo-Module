@@ -25,16 +25,14 @@ namespace OrchardHUN.TrainingDemo.Drivers
         }
 
 
-        protected override DriverResult Editor(DemoSettingsPart part, dynamic shapeHelper)
-        {
+        protected override DriverResult Editor(DemoSettingsPart part, dynamic shapeHelper) =>
             // Site settings are sometimes conventionally suffixed with SiteSettings. Not surprisingly there's a
             // corresponding entry in Placement.info too.
-            return ContentShape("Parts_DemoSettings_SiteSettings",
+            ContentShape("Parts_DemoSettings_SiteSettings",
                 () => shapeHelper.EditorTemplate(
                     TemplateName: "Parts.DemoSettings.SiteSettings",
                     Model: part,
                     Prefix: Prefix));
-        }
 
         protected override DriverResult Editor(DemoSettingsPart part, IUpdateModel updater, dynamic shapeHelper)
         {

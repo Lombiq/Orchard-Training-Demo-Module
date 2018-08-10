@@ -24,9 +24,7 @@ namespace OrchardHUN.TrainingDemo
         }
 
         // The method really needed.
-        public IEnumerable<RouteDescriptor> GetRoutes()
-        {
-            return new[]
+        public IEnumerable<RouteDescriptor> GetRoutes() => new[]
             {
                 // We use the standard MVC routing-related types here
                 new RouteDescriptor
@@ -50,7 +48,6 @@ namespace OrchardHUN.TrainingDemo
                         new MvcRouteHandler())
                 }
             };
-        }
 
         // NEXT STATION: Let's head back to Controllers/ContentsAdminController!
     }

@@ -19,10 +19,7 @@ namespace OrchardHUN.TrainingDemo.Commands
         private readonly ISiteService _siteService;
 
 
-        public DemoSettingsCommands(ISiteService siteService)
-        {
-            _siteService = siteService;
-        }
+        public DemoSettingsCommands(ISiteService siteService) => _siteService = siteService;
 
 
         // Simple command, without arguments

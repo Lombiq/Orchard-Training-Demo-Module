@@ -13,10 +13,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
         private readonly IPersonManager _personManager;
 
 
-        public PersonController(IPersonManager personManager)
-        {
-            _personManager = personManager;
-        }
+        public PersonController(IPersonManager personManager) => _personManager = personManager;
 
 
         // Simple actions here, just for sake of demonstration

@@ -20,7 +20,7 @@ namespace OrchardHUN.TrainingDemo
 {
     static class Map
     {
-        private static T Factory<T>() { return default(T); }
+        private static T Factory<T>() => default(T);
 
         private static void Treasure()
         {

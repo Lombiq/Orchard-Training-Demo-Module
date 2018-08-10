@@ -33,9 +33,7 @@ namespace OrchardHUN.TrainingDemo.Services
         }
 
 
-        public IEnumerable<OwinMiddlewareRegistration> GetOwinMiddlewares()
-        {
-            return new[]
+        public IEnumerable<OwinMiddlewareRegistration> GetOwinMiddlewares() => new[]
             {
                 // Although we only construct a single OwinMiddlewareRegistration here, you could return multiple ones of
                 // course.
@@ -105,6 +103,5 @@ namespace OrchardHUN.TrainingDemo.Services
                         })
                 }
             };
-        }
     }
 }

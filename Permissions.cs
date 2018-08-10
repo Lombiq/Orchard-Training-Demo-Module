@@ -31,19 +31,15 @@ namespace OrchardHUN.TrainingDemo
         public virtual Feature Feature { get; set; }
 
 
-        public IEnumerable<Permission> GetPermissions()
-        {
-            return new[]
+        public IEnumerable<Permission> GetPermissions() => new[]
             {
                 EditPersonList,
                 AccessPersonListDashboard
             };
-        }
 
-        public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
-        {
+        public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
             // Giving some defaults: which user groups should possess which permissions
-            return new[]
+            new[]
             {
                 new PermissionStereotype
                 {
@@ -58,7 +54,6 @@ namespace OrchardHUN.TrainingDemo
                     Permissions = new[] { AccessPersonListDashboard }
                 }
             };
-        }
     }
 
     // NEXT STATION: Let's head back to Controllers/ContentsAdminController!

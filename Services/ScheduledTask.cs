@@ -31,14 +31,12 @@ namespace OrchardHUN.TrainingDemo.Services
 
 
         // This runs very early when the Orchard instance spins up.
-        void IOrchardShellEvents.Activated()
-        {
+        void IOrchardShellEvents.Activated() =>
             // Scheduled tasks, as they are run at a given time, should be first registered. What we write now is a
             // self-renewing scheduled task, essentially a periodic background task where we choose the interval between
             // calls. Remember though that this is just a common scenario, but not the only one of course: another
             // scheduled task scenario would be to schedule a task for a future date and only run it once.
             CreateTaskIfNew(false);
-        }
 
         // When the Orchard instance is torn down, this event is fired. We don't need it now.
         void IOrchardShellEvents.Terminating()

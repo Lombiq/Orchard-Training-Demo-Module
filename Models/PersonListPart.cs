@@ -86,10 +86,7 @@ namespace OrchardHUN.TrainingDemo.Models
 		public virtual int MaxCount { get; set; }
 
 
-		public PersonListPartRecord()
-		{
-			MaxCount = 10;
-		}
+		public PersonListPartRecord() => MaxCount = 10;
 	}
 
 	// NEXT STATION: ContentsMigrations
