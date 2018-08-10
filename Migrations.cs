@@ -17,7 +17,7 @@ namespace OrchardHUN.TrainingDemo
         // it can set up DB tables.
         public int Create()
         {
-            SchemaBuilder.CreateTable(typeof(PersonRecord).Name,
+            SchemaBuilder.CreateTable(nameof(PersonRecord),
                 table => table
                     .Column<int>("Id", column => column.PrimaryKey().Identity())
                     .Column<string>("Name", column => column.WithLength(500))
@@ -26,7 +26,7 @@ namespace OrchardHUN.TrainingDemo
                     // An infinite string should have Unlimited() set!
                     .Column<string>("Biography", column => column.Unlimited())
                 )
-            .AlterTable(typeof(PersonRecord).Name,
+            .AlterTable(nameof(PersonRecord),
                 table => table
                     // You can create indices from AlterTable
                     .CreateIndex("Name", new string[] { "Name" }) // We index Name so we can retrieve by name faster
@@ -49,7 +49,7 @@ namespace OrchardHUN.TrainingDemo
             // The initial version of our module did not store the person's name! What a mistake. We've brought disgrace
             // to our families. We quickly fix the issue by pushing out an update that modifies the schema to add the
             // Name.
-            SchemaBuilder.AlterTable(typeof(PersonRecord).Name,
+            SchemaBuilder.AlterTable(nameof(PersonRecord),
                 table => table
                     .AddColumn<string>("Name", column => column.WithLength(500))
                 );

@@ -11,7 +11,7 @@ namespace OrchardHUN.TrainingDemo
     {
         public int Create()
         {
-            SchemaBuilder.CreateTable(typeof(PersonListPartRecord).Name, 
+            SchemaBuilder.CreateTable(nameof(PersonListPartRecord), 
                 table => table
                     // Since PersonListPartRecord is a ContentPartRecord we have to use this method here. For
                     // ContentPartVersionRecord we would simply use ContentPartVersionRecord()
@@ -26,7 +26,7 @@ namespace OrchardHUN.TrainingDemo
              * from here.
              * Default is not attachable.
              */
-            ContentDefinitionManager.AlterPartDefinition(typeof(PersonListPart).Name,
+            ContentDefinitionManager.AlterPartDefinition(nameof(PersonListPart),
                 builder => builder.Attachable());
 
             /*
@@ -34,7 +34,7 @@ namespace OrchardHUN.TrainingDemo
              * doesn't exist or modify it if it does. Make sure you understand what content types are:
              *  http://docs.orchardproject.net/Documentation/Content-types
              * The content type's name is arbitrary, but choose a meaningful one.
-             * Notice that we attach parts by specifying their name. For our own parts we use typeof().Name: this is 
+             * Notice that we attach parts by specifying their name. For our own parts we use nameof(): this is 
              * not mandatory but serves great if we change the part's name during development. (The same goes for record 
              * name BTW.)
              */
@@ -54,7 +54,7 @@ namespace OrchardHUN.TrainingDemo
                         // Specifying a custom URL-pattern for PersonList items
                         .WithSetting("AutorouteSettings.PatternDefinitions", "[{Name:'Title', Pattern: 'person-lists/{Content.Slug}', Description: 'my-list'}]")
                         .WithSetting("AutorouteSettings.DefaultPatternIndex", "0"))
-                    .WithPart(typeof(PersonListPart).Name)
+                    .WithPart(nameof(PersonListPart))
                     // CommonPart includes e.g. creation date and owner. Take a look at it (search with Ctrl+comma). Also
                     // without it we can't list content types of this type on the admin UI (because the dates stored in
                     // it are needed for ordering).
@@ -72,7 +72,7 @@ namespace OrchardHUN.TrainingDemo
              */
             ContentDefinitionManager.AlterTypeDefinition("PersonListWidget",
                 cfg => cfg
-                    .WithPart(typeof(PersonListPart).Name)
+                    .WithPart(nameof(PersonListPart))
                     .WithPart("WidgetPart")
                     .WithPart("CommonPart")
                     .WithSetting("Stereotype", "Widget")
@@ -94,13 +94,13 @@ namespace OrchardHUN.TrainingDemo
         {
             // We're attaching the YouTubeEmbedField to the PersonListPart, which is already attached to the PersonList
             // type.
-            ContentDefinitionManager.AlterPartDefinition(typeof(PersonListPart).Name,
+            ContentDefinitionManager.AlterPartDefinition(nameof(PersonListPart),
                 builder => builder
                     // This name distinguishes between fields if there are multiple ones of the same type on the part
                     .WithField("YouTubeVideoEmbed",
                         f => f
                             .WithDisplayName("YouTube Video Embed") // This will be displayed as the name
-                            .OfType(typeof(YouTubeEmbedField).Name)));
+                            .OfType(nameof(YouTubeEmbedField))));
 
             // We've attached the field here to an existing part, but we could have created a new part (just giving an
             // arbitrary name as the argument for AlterPartDefinition() would be enough) too.
