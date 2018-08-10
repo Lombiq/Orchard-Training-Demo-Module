@@ -1,6 +1,5 @@
 ﻿using System;
 using Orchard.ContentManagement;
-using Orchard.ContentManagement.FieldStorage;
 using Orchard.Environment.Extensions;
 
 /* Just like with content part development, we'll start with creating a model class.
@@ -8,7 +7,7 @@ using Orchard.Environment.Extensions;
  * videos for embedding.
  * 
  * If we have many fields and other models we normally place field models into the Fields namespace.
- */ 
+ */
 namespace OrchardHUN.TrainingDemo.Models
 {
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]

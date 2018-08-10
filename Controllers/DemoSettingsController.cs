@@ -2,10 +2,6 @@
  * We'll only use this controller to display the configuration we saved through our site settings part.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using Orchard.Environment.Extensions;
 using Orchard.Settings;
