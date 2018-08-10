@@ -36,14 +36,14 @@ namespace OrchardHUN.TrainingDemo
                         // Remember? We used these values to set the editor route for Person List items.
                         new RouteValueDictionary
                         {
-                            {"area", "OrchardHUN.TrainingDemo"},
+                            {"area", $"{this.GetType().Namespace}" },
                             {"controller", "ContentsAdmin"},
-                            {"action", "PersonListDashboard"}
+                            {"action",  $"{nameof(Controllers.ContentsAdminController.PersonListDashboard)}"}
                         },
                         new RouteValueDictionary(),
                         new RouteValueDictionary
                         {
-                            {"area", "OrchardHUN.TrainingDemo"}
+                            {"area", $"{this.GetType().Namespace}"}
                         },
                         new MvcRouteHandler())
                 }

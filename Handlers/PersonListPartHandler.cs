@@ -58,9 +58,9 @@ namespace OrchardHUN.TrainingDemo.Handlers
             // You'll soon see the full route decaration for this!
             context.Metadata.EditorRouteValues = new RouteValueDictionary
                                                     {
-                                                        {"area", "OrchardHUN.TrainingDemo"},
+                                                        {"area", $"{context.GetType().Namespace}"},
                                                         {"controller", "ContentsAdmin"},
-                                                        {"action", "PersonListDashboard"},
+                                                        {"action", $"{nameof(Controllers.ContentsAdminController.PersonListDashboard)}"},
                                                         {"id", context.ContentItem.Id}
                                                     };
         }

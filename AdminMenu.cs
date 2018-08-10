@@ -37,7 +37,7 @@ namespace OrchardHUN.TrainingDemo
                 // controller too!
                 .Add(subitem => subitem
                     .Caption(T("Create"))
-                    .Action("PersonListDashboard", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                    .Action($"{nameof(Controllers.ContentsAdminController.PersonListDashboard)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
                     .Permission(Permissions.AccessPersonListDashboard)
                 )
                 .Add(subitem => subitem
@@ -46,7 +46,7 @@ namespace OrchardHUN.TrainingDemo
 
                     .Add(subsubitem => subsubitem
                         .Caption(T("Most recent one"))
-                        .Action("LatestPersonList", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                        .Action($"{nameof(Controllers.ContentsAdminController.LatestPersonList)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
                         // This will make the item not appear as a child item in left-side menu, but as a tab on the top.
                         .LocalNav(true)
                         .Permission(Permissions.AccessPersonListDashboard)
@@ -54,7 +54,7 @@ namespace OrchardHUN.TrainingDemo
 
                     .Add(subsubitem => subsubitem
                         .Caption(T("Latest lists"))
-                        .Action("LatestPersonLists", "ContentsAdmin", new { area = "OrchardHUN.TrainingDemo" })
+                        .Action($"{nameof(Controllers.ContentsAdminController.LatestPersonLists)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
                         .LocalNav(true)
                         .Permission(Permissions.AccessPersonListDashboard)
                     )
