@@ -39,9 +39,7 @@ namespace OrchardHUN.TrainingDemo.Services
             CreateTaskIfNew(false);
 
         // When the Orchard instance is torn down, this event is fired. We don't need it now.
-        void IOrchardShellEvents.Terminating()
-        {
-        }
+        void IOrchardShellEvents.Terminating() { }
 
         // This method will be called periodically (every minute) with the current task context. Because of this we have
         // to check if the current task is ours. (BTW this way the same taks handler can handle multiple tasks.) Remember

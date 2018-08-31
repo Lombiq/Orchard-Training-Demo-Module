@@ -19,17 +19,17 @@ namespace OrchardHUN.TrainingDemo
         {
             SchemaBuilder.CreateTable(nameof(PersonRecord),
                 table => table
-                    .Column<int>("Id", column => column.PrimaryKey().Identity())
-                    .Column<string>("Name", column => column.WithLength(500))
-                    .Column<string>("Sex") // Best to store enums as strings
-                    .Column<DateTime>("BirthDateUtc")
+                    .Column<int>(nameof(PersonRecord.Id), column => column.PrimaryKey().Identity())
+                    .Column<string>(nameof(PersonRecord.Name), column => column.WithLength(500))
+                    .Column<string>(nameof(PersonRecord.Sex)) // Best to store enums as strings
+                    .Column<DateTime>(nameof(PersonRecord.BirthDateUtc))
                     // An infinite string should have Unlimited() set!
-                    .Column<string>("Biography", column => column.Unlimited())
+                    .Column<string>(nameof(PersonRecord.Biography), column => column.Unlimited())
                 )
             .AlterTable(nameof(PersonRecord),
                 table => table
                     // You can create indices from AlterTable
-                    .CreateIndex("Name", new string[] { "Name" }) // We index Name so we can retrieve by name faster
+                    .CreateIndex(nameof(PersonRecord.Name), new string[] { "Name" }) // We index Name so we can retrieve by name faster
             );
 
 
@@ -51,7 +51,7 @@ namespace OrchardHUN.TrainingDemo
             // Name.
             SchemaBuilder.AlterTable(nameof(PersonRecord),
                 table => table
-                    .AddColumn<string>("Name", column => column.WithLength(500))
+                    .AddColumn<string>(nameof(PersonRecord.Name), column => column.WithLength(500))
                 );
 
             /*

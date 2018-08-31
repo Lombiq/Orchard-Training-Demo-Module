@@ -10,6 +10,7 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using Orchard.Environment.Extensions;
 using Orchard.Mvc.Routes;
+using OrchardHUN.TrainingDemo.Controllers;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -24,7 +25,8 @@ namespace OrchardHUN.TrainingDemo
         }
 
         // The method really needed.
-        public IEnumerable<RouteDescriptor> GetRoutes() => new[]
+        public IEnumerable<RouteDescriptor> GetRoutes() => 
+            new[]
             {
                 // We use the standard MVC routing-related types here
                 new RouteDescriptor
@@ -36,14 +38,14 @@ namespace OrchardHUN.TrainingDemo
                         // Remember? We used these values to set the editor route for Person List items.
                         new RouteValueDictionary
                         {
-                            {"area", $"{this.GetType().Namespace}" },
+                            {"area", $"{nameof(OrchardHUN)}.{nameof(TrainingDemo)}" },
                             {"controller", "ContentsAdmin"},
-                            {"action",  $"{nameof(Controllers.ContentsAdminController.PersonListDashboard)}"}
+                            {"action",  $"{nameof(ContentsAdminController.PersonListDashboard)}"}
                         },
                         new RouteValueDictionary(),
                         new RouteValueDictionary
                         {
-                            {"area", $"{this.GetType().Namespace}"}
+                            {"area", $"{nameof(OrchardHUN)}.{nameof(TrainingDemo)}"}
                         },
                         new MvcRouteHandler())
                 }

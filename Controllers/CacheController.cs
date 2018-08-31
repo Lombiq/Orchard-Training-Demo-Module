@@ -9,7 +9,9 @@ namespace OrchardHUN.TrainingDemo.Controllers
     {
         private readonly IDateTimeCachingService _dateTimeCachingService;
 
+
         public CacheController(IDateTimeCachingService dateTimeCachingService) => _dateTimeCachingService = dateTimeCachingService;
+
 
         // Go to ~/OrchardHUN.TrainingDemo/Cache/GetDateTime to see the result.
         public DateTime GetDateTime(string service = "CacheService") =>

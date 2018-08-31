@@ -1,6 +1,7 @@
 ﻿using Orchard;
 using Orchard.Environment.Extensions;
 using Orchard.UI.Navigation;
+using OrchardHUN.TrainingDemo.Controllers;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -37,7 +38,7 @@ namespace OrchardHUN.TrainingDemo
                 // controller too!
                 .Add(subitem => subitem
                     .Caption(T("Create"))
-                    .Action($"{nameof(Controllers.ContentsAdminController.PersonListDashboard)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
+                    .Action($"{nameof(ContentsAdminController.PersonListDashboard)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
                     .Permission(Permissions.AccessPersonListDashboard)
                 )
                 .Add(subitem => subitem
@@ -46,7 +47,7 @@ namespace OrchardHUN.TrainingDemo
 
                     .Add(subsubitem => subsubitem
                         .Caption(T("Most recent one"))
-                        .Action($"{nameof(Controllers.ContentsAdminController.LatestPersonList)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
+                        .Action($"{nameof(ContentsAdminController.LatestPersonList)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
                         // This will make the item not appear as a child item in left-side menu, but as a tab on the top.
                         .LocalNav(true)
                         .Permission(Permissions.AccessPersonListDashboard)
@@ -54,7 +55,7 @@ namespace OrchardHUN.TrainingDemo
 
                     .Add(subsubitem => subsubitem
                         .Caption(T("Latest lists"))
-                        .Action($"{nameof(Controllers.ContentsAdminController.LatestPersonLists)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
+                        .Action($"{nameof(ContentsAdminController.LatestPersonLists)}", "ContentsAdmin", new { area = $"{this.GetType().Namespace}" })
                         .LocalNav(true)
                         .Permission(Permissions.AccessPersonListDashboard)
                     )

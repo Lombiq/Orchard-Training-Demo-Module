@@ -1,5 +1,8 @@
-﻿using Orchard.ContentManagement.MetaData;
+﻿using System;
+using Orchard.ContentManagement.MetaData;
+using Orchard.Core.Common.Models;
 using Orchard.Core.Contents.Extensions;
+using Orchard.Core.Title.Models;
 using Orchard.Data.Migration;
 using Orchard.Environment.Extensions;
 using OrchardHUN.TrainingDemo.Models;
@@ -43,9 +46,9 @@ namespace OrchardHUN.TrainingDemo
                     // Setting display name for the type. BTW the default is the technical name separated on capital
                     // letters, so the same here.
                     .DisplayedAs("Person List")
-                    .WithPart("TitlePart") // So the list can have a title; TitlePart is a core part
+                    .WithPart(nameof(TitlePart)) // So the list can have a title; TitlePart is a core part
                     // AutoroutePart so the list can have a friendly URL. That's why this feature depends on Orchard.Autoroute.
-                    .WithPart("AutoroutePart", builder => builder
+                    .WithPart(nameof(AutoroutePart), builder => builder
                         // These are TypePart settings: settings for a part on a specific type. I.e. AutoroutePart have
                         // the following settings for PersonList. Take a look at AutoroutePart settings on the type
                         // editor UI of PersonList to see what these mean.
@@ -58,7 +61,7 @@ namespace OrchardHUN.TrainingDemo
                     // CommonPart includes e.g. creation date and owner. Take a look at it (search with Ctrl+comma). Also
                     // without it we can't list content types of this type on the admin UI (because the dates stored in
                     // it are needed for ordering).
-                    .WithPart("CommonPart")
+                    .WithPart(nameof(CommonPart))
                     // This means users will be able to create such items from the admin UI. Default is the opposite.
                     .Creatable()
                 );
@@ -73,8 +76,8 @@ namespace OrchardHUN.TrainingDemo
             ContentDefinitionManager.AlterTypeDefinition("PersonListWidget",
                 cfg => cfg
                     .WithPart(nameof(PersonListPart))
-                    .WithPart("WidgetPart")
-                    .WithPart("CommonPart")
+                    .WithPart(nameof(WidgetPart))
+                    .WithPart(nameof(CommonPart))
                     .WithSetting("Stereotype", "Widget")
                 );
 
@@ -88,7 +91,15 @@ namespace OrchardHUN.TrainingDemo
             // NEXT STATION: Handlers/PersonListPartHandler
         }
 
+        private object WidgetPart()
+        {
+            throw new NotImplementedException();
+        }
 
+        private object AutoroutePart()
+        {
+            throw new NotImplementedException();
+        }
 
         public int UpdateFrom1()
         {

@@ -38,9 +38,11 @@ namespace OrchardHUN.TrainingDemo.Drivers
             return Editor(part, field, shapeHelper);
         }
 
-        protected override void Importing(ContentPart part, YouTubeEmbedField field, ImportContentContext context) => context.ImportAttribute(field.FieldDefinition.Name + "." + field.Name, "VideoId", v => field.VideoId = v);
+        protected override void Importing(ContentPart part, YouTubeEmbedField field, ImportContentContext context) => 
+            context.ImportAttribute(field.FieldDefinition.Name + "." + field.Name, "VideoId", v => field.VideoId = v);
 
-        protected override void Exporting(ContentPart part, YouTubeEmbedField field, ExportContentContext context) => context.Element(field.FieldDefinition.Name + "." + field.Name).SetAttributeValue("VideoId", field.VideoId);
+        protected override void Exporting(ContentPart part, YouTubeEmbedField field, ExportContentContext context) => 
+            context.Element(field.FieldDefinition.Name + "." + field.Name).SetAttributeValue("VideoId", field.VideoId);
 
         protected override void Describe(DescribeMembersContext context) =>
             // A field can have multiple values stored. If there are multiple values you should add them in such a form

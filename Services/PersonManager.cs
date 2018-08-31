@@ -121,12 +121,8 @@ namespace OrchardHUN.TrainingDemo.Services
 
     public class ShortBiographyFilter : IPersonFilter
     {
-        public string FilterBiography(string biography)
-        {
-            if (biography.Length < 10) return "This person has a too short biography.";
-
-            return biography;
-        }
+        public string FilterBiography(string biography) =>
+            biography.Length < 10 ? "This person has too short biography." : biography;
     }
 
     // NEXT STATION: Controllers/PersonController

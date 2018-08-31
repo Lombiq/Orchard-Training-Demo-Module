@@ -78,7 +78,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         protected override void Importing(PersonListPart part, ImportContentContext context)
         {
-            var partName = part.PartDefinition.Name;
+            var partName = nameof(part.PartDefinition);
 
             context.ImportAttribute(partName, "Sex", value => part.Sex = (Sex)Enum.Parse(typeof(Sex), value));
             context.ImportAttribute(partName, "MaxCount", value => part.MaxCount = int.Parse(value));

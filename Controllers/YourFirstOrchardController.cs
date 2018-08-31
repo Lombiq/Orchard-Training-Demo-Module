@@ -25,6 +25,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
             // http://localhost:30320/OrchardLocal/OrchardHUN.TrainingDemo/YourFirstOrchard) If you don't know how this
             // path gets together take a second look at how ASP.NET MVC routing works!
 
-            View();// NEXT STEP: take a look at the view we're using at Views/YourFirstOrchard/Index
+            View();
+        
+        // NEXT STEP: take a look at the view we're using at Views/YourFirstOrchard/Index
     }
 }

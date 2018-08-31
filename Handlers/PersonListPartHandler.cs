@@ -8,6 +8,7 @@ using Orchard.ContentManagement.Handlers;
 using Orchard.Data;
 using Orchard.Environment;
 using Orchard.Environment.Extensions;
+using OrchardHUN.TrainingDemo.Controllers;
 using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
 
@@ -58,9 +59,9 @@ namespace OrchardHUN.TrainingDemo.Handlers
             // You'll soon see the full route decaration for this!
             context.Metadata.EditorRouteValues = new RouteValueDictionary
                                                     {
-                                                        {"area", $"{context.GetType().Namespace}"},
+                                                        {"area", $"{nameof(OrchardHUN)}.{nameof(TrainingDemo)}"},
                                                         {"controller", "ContentsAdmin"},
-                                                        {"action", $"{nameof(Controllers.ContentsAdminController.PersonListDashboard)}"},
+                                                        {"action", $"{nameof(ContentsAdminController.PersonListDashboard)}"},
                                                         {"id", context.ContentItem.Id}
                                                     };
         }

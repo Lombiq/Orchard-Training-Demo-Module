@@ -21,8 +21,8 @@ namespace OrchardHUN.TrainingDemo.Models
         // infoset.
         public string Message
         {
-            get { return this.Retrieve(x => x.Message); }
-            set { this.Store(x => x.Message, value); }
+            get => this.Retrieve(x => x.Message); 
+            set => this.Store(x => x.Message, value);
         }
     }
 
