@@ -33,7 +33,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         protected override DriverResult Editor(DemoSettingsPart part, IUpdateModel updater, dynamic shapeHelper)
         {
-            updater.TryUpdateModel(part, Prefix, null, null);
+            updater?.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
         }
 

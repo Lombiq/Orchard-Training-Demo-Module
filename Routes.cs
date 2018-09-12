@@ -5,12 +5,12 @@
  * applications: we use IRouteProvider.
  */
 
-using System.Collections.Generic;
-using System.Web.Mvc;
-using System.Web.Routing;
 using Orchard.Environment.Extensions;
 using Orchard.Mvc.Routes;
 using OrchardHUN.TrainingDemo.Controllers;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using System.Web.Routing;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -25,7 +25,7 @@ namespace OrchardHUN.TrainingDemo
         }
 
         // The method really needed.
-        public IEnumerable<RouteDescriptor> GetRoutes() => 
+        public IEnumerable<RouteDescriptor> GetRoutes() =>
             new[]
             {
                 // We use the standard MVC routing-related types here

@@ -1,10 +1,10 @@
-﻿using System.Collections.Generic;
-using Orchard.DisplayManagement;
+﻿using Orchard.DisplayManagement;
 using Orchard.Forms.Services;
 using Orchard.Localization;
 using Orchard.UI.Notify;
 using Orchard.Workflows.Models;
 using Orchard.Workflows.Services;
+using System.Collections.Generic;
 
 namespace OrchardHUN.TrainingDemo.Activities
 {

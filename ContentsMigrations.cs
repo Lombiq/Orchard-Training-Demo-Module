@@ -1,5 +1,4 @@
-﻿using System;
-using Orchard.ContentManagement.MetaData;
+﻿using Orchard.ContentManagement.MetaData;
 using Orchard.Core.Common.Models;
 using Orchard.Core.Contents.Extensions;
 using Orchard.Core.Title.Models;
@@ -19,8 +18,8 @@ namespace OrchardHUN.TrainingDemo
                     // Since PersonListPartRecord is a ContentPartRecord we have to use this method here. For
                     // ContentPartVersionRecord we would simply use ContentPartVersionRecord()
                     .ContentPartRecord()
-                    .Column<string>("Sex")
-                    .Column<int>("MaxCount")
+                    .Column<string>(nameof(PersonListPartRecord.Sex))
+                    .Column<int>(nameof(PersonListPartRecord.MaxCount))
                 );
 
             /* 
@@ -48,7 +47,7 @@ namespace OrchardHUN.TrainingDemo
                     .DisplayedAs("Person List")
                     .WithPart(nameof(TitlePart)) // So the list can have a title; TitlePart is a core part
                     // AutoroutePart so the list can have a friendly URL. That's why this feature depends on Orchard.Autoroute.
-                    .WithPart(nameof(AutoroutePart), builder => builder
+                    .WithPart("AutoroutePart", builder => builder
                         // These are TypePart settings: settings for a part on a specific type. I.e. AutoroutePart have
                         // the following settings for PersonList. Take a look at AutoroutePart settings on the type
                         // editor UI of PersonList to see what these mean.
@@ -76,7 +75,7 @@ namespace OrchardHUN.TrainingDemo
             ContentDefinitionManager.AlterTypeDefinition("PersonListWidget",
                 cfg => cfg
                     .WithPart(nameof(PersonListPart))
-                    .WithPart(nameof(WidgetPart))
+                    .WithPart("WidgetPart")
                     .WithPart(nameof(CommonPart))
                     .WithSetting("Stereotype", "Widget")
                 );
@@ -89,16 +88,6 @@ namespace OrchardHUN.TrainingDemo
             // You read it, didn't you? Stop spoiling.
 
             // NEXT STATION: Handlers/PersonListPartHandler
-        }
-
-        private object WidgetPart()
-        {
-            throw new NotImplementedException();
-        }
-
-        private object AutoroutePart()
-        {
-            throw new NotImplementedException();
         }
 
         public int UpdateFrom1()

@@ -4,9 +4,9 @@
  * http://docs.orchardproject.net/Documentation/Understanding-data-access)
  * Migrations are automatically run by the framework. You can use them to describe DB schema changes.
  */
-using System;
 using Orchard.Data.Migration;
 using OrchardHUN.TrainingDemo.Models;
+using System;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -29,7 +29,7 @@ namespace OrchardHUN.TrainingDemo
             .AlterTable(nameof(PersonRecord),
                 table => table
                     // You can create indices from AlterTable
-                    .CreateIndex(nameof(PersonRecord.Name), new string[] { "Name" }) // We index Name so we can retrieve by name faster
+                    .CreateIndex(nameof(PersonRecord.Name), new string[] { nameof(PersonRecord.Name) }) // We index Name so we can retrieve by name faster
             );
 
 

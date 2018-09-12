@@ -34,7 +34,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         protected override DriverResult Editor(ContentPart part, YouTubeEmbedField field, IUpdateModel updater, dynamic shapeHelper)
         {
-            updater.TryUpdateModel(field, GetPrefix(field, part), null, null);
+            updater?.TryUpdateModel(field, GetPrefix(field, part), null, null);
             return Editor(part, field, shapeHelper);
         }
 

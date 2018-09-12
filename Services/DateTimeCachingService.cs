@@ -1,8 +1,8 @@
-﻿using System;
-using Orchard;
+﻿using Orchard;
 using Orchard.Caching;
 using Orchard.Caching.Services;
 using Orchard.Services;
+using System;
 
 /*
  * In this section, we'll implement a small service that will cache the current time and date

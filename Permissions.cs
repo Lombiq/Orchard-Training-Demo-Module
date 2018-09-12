@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Orchard.Environment.Extensions;
+﻿using Orchard.Environment.Extensions;
 using Orchard.Environment.Extensions.Models;
 using Orchard.Security.Permissions;
+using System.Collections.Generic;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -31,7 +31,7 @@ namespace OrchardHUN.TrainingDemo
         public virtual Feature Feature { get; set; }
 
 
-        public IEnumerable<Permission> GetPermissions() => 
+        public IEnumerable<Permission> GetPermissions() =>
             new[]
             {
                 EditPersonList,

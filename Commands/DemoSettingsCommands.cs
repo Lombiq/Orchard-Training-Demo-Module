@@ -5,10 +5,10 @@
  */
 
 using Orchard.Commands;
+using Orchard.ContentManagement;
 using Orchard.Environment.Extensions;
 using Orchard.Settings;
 using OrchardHUN.TrainingDemo.Models;
-using Orchard.ContentManagement;
 
 namespace OrchardHUN.TrainingDemo.Commands
 {

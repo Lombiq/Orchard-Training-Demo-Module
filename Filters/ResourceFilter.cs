@@ -1,6 +1,6 @@
-﻿using System.Web.Mvc;
-using Orchard.Mvc.Filters;
+﻿using Orchard.Mvc.Filters;
 using Orchard.UI.Resources;
+using System.Web.Mvc;
 
 /* What you're now looking at is an extension point for the available filters in this Orchard application.
  * Filters in Orchard work based on MVC's filters, so please read the short tutorial available at

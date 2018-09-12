@@ -7,8 +7,8 @@
  * first!
  */
 
-using System;
 using Orchard.Data.Conventions;
+using System;
 
 namespace OrchardHUN.TrainingDemo.Models
 {
@@ -41,6 +41,7 @@ namespace OrchardHUN.TrainingDemo.Models
         // from the ctor.
         public PersonRecord() => Biography = "This person has not written a biography yet.";
     }
+
 
     public enum Sex
     {

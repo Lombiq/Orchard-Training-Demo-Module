@@ -8,12 +8,12 @@
  * In the form of ILogger and Localizer we also get to know two exceptions.
  */
 
-using System.Web.Mvc;
 using Orchard;
 using Orchard.Localization;
 using Orchard.Logging;
 using Orchard.Mvc;
 using Orchard.UI.Notify;
+using System.Web.Mvc;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
@@ -112,7 +112,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             // We redirect to the first controller here but the notification will still be displayed. This is because
             // notifications are meant to provide a way to interact with the user even after a redirect. Of course after
             // they're shown once notifications will be dismissed.
-            return RedirectToAction("Index", "YourFirstOrchard");
+            return RedirectToAction(nameof(YourFirstOrchardController.Index), "YourFirstOrchard");
 
             // NEXT STATION: Models/PersonRecord
         }

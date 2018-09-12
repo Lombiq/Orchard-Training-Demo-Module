@@ -5,12 +5,12 @@
  * Note that the same part can have multiple drivers: e.g. you could write a driver for even TitlePart.
  */
 
-using System;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
 using Orchard.ContentManagement.Handlers;
 using Orchard.Environment.Extensions;
 using OrchardHUN.TrainingDemo.Models;
+using System;
 
 namespace OrchardHUN.TrainingDemo.Drivers
 {
@@ -46,8 +46,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
                 // A shape for the summary: this will be only used when e.g. listing the item. See Placement.info how
                 // it's used. Naming is conventional.
                 ContentShape("Parts_PersonList_Summary",
-                    () => shapeHelper.Parts_PersonList_Summary())
-                );
+                    () => shapeHelper.Parts_PersonList_Summary()));
 
         // Building the editor shape.
         protected override DriverResult Editor(PersonListPart part, dynamic shapeHelper) =>
@@ -63,7 +62,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
         {
             // We could check if the model state is valid through TryUpdateModel's return value, e.g. is Sex properly
             // set?
-            updater.TryUpdateModel(part, Prefix, null, null);
+            updater?.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
         }
 

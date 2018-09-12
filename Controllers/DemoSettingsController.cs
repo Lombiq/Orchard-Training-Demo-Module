@@ -2,11 +2,11 @@
  * We'll only use this controller to display the configuration we saved through our site settings part.
  */
 
-using System.Web.Mvc;
+using Orchard.ContentManagement;
 using Orchard.Environment.Extensions;
 using Orchard.Settings;
-using Orchard.ContentManagement;
 using OrchardHUN.TrainingDemo.Models;
+using System.Web.Mvc;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
