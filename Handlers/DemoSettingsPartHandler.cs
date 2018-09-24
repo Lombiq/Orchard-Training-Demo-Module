@@ -13,7 +13,7 @@ namespace OrchardHUN.TrainingDemo.Handlers
             // lightweight way of doing it. Also since the Site content type shouldn't be edited by a user from the admin
             // UI there's no point in attaching our part in a persisted way to it.
             Filters.Add(new ActivatingFilter<DemoSettingsPart>("Site"));
-        
+
         // NEXT STATION: we need a driver, so go to Drivers/DemoSettingsPartDriver!
     }
 }

@@ -43,7 +43,7 @@ namespace OrchardHUN.TrainingDemo.Tokens
                 .Token("Default", dateTime => dateTime.ToString())
                 // Producing the output if Text tokens are chained onto this token.
                 .Chain("Default", "Text", dateTime => dateTime.ToString());
-        
+
         // NEXT STATION: see how Workflows can be extended in WarningActivity!
     }
 }

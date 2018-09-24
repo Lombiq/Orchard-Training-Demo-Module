@@ -54,7 +54,7 @@ namespace OrchardHUN.TrainingDemo.Services
 
 
         public DateTimeCachingService(
-            ICacheService cacheService, 
+            ICacheService cacheService,
             ICacheManager cacheManager,
             IClock clock,
             ISignals signals)

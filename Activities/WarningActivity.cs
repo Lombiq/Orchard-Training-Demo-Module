@@ -88,14 +88,14 @@ namespace OrchardHUN.TrainingDemo.Activities
                     Classes: new[] { "text medium", "tokenized" })
                 )
             );
-        
+
 
         // Note that Workflows automatically includes a CSS files for all Activities with the name pattern
         // "workflows-activity-[Activity name in all lowercase].css". You can style your editor form there. Even if
         // you don't need it include it otherwise the browser will try to access a non-existing CSS file. That's
         // why we added the workflows-activity-warning.css file under the Styles folder!
-               
-        
+
+
         // NEXT STATION: we'll dive into unit testing! This module's folder contains a test suite: it's a project 
         // called OrchardHUN.TrainingDemo.Tests in the folder named the same. If you haven't already add it to the 
         // Test solution folder and open it up! You'll be surprised but it contains a StartHere.txt. Don't start 

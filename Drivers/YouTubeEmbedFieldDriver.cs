@@ -24,7 +24,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
                 GetDifferentiator(field, part),
                 () => shapeHelper.Fields_YouTubeEmbed());
 
-        protected override DriverResult Editor(ContentPart part, YouTubeEmbedField field, dynamic shapeHelper) => 
+        protected override DriverResult Editor(ContentPart part, YouTubeEmbedField field, dynamic shapeHelper) =>
                 ContentShape("Fields_YouTubeEmbed_Edit",
                 GetDifferentiator(field, part),
                 () => shapeHelper.EditorTemplate(
@@ -38,10 +38,10 @@ namespace OrchardHUN.TrainingDemo.Drivers
             return Editor(part, field, shapeHelper);
         }
 
-        protected override void Importing(ContentPart part, YouTubeEmbedField field, ImportContentContext context) => 
+        protected override void Importing(ContentPart part, YouTubeEmbedField field, ImportContentContext context) =>
             context.ImportAttribute(field.FieldDefinition.Name + "." + field.Name, "VideoId", v => field.VideoId = v);
 
-        protected override void Exporting(ContentPart part, YouTubeEmbedField field, ExportContentContext context) => 
+        protected override void Exporting(ContentPart part, YouTubeEmbedField field, ExportContentContext context) =>
             context.Element(field.FieldDefinition.Name + "." + field.Name).SetAttributeValue("VideoId", field.VideoId);
 
         protected override void Describe(DescribeMembersContext context) =>

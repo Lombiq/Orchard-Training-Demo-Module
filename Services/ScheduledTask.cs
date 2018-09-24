@@ -49,7 +49,7 @@ namespace OrchardHUN.TrainingDemo.Services
         // at an even later date. Don't rely on backgroud tasks runnin exactly on schedule!
         void IScheduledTaskHandler.Process(ScheduledTaskContext context)
         {
-            // Not our task
+            // Not our task.
             if (context.Task.TaskType != TaskType) return;
 
             // Check out in the debugger: this should be called every 3 minutes.
@@ -58,7 +58,7 @@ namespace OrchardHUN.TrainingDemo.Services
             CreateTaskIfNew(true); // Renewing the task
         }
 
-        
+
         // This helper method creates the task for us but only if is not already in the system. You should be aware that
         // the task type is not a unique key: multiple tasks with the same type can exist. Thus if there's an uncompleted
         // task in the system already (because e.g. Orchard was torn down before it could run) simply creating the task

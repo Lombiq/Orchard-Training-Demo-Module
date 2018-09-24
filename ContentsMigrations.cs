@@ -13,7 +13,7 @@ namespace OrchardHUN.TrainingDemo
     {
         public int Create()
         {
-            SchemaBuilder.CreateTable(nameof(PersonListPartRecord), 
+            SchemaBuilder.CreateTable(nameof(PersonListPartRecord),
                 table => table
                     // Since PersonListPartRecord is a ContentPartRecord we have to use this method here. For
                     // ContentPartVersionRecord we would simply use ContentPartVersionRecord()
@@ -40,7 +40,7 @@ namespace OrchardHUN.TrainingDemo
              * not mandatory but serves great if we change the part's name during development. (The same goes for record 
              * name BTW.)
              */
-            ContentDefinitionManager.AlterTypeDefinition("PersonList", 
+            ContentDefinitionManager.AlterTypeDefinition("PersonList",
                 cfg => cfg
                     // Setting display name for the type. BTW the default is the technical name separated on capital
                     // letters, so the same here.

@@ -45,14 +45,14 @@ namespace OrchardHUN.TrainingDemo.Models
             // very fast; by using these helpers the record will be only accessed when really needed (like when filtering
             // on its properties when querying), otherwise data is loaded from the infoset. For more information see:
             // http://orcharddojo.net/orchard-resources/Library/Wiki/InfosetPart
-            get => Retrieve(x => x.Sex); 
-            set => Store(x => x.Sex, value); 
+            get => Retrieve(x => x.Sex);
+            set => Store(x => x.Sex, value);
         }
 
         [Required]
         public int MaxCount
         {
-            get => Retrieve(x => x.MaxCount); 
+            get => Retrieve(x => x.MaxCount);
             set => Store(x => x.MaxCount, value);
         }
 
