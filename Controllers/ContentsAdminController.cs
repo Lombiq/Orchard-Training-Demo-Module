@@ -96,7 +96,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             return PersonListDashboardShapeResult(item);
         }
 
-        [HttpPost, ActionName("PersonListDashboard")]
+        [HttpPost, ActionName(nameof(ContentsAdminController.PersonListDashboard))]
         public ActionResult PersonListDashboardPost(int id = 0)
         {
             if (!IsAuthorized()) return new HttpUnauthorizedResult();
@@ -151,7 +151,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             _orchardServices.Notifier.Information(
                 T("{0}, the Person List item was successfully saved.", _orchardServices.WorkContext.CurrentUser.UserName));
 
-            return RedirectToAction("PersonListDashboard");
+            return RedirectToAction(nameof(ContentsAdminController.PersonListDashboard));
 
             // NEXT STATION: After you're finished with this controller see the "filters" provided by MVC and how Orchard
             // extends this functionality in Filters/ResourceFilter.cs!
@@ -234,15 +234,11 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
         #region IUpdateModel members
         // Model binding of content items will use these two methods
-        bool IUpdateModel.TryUpdateModel<TModel>(TModel model, string prefix, string[] includeProperties, string[] excludeProperties)
-        {
-            return TryUpdateModel(model, prefix, includeProperties, excludeProperties);
-        }
+        bool IUpdateModel.TryUpdateModel<TModel>(TModel model, string prefix, string[] includeProperties, string[] excludeProperties) =>
+            TryUpdateModel(model, prefix, includeProperties, excludeProperties);
 
-        void IUpdateModel.AddModelError(string key, LocalizedString errorMessage)
-        {
+        void IUpdateModel.AddModelError(string key, LocalizedString errorMessage) =>
             ModelState.AddModelError(key, errorMessage.ToString());
-        }
         #endregion
 
 
@@ -280,19 +276,14 @@ namespace OrchardHUN.TrainingDemo.Controllers
             return new ShapeResult(this, editorShape);
         }
 
-        private bool IsAuthorized()
-        {
+        private bool IsAuthorized() =>
             // Authorizing the current user against a permission
-            return _authorizer.Authorize(
+            _authorizer.Authorize(
                 Permissions.AccessPersonListDashboard, T("You're not allowed to access the Person List dashboard!"));
-        }
 
-        private ContentItem GetItem(int id)
-        {
+        private ContentItem GetItem(int id) =>
             // Instantiating a new content item of type PersonList. We'll use this new item object that only resides in
             // the memory for now (nothing persisted yet) to build an editor shape (it's form).
-            if (id == 0) return _contentManager.New("PersonList");
-            else return _contentManager.Get(id);  // Fetching an existing content item with the id
-        }
+            id == 0 ? _contentManager.New("PersonList") : _contentManager.Get(id);  // Fetching an existing content item with the id
     }
 }

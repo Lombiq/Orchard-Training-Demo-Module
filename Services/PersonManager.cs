@@ -4,12 +4,12 @@
  * also because it helps discover business-critical sinergies ASAP.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Orchard;
 using Orchard.Data;
 using OrchardHUN.TrainingDemo.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace OrchardHUN.TrainingDemo.Services
 {
@@ -67,26 +67,22 @@ namespace OrchardHUN.TrainingDemo.Services
         }
 
 
-        public IEnumerable<PersonRecord> GetPersons()
-        {
+        public IEnumerable<PersonRecord> GetPersons() =>
             // Normally service methods are a bit more complex... Feel freee to discover what IRepository offers. In the
             // end you can use the Table property that's IQueryable so you have full LINQ support.
-            return _personRepository.Table;
-        }
+            _personRepository.Table;
 
         // We'll need this later for PersonListPart.
-        public IEnumerable<PersonRecord> GetPersons(Sex sex, int maxCount)
-        {
+        public IEnumerable<PersonRecord> GetPersons(Sex sex, int maxCount) =>
             // _personRepository.Fetch(record => record.Sex == sex).Take(maxCount) would produce the same result. However
             // since Fetch() returns an IEnumerable, not an IQueryable, Take() would run on objects, not translated to
             // SQL. Hence the below version can perform better.
-            return _personRepository.Table.Where(record => record.Sex == sex).Take(maxCount);
-        }
+            _personRepository.Table.Where(record => record.Sex == sex).Take(maxCount);
 
         public void SavePerson(string name, Sex sex, DateTime birthDateUtc, string biography)
         {
             // Let's also practice exception handling.
-            if (String.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
+            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
 
             var person = _personRepository.Fetch(record => record.Name == name).FirstOrDefault();
 
@@ -119,21 +115,14 @@ namespace OrchardHUN.TrainingDemo.Services
 
     public class BadwordFilter : IPersonFilter
     {
-        public string FilterBiography(string biography)
-        {
-            return biography.Replace("damn", "cute");
-        }
+        public string FilterBiography(string biography) => biography.Replace("damn", "cute");
     }
 
 
     public class ShortBiographyFilter : IPersonFilter
     {
-        public string FilterBiography(string biography)
-        {
-            if (biography.Length < 10) return "This person has a too short biography.";
-
-            return biography;
-        }
+        public string FilterBiography(string biography) =>
+            biography.Length < 10 ? "This person has too short biography." : biography;
     }
 
     // NEXT STATION: Controllers/PersonController

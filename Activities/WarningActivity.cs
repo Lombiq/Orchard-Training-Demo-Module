@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using Orchard.DisplayManagement;
+﻿using Orchard.DisplayManagement;
 using Orchard.Forms.Services;
 using Orchard.Localization;
 using Orchard.UI.Notify;
 using Orchard.Workflows.Models;
 using Orchard.Workflows.Services;
+using System.Collections.Generic;
 
 namespace OrchardHUN.TrainingDemo.Activities
 {
@@ -35,26 +32,14 @@ namespace OrchardHUN.TrainingDemo.Activities
 
 
         // Configuring some metadata of the activity.
-        public override string Name
-        {
-            get { return "Warning"; }
-        }
+        public override string Name => "Warning";
 
-        public override LocalizedString Category
-        {
-            get { return T("Notification"); }
-        }
+        public override LocalizedString Category => T("Notification");
 
-        public override LocalizedString Description
-        {
-            get { return T("Display a warning notification."); }
-        }
+        public override LocalizedString Description => T("Display a warning notification.");
 
         // The name of the form which can be used to configure the activity. For the form itself see below.
-        public override string Form
-        {
-            get { return FormName; }
-        }
+        public override string Form => FormName;
 
         // The activity can have multiple outcomes, i.e. multiple branches that other activities can be linked onto.
         public override IEnumerable<LocalizedString> GetPossibleOutcomes(WorkflowContext workflowContext, ActivityContext activityContext)
@@ -89,8 +74,7 @@ namespace OrchardHUN.TrainingDemo.Activities
         }
 
 
-        public void Describe(DescribeContext context)
-        {
+        public void Describe(DescribeContext context) =>
             // Note that the form should have the same name as the one returned from the Form property in WarningActivity.
             context.Form(WarningActivity.FormName,
                 shape => _shapeFactory.Form(
@@ -105,16 +89,16 @@ namespace OrchardHUN.TrainingDemo.Activities
                 )
             );
 
-            // Note that Workflows automatically includes a CSS files for all Activities with the name pattern
-            // "workflows-activity-[Activity name in all lowercase].css". You can style your editor form there. Even if
-            // you don't need it include it otherwise the browser will try to access a non-existing CSS file. That's
-            // why we added the workflows-activity-warning.css file under the Styles folder!
+
+        // Note that Workflows automatically includes a CSS files for all Activities with the name pattern
+        // "workflows-activity-[Activity name in all lowercase].css". You can style your editor form there. Even if
+        // you don't need it include it otherwise the browser will try to access a non-existing CSS file. That's
+        // why we added the workflows-activity-warning.css file under the Styles folder!
 
 
-            // NEXT STATION: we'll dive into unit testing! This module's folder contains a test suite: it's a project 
-            // called OrchardHUN.TrainingDemo.Tests in the folder named the same. If you haven't already add it to the 
-            // Test solution folder and open it up! You'll be surprised but it contains a StartHere.txt. Don't start 
-            // there! And by that I mean do start there!
-        }
+        // NEXT STATION: we'll dive into unit testing! This module's folder contains a test suite: it's a project 
+        // called OrchardHUN.TrainingDemo.Tests in the folder named the same. If you haven't already add it to the 
+        // Test solution folder and open it up! You'll be surprised but it contains a StartHere.txt. Don't start 
+        // there! And by that I mean do start there!
     }
 }

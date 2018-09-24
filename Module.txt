@@ -9,12 +9,12 @@ OrchardVersion: 1.10.1
 Description: Demo Orchard module for training purposes. Based on Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U).
 Features:
     OrchardHUN.TrainingDemo:
-		Name: Training Demo
-		Category: Demo
+        Name: Training Demo
+        Category: Demo
         Description: This is the base feature of the module: it has the same name as the module itself. We'll use this first.
-		Dependencies: Orchard.Resources, Orchard.Caching
-	OrchardHUN.TrainingDemo.Contents:
-		Name: Training Demo Contents
-		Category: Demo
+        Dependencies: Orchard.Resources, Orchard.Caching
+    OrchardHUN.TrainingDemo.Contents:
+        Name: Training Demo Contents
+        Category: Demo
         Description: This is a second feature of the module: it contains some content managegement-related code. As you can see it depends on the base feature (as it uses some of its services) and on the built-in Widgets and Autoroute module (more precisely: on the Orchard.Widgets and Orchard.Autoroute feature). All in all it's good practice for a subfeature to depend on the root feature as normally you'd write all common code in the root feature.
-		Dependencies: OrchardHUN.TrainingDemo, Orchard.Widgets, Orchard.Autoroute
+        Dependencies: OrchardHUN.TrainingDemo, Orchard.Widgets, Orchard.Autoroute

@@ -5,12 +5,12 @@
  * Note that the same part can have multiple drivers: e.g. you could write a driver for even TitlePart.
  */
 
-using System;
 using Orchard.ContentManagement;
 using Orchard.ContentManagement.Drivers;
 using Orchard.ContentManagement.Handlers;
 using Orchard.Environment.Extensions;
 using OrchardHUN.TrainingDemo.Models;
+using System;
 
 namespace OrchardHUN.TrainingDemo.Drivers
 {
@@ -18,25 +18,21 @@ namespace OrchardHUN.TrainingDemo.Drivers
     public class PersonListPartDriver : ContentPartDriver<PersonListPart>
     {
         // This prefix will be used to distinguish between similarly named input fields when building the editor form
-        protected override string Prefix
-        {
-            get { return "OrchardHUN.TrainingDemo.Contents.PersonListPart"; }
-        }
+        protected override string Prefix => "OrchardHUN.TrainingDemo.Contents.PersonListPart";
 
 
         // This method gets called when building the display shape of the content item the part is attached to.
-        protected override DriverResult Display(PersonListPart part, string displayType, dynamic shapeHelper)
-        {
+        protected override DriverResult Display(PersonListPart part, string displayType, dynamic shapeHelper) =>
             // For the sake of demonstration we use Combined() here. It makes it possible to return multiple shapes from
             // a driver method. Use this if you'd like to return different shapes that can be used e.g. with different
             // display types.
-            return Combined(
+            Combined(
                 // We'll use the same shape type name specified here later in the Placement.info file.
                 // The namings are conventional.
                 ContentShape("Parts_PersonList",
-                // Here a display shape is built (see:
-                // http://docs.orchardproject.net/Documentation/Accessing-and-rendering-shapes). The part is
-                // automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
+                    // Here a display shape is built (see:
+                    // http://docs.orchardproject.net/Documentation/Accessing-and-rendering-shapes). The part is
+                    // automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
                     () =>
                     {
                         // Note that the shape is produced from this factory delegate (you can see its shorthand form at
@@ -50,27 +46,23 @@ namespace OrchardHUN.TrainingDemo.Drivers
                 // A shape for the summary: this will be only used when e.g. listing the item. See Placement.info how
                 // it's used. Naming is conventional.
                 ContentShape("Parts_PersonList_Summary",
-                    () => shapeHelper.Parts_PersonList_Summary())
-                );
-        }
+                    () => shapeHelper.Parts_PersonList_Summary()));
 
         // Building the editor shape.
-        protected override DriverResult Editor(PersonListPart part, dynamic shapeHelper)
-        {
+        protected override DriverResult Editor(PersonListPart part, dynamic shapeHelper) =>
             // Again, conventional namings.
-            return ContentShape("Parts_PersonList_Edit",
+            ContentShape("Parts_PersonList_Edit",
                 () => shapeHelper.EditorTemplate(
                     TemplateName: "Parts.PersonList",
                     Model: part,
                     Prefix: Prefix));
-        }
 
         // This editor method will be called when the editor form is posted.
         protected override DriverResult Editor(PersonListPart part, IUpdateModel updater, dynamic shapeHelper)
         {
             // We could check if the model state is valid through TryUpdateModel's return value, e.g. is Sex properly
             // set?
-            updater.TryUpdateModel(part, Prefix, null, null);
+            updater?.TryUpdateModel(part, Prefix, null, null);
             return Editor(part, shapeHelper);
         }
 
@@ -85,7 +77,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
 
         protected override void Importing(PersonListPart part, ImportContentContext context)
         {
-            var partName = part.PartDefinition.Name;
+            var partName = nameof(part.PartDefinition);
 
             context.ImportAttribute(partName, "Sex", value => part.Sex = (Sex)Enum.Parse(typeof(Sex), value));
             context.ImportAttribute(partName, "MaxCount", value => part.MaxCount = int.Parse(value));

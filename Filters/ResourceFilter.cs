@@ -1,6 +1,6 @@
-﻿using System.Web.Mvc;
-using Orchard.Mvc.Filters;
+﻿using Orchard.Mvc.Filters;
 using Orchard.UI.Resources;
+using System.Web.Mvc;
 
 /* What you're now looking at is an extension point for the available filters in this Orchard application.
  * Filters in Orchard work based on MVC's filters, so please read the short tutorial available at
@@ -27,10 +27,7 @@ namespace OrchardHUN.TrainingDemo.Filters
         private readonly IResourceManager _resourceManager;
 
 
-        public ResourceFilter(IResourceManager resourceManager)
-        {
-            _resourceManager = resourceManager;
-        }
+        public ResourceFilter(IResourceManager resourceManager) => _resourceManager = resourceManager;
 
 
         // This method will be called after the action result is executed.

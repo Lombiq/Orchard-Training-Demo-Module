@@ -4,9 +4,9 @@
  * http://docs.orchardproject.net/Documentation/Understanding-data-access)
  * Migrations are automatically run by the framework. You can use them to describe DB schema changes.
  */
-using System;
 using Orchard.Data.Migration;
 using OrchardHUN.TrainingDemo.Models;
+using System;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -17,19 +17,19 @@ namespace OrchardHUN.TrainingDemo
         // it can set up DB tables.
         public int Create()
         {
-            SchemaBuilder.CreateTable(typeof(PersonRecord).Name,
+            SchemaBuilder.CreateTable(nameof(PersonRecord),
                 table => table
-                    .Column<int>("Id", column => column.PrimaryKey().Identity())
-                    .Column<string>("Name", column => column.WithLength(500))
-                    .Column<string>("Sex") // Best to store enums as strings
-                    .Column<DateTime>("BirthDateUtc")
+                    .Column<int>(nameof(PersonRecord.Id), column => column.PrimaryKey().Identity())
+                    .Column<string>(nameof(PersonRecord.Name), column => column.WithLength(500))
+                    .Column<string>(nameof(PersonRecord.Sex)) // Best to store enums as strings
+                    .Column<DateTime>(nameof(PersonRecord.BirthDateUtc))
                     // An infinite string should have Unlimited() set!
-                    .Column<string>("Biography", column => column.Unlimited())
+                    .Column<string>(nameof(PersonRecord.Biography), column => column.Unlimited())
                 )
-            .AlterTable(typeof(PersonRecord).Name,
+            .AlterTable(nameof(PersonRecord),
                 table => table
                     // You can create indices from AlterTable
-                    .CreateIndex("Name", new string[] { "Name" }) // We index Name so we can retrieve by name faster
+                    .CreateIndex(nameof(PersonRecord.Name), new string[] { nameof(PersonRecord.Name) }) // We index Name so we can retrieve by name faster
             );
 
 
@@ -49,9 +49,9 @@ namespace OrchardHUN.TrainingDemo
             // The initial version of our module did not store the person's name! What a mistake. We've brought disgrace
             // to our families. We quickly fix the issue by pushing out an update that modifies the schema to add the
             // Name.
-            SchemaBuilder.AlterTable(typeof(PersonRecord).Name,
+            SchemaBuilder.AlterTable(nameof(PersonRecord),
                 table => table
-                    .AddColumn<string>("Name", column => column.WithLength(500))
+                    .AddColumn<string>(nameof(PersonRecord.Name), column => column.WithLength(500))
                 );
 
             /*

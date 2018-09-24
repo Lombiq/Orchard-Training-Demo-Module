@@ -3,13 +3,13 @@
  */
 
 
-using System;
-using System.IO;
-using System.Web.Mvc;
 using Orchard;
 using Orchard.Exceptions;
 using Orchard.FileSystems.Media;
 using Orchard.Localization;
+using System;
+using System.IO;
+using System.Web.Mvc;
 
 namespace OrchardHUN.TrainingDemo.Controllers
 {
@@ -47,10 +47,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
         public Localizer T { get; set; }
 
 
-        public FileManagementController(IStorageProvider storageProvider)
-        {
-            _storageProvider = storageProvider;
-        }
+        public FileManagementController(IStorageProvider storageProvider) => _storageProvider = storageProvider;
 
 
         // Creating/writing some files. Don't forget to check them out after running this action in the Media folder!

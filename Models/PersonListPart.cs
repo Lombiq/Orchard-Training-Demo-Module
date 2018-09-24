@@ -9,12 +9,12 @@
  * http://msdn.microsoft.com/en-us/magazine/hh708754.aspx
  */
 
+using Orchard.ContentManagement;
+using Orchard.ContentManagement.Records;
+using Orchard.ContentManagement.Utilities;
+using Orchard.Environment.Extensions;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using Orchard.ContentManagement;
-using Orchard.ContentManagement.Utilities;
-using Orchard.ContentManagement.Records;
-using Orchard.Environment.Extensions;
 
 namespace OrchardHUN.TrainingDemo.Models
 {
@@ -45,15 +45,15 @@ namespace OrchardHUN.TrainingDemo.Models
             // very fast; by using these helpers the record will be only accessed when really needed (like when filtering
             // on its properties when querying), otherwise data is loaded from the infoset. For more information see:
             // http://orcharddojo.net/orchard-resources/Library/Wiki/InfosetPart
-            get { return Retrieve(x => x.Sex); }
-            set { Store(x => x.Sex, value); }
+            get => Retrieve(x => x.Sex);
+            set => Store(x => x.Sex, value);
         }
 
         [Required]
         public int MaxCount
         {
-            get { return Retrieve(x => x.MaxCount); }
-            set { Store(x => x.MaxCount, value); }
+            get => Retrieve(x => x.MaxCount);
+            set => Store(x => x.MaxCount, value);
         }
 
         /*
@@ -63,12 +63,9 @@ namespace OrchardHUN.TrainingDemo.Models
          * should have a parameterless ctor: this means they can't use dependencies to fetch data themselves.
          * We'll fill this field with data from a handler in a later step.
          */
-        private readonly LazyField<IEnumerable<PersonRecord>> _persons = new LazyField<IEnumerable<PersonRecord>>();
-        internal LazyField<IEnumerable<PersonRecord>> PersonsField { get { return _persons; } }
-        public IEnumerable<PersonRecord> Persons
-        {
-            get { return _persons.Value; }
-        }
+        internal LazyField<IEnumerable<PersonRecord>> PersonsField { get; } = new LazyField<IEnumerable<PersonRecord>>();
+
+        public IEnumerable<PersonRecord> Persons => PersonsField.Value;
     }
 
 
@@ -81,16 +78,13 @@ namespace OrchardHUN.TrainingDemo.Models
      */
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
     public class PersonListPartRecord : ContentPartRecord
-	{
+    {
         public virtual Sex Sex { get; set; }
         public virtual int MaxCount { get; set; }
 
 
-        public PersonListPartRecord()
-        {
-            MaxCount = 10;
-        }
-	}
+        public PersonListPartRecord() => MaxCount = 10;
+    }
 
     // NEXT STATION: ContentsMigrations
 }

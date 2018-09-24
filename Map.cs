@@ -1,5 +1,4 @@
-﻿using System;
-using OrchardHUN.TrainingDemo.Activities;
+﻿using OrchardHUN.TrainingDemo.Activities;
 using OrchardHUN.TrainingDemo.Commands;
 using OrchardHUN.TrainingDemo.Controllers;
 using OrchardHUN.TrainingDemo.Drivers;
@@ -8,6 +7,7 @@ using OrchardHUN.TrainingDemo.Handlers;
 using OrchardHUN.TrainingDemo.Models;
 using OrchardHUN.TrainingDemo.Services;
 using OrchardHUN.TrainingDemo.Tokens;
+using System;
 
 /* 
  * In this file, you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
@@ -20,7 +20,7 @@ namespace OrchardHUN.TrainingDemo
 {
     static class Map
     {
-        private static T Factory<T>() { return default(T); }
+        private static T Factory<T>() => default(T);
 
         private static void Treasure()
         {

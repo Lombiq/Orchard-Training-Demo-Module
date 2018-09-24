@@ -7,12 +7,7 @@
  * Site settings start off with a standard content part. These parts are under the Contents feature.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Orchard.ContentManagement;
-using Orchard.ContentManagement.Records;
 using Orchard.Environment.Extensions;
 
 namespace OrchardHUN.TrainingDemo.Models
@@ -26,8 +21,8 @@ namespace OrchardHUN.TrainingDemo.Models
         // infoset.
         public string Message
         {
-            get { return this.Retrieve(x => x.Message); }
-            set { this.Store(x => x.Message, value); }
+            get => this.Retrieve(x => x.Message);
+            set => this.Store(x => x.Message, value);
         }
     }
 

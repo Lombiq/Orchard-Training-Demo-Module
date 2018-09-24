@@ -7,8 +7,8 @@
  * first!
  */
 
-using System;
 using Orchard.Data.Conventions;
+using System;
 
 namespace OrchardHUN.TrainingDemo.Models
 {
@@ -39,11 +39,9 @@ namespace OrchardHUN.TrainingDemo.Models
 
         // If you want to set defaults for when some of the record's properties are not filled upon creation, set them
         // from the ctor.
-        public PersonRecord()
-        {
-            Biography = "This person has not written a biography yet.";
-        }
+        public PersonRecord() => Biography = "This person has not written a biography yet.";
     }
+
 
     public enum Sex
     {

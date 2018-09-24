@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using Orchard.Environment;
+﻿using Orchard.Environment;
 using Orchard.Services;
 using Orchard.Tasks.Scheduling;
 using OrchardHUN.TrainingDemo.Events;
+using System.Linq;
 
 namespace OrchardHUN.TrainingDemo.Services
 {
@@ -31,19 +31,15 @@ namespace OrchardHUN.TrainingDemo.Services
 
 
         // This runs very early when the Orchard instance spins up.
-        void IOrchardShellEvents.Activated()
-        {
+        void IOrchardShellEvents.Activated() =>
             // Scheduled tasks, as they are run at a given time, should be first registered. What we write now is a
             // self-renewing scheduled task, essentially a periodic background task where we choose the interval between
             // calls. Remember though that this is just a common scenario, but not the only one of course: another
             // scheduled task scenario would be to schedule a task for a future date and only run it once.
             CreateTaskIfNew(false);
-        }
 
         // When the Orchard instance is torn down, this event is fired. We don't need it now.
-        void IOrchardShellEvents.Terminating()
-        {
-        }
+        void IOrchardShellEvents.Terminating() { }
 
         // This method will be called periodically (every minute) with the current task context. Because of this we have
         // to check if the current task is ours. (BTW this way the same taks handler can handle multiple tasks.) Remember
@@ -53,7 +49,7 @@ namespace OrchardHUN.TrainingDemo.Services
         // at an even later date. Don't rely on backgroud tasks runnin exactly on schedule!
         void IScheduledTaskHandler.Process(ScheduledTaskContext context)
         {
-            // Not our task
+            // Not our task.
             if (context.Task.TaskType != TaskType) return;
 
             // Check out in the debugger: this should be called every 3 minutes.
@@ -62,7 +58,7 @@ namespace OrchardHUN.TrainingDemo.Services
             CreateTaskIfNew(true); // Renewing the task
         }
 
-        
+
         // This helper method creates the task for us but only if is not already in the system. You should be aware that
         // the task type is not a unique key: multiple tasks with the same type can exist. Thus if there's an uncompleted
         // task in the system already (because e.g. Orchard was torn down before it could run) simply creating the task

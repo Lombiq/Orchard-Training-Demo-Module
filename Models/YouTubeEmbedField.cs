@@ -1,6 +1,4 @@
-﻿using System;
-using Orchard.ContentManagement;
-using Orchard.ContentManagement.FieldStorage;
+﻿using Orchard.ContentManagement;
 using Orchard.Environment.Extensions;
 
 /* Just like with content part development, we'll start with creating a model class.
@@ -8,7 +6,7 @@ using Orchard.Environment.Extensions;
  * videos for embedding.
  * 
  * If we have many fields and other models we normally place field models into the Fields namespace.
- */ 
+ */
 namespace OrchardHUN.TrainingDemo.Models
 {
     [OrchardFeature("OrchardHUN.TrainingDemo.Contents")]
@@ -37,8 +35,8 @@ namespace OrchardHUN.TrainingDemo.Models
         {
             // Get and Set have overrides without requiring a name. If you don't specify a name here the field's default
             // (single) value storage will be used.
-            get { return Storage.Get<string>("VideoId"); }
-            set { Storage.Set("VideoId", value ?? String.Empty); }
+            get => Storage.Get<string>(nameof(VideoId));
+            set => Storage.Set(nameof(VideoId), value ?? string.Empty);
         }
     }
 }

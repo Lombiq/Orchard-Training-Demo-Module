@@ -19,19 +19,14 @@ namespace OrchardHUN.TrainingDemo.Services
 
         // Notice that we inject a single IBackgroundEventHandler here although there can be (actually are) multiple
         // implementations. As we'll see in a moment, there is a good amount of magic involved.
-        public BackgroundTask(IBackgroundEventHandler eventHandler)
-        {
-            _eventHandler = eventHandler;
-        }
+        public BackgroundTask(IBackgroundEventHandler eventHandler) => _eventHandler = eventHandler;
 
 
-        public void Sweep()
-        {
+        public void Sweep() =>
             // Calling into the event. Although we call the method on a single IBackgroundEventHandler object really this
             // method of all the implementations is called! Check out: this will fire every minute, so the respective
             // method of ScheduledTaskHandler and BackgroundTaskHandler will be called too.
             _eventHandler.BackgroundTaskFired();
-        }
 
         // NEXT STATION: Let's see Services/ScheduledTask! Some more background tasks will follow with more event
         // handling awesomeness.

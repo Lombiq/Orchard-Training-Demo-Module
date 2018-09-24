@@ -1,7 +1,7 @@
-﻿using System.Collections.Generic;
-using Orchard.Environment.Extensions;
+﻿using Orchard.Environment.Extensions;
 using Orchard.Environment.Extensions.Models;
 using Orchard.Security.Permissions;
+using System.Collections.Generic;
 
 namespace OrchardHUN.TrainingDemo
 {
@@ -15,7 +15,7 @@ namespace OrchardHUN.TrainingDemo
         public static readonly Permission EditPersonList = new Permission
         {
             Description = "Edit Person List items",
-            Name = "EditPersonList"
+            Name = nameof(EditPersonList)
         };
 
         // ImpliedBy means that everybody who has the EditPersonList permission also automatically possesses the
@@ -24,26 +24,23 @@ namespace OrchardHUN.TrainingDemo
         public static readonly Permission AccessPersonListDashboard = new Permission
         {
             Description = "Access the Person List dashboard",
-            Name = "AccessPersonListDashboard",
+            Name = nameof(AccessPersonListDashboard),
             ImpliedBy = new[] { EditPersonList }
         };
 
         public virtual Feature Feature { get; set; }
 
 
-        public IEnumerable<Permission> GetPermissions()
-        {
-            return new[]
+        public IEnumerable<Permission> GetPermissions() =>
+            new[]
             {
                 EditPersonList,
                 AccessPersonListDashboard
             };
-        }
 
-        public IEnumerable<PermissionStereotype> GetDefaultStereotypes()
-        {
+        public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
             // Giving some defaults: which user groups should possess which permissions
-            return new[]
+            new[]
             {
                 new PermissionStereotype
                 {
@@ -58,7 +55,6 @@ namespace OrchardHUN.TrainingDemo
                     Permissions = new[] { AccessPersonListDashboard }
                 }
             };
-        }
     }
 
     // NEXT STATION: Let's head back to Controllers/ContentsAdminController!

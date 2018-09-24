@@ -4,15 +4,11 @@
  * With the commands exposed here we'll be able to modify the site settings we developed with DemoSettingsPart.
  */
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using Orchard.Commands;
+using Orchard.ContentManagement;
 using Orchard.Environment.Extensions;
 using Orchard.Settings;
 using OrchardHUN.TrainingDemo.Models;
-using Orchard.ContentManagement;
 
 namespace OrchardHUN.TrainingDemo.Commands
 {
@@ -23,10 +19,7 @@ namespace OrchardHUN.TrainingDemo.Commands
         private readonly ISiteService _siteService;
 
 
-        public DemoSettingsCommands(ISiteService siteService)
-        {
-            _siteService = siteService;
-        }
+        public DemoSettingsCommands(ISiteService siteService) => _siteService = siteService;
 
 
         // Simple command, without arguments
