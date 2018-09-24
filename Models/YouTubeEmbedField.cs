@@ -37,7 +37,7 @@ namespace OrchardHUN.TrainingDemo.Models
             // Get and Set have overrides without requiring a name. If you don't specify a name here the field's default
             // (single) value storage will be used.
             get => Storage.Get<string>(nameof(VideoId)); 
-            set => Storage.Set(nameof(VideoId), value ?? String.Empty);
+            set => Storage.Set(nameof(VideoId), value ?? string.empty);
         }
     }
 }

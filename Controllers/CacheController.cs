@@ -26,7 +26,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             _dateTimeCachingService.InvalidateCachedDateTime();
 
             // After invalidating the cache entry, we'll show the regenerated data.
-            return RedirectToAction("GetDateTime");
+            return RedirectToAction(nameof(CacheController.GetDateTime));
         }
     }
 }
