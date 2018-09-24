@@ -20,12 +20,12 @@ namespace OrchardHUN.TrainingDemo.Drivers
         // The other difference is that the methods of a field's driver receive an additional parameter, which is the
         // field itself. We still need the part that the field is attached to.
         protected override DriverResult Display(ContentPart part, YouTubeEmbedField field, string displayType, dynamic shapeHelper) =>
-                ContentShape("Fields_YouTubeEmbed",
+            ContentShape("Fields_YouTubeEmbed",
                 GetDifferentiator(field, part),
                 () => shapeHelper.Fields_YouTubeEmbed());
 
         protected override DriverResult Editor(ContentPart part, YouTubeEmbedField field, dynamic shapeHelper) =>
-                ContentShape("Fields_YouTubeEmbed_Edit",
+            ContentShape("Fields_YouTubeEmbed_Edit",
                 GetDifferentiator(field, part),
                 () => shapeHelper.EditorTemplate(
                     TemplateName: "Fields.YouTubeEmbed.Edit",
