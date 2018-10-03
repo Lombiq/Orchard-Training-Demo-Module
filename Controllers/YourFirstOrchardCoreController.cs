@@ -16,7 +16,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // For now we just return an empty view. This action is accessible from under
             // Lombiq.TraningDemo/YourFirstOrchard/Index route (appended to your site's root path; so using defaults it
             // would look something like this:
-            // http://localhost:44300/OrchardLocal/Lombiq.TraningDemo/YourFirstOrchard/Index) If you don't know how this
+            // http://localhost:44300/Lombiq.TraningDemo/YourFirstOrchard/Index) If you don't know how this
             // path gets together take a second look at how ASP.NET Core MVC routing works!
             View();
 
