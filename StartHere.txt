@@ -1,4 +1,4 @@
-﻿Hi there!
+Hi there!
 
 
 Good to see you want to learn the ins and outs of Orchard Core module creation. Reading code is always a good way for this!
@@ -25,11 +25,12 @@ Dojo's  trainings: https://orcharddojo.net/orchard-training
 
 Although the module has no function apart from serving as a demonstration we've written everything in a way that it really
 runs and you can try it out in action. There are two ways of creating Orchard Core applications and trying out this module.
-One simple way is to create an Orchard Core ASP.NET Web Application (simply follow the instructions in the Code Generation 
-Templates section of the documentation) and adding the Lombiq.TrainingDemo project as reference to it. The second way is 
-downloading the latest source of Orchard (https://github.com/OrchardCMS/OrchardCore/) and adding this module is in the 
-Lombiq.TrainingDemo folder under the Modules directory, opening the solution and adding the module's project to it. Don't forget
-to run the solution in Debug mode and break into the code to be able to look into some specific details!
+The recommended way to try this module out is to grab the full OrchardCore source and copy this module to the 
+src/OrchardCore.Modules folder and add it to the Solution file. The second way is to create a an Orchard Core ASP.NET Web 
+Application (simply follow the instructions in the Code Generation Templates section of the documentation) and adding the 
+Lombiq.TrainingDemo project as reference to it. If you go with the second way you need to replace project references to NuGet
+package references. Don't forget to run the solution in Debug mode and break into the code to be able to look into some 
+specific details!
 
 After you complete this tutorial (or even during walking through it) you're encouraged to look at the built-in modules 
 how they solve similar tasks. If you chose to use the simpler way to add this project to Orchard Core then you should try the
