@@ -1,0 +1,14 @@
+<div class="book">
+    @if (Model.Header != null)
+    {
+        <header class="header">
+            @await DisplayAsync(Model.Header)
+        </header>
+    }
+    @if (Model.Content != null)
+    {
+        <div class="content">
+            @await DisplayAsync(Model.Content)
+        </div>
+    }
+</div>
