@@ -40,9 +40,9 @@ namespace Lombiq.TrainingDemo.Controllers
 
             // Here the shape is generated. Before going any further let's dig deeper and see what happens when this method
             // is called.
-            // NEXT STATION: Go to Drivers/BookDisplayDriver.
             var shape = await _bookDisplayManager.BuildDisplayAsync(book, this);
 
+            // NEXT STATION: Go to Views/DisplayManagement/DisplayBook.cshtml.
             return View(shape);
         }
         
