@@ -1,0 +1,22 @@
+@* This is a very similar display shape for Book object, however, this one will be used only if the display type is Description.
+   The zone-related properties of the Model objects will be populated accordingly. *@
+
+<div class="book">
+    @* Display Header zone if there is any shape placed in the zone. *@
+    @if (Model.Header != null)
+    {
+        <header class="header">
+            @await DisplayAsync(Model.Header)
+        </header>
+    }
+    
+    @* Display Content zone if there is any shape placed in the zone. *@
+    @if (Model.Content != null)
+    {
+        <div class="content">
+            @await DisplayAsync(Model.Content)
+        </div>
+    }
+</div>
+
+@* NEXT STATION: Go to Views/_ViewImports.cshtml *@
