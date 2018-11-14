@@ -1,0 +1,23 @@
+@model PersonPartViewModel
+@using Lombiq.TrainingDemo.ViewModels;
+
+<fieldset class="form-group" asp-validation-class-for="Name">
+    <label asp-for="Name">@T["Name"] <span asp-validation-for="Name"></span></label>
+    <input asp-for="Name" class="form-control" />
+    <span class="hint">@T["Person's name"]</span>
+</fieldset>
+
+<fieldset class="form-group" asp-validation-class-for="BirthDateUtc">
+    <label asp-for="BirthDateUtc">@T["Birth date"] <span asp-validation-for="BirthDateUtc"></span></label>
+    <input asp-for="BirthDateUtc" type="date" class="form-control" />
+</fieldset>
+
+<fieldset class="form-group" asp-validation-class-for="Sex">
+    <label asp-for="Sex">@T["Birth date"] <span asp-validation-for="Sex"></span></label>
+    <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control"></select>
+</fieldset>
+
+<fieldset class="form-group" asp-validation-class-for="Biography">
+    <label asp-for="Biography">@T["Biography"]</label>
+    <textarea asp-for="Biography" rows="5" class="form-control"></textarea>
+</fieldset>
