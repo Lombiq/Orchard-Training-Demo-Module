@@ -13,7 +13,7 @@
 </fieldset>
 
 <fieldset class="form-group" asp-validation-class-for="Sex">
-    <label asp-for="Sex">@T["Birth date"] <span asp-validation-for="Sex"></span></label>
+    <label asp-for="Sex">@T["Sex"] <span asp-validation-for="Sex"></span></label>
     <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control"></select>
 </fieldset>
 
