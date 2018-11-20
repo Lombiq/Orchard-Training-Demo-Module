@@ -1,0 +1,21 @@
+@model Lombiq.TrainingDemo.ViewModels.EditColorFieldViewModel
+@using Lombiq.TrainingDemo.Settings;
+@using OrchardCore.ContentManagement.Metadata.Models
+
+@{
+    var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
+}
+
+<fieldset class="form-group">
+    <legend>@Model.PartFieldDefinition.DisplayName()</legend>
+
+    <label asp-for="ColorName">@T["Color name"]</label>
+    <input asp-for="ColorName" class="form-control content-preview-text" />
+
+    <label asp-for="Value">@T["Hexadecimal value"]</label>
+    <input asp-for="Value" class="form-control content-preview-text" />
+    @if (!String.IsNullOrEmpty(settings.Hint))
+    {
+        <span class="hint">@settings.Hint</span>
+    }
+</fieldset>
