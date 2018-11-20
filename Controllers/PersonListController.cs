@@ -11,24 +11,26 @@ using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    public class PersonListAdminController : Controller, IUpdateModel
+    public class PersonListController : Controller, IUpdateModel
     {
         private readonly ISession _session;
 
 
-        public PersonListAdminController(ISession session)
+        public PersonListController(ISession session)
         {
             _session = session;
         }
         
         public async Task<ActionResult> Index()
         {
-            var person = await _session
+            var persons = await _session
                 .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < new DateTime(1990, 1, 1), true)
                 .With<ContentItemIndex>(index => index.ContentType == "Person")
-                .FirstOrDefaultAsync();
+                .ListAsync();
 
-            return View(person);
+            //var personShapesFactory = new 
+
+            return View(persons);
         }
     }
 }

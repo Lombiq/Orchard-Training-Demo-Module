@@ -20,8 +20,7 @@ namespace Lombiq.TrainingDemo.Drivers
             return Initialize<PersonPartViewModel>("PersonPart_Edit", model =>
             {
                 model.PersonPart = personPart;
-
-                model.Biography = personPart.Biography;
+                
                 model.BirthDateUtc = personPart.BirthDateUtc;
                 model.Name = personPart.Name;
                 model.Sex = personPart.Sex;
@@ -33,8 +32,7 @@ namespace Lombiq.TrainingDemo.Drivers
             var viewModel = new PersonPartViewModel();
 
             await updater.TryUpdateModelAsync(viewModel, Prefix);
-
-            model.Biography = viewModel.Biography;
+            
             model.BirthDateUtc = viewModel.BirthDateUtc;
             model.Name = viewModel.Name;
             model.Sex = viewModel.Sex;

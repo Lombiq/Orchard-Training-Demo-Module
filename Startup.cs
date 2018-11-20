@@ -37,12 +37,12 @@ namespace Lombiq.TrainingDemo
                 defaults: new { controller = "Home", action = "Index" }
             );
 
-            routes.MapAreaRoute(
-                name: "PersonList",
-                areaName: "Lombiq.TrainingDemo",
-                template: "Admin/PersonList",
-                defaults: new { controller = "PersonListAdmin", action = "Index" }
-            );
+            //routes.MapAreaRoute(
+            //    name: "PersonList",
+            //    areaName: "Lombiq.TrainingDemo",
+            //    template: "Admin/PersonList",
+            //    defaults: new { controller = "PersonListAdmin", action = "Index" }
+            //);
         }
     }
 }

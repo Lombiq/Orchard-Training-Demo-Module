@@ -20,8 +20,6 @@ namespace Lombiq.TrainingDemo.ViewModels
         [Required]
         public DateTime? BirthDateUtc { get; set; }
 
-        public string Biography { get; set; }
-
         [BindNever]
         public PersonPart PersonPart { get; set; }
 

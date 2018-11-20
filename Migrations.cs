@@ -1,6 +1,8 @@
 using System;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Models;
+using OrchardCore.ContentFields.Fields;
+using OrchardCore.ContentFields.Settings;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
@@ -11,10 +13,12 @@ namespace Lombiq.TrainingDemo
     {
         IContentDefinitionManager _contentDefinitionManager;
 
+
         public Migrations(IContentDefinitionManager contentDefinitionManager)
         {
             _contentDefinitionManager = contentDefinitionManager;
         }
+
 
         public int Create()
         {
@@ -24,6 +28,15 @@ namespace Lombiq.TrainingDemo
                 .WithPart(nameof(PersonPart))
             );
 
+            _contentDefinitionManager.AlterPartDefinition(nameof(PersonPart), part => part
+                .WithField(nameof(PersonPart.Biography), field => field
+                    .OfType(nameof(TextField))
+                    .WithDisplayName("Biography")
+                    .WithSettings(new TextFieldSettings
+                    {
+                        Required = false
+                    })));
+
             SchemaBuilder.CreateMapIndexTable(nameof(PersonPartIndex), table => table
                 .Column<DateTime>(nameof(PersonPartIndex.BirthDateUtc))
                 .Column<string>(nameof(PersonPartIndex.ContentItemId), c => c.WithLength(26))
@@ -32,6 +45,21 @@ namespace Lombiq.TrainingDemo
             );
 
             return 1;
+        }
+
+        // For testing purposes.
+        public int UpdateFrom2()
+        {
+            _contentDefinitionManager.AlterPartDefinition(nameof(PersonPart), part => part
+                .WithField(nameof(PersonPart.Biography), field => field
+                    .OfType(nameof(TextField))
+                    .WithDisplayName("Biography")
+                    .WithSettings(new TextFieldSettings
+                    {
+                        Required = false
+                    })));
+
+            return 3;
         }
     }
 }

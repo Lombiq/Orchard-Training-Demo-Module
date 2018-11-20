@@ -16,8 +16,3 @@
     <label asp-for="Sex">@T["Sex"] <span asp-validation-for="Sex"></span></label>
     <select asp-for="Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control"></select>
 </fieldset>
-
-<fieldset class="form-group" asp-validation-class-for="Biography">
-    <label asp-for="Biography">@T["Biography"]</label>
-    <textarea asp-for="Biography" rows="5" class="form-control"></textarea>
-</fieldset>
