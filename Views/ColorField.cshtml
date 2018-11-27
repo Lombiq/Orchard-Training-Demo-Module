@@ -4,10 +4,6 @@
 @{
     var name = (Model.PartFieldDefinition.PartDefinition.Name + "-" + Model.PartFieldDefinition.Name).HtmlClassify();
     var hex = Model.Field.Value;
-    if (!hex.StartsWith("#"))
-    {
-        hex = $"#{hex}";
-    }
 }
 
 <div class="field field-type-colorfield field-name-@name">

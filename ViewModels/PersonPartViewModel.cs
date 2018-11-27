@@ -15,7 +15,7 @@ namespace Lombiq.TrainingDemo.ViewModels
         public string Name { get; set; }
 
         [Required]
-        public Sex Sex { get; set; }
+        public Handedness Handedness { get; set; }
 
         [Required]
         public DateTime? BirthDateUtc { get; set; }

@@ -7,15 +7,14 @@ namespace Lombiq.TrainingDemo.Models
     public class PersonPart : ContentPart
     {
         public string Name { get; set; }
-        public Sex Sex { get; set; }
+        public Handedness Handedness { get; set; }
         public DateTime? BirthDateUtc { get; set; }
         public TextField Biography { get; set; }
     }
 
-
-    public enum Sex
+    public enum Handedness
     {
-        Male,
-        Female
+        Right,
+        Left
     }
 }

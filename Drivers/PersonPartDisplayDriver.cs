@@ -23,7 +23,7 @@ namespace Lombiq.TrainingDemo.Drivers
                 
                 model.BirthDateUtc = personPart.BirthDateUtc;
                 model.Name = personPart.Name;
-                model.Sex = personPart.Sex;
+                model.Handedness = personPart.Handedness;
             });
         }
 
@@ -35,7 +35,7 @@ namespace Lombiq.TrainingDemo.Drivers
             
             model.BirthDateUtc = viewModel.BirthDateUtc;
             model.Name = viewModel.Name;
-            model.Sex = viewModel.Sex;
+            model.Handedness = viewModel.Handedness;
             
             return Edit(model);
         }

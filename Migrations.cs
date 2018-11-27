@@ -46,20 +46,5 @@ namespace Lombiq.TrainingDemo
 
             return 1;
         }
-
-        // For testing purposes.
-        public int UpdateFrom2()
-        {
-            _contentDefinitionManager.AlterPartDefinition(nameof(PersonPart), part => part
-                .WithField(nameof(PersonPart.Biography), field => field
-                    .OfType(nameof(TextField))
-                    .WithDisplayName("Biography")
-                    .WithSettings(new TextFieldSettings
-                    {
-                        Required = false
-                    })));
-
-            return 3;
-        }
     }
 }

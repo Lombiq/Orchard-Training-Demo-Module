@@ -8,9 +8,6 @@ namespace Lombiq.TrainingDemo.ViewModels
     {
         public string ColorName { get; set; }
         public string Value { get; set; }
-        public byte R { get; set; }
-        public byte G { get; set; }
-        public byte B { get; set; }
         public ColorField Field { get; set; }
         public ContentPart Part { get; set; }
         public ContentPartFieldDefinition PartFieldDefinition { get; set; }

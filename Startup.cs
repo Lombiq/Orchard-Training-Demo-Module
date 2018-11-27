@@ -18,6 +18,7 @@ using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Indexing;
 using OrchardCore.Modules;
+using OrchardCore.ResourceManagement;
 using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
@@ -51,6 +52,9 @@ namespace Lombiq.TrainingDemo
             services.AddScoped<IContentFieldDisplayDriver, ColorFieldDisplayDriver>();
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ColorFieldSettingsDriver>();
             services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
+
+            // Resources
+            services.AddScoped<IResourceManifestProvider, ResourceManifest>();
         }
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)

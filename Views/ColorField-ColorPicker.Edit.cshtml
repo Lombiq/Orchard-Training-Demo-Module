@@ -1,0 +1,54 @@
+@model Lombiq.TrainingDemo.ViewModels.EditColorFieldViewModel
+@using Lombiq.TrainingDemo.Settings;
+@using OrchardCore.ContentManagement.Metadata.Models
+
+@{
+    var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
+}
+
+<script asp-name="Pickr" at="Head"></script>
+<style asp-name="Pickr" at="Head"></style>
+
+<fieldset class="form-group">
+    <legend>@Model.PartFieldDefinition.DisplayName()</legend>
+
+    <label asp-for="ColorName">@T["Color name"]</label>
+    <input asp-for="ColorName" class="form-control content-preview-text" />
+
+    <label asp-for="Value">@T["Pick a color"]</label>
+    <div id="@Html.IdFor(m => m.Value)-ColorPicker"></div>
+    <input asp-for="Value" type="hidden" class="form-control content-preview-text" readonly />
+    @if (!String.IsNullOrEmpty(settings.Hint))
+    {
+        <span class="hint">@settings.Hint</span>
+    }
+</fieldset>
+
+<script at="Foot" type="text/javascript">
+    //<![CDATA[
+    (function () {
+        new Pickr({
+            el: '#@Html.IdFor(m => m.Value)-ColorPicker',
+        
+            default: '@Model.Value',
+        
+            components: {
+        
+                preview: true,
+                opacity: true,
+                hue: true,
+        
+                interaction: {
+                    input: true,
+                    clear: true,
+                    save: true
+                }
+            },
+
+            onSave(hsva, instance) {
+                document.getElementById('@Html.IdFor(m => m.Value)').value = hsva ? hsva.toHEX().toString() : "";
+            }
+        });
+    })();
+    //]]>
+</script>
