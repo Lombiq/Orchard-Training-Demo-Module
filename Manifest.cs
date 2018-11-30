@@ -10,9 +10,20 @@ using OrchardCore.Modules.Manifest;
     // Version of the module.
     Version = "2.0",
     // Short description of the module. It will be displayed on the the Dashboard.
-    Description = "Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going through its source code.",
-    // Modules are categorized on the Dashboard so it's a good idea to put similar modules together to a separate section.
-    Category = "Training"
+    Description = "Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going " +
+        "through its source code.",
+    // Modules are categorized on the Dashboard so it's a good idea to put similar modules together to a separate
+    // section.
+    Category = "Training",
+    // Modules can have dependencies which are other module names (name of the project) or if these modules have
+    // subfeatures then the name of the feature. If you use any service, taghelper etc. coming from an Orchard Core
+    // feature then you need to include them in this list.
+    Dependencies = new[]
+    {
+        "OrchardCore.Contents",
+        "OrchardCore.ContentTypes",
+        "OrchardCore.ContentFields"
+    }
 )]
 
-// If you're done reading throught this file go to Controllers/YourFirstOrchardCoreController.
+// NEXT STATION: Controllers/YourFirstOrchardCoreController.cs
