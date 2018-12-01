@@ -38,3 +38,16 @@ You can use this module as part of a vanilla Orchard Core source that including 
 If your module compiles and you are able to enable this module on the dashboard then head over to the **StartHere.txt** file and start exploring all the goodies you can do in Orchard Core.
 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
+
+
+## Contribution and Feedback
+
+The module's source is available in two public source repositories, automatically mirrored in both directions with [Git-hg Mirror](https://githgmirror.com):
+
+- [https://bitbucket.org/Lombiq/orchard-training-demo-module](https://bitbucket.org/Lombiq/orchard-training-demo-module) (Mercurial repository)
+- [https://github.com/Lombiq/Orchard-Training-Demo-Module](https://github.com/Lombiq/Orchard-Training-Demo-Module) (Git repository)
+
+Bug reports, feature requests and comments are warmly welcome, **please do so via GitHub**.
+Feel free to send pull requests too, no matter which source repository you choose for this purpose.
+
+This project is developed by [Lombiq Technologies Ltd](https://lombiq.com/). Commercial-grade support is available through Lombiq.
