@@ -1,26 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove="wwwroot\pickr\pickr.min.css" />
-    <EmbeddedResource Remove="wwwroot\pickr\pickr.min.js" />
-    <EmbeddedResource Remove="wwwroot\pickr\pickr.min.js.map" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\pickr\pickr.min.css">
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-    <None Include="wwwroot\pickr\pickr.min.js">
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-    <None Include="wwwroot\pickr\pickr.min.js.map">
-      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
-    </None>
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
@@ -37,5 +19,10 @@
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.Module.Targets\OrchardCore.Module.Targets.csproj" />
     <ProjectReference Include="..\OrchardCore.ContentFields\OrchardCore.ContentFields.csproj" />
   </ItemGroup>
+
+  <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
+    <Exec Command="npm install" />
+    <Exec Command="gulp" />
+  </Target>
 
 </Project>

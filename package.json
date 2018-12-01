@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "dependencies": {
+    "pickr-widget": "^0.3.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  }
+}
