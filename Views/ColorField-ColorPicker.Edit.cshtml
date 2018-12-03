@@ -4,23 +4,27 @@
 
 @{
     var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
+
+    const string BlockName = "colorField";
+
+    var pickerInputElementId = Html.IdFor(m => m.Value);
+    var pickerElementId = $"{pickerInputElementId}-ColorPicker";
 }
 
 <script asp-name="Pickr" at="Head"></script>
-<style asp-name="Pickr" at="Head"></style>
+<style asp-name="Lombiq.TrainingDemo.ColorPicker" at="Head"></style>
 
-<fieldset class="form-group">
-    <legend>@Model.PartFieldDefinition.DisplayName()</legend>
+<fieldset class="form-group @BlockName @(BlockName)_editor_colorPicker">
+    <legend class="@(BlockName)__displayName">@Model.PartFieldDefinition.DisplayName()</legend>
 
-    <label asp-for="ColorName">@T["Color name"]</label>
-    <input asp-for="ColorName" class="form-control content-preview-text" />
+    <label asp-for="ColorName" class="@(BlockName)__label">@T["Color name"]</label>
+    <input asp-for="ColorName" class="form-control @(BlockName)__input" />
 
-    <label asp-for="Value">@T["Pick a color"]</label>
-    <div id="@Html.IdFor(m => m.Value)-ColorPicker"></div>
-    <input asp-for="Value" type="hidden" class="form-control content-preview-text" readonly />
-    @if (!String.IsNullOrEmpty(settings.Hint))
+    <div id="@pickerElementId" class="@(BlockName)__picker"></div>
+    <input asp-for="Value" type="hidden" class="@(BlockName)__input" readonly />
+    @if (!string.IsNullOrEmpty(settings.Hint))
     {
-        <span class="hint">@settings.Hint</span>
+        <span class="hint @(BlockName)__hint">@settings.Hint</span>
     }
 </fieldset>
 
@@ -28,25 +32,20 @@
     //<![CDATA[
     (function () {
         new Pickr({
-            el: '#@Html.IdFor(m => m.Value)-ColorPicker',
-        
+            el: "#@pickerElementId",
             default: '@Model.Value',
-        
             components: {
-        
                 preview: true,
                 opacity: true,
                 hue: true,
-        
                 interaction: {
                     input: true,
                     clear: true,
                     save: true
                 }
             },
-
-            onSave(hsva, instance) {
-                document.getElementById('@Html.IdFor(m => m.Value)').value = hsva ? hsva.toHEX().toString() : "";
+            onSave(hsva) {
+                document.getElementById("@pickerInputElementId").value = hsva ? hsva.toHEX().toString() : "";
             }
         });
     })();

@@ -21,7 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Assets\Styles\" />
+    <Folder Include="wwwroot\" />
+    <Folder Include="wwwroot\Styles\" />
   </ItemGroup>
 
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
