@@ -20,6 +20,10 @@
     <ProjectReference Include="..\OrchardCore.ContentFields\OrchardCore.ContentFields.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\Styles\" />
+  </ItemGroup>
+
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
     <Exec Command="npm install" />
     <Exec Command="gulp" />

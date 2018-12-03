@@ -60,18 +60,11 @@ namespace Lombiq.TrainingDemo
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
             routes.MapAreaRoute(
-                name: "Home",
+                name: "TrainingDemo",
                 areaName: "Lombiq.TrainingDemo",
-                template: "Home/Index",
-                defaults: new { controller = "Home", action = "Index" }
+                template: "TrainingDemo/NotifyMe",
+                defaults: new { controller = "YourFirstOrchardCore", action = "NotifyMe" }
             );
-
-            //routes.MapAreaRoute(
-            //    name: "PersonList",
-            //    areaName: "Lombiq.TrainingDemo",
-            //    template: "Admin/PersonList",
-            //    defaults: new { controller = "PersonListAdmin", action = "Index" }
-            //);
         }
     }
 }

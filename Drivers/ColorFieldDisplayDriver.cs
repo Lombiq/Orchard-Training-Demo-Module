@@ -17,9 +17,9 @@ namespace Lombiq.TrainingDemo.Drivers
         public IStringLocalizer T { get; set; }
 
 
-        public ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> localizer)
+        public ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> stringLocalizer)
         {
-            T = localizer;
+            T = stringLocalizer;
         }
 
 

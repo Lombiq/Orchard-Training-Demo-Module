@@ -6,12 +6,11 @@
  * To demonstrate this basic functionality, we will create a page for displaying information about a book in two different pages.
  */
 
+using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
-using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
@@ -26,7 +25,7 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IDisplayManager<Book> _bookDisplayManager;
 
 
-        public DisplayManagementController(IHttpContextAccessor hca, IDisplayManager<Book> bookDisplayManager)
+        public DisplayManagementController(IDisplayManager<Book> bookDisplayManager)
         {
             _bookDisplayManager = bookDisplayManager;
         }

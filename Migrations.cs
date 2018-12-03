@@ -34,7 +34,7 @@ namespace Lombiq.TrainingDemo
                     .WithDisplayName("Biography")
                     .WithSettings(new TextFieldSettings
                     {
-                        Required = false
+                        Hint = "Person's biography"
                     })));
 
             SchemaBuilder.CreateMapIndexTable(nameof(PersonPartIndex), table => table

@@ -42,7 +42,6 @@ namespace Lombiq.TrainingDemo.Controllers
 
         // This attribute will override the default route (see above) and use a custom one. This is also something that is an
         // ASP.NET Core MVC feature but this can be used on Orchard Core controllers as well.
-        [Route("TrainingDemo/NotifyMe")]
         public ActionResult NotifyMe()
         {
             _notifier.Information(H["Congratulations! You have been notified!"]);
