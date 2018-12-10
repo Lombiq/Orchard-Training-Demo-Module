@@ -34,10 +34,9 @@ namespace Lombiq.TrainingDemo.Controllers
 
         public ActionResult Index() =>
             // For now we just return an empty view. This action is accessible from under
-            // Lombiq.TraningDemo/YourFirstOrchard/Index route (appended to your site's root path; so using defaults it
-            // would look something like this:
-            // http://localhost:44300/Lombiq.TraningDemo/YourFirstOrchardCore/Index) If you don't know how this
-            // path gets together take a second look at how ASP.NET Core MVC routing works!
+            // Lombiq.TrainingDemo/YourFirstOrchardCore/Index route (appended to your site's root path; so using defaults
+            // it would look something like this: https://localhost:44300/Lombiq.TrainingDemo/YourFirstOrchardCore/Index).
+            // If you don't know how this path gets together take a second look at how ASP.NET Core MVC routing works!
             View(new { Message = T["Hello you!"] });
 
         // This attribute will override the default route (see above) and use a custom one. This is also something that is an

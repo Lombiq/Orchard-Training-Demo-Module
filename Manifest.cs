@@ -5,14 +5,14 @@ using OrchardCore.Modules.Manifest;
     Name = "Orchard Core Training Demo",
     // Your name, company or any name that identifies the developers working on the project.
     Author = "Lombiq",
-    // Optionally you can add a website URL (e.g. your company's website, GitHub reporitory URL).
+    // Optionally you can add a website URL (e.g. your company's website, GitHub repository URL).
     Website = "http://orchardproject.net",
     // Version of the module.
     Version = "2.0",
-    // Short description of the module. It will be displayed on the the Dashboard.
+    // Short description of the module. It will be displayed on the Dashboard.
     Description = "Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going " +
         "through its source code.",
-    // Modules are categorized on the Dashboard so it's a good idea to put similar modules together to a separate
+    // Modules are categorized on the Dashboard so it's a good idea to put similar modules together into a separate
     // section.
     Category = "Training",
     // Modules can have dependencies which are other module names (name of the project) or if these modules have
