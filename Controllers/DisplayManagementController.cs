@@ -14,10 +14,10 @@ using OrchardCore.DisplayManagement.ModelBinding;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    // Notice, that the controller implements the IUpdateModel interface. This interface encapsulates all the properties and
-    // methods related to ASP.NET Core MVC model binding which is already there in the Controller object so further
-    // implementations are not required. Orchard Core needs this model binding functionality outside the controllers (you will
-    // see it later).
+    // Notice, that the controller implements the IUpdateModel interface. This interface encapsulates all the properties
+    // and methods related to ASP.NET Core MVC model binding which is already there in the Controller object so further
+    // implementations are not required. Orchard Core needs this model binding functionality outside the controllers (you
+    // will see it later).
     public class DisplayManagementController : Controller, IUpdateModel
     {
         // For display management functionality we can use the IDisplayManager<T> service where the T generic parameter is the
@@ -30,29 +30,29 @@ namespace Lombiq.TrainingDemo.Controllers
             _bookDisplayManager = bookDisplayManager;
         }
 
-        
+
         // First, let's see how the book summary page is generated.
         public async Task<ActionResult> DisplayBook()
         {
             // Since we don't store the book object in the database let's create one for demonstration purposes.
             var book = CreateDemoBook();
 
-            // Here the shape is generated. Before going any further let's dig deeper and see what happens when this method
-            // is called.
+            // Here the shape is generated. Before going any further let's dig deeper and see what happens when this
+            // method is called.
             var shape = await _bookDisplayManager.BuildDisplayAsync(book, this);
 
             // NEXT STATION: Go to Views/DisplayManagement/DisplayBook.cshtml.
             return View(shape);
         }
-        
+
         // Let's generate another Book display shape, but now with a display type.
         public async Task<ActionResult> DisplayBookDescription()
         {
             // Generate another book object to be used for demonstration purposes.
             var book = CreateDemoBook();
 
-            // We can add a display type when we generate display shape. This time it will be Description.
-            // If display type is given then Orchard Core will search a cshtml file with a name [ObjectName].[DisplayType].cshtml.
+            // We can add a display type when we generate display shape. This time it will be Description. If display
+            // type is given then Orchard Core will search a cshtml file with a name [ObjectName].[DisplayType].cshtml.
             // NEXT STATION: Go to Views/Book.Description.cshtml
             var shape = await _bookDisplayManager.BuildDisplayAsync(book, this, "Description");
 

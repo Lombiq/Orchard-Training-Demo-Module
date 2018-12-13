@@ -32,7 +32,7 @@ namespace Lombiq.TrainingDemo
             // Views/PersonListDashboard
 
 
-            // Basic controller demonstrating localization, Notifier, routing
+            // Basic controller demonstrating localization, Notifier, Logger, routing
             Factory<YourFirstOrchardCoreController>();
 
 
