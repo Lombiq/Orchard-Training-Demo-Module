@@ -1,0 +1,11 @@
+@model IEnumerable<dynamic>
+
+<h1>@T["J.K. Rowling Books"]</h1>
+<ul>
+    @foreach (var shape in Model)
+    {
+        <li>
+            @await DisplayAsync(shape)
+        </li>
+    }
+</ul>

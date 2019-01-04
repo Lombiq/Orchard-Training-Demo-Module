@@ -3,6 +3,7 @@ using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
+using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
@@ -62,7 +63,7 @@ namespace Lombiq.TrainingDemo
             Factory<PersonPartIndex>();
 
             // Content Type, ContentPart, ContentField, index record creation.
-            Factory<Migrations>();
+            Factory<PersonMigrations>();
 
             // ISession, IContentItemDisplayManager, IClock
             Factory<PersonListController>();

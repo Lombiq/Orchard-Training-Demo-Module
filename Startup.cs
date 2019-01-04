@@ -4,6 +4,7 @@ using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
+using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
@@ -40,10 +41,12 @@ namespace Lombiq.TrainingDemo
             // Book
             services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
             services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
+            services.AddScoped<IDataMigration, BookMigrations>();
+            services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
             // Person Part
             services.AddSingleton<ContentPart, PersonPart>();
-            services.AddScoped<IDataMigration, Migrations>();
+            services.AddScoped<IDataMigration, PersonMigrations>();
             services.AddScoped<IContentPartDisplayDriver, PersonPartDisplayDriver>();
             services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
