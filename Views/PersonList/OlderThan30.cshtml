@@ -1,3 +1,6 @@
+@* The "shapes" object is an IEnumerable<dynamic> so we just simply enumerate it and use the previously seen
+DisplayAsync helper to display these shapes. *@
+
 @model IEnumerable<dynamic>
 
 <h1>@T["People older then 30 years old"]</h1>
@@ -9,3 +12,5 @@
         </li>
     }
 </ul>
+
+@* NEXT STATION: Fields/ColorField.cs *@

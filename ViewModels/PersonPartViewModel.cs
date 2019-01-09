@@ -9,6 +9,8 @@ using OrchardCore.Modules;
 
 namespace Lombiq.TrainingDemo.ViewModels
 {
+    // IValidateObject is az ASP.NET Core feature to use on view models where the model binder will automatically
+    // execute the Validate method which will return any validation error.
     public class PersonPartViewModel : IValidatableObject
     {
         [Required]
@@ -27,7 +29,7 @@ namespace Lombiq.TrainingDemo.ViewModels
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             // To use GetService overload you need to add the Microsoft.Extensions.DependencyInjection nuget package
-            // to your module.
+            // to your module. This way you can get any service you want as you've injected them in a constructor.
             var T = validationContext.GetService<IStringLocalizer<PersonPartViewModel>>();
             var clock = validationContext.GetService<IClock>();
 
@@ -41,6 +43,8 @@ namespace Lombiq.TrainingDemo.ViewModels
                     yield return new ValidationResult(T["The person must be 18 or older."], new[] { nameof(BirthDateUtc) });
                 }
             }
+
+            // Now go back to the PersonPartDisplayDrvier.
         }
     }
 }

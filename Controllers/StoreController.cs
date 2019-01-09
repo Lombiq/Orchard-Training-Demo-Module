@@ -1,3 +1,16 @@
+/*
+ * Now it's time to save something to the database. Orchard Core uses YesSql to store data in database which is
+ * document database interface for relational databases. In simple, you need to plan your database as a document
+ * database but it will be stored in your favorite SQL database. If you want to learn more go to
+ * https://github.com/sebastienros/yessql and read the documentation.
+ *
+ * Here you will see how to store simple data in the database and then query it without actually using Orchard Core
+ * content management features and practices (i.e. you can store Orchard Core content items).
+ *
+ * This demonstration will be really simple because more features will be shown later and you can also learn more from
+ * the YesSql documentation.
+ */
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -33,14 +46,22 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
 
+        // A page with a button that will call the CreateBooks POST action.
         [HttpGet]
         public ActionResult CreateBooks() => View();
-
+        
         [HttpPost, ActionName(nameof(CreateBooks))]
         public ActionResult CreateBooksPost()
         {
+            // For demonstration purposes it will create 3 books and store them in the database one-by-one using the
+            // ISession service.
+
+            // Since storing them in the documents is not enough we need to index them to be able to
+            // filter them in a query.
+            // NEXT STATION: Indexes/BookIndex.cs
             foreach (var book in CreateDemoBooks())
             {
+                // So now you understand what will happen in the background when this service is being called.
                 _session.Save(book);
             }
 
@@ -49,18 +70,29 @@ namespace Lombiq.TrainingDemo.Controllers
             return RedirectToAction(nameof(CreateBooks));
         }
 
+        // This page will display the books written by J.K. Rowling.
         public async Task<ActionResult> JKRowlingBooks()
         {
+            // ISession service is used for querying items.
             var jkRowlingBooks = await _session
+                // First, we define what object (document) we want to query and what index should be used for
+                // filtering.
                 .Query<Book, BookIndex>()
-                .Where(book => book.Author == "J.K. (Joanne) Rowling")
+                // In the .Where() method you can describe a lambda where the object will be the index object.
+                .Where(index => index.Author == "J.K. (Joanne) Rowling")
+                // When the query is built up you can call the ListAsync() to execute it. This will return a list of
+                // books.
                 .ListAsync();
 
+            // Now this is what we possibly understand now, we will create a list of display shapes from the previously
+            // fetched books.
             var bookShapes = await Task.WhenAll(jkRowlingBooks.Select(async book =>
-                await _bookDisplayManager.BuildDisplayAsync(book, this, "Description")));
+                await _bookDisplayManager.BuildDisplayAsync(book, this)));
 
             return View(bookShapes);
         }
+
+        // NEXT STATION: Models/PersonPart.cs
 
 
         private IEnumerable<Book> CreateDemoBooks() =>
