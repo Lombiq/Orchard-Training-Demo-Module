@@ -6,7 +6,7 @@ where the zones will contain the rendered smaller shapes you've seen earlier. *@
     @* Display Cover zone if there is any shape placed in the zone. *@
     @if (Model.Cover != null)
     {
-        <div class="cover">
+        <div class="bookCover">
             @await DisplayAsync(Model.Cover)
         </div>
     }
@@ -14,12 +14,12 @@ where the zones will contain the rendered smaller shapes you've seen earlier. *@
     @* Display Header zone if there is any shape placed in the zone. *@
     @if (Model.Header != null)
     {
-        <header class="header">
+        <header class="bookHeader">
             @await DisplayAsync(Model.Header)
         </header>
     }
 
-    <a asp-action="DisplayBookDescription" asp-area="Lombiq.TrainingDemo">@T["View Description"]</a>
+    <a asp-action="DisplayBookDescription" asp-area="Lombiq.TrainingDemo" class="viewBookDescriptionLink">@T["View Description"]</a>
 </div>
 
 @* Now create another display type for the Book where the Description will be rendered.

@@ -9,17 +9,17 @@
     var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
 }
 
-<fieldset class="form-group">
+<fieldset class="form-group colorFieldEditor">
     <legend>@Model.PartFieldDefinition.DisplayName()</legend>
 
-    <label asp-for="ColorName">@T["Color name"]</label>
-    <input asp-for="ColorName" class="form-control content-preview-text" />
+    <label asp-for="ColorName" class="colorFieldEditor__label">@T["Color name"]</label>
+    <input asp-for="ColorName" class="form-control content-preview-text colorFieldEditor__input" />
 
-    <label asp-for="Value">@T["Hexadecimal value"]</label>
-    <input asp-for="Value" class="form-control content-preview-text" />
+    <label asp-for="Value" class="colorFieldEditor__label>@T["Hexadecimal value"]</label>
+    <input asp-for="Value" class="form-control content-preview-text colorFieldEditor__input" />
     @if (!String.IsNullOrEmpty(settings.Hint))
     {
-        <span class="hint">@settings.Hint</span>
+        <span class="hint colorFieldEditor__hint">@settings.Hint</span>
     }
 </fieldset>
 

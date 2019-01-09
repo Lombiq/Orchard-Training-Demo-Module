@@ -6,7 +6,7 @@ Description. The zone-related properties of the Model objects will be populated 
     no display type property given in the Driver these will also be rendered here. This way you can reuse any shapes
     you want in Orchard Core! *@ 
     @if (Model.Header != null) {
-        <header class="header">
+        <header class="bookHeader">
             @await DisplayAsync(Model.Header)
         </header>
     }
@@ -14,7 +14,7 @@ Description. The zone-related properties of the Model objects will be populated 
     @* Display Content zone if there is any shape placed in the zone. *@
     @if (Model.Content != null)
     {
-        <div class="content">
+        <div class="bookContent">
             @await DisplayAsync(Model.Content)
         </div>
     }
