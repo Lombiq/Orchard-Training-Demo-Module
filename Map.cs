@@ -59,13 +59,17 @@ namespace Lombiq.TrainingDemo
             // Validating ContentPart fields
             Factory<PersonPartViewModel>();
 
-            // IndexProvider, indexing ContentPart in records
+            // IndexProvider, indexing simple obj
+
+            // IndexProvider, indexing simple object or ContentPart in records
+            Factory<BookIndex>();
             Factory<PersonPartIndex>();
 
             // Content Type, ContentPart, ContentField, index record creation.
             Factory<PersonMigrations>();
 
             // ISession, IContentItemDisplayManager, IClock
+            Factory<StoreController>();
             Factory<PersonListController>();
 
 
