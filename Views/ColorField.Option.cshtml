@@ -1,4 +1,17 @@
+@* There is an extensibility to create different editor and display shapes for content fields. This is a setting that
+every content fields have. When you attach a content field to the content part or content type you'll see two editors,
+one will be the display option the other will be the editor option. You can add new options by adding cshtml or liquid
+files with the [FieldName]-[OptionName].Option.cshtml pattern where you can specify your own option name and value.
+After this you can create the [FieldName]-[OptionName].Edit.cshtml to create your new editor. This way no coding is
+required so you can do it in a liquid theme as well. *@
+
 @{
     string currentEditor = Model.Editor;
 }
+
+@* Now this is a default option with no value. We gave the name Hexadecimal. The ColorField.Edit.cshtml will be applied
+as the default editor shape. *@
+
 <option value="" selected="@(string.IsNullOrEmpty(currentEditor))">@T["Hexadecimal"]</option>
+
+@* NEXT STATION: Views/ColorField-ColorPicker.Option.cshtml *@

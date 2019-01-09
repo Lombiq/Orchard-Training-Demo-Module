@@ -3,6 +3,9 @@
 @using OrchardCore.ContentManagement.Metadata.Models
 
 @{
+    // In editor shapes you can access the settings from the PartFieldDefinition.Settings. Since it contains all the
+    // settings you need to extract your own settings object. After that you can use it to display hint for example.
+
     var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
 }
 
@@ -19,3 +22,5 @@
         <span class="hint">@settings.Hint</span>
     }
 </fieldset>
+
+@* NEXT STATION: Drivers/ColorFieldDriver and find the UpdateAsync method where we left. *@

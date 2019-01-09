@@ -11,6 +11,10 @@
     var pickerElementId = $"{pickerInputElementId}-ColorPicker";
 }
 
+@* Script and styling resources can be used in these shapes. We'll get to it really soon first go through this file and
+understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
+helpers all the necessary scripts and styles will be loaded.*@
+
 <script asp-name="Pickr" at="Head"></script>
 <style asp-name="Lombiq.TrainingDemo.ColorPicker" at="Head"></style>
 
@@ -27,6 +31,9 @@
         <span class="hint @(BlockName)__hint">@settings.Hint</span>
     }
 </fieldset>
+
+@* The following script will contain the initialization for the color picker. The at="Foot" will make it rendered in
+the end of the Body tag. *@
 
 <script at="Foot" type="text/javascript">
     //<![CDATA[
@@ -51,3 +58,5 @@
     })();
     //]]>
 </script>
+
+@* NEXT STATION: ResourceManifest.cs *@

@@ -6,23 +6,34 @@ using OrchardCore.DisplayManagement.Views;
 
 namespace Lombiq.TrainingDemo.Settings
 {
+    // It's in the Settings folder by convention but it's the same DisplayDriver as the others, except, it also has a
+    // specific base class.
     public class ColorFieldSettingsDriver : ContentPartFieldDefinitionDisplayDriver<ColorField>
     {
-        public override IDisplayResult Edit(ContentPartFieldDefinition partFieldDefinition)
-        {
-            return Initialize<ColorFieldSettings>("ColorFieldSettings_Edit", model => partFieldDefinition.Settings.Populate(model))
-                .Location("Content");
-        }
+        // This won't have a Display override since it wouldn't make too much sense.
+        public override IDisplayResult Edit(ContentPartFieldDefinition partFieldDefinition) =>
+            // Same old Initialize shape helper.
+            Initialize<ColorFieldSettings>("ColorFieldSettings_Edit",
+                model => partFieldDefinition.Settings.Populate(model))
+            .Location("Content");
 
-        public override async Task<IDisplayResult> UpdateAsync(ContentPartFieldDefinition partFieldDefinition, UpdatePartFieldEditorContext context)
+        // ColorFieldSettings.Edit.cshtml file will contain the editor inputs.
+        
+        public override async Task<IDisplayResult> UpdateAsync(
+            ContentPartFieldDefinition partFieldDefinition,
+            UpdatePartFieldEditorContext context)
         {
             var model = new ColorFieldSettings();
 
             await context.Updater.TryUpdateModelAsync(model, Prefix);
 
+            // A content field or a content part can have multiple settings. These settings are stored in a single JSON
+            // object. This helper will merge our settings to this JSON object so these will be stored.
             context.Builder.MergeSettings(model);
 
             return Edit(partFieldDefinition);
         }
     }
 }
+
+// NEXT STATION: Views/ColorField.Edit.cshtml
