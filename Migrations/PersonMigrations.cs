@@ -34,6 +34,12 @@ namespace Lombiq.TrainingDemo.Migrations
                     .WithSettings(new TextFieldSettings
                     {
                         Hint = "Person's biography"
+                    })
+                    .WithSettings(new ContentPartFieldSettings
+                    {
+                        // This is an extension point for making multiple editor flavor for a content field or content
+                        // part. We'll learn this feature later with the ContentFields.
+                        Editor = "TextArea"
                     })));
 
             // We create a new content type. Note that there's only an alter method: this will create the type if it

@@ -24,7 +24,7 @@ We've invested a lot of time creating this module. If you have ideas regarding i
 
 If you'd like to get trained instead of self-learning or you need help in form of mentoring sessions take a look at Orchard Dojo's  trainings: https://orcharddojo.net/orchard-training
 
-After you complete this tutorial (or even during walking through it) you're encouraged to look at the built-in modules how they solve similar tasks. If you chose to use the simpler way to add this project to Orchard Core then you should try the other way as well to have the whole Orchard source at your hands: let it be your tutor :-).
+After you complete this tutorial (or even during walking through it) you're encouraged to look at the built-in modules on how they solve similar tasks. If you choose to use the simpler way to add this project to Orchard Core then you should try the other way as well to have the whole Orchard source at your hands: let it be your tutor :-).
 
 Later on, you may want to take a look at *Map.cs* (remember, "X marks the spot!") in the project root for reminders regarding specific solutions.
 
@@ -38,4 +38,4 @@ On the other hand the module manifest file is also required. So...
 
 **NEXT STATION**: Head over to Manifest.cs. That file is the module's manifest; a Manifest.cs is required for Orchard modules.
 
-This demo is heavily inspired by Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by the Orchard Hungary team (http://english.orchardproject.hu/) and Lombiq (https://lombiq.com/).
+This demo is heavily inspired by Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by Lombiq (https://lombiq.com/).
