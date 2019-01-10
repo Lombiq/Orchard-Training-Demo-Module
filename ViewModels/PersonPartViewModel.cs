@@ -9,7 +9,7 @@ using OrchardCore.Modules;
 
 namespace Lombiq.TrainingDemo.ViewModels
 {
-    // IValidateObject is az ASP.NET Core feature to use on view models where the model binder will automatically
+    // IValidateObject is an ASP.NET Core feature to use on view models where the model binder will automatically
     // execute the Validate method which will return any validation error.
     public class PersonPartViewModel : IValidatableObject
     {

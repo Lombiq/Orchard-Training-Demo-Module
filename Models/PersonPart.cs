@@ -1,3 +1,10 @@
+/*
+ * Now let's see what practices Orchard Core provides when it stores data. Here you can see a ContentPart. Each
+ * ContentPart can be part of one or more content types. Using the content type you can create ContentItems that is the
+ * most important part of the Orchard Core content management. Here is a PersonPart containing some properties of a
+ * person.
+ */
+
 using System;
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;

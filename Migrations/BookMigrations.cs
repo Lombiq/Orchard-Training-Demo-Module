@@ -36,12 +36,10 @@ namespace Lombiq.TrainingDemo.Migrations
             return 2;
         }
 
-        /*
-         * This is an update method. It is used to modify the existing schema. Update methods will be run when the
-         * module was already enabled before and the create method was run. The X in UpdateFromX is the number of the
-         * update (the method's name is conventional). It means: "run this update if the module's current migration
-         * version is X". This method will run if it's 1.
-         */
+        // This is an update method. It is used to modify the existing schema. Update methods will be run when the
+        // module was already enabled before and the create method was run. The X in UpdateFromX is the number of the
+        // update (the method's name is conventional). It means: "run this update if the module's current migration
+        // version is X". This method will run if it's 1.
         public int UpdateFrom1()
         {
             // The initial version of our module did not store the book's title. We quickly fix the issue by pushing
@@ -54,7 +52,7 @@ namespace Lombiq.TrainingDemo.Migrations
 
             return 2;
         }
-
-        // NEXT STATION: Controllers/StoreController and go to the CreateBooksPost action where we previously left.
     }
 }
+
+// NEXT STATION: Controllers/StoreController and go to the CreateBooksPost action where we previously left.

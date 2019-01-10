@@ -44,26 +44,5 @@ namespace Lombiq.TrainingDemo.Drivers
 
         // Now let's see what those zones are and slowly clarify all these things you've seen above!
         // NEXT STATION: Views/Book.cshtml.
-
-        public override IDisplayResult Edit(Book book) =>
-            Initialize<BookViewModel>("Book_Edit", model =>
-                {
-                    model.Author = book.Author;
-                    model.Title = book.Title;
-                    model.Description = book.Description;
-                });
-
-        public override async Task<IDisplayResult> UpdateAsync(Book book, IUpdateModel updater)
-        {
-            var viewModel = new BookViewModel();
-
-            await updater.TryUpdateModelAsync(viewModel, Prefix);
-
-            book.Title = viewModel.Title;
-            book.Author = viewModel.Author;
-            book.Description = viewModel.Description;
-
-            return Edit(book);
-        }
     }
 }

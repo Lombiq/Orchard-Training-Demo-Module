@@ -65,6 +65,4 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
-/*
- * NEXT STATION: Controllers/DisplayManagementController
- */
+// NEXT STATION: Controllers/DisplayManagementController

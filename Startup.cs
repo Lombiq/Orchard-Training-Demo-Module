@@ -64,12 +64,8 @@ namespace Lombiq.TrainingDemo
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
         {
-            routes.MapAreaRoute(
-                name: "TrainingDemo",
-                areaName: "Lombiq.TrainingDemo",
-                template: "TrainingDemo/NotifyMe",
-                defaults: new { controller = "YourFirstOrchardCore", action = "NotifyMe" }
-            );
+            // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
+            // don't need it you can skip overriding it.
         }
     }
 }

@@ -76,7 +76,5 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
-/*
- * If you've finished with both actions (and their .cshtml files as well), then
- * NEXT STATION: Controllers/BasicOrchardCoreServicesController is what's next.
- */
+// If you've finished with both actions (and their .cshtml files as well), then
+// NEXT STATION: Controllers/BasicOrchardCoreServicesController is what's next.
