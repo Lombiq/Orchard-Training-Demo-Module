@@ -10,6 +10,7 @@ using OrchardCore.Data.Migration;
 
 namespace Lombiq.TrainingDemo.Migrations
 {
+    // Don't forget to register this class to the service provider (see: Startup.cs).
     public class BookMigrations : DataMigration
     {
         IContentDefinitionManager _contentDefinitionManager;

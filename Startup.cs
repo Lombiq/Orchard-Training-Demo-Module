@@ -33,6 +33,8 @@ namespace Lombiq.TrainingDemo
 
             TemplateContext.GlobalMemberAccessStrategy.Register<ColorField>();
             TemplateContext.GlobalMemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+            
+            // NEXT STATION: Drivers/ColorFieldDisplayDriver
         }
 
 

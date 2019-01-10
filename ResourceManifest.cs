@@ -2,7 +2,8 @@ using OrchardCore.ResourceManagement;
 
 namespace Lombiq.TrainingDemo
 {
-    // ResourceManifest classes implement IResourceManifestProvider and possess the BuildManifests method.
+    // ResourceManifest classes implement IResourceManifestProvider and possess the BuildManifests method. Don't forget
+    // to register this class to the service provider (see: Startup.cs).
     public class ResourceManifest : IResourceManifestProvider
     {
         // This is the only method to implement. Using it we're going to register some static resources

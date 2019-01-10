@@ -21,7 +21,8 @@ namespace Lombiq.TrainingDemo.Controllers
     public class DisplayManagementController : Controller, IUpdateModel
     {
         // The core display management features can be used by the IDisplayManagement service. The generic parameter
-        // will be the object that needs to be displayed on the UI somehow.
+        // will be the object that needs to be displayed on the UI somehow. Don't forget to register this generic class
+        // to the service provider (see: Startup.cs).
         private readonly IDisplayManager<Book> _bookDisplayManager;
 
 

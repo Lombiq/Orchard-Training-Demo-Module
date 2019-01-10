@@ -6,7 +6,8 @@ namespace Lombiq.TrainingDemo.Indexing
 {
     // IndexHandlers are different from IndexProviders. While IndexProviders will store values in the SQL database to
     // index documents these will use an actual index provider (e.g. Lucene) index data. This way no database query is
-    // required when you want to use a search widget on your website.
+    // required when you want to use a search widget on your website. Don't forget to register this class to the
+    // service provider (see: Startup.cs).
     public class ColorFieldIndexHandler : ContentFieldIndexHandler<ColorField>
     {
         public override Task BuildIndexAsync(ColorField field, BuildFieldIndexContext context)

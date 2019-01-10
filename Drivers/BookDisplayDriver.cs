@@ -11,7 +11,8 @@ namespace Lombiq.TrainingDemo.Drivers
     // can create a driver for any object (persisted or not-persisted) where you can implement their specific logic for
     // generating reusable shapes. In case of an editor shape the model update and custom validation is also done in
     // these drivers. Finally, you can create multiple drivers for one object and the DisplayDriver will make sure that
-    // all of your drivers are used and their specific logic will be executed.
+    // all of your drivers are used and their specific logic will be executed. Don't forget to register this class to
+    // the service provider (see: Startup.cs).
     public class BookDisplayDriver : DisplayDriver<Book>
     {
         // So we have a Book object and we want to register some display shapes. For this you need to override the

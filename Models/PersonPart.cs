@@ -7,7 +7,7 @@ namespace Lombiq.TrainingDemo.Models
     // Now let's see what practices Orchard Core provides when it stores data. Here you can see a ContentPart. Each
     // ContentPart can be part of one or more content types. Using the content type you can create ContentItems that is
     // the most important part of the Orchard Core content management. Here is a PersonPart containing some properties
-    // of a person.
+    // of a person. You also need to register this class to the service provider (see: Startup.cs).
     public class PersonPart : ContentPart
     {
         // A ContentPart is serialized as a JSON object so you need to keep this in mind when creating properties. For
