@@ -1,11 +1,11 @@
 /*
- * In this Controller you will see again how to query items but this time it will be the newly created Person content
- * type. It doesn't make too much difference but you need to keep in mind that the ContentItems are stored in the
- * documents (which contains the parts and fields serialized) and can have multiple index records referencing a content
- * item (e.g. the previously created PersonPartIndex that indexes data in from the PersonPart).
+ * In this controller you will see again how to query items but this time items will be of the newly created Person
+ * content type. It doesn't make too much difference but you need to keep in mind that the ContentItems are stored in
+ * the documents (which contain the parts and fields serialized) and can have multiple index records referencing a
+ * content item (e.g. the previously created PersonPartIndex that indexes data in from PersonPart).
  *
- * Note, that there is no custom controller or action demonstrated for displaying the editor for the Person. Go to the
- * administration page and create a few Person content item.
+ * Note that there is no custom controller or action demonstrated for displaying the editor for the Person. Go to the
+ * administration page (/Admin) and create a few Person content items, including ones with ages above 30.
  */
 
 using System.Linq;
@@ -38,11 +38,12 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
 
+        // See it under /Lombiq.TrainingDemo/PersonList/OlderThan30.
         public async Task<ActionResult> OlderThan30()
         {
             var thresholdDate = _clock.UtcNow.AddYears(-30);
             var people = await _session
-                // It will query for content items where the related PersonPartIndex.BirthDateUtc is lower than the
+                // This will query for content items where the related PersonPartIndex.BirthDateUtc is lower than the
                 // threshold date. Notice that there is no Where method. The Query method has an overload for that
                 // which can be useful if you don't want to filter in multiple indexes.
                 .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
@@ -53,11 +54,11 @@ namespace Lombiq.TrainingDemo.Controllers
             // items. The reason we need that is that a ContentItem doesn't have a DisplayDriver but the ContentParts
             // and ContentFields attached to the ContentItem have. This service will handle generating all the drivers
             // created for these parts and fields.
-            // NEXT STATION: Drivers/PersonPartDriver
+            // NEXT STATION: Drivers/PersonPartDisplayDriver
             var shapes = await Task.WhenAll(people.Select(async person =>
                 await _contentItemDisplayManager.BuildDisplayAsync(person, this, "Summary")));
 
-            // Now that assuming that you've already created a few Person content items on the dashboard and some of
+            // Now assuming that you've already created a few Person content items on the dashboard and some of
             // these persons are more than 30 years old then this query will contain items to display.
             // NEXT STATION: Views/PersonList/OlderThan30.cshtml
             

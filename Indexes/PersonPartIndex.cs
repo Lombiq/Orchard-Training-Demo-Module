@@ -5,14 +5,14 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo.Indexes
 {
-    // This is also very similar to the one we've seen in the BookIndex.cs. The difference is that we have ContentItems
+    // This is also very similar to the one we've seen in BookIndex.cs. The difference is that we have ContentItems
     // now instead of simple objects.
     public class PersonPartIndex : MapIndex
     {
         // Here we will reference the ContentItem ID.
         public string ContentItemId { get; set; }
 
-        // Store the birth date only for demonstration purposes.
+        // Store the birth date only for demonstration purposes so we can run queries on it.
         public DateTime? BirthDateUtc { get; set; }
     }
 

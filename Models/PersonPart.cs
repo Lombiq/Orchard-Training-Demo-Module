@@ -1,8 +1,9 @@
 /*
- * Now let's see what practices Orchard Core provides when it stores data. Here you can see a ContentPart. Each
- * ContentPart can be part of one or more content types. Using the content type you can create ContentItems that is the
- * most important part of the Orchard Core content management. Here is a PersonPart containing some properties of a
- * person.
+ * Now let's see what practices Orchard Core provides when it stores data. Here you can see a content part. Each
+ * content part can be attached to one or more content types. From the content type you can create content items (so
+ * you kind of "instantiate" content types as content items). This is the most important part of the Orchard Core's
+ * content management. Here is a PersonPart containing some properties of a person. You also need to register this
+ * class to the service provider (see: Startup.cs).
  */
 
 using System;
@@ -11,10 +12,6 @@ using OrchardCore.ContentManagement;
 
 namespace Lombiq.TrainingDemo.Models
 {
-    // Now let's see what practices Orchard Core provides when it stores data. Here you can see a ContentPart. Each
-    // ContentPart can be part of one or more content types. Using the content type you can create ContentItems that is
-    // the most important part of the Orchard Core content management. Here is a PersonPart containing some properties
-    // of a person. You also need to register this class to the service provider (see: Startup.cs).
     public class PersonPart : ContentPart
     {
         // A ContentPart is serialized as a JSON object so you need to keep this in mind when creating properties. For
@@ -24,9 +21,10 @@ namespace Lombiq.TrainingDemo.Models
         public Handedness Handedness { get; set; }
         public DateTime? BirthDateUtc { get; set; }
 
-        // This is a ContentField. ContentFields are similar to ContentParts, however, fields are a bit more smaller
-        // components encapsulating simple editor and display for a single data and ContentParts could have a more
-        // complex functionality and also can contain a set of fields.
+        // This is a content field. Content fields are similar to content parts, however, fields are a bit smaller
+        // components encapsulating a simple editor and display for a single piece of data. Content parts could provide
+        // more complex functionality and also can contain a set of fields.
+        // TextField is one of Orchard's many built-in fields.
         public TextField Biography { get; set; }
     }
 

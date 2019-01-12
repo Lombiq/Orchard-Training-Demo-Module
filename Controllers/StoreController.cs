@@ -1,6 +1,6 @@
 /*
  * Now it's time to save something to the database. Orchard Core uses YesSql to store data in database which is
- * document database interface for relational databases. In simple, you need to plan your database as a document
+ * document database interface for relational databases. Simply put, you need to design your database as a document
  * database but it will be stored in your favorite SQL database. If you want to learn more go to
  * https://github.com/sebastienros/yessql and read the documentation.
  *
@@ -47,14 +47,16 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // A page with a button that will call the CreateBooks POST action.
+        // See it under /Lombiq.TrainingDemo/Store/CreateBooks.
         [HttpGet]
         public ActionResult CreateBooks() => View();
         
         [HttpPost, ActionName(nameof(CreateBooks))]
         public ActionResult CreateBooksPost()
         {
-            // For demonstration purposes it will create 3 books and store them in the database one-by-one using the
-            // ISession service.
+            // For demonstration purposes this will create 3 books and store them in the database one-by-one using the
+            // ISession service. Note that you can even go to the database directly, circumventing YesSql too, by
+            // injecting the IDbConnectionAccessor service and access the underlying connection.
 
             // Since storing them in the documents is not enough we need to index them to be able to
             // filter them in a query.
@@ -71,6 +73,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
         // This page will display the books written by J.K. Rowling.
+        // See it under /Lombiq.TrainingDemo/Store/JKRowlingBooks.
         public async Task<ActionResult> JKRowlingBooks()
         {
             // ISession service is used for querying items.
@@ -80,8 +83,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 .Query<Book, BookIndex>()
                 // In the .Where() method you can describe a lambda where the object will be the index object.
                 .Where(index => index.Author == "J.K. (Joanne) Rowling")
-                // When the query is built up you can call the ListAsync() to execute it. This will return a list of
-                // books.
+                // When the query is built up you can call ListAsync() to execute it. This will return a list of books.
                 .ListAsync();
 
             // Now this is what we possibly understand now, we will create a list of display shapes from the previously
@@ -89,6 +91,7 @@ namespace Lombiq.TrainingDemo.Controllers
             var bookShapes = await Task.WhenAll(jkRowlingBooks.Select(async book =>
                 await _bookDisplayManager.BuildDisplayAsync(book, this)));
 
+            // You can check out Views/Store/JKRowlingBooks.cshtml and come back here.
             return View(bookShapes);
         }
 

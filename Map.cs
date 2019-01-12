@@ -9,7 +9,7 @@ using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
 
 /* 
- * In this file, you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
+ * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
  * between topics. You can navigate directly to classes and their methods by clicking on their names (enclosed in a 
  * Factory<T>() ) and pressing F12.
  * 

@@ -27,12 +27,12 @@ namespace Lombiq.TrainingDemo.Drivers
 
         public override IDisplayResult Display(ColorField field, BuildFieldDisplayContext context)
         {
-            // Same Display method for generating display shape but this time the Initialize shape helper is being
+            // Same Display method for generating display shapes but this time the Initialize shape helper is being
             // used. We've seen it in the PersonPartDisplayDriver.Edit method. For this we need a view model object
-            // that will be populated with the field data. The GetDisplayShapeType helper will generate a
-            // conventionally shape type for our content field which will be the name of our content field. Obviously,
-            // alternates can also be used - so if the content item is being displayed with a Custom display type then
-            // the ColorField.Custom.cshtml file name can be used, otherwise, the ColorField.cshtml will be active.
+            // which will be populated with the field data. The GetDisplayShapeType helper will generate a conventional
+            // shape type for our content field which will be the name the field. Obviously, alternates can also be
+            // used - so if the content item is being displayed with a display type named "Custom" then the
+            // ColorField.Custom.cshtml file will be used, otherwise, the ColorField.cshtml will be active.
             return Initialize<DisplayColorFieldViewModel>(GetDisplayShapeType(context), model =>
             {
                 model.Field = field;
@@ -65,8 +65,8 @@ namespace Lombiq.TrainingDemo.Drivers
         {
             var viewModel = new EditColorFieldViewModel();
 
-            // Using this overload of the model updater you can specifically say what properties need to be updated
-            // only. This way you make sure no other properties will be bound to the view model.
+            // Using this overload of the model updater you can specifically say what properties need to be updated.
+            // This way you make sure no other properties will be bound to the view model.
             if (await updater.TryUpdateModelAsync(viewModel, Prefix, f => f.Value, f => f.ColorName))
             {
                 // Use the settings are now let's use them for validation.

@@ -13,15 +13,6 @@ namespace Lombiq.TrainingDemo.Migrations
     // Don't forget to register this class to the service provider (see: Startup.cs).
     public class BookMigrations : DataMigration
     {
-        IContentDefinitionManager _contentDefinitionManager;
-
-
-        public BookMigrations(IContentDefinitionManager contentDefinitionManager)
-        {
-            _contentDefinitionManager = contentDefinitionManager;
-        }
-
-
         // Migrations have Create() and UpdateFromX methods. When the module is first enabled the Create() is called so
         // it can set up DB tables.
         public int Create()
@@ -31,15 +22,16 @@ namespace Lombiq.TrainingDemo.Migrations
                 .Column<string>(nameof(BookIndex.Title))
             );
 
-            // Here we return the number of the migration. If there were no update methods we'd return 1. But we have
-            // one, see it for more details.
+            // Here we return the version number of the migration. If there were no update methods we'd return 1. But
+            // we have one, see it for more details.
             return 2;
         }
 
-        // This is an update method. It is used to modify the existing schema. Update methods will be run when the
-        // module was already enabled before and the create method was run. The X in UpdateFromX is the number of the
-        // update (the method's name is conventional). It means: "run this update if the module's current migration
-        // version is X". This method will run if it's 1.
+        // This is an update method. It is used to modify an existing schema. Update methods will be run when the
+        // module was already enabled before and the create method was run (like when you update a module already
+        // running on an Orchard site). The X in UpdateFromX is the version number of the update (the method's name is
+        // conventional). It means: "run this update if the module's current migration version is X". This method will
+        // run if it's 1.
         public int UpdateFrom1()
         {
             // The initial version of our module did not store the book's title. We quickly fix the issue by pushing

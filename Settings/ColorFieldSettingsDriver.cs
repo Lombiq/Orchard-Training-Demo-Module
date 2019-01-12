@@ -6,11 +6,11 @@ using OrchardCore.DisplayManagement.Views;
 
 namespace Lombiq.TrainingDemo.Settings
 {
-    // It's in the Settings folder by convention but it's the same DisplayDriver as the others, except, it also has a
+    // It's in the Settings folder by convention but it's the same DisplayDriver as the others; except, it also has a
     // specific base class. Don't forget to register this class to the service provider (see: Startup.cs).
     public class ColorFieldSettingsDriver : ContentPartFieldDefinitionDisplayDriver<ColorField>
     {
-        // This won't have a Display override since it wouldn't make too much sense.
+        // This won't have a Display override since it wouldn't make too much sense, settings are just edited.
         public override IDisplayResult Edit(ContentPartFieldDefinition partFieldDefinition) =>
             // Same old Initialize shape helper.
             Initialize<ColorFieldSettings>("ColorFieldSettings_Edit",

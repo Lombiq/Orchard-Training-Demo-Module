@@ -4,7 +4,7 @@ using YesSql.Indexes;
 namespace Lombiq.TrainingDemo.Indexes
 {
     // The BookIndex objects will be stored in the database. Since this is actually a relational database these will be
-    // actual records in a table specifically created for this index.
+    // records in a table specifically created for this index.
     public class BookIndex : MapIndex
     {
         public string Author { get; set; }

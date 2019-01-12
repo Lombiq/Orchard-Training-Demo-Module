@@ -26,7 +26,7 @@ namespace Lombiq.TrainingDemo.Migrations
         {
             // Now you can configure PersonPart. For example you can add content fields (as mentioned earlier) here.
             _contentDefinitionManager.AlterPartDefinition(nameof(PersonPart), part => part
-                // Each field has it's own configuration. Here you will give a display name for it and add some
+                // Each field has its own configuration. Here you will give a display name for it and add some
                 // additional settings like a hint to be displayed in the editor.
                 .WithField(nameof(PersonPart.Biography), field => field
                     .OfType(nameof(TextField))
@@ -37,8 +37,8 @@ namespace Lombiq.TrainingDemo.Migrations
                     })
                     .WithSettings(new ContentPartFieldSettings
                     {
-                        // This is an extension point for making multiple editor flavor for a content field or content
-                        // part. We'll learn this feature later with the ContentFields.
+                        // This is an extension point for providing multiple editor flavors for a content field or
+                        // content part. We'll learn this feature later with the content fields.
                         Editor = "TextArea"
                     })));
 

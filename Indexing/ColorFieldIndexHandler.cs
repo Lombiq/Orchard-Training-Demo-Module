@@ -1,7 +1,7 @@
 /*
  * IndexHandlers are different from IndexProviders. While IndexProviders will store values in the SQL database to index
- * documents these will use an actual index provider (e.g. Lucene) index data. This way no database query is required
- * when you want to use a search widget on your website. 
+ * documents these will use a text search index provider (e.g. Lucene) to index data. This way no database query is
+ * required when you want to use a search widget on your website. 
  */
 
 using System.Threading.Tasks;
