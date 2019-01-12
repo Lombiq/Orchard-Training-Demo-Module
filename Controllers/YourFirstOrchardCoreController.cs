@@ -42,17 +42,22 @@ namespace Lombiq.TrainingDemo.Controllers
         // in Orchard Core right after enabling the module. The route for this action will be
         // /Lombiq.TrainingDemo/YourFirstOrchardCore/Index.
         public ActionResult Index() =>
-            // Simple texts can be localized using the IStringLocalizer service as you can see below.
+            // Simple texts can be localized using the IStringLocalizer service as you can see below. To learn more
+            // about how localization works in Orchard check out the docs:
+            // https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.Localization/README/
             View(new { Message = T["Hello you!"] });
 
         // Let's see some custom routing here. This attribute will override the default route and use this one.
         [Route("TrainingDemo/NotifyMe")]
         public ActionResult NotifyMe()
         {
-            // ILogger is an ASP.NET Core service that will write something in the specific log files. In Orchard Core
-            // NLog is used for logging and the error level is "Error" by default. You can find the error log in the
-            // /App_Data/logs/orchard-log-[date].log file. Logger can be configured in the NLog.config file in the web
-            // project (e.g. OrchardCore.Cms.Web).
+            // ILogger is an ASP.NET Core service that will write something into the specific log files. In Orchard
+            // Core NLog is used for logging and the error level is "Error" by default. You can find the error log in
+            // the /App_Data/logs/orchard-log-[date].log file. Logging can be configured in the NLog.config file in the
+            // web project (e.g. OrchardCore.Cms.Web). Oh, and one more thing: if you install the Lombiq Orchard Visual
+            // Studio Extension it'll provide you a handy Error Log Watcher which lights up if there's a new error!
+            // Check it out here:
+            // https://marketplace.visualstudio.com/items?itemName=LombiqVisualStudioExtension.LombiqOrchardVisualStudioExtension
             _logger.LogError("You have been notified about some error!");
 
             // INotifier is an Orchard Core service to send messages to the user. This service can be used almost

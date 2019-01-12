@@ -23,7 +23,9 @@ namespace Lombiq.TrainingDemo.Drivers
             // from a driver method - won't necessarily be displayed all at once!
             Combine(
                 // Here we define a shape for the Title. It's not necessary to split these to atomic pieces but it
-                // would make sense to make a reusable shape for the title. In the Location helper you define a
+                // would make sense to make a reusable shape for the title, and it also makes overriding just these
+                // pieces possible (like you hand this module over to somebody and they want to display the title
+                // differently on their site, without modifying your module). In the Location helper you define a
                 // position for the shape. "Header" means that it will be displayed in the Header zone. "1" means that
                 // it will be the first in the Header zone. Soon you will see what the zones are.
                 View("Book_Display_Title", model)
@@ -34,8 +36,8 @@ namespace Lombiq.TrainingDemo.Drivers
                 // Create a separate shape for the cover photo. This will go to a different zone, the "Cover" zone.
                 View("Book_Display_Cover", model)
                     .Location("Cover: 1"),
-                // The shape for the description will be the first in the Content zone. Although, you can see another
-                // parameter here, this is the display type. It is used to differentiate circumstances of displaying a
+                // The shape for the description will be the first in the Content zone. However, you can see another
+                // parameter here, that is the display type. It is used to differentiate circumstances of displaying a
                 // shape. Let's say you want to display Title, Author and Cover all the time (no shape type parameter),
                 // but the description will be displayed only if the display type is "Description". You'll see an
                 // example for that.

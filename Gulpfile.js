@@ -1,10 +1,10 @@
-// There are multiple ways of managing your resources (including scripts, stylesheets, images etc.). OrchardCore itself
-// provide its own pipeline for it using an Assets.json file. We don't use it this time but check the
+// There are multiple ways of managing your resources (including scripts, stylesheets, images etc.). Orchard Core
+// itself provides its own pipeline for it using an Assets.json file. We don't use it this time but check the
 // http://docs.orchardproject.net/en/latest/Documentation/Processing-client-side-assets/ documentation for more
 // information.
 
 // Here you will see a standalone Gulpfile for copying third-party resources from the node_modules folder to wwwroot
-// folder and also compiling our own resources (styles and scripts) and moving the resoults to the wwwroot folder as
+// folder and also compiling our own resources (styles and scripts) and moving the results to the wwwroot folder as
 // well.
 
 const gulp = require("gulp");

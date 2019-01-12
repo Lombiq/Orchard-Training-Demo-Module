@@ -1,7 +1,7 @@
 /*
  * In this section you will learn how Orchard Core deals with displaying various information on the UI using reusable
- * components shapes. This is a very huge and powerful part of Orchard Core, here you will learn the basics of Display
- * Management.
+ * components called shapes. This is a very huge and powerful part of Orchard Core, here you will learn the basics of
+ * Display Management.
  *
  * To demonstrate this basic functionality, we will create two slightly different pages for displaying information
  * about a book.
@@ -15,14 +15,14 @@ using OrchardCore.DisplayManagement.ModelBinding;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    // Notice, that the controller implements the IUpdateModel interface. This interface encapsulates the properties
-    // and methods related to ASP.NET Core MVC model binding. Orchard Core needs this model binding functionality
-    // outside the controllers (you will see it later).
+    // Notice that the controller implements the IUpdateModel interface. This interface encapsulates the properties and
+    // methods related to ASP.NET Core MVC model binding. Orchard Core needs this model binding functionality outside
+    // the controllers (you will see it later).
     public class DisplayManagementController : Controller, IUpdateModel
     {
-        // The core display management features can be used by the IDisplayManagement service. The generic parameter
-        // will be the object that needs to be displayed on the UI somehow. Don't forget to register this generic class
-        // to the service provider (see: Startup.cs).
+        // The core display management features can be used via the IDisplayManager service. The generic parameter will
+        // be the object that needs to be displayed on the UI somehow. Don't forget to register this generic class with
+        // the service provider (see: Startup.cs).
         private readonly IDisplayManager<Book> _bookDisplayManager;
 
 
@@ -33,6 +33,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // First, create a page that will display a summary and some additional data of the book.
+        // See it under /Lombiq.TrainingDemo/DisplayManagement/DisplayBook.
         public async Task<ActionResult> DisplayBook()
         {
             // For demonstration purposes create a dummy book object.
@@ -49,6 +50,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
         // Let's generate another Book display shape, but now with a display type.
+        // See it under /Lombiq.TrainingDemo/DisplayManagement/DisplayBookDescription.
         public async Task<ActionResult> DisplayBookDescription()
         {
             // Generate another book object to be used for demonstration purposes.

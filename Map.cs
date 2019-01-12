@@ -19,7 +19,7 @@ namespace Lombiq.TrainingDemo
 {
     static class Map
     {
-        private static T Factory<T>() => default(T);
+        private static T Factory<T>() => default;
 
         private static void Treasure()
         {

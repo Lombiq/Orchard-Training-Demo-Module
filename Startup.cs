@@ -28,8 +28,8 @@ namespace Lombiq.TrainingDemo
     {
         static Startup()
         {
-            // Registering both field types and shape types are necessary as they can 
-            // be accessed from inner properties.
+            // Registering both field types and shape types are necessary as they can be accessed from inner
+            // properties.
 
             TemplateContext.GlobalMemberAccessStrategy.Register<ColorField>();
             TemplateContext.GlobalMemberAccessStrategy.Register<DisplayColorFieldViewModel>();
