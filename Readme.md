@@ -35,7 +35,7 @@ You can use this module as part of a vanilla Orchard Core source that including 
 
 ## Using this module for training purposes
 
-If your module compiles and you are able to enable this module on the dashboard then head over to the **StartHere.txt** file and start exploring all the goodies you can do in Orchard Core.
+If your module compiles and you are able to enable this module on the dashboard then head over to the **[StartLearningHere.md](StartLearningHere.md)** file and start exploring all the goodies you can do in Orchard Core.
 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
 
