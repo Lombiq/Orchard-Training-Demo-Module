@@ -27,7 +27,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 
 ### Using NuGet packages
 
-1. Open a web project that uses Orchard Core NuGet packages.
+1. Open a web project that uses Orchard Core NuGet packages or create one (see: https://orchardcore.readthedocs.io/en/latest/Templates/README/#generate-an-orchard-cms-web-application).
 2. Add this project to the solution.
 3. Add this project as a reference to web project.
 4. Replace project references with Orchard Core NuGet package references with the same name as the project references.
