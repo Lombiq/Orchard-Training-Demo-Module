@@ -25,7 +25,7 @@ using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    public class StoreController : Controller, IUpdateModel
+    public class DatabaseStorageController : Controller, IUpdateModel
     {
         private readonly ISession _session;
         private readonly IDisplayManager<Book> _bookDisplayManager;
@@ -33,11 +33,11 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IHtmlLocalizer H;
 
 
-        public StoreController(
+        public DatabaseStorageController(
             ISession session,
             IDisplayManager<Book> bookDisplayManager,
             INotifier notifier,
-            IHtmlLocalizer<StoreController> htmlLocalizer)
+            IHtmlLocalizer<DatabaseStorageController> htmlLocalizer)
         {
             _session = session;
             _bookDisplayManager = bookDisplayManager;
