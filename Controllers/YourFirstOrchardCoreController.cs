@@ -41,11 +41,15 @@ namespace Lombiq.TrainingDemo.Controllers
         // Here's a simple action that will return some message. Nothing special here just demonstrates that this will work
         // in Orchard Core right after enabling the module. The route for this action will be
         // /Lombiq.TrainingDemo/YourFirstOrchardCore/Index.
-        public ActionResult Index() =>
+        public ActionResult Index()
+        {
             // Simple texts can be localized using the IStringLocalizer service as you can see below. To learn more
             // about how localization works in Orchard check out the docs:
             // https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.Localization/README/
-            View(new { Message = T["Hello you!"] });
+            ViewData["Message"] = T["Hello you!"];
+
+            return View();
+        }
 
         // Let's see some custom routing here. This attribute will override the default route and use this one.
         [Route("TrainingDemo/NotifyMe")]
