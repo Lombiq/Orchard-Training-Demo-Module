@@ -69,7 +69,7 @@ namespace Lombiq.TrainingDemo
             Factory<PersonMigrations>();
 
             // ISession, IContentItemDisplayManager, IClock
-            Factory<StoreController>();
+            Factory<DatabaseStorageController>();
             Factory<PersonListController>();
 
 
