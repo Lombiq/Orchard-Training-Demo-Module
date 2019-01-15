@@ -22,7 +22,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 2. Add this project to the solution (it doesn't matter which solution folder you use).
 3. Add this project as a reference to `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
-5. Setup the website using any recipe except "Blank" (some recipe doesn't enable Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*).
+5. Setup the website using any recipe except "Blank" (some recipes don't enable the Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*).
 
 
 ### Using NuGet packages
@@ -32,7 +32,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 3. Add this project as a reference to web project.
 4. Replace project references with Orchard Core NuGet package references with the same name as the project references.
 5. Run the web project (F5 or CTRL+F5).
-6. Setup the website using any recipe except "Blank" (some recipe doesn't enable Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*)
+6. Setup the website using any recipe except "Blank" (some recipes don't enable the Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*)
 
 
 ## Using this module for training purposes
