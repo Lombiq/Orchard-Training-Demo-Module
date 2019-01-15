@@ -1,7 +1,7 @@
 /*
  * IndexHandlers are different from IndexProviders. While IndexProviders will store indexed values in the SQL database
- * to index documents these will use a text search index provider (e.g. Lucene) to index data. This way no database
- * query is required when during the search only for fetching the found content item. 
+ * to index documents these will use a text search index provider (e.g. Lucene) to index data. This way the text search
+ * will be executed by the indexing service.
  */
 
 using System.Threading.Tasks;
