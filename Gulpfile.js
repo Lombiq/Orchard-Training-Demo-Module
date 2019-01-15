@@ -65,7 +65,7 @@ gulp.task("sass:minify", ["sass:compile"], function () {
 
 gulp.task("default", ["images", "pickr", "sass:minify"]);
 
-// This task won't be executed automatically, if you want to test this, you need to execute it int the Task Runner
+// This task won't be executed automatically, if you want to test this, you need to execute it in the Task Runner
 // Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save
 // them.
 gulp.task("sass:watch", function () {

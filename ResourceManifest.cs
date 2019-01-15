@@ -1,6 +1,6 @@
 /*
  * If you want to include scripts and stylesheets in the pages you can register resources here and then reference them
- * in any shape and let the resource manager know where these needs to be included (head or foot).
+ * in any shape and let the resource manager know where these need to be included (head or foot).
  */
 
 using OrchardCore.ResourceManagement;
