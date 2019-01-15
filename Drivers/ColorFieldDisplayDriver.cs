@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 namespace Lombiq.TrainingDemo.Drivers
 {
     // You shouldn't be surprised - content fields also have display drivers. ContentFieldDisplayDriver is specifically
-    // for content fields. Don't forget to register this class to the service provider (see: Startup.cs).
+    // for content fields. Don't forget to register this class with the service provider (see: Startup.cs).
     public class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
     {
         public IStringLocalizer T { get; set; }

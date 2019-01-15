@@ -16,7 +16,7 @@ namespace Lombiq.TrainingDemo.Indexes
         public DateTime? BirthDateUtc { get; set; }
     }
 
-    // Don't forget to register this class to the service provider (see: Startup.cs).
+    // Don't forget to register this class with the service provider (see: Startup.cs).
     public class PersonPartIndexProvider : IndexProvider<ContentItem>
     {
         // Notice that ContentItem is what we are describing the provider for not the part.

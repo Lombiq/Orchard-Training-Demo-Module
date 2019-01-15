@@ -10,7 +10,7 @@ using OrchardCore.Data.Migration;
 namespace Lombiq.TrainingDemo.Migrations
 {
     // Here's another migrations file but specifically for Person-related operations. Don't forget to register this
-    // class to the service provider (see: Startup.cs).
+    // class with the service provider (see: Startup.cs).
     public class PersonMigrations : DataMigration
     {
         IContentDefinitionManager _contentDefinitionManager;

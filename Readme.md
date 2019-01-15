@@ -2,14 +2,14 @@
 
 
 
-## Project Description
+## Project description
 
 Demo Orchard Core module for training purposes guiding you to become an Orchard developer.
 
 **If you are interested in training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
 
-## How to Start
+## How to start
 
 You can use this module as part of a vanilla Orchard Core source that including the full source code - which is the recommended way. You can use it as part of a solution the uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
 
@@ -22,7 +22,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 2. Add this project to the solution (it doesn't matter which solution folder you use).
 3. Add this project as a reference to `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
-5. Setup the website using any recipe except "Blank", log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*).
+5. Setup the website using any recipe except "Blank" (some recipe doesn't enable Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*).
 
 
 ### Using NuGet packages
@@ -32,7 +32,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 3. Add this project as a reference to web project.
 4. Replace project references with Orchard Core NuGet package references with the same name as the project references.
 5. Run the web project (F5 or CTRL+F5).
-6. Setup the website using any recipe except "Blank", log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*)
+6. Setup the website using any recipe except "Blank" (some recipe doesn't enable Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*)
 
 
 ## Using this module for training purposes
@@ -42,7 +42,7 @@ If your module compiles and you are able to enable this module on the dashboard 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
 
 
-## Contribution and Feedback
+## Contribution and feedback
 
 The module's source is available in two public source repositories, automatically mirrored in both directions with [Git-hg Mirror](https://githgmirror.com):
 

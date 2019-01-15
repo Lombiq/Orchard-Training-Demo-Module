@@ -24,6 +24,9 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly ILogger<YourFirstOrchardCoreController> _logger;
 
 
+        // Orchard Core uses the built in dependency injection feature coming with ASP.NET Core. You can use the
+        // module's Startup class to register your own services with the service provider. To learn more see:
+        // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
         public YourFirstOrchardCoreController(
             INotifier notifier,
             IStringLocalizer<YourFirstOrchardCoreController> stringLocalizer,
@@ -38,8 +41,8 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
 
-        // Here's a simple action that will return some message. Nothing special here just demonstrates that this will work
-        // in Orchard Core right after enabling the module. The route for this action will be
+        // Here's a simple action that will return some message. Nothing special here just demonstrates that this will
+        // work in Orchard Core right after enabling the module. The route for this action will be
         // /Lombiq.TrainingDemo/YourFirstOrchardCore/Index.
         public ActionResult Index()
         {
@@ -48,6 +51,8 @@ namespace Lombiq.TrainingDemo.Controllers
             // https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.Localization/README/
             ViewData["Message"] = T["Hello you!"];
 
+            // Nothing special happens in the view but you can check it in the
+            // Views/YourFirstOrchardController/Index.cshtml file.
             return View();
         }
 
@@ -68,10 +73,11 @@ namespace Lombiq.TrainingDemo.Controllers
             // everywhere in the code base not only in Controllers. This service requires a LocalizedHtmlString object
             // so the IHtmlLocalizer service needs to be used for localization.
             _notifier.Information(H["Congratulations! You have been notified! Check the error log too!"]);
-
+            
             return View();
+
+            // NEXT STATION: Views/YourFirstOrchardCore/NotifyMe.cshtml
         }
     }
 }
 
-// NEXT STATION: Controllers/DisplayManagementController

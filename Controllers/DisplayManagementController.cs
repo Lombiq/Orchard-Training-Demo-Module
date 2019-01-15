@@ -1,7 +1,8 @@
 /*
  * In this section you will learn how Orchard Core deals with displaying various information on the UI using reusable
- * components called shapes. This is a very huge and powerful part of Orchard Core, here you will learn the basics of
- * Display Management.
+ * components called shapes (see:
+ * https://orchardcore.readthedocs.io/en/latest/OrchardCore/OrchardCore.DisplayManagement/README/#shapes). This is a
+ * very huge and powerful part of Orchard Core, here you will learn the basics of Display Management.
  *
  * To demonstrate this basic functionality, we will create two slightly different pages for displaying information
  * about a book.
@@ -57,7 +58,7 @@ namespace Lombiq.TrainingDemo.Controllers
             var book = CreateDemoBook();
 
             // This time give an additional parameter which is the display type. If display type is given then Orchard
-            // Core will search a cshtml file with a name [ObjectName].[DisplayType].cshtml.
+            // Core will search a cshtml file with a name [ClassName].[DisplayType].cshtml.
             var shape = await _bookDisplayManager.BuildDisplayAsync(book, this, "Description");
 
             // NEXT STATION: Go to Views/Book.Description.cshtml
@@ -79,4 +80,4 @@ namespace Lombiq.TrainingDemo.Controllers
 }
 
 // If you've finished with both actions (and their .cshtml files as well), then
-// NEXT STATION: Controllers/BasicOrchardCoreServicesController is what's next.
+// NEXT STATION: Controllers/DatabaseStorageController is what's next.

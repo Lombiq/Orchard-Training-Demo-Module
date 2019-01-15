@@ -14,7 +14,7 @@ namespace Lombiq.TrainingDemo.Indexes
 
     // These IndexProvider services will provide the mappings between the objects stored in the document database and
     // the index objects stored in records. When a Book object is being saved by the ISession service an index record
-    // will also be stored in the related index table. Don't forget to register this class to the service provider
+    // will also be stored in the related index table. Don't forget to register this class with the service provider
     // (see: Startup.cs).
     public class BookIndexProvider : IndexProvider<Book>
     {

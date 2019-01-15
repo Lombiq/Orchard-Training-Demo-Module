@@ -10,7 +10,7 @@ using OrchardCore.Data.Migration;
 
 namespace Lombiq.TrainingDemo.Migrations
 {
-    // Don't forget to register this class to the service provider (see: Startup.cs).
+    // Don't forget to register this class with the service provider (see: Startup.cs).
     public class BookMigrations : DataMigration
     {
         // Migrations have Create() and UpdateFromX methods. When the module is first enabled the Create() is called so
@@ -47,4 +47,4 @@ namespace Lombiq.TrainingDemo.Migrations
     }
 }
 
-// NEXT STATION: Controllers/StoreController and go to the CreateBooksPost action where we previously left.
+// NEXT STATION: Controllers/DatabaseStorageController and go to the CreateBooksPost action where we previously left.

@@ -8,7 +8,7 @@ using OrchardCore.DisplayManagement.Views;
 namespace Lombiq.TrainingDemo.Drivers
 {
     // Drivers inherited from ContentPartDisplayDrivers have a functionality similar to the one described in
-    // BookDisplayDriver but these are for ContentParts. Don't forget to register this class to the service provider
+    // BookDisplayDriver but these are for ContentParts. Don't forget to register this class with the service provider
     // (see: Startup.cs).
     public class PersonPartDisplayDriver : ContentPartDisplayDriver<PersonPart>
     {

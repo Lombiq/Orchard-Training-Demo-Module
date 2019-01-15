@@ -5,7 +5,7 @@
  * https://github.com/sebastienros/yessql and read the documentation.
  *
  * Here you will see how to store simple data in the database and then query it without actually using Orchard Core
- * content management features and practices (i.e. you can store Orchard Core content items).
+ * content management features and practices (i.e. you can store non-Orchard Core content items).
  *
  * This demonstration will be really simple because more features will be shown later and you can also learn more from
  * the YesSql documentation.

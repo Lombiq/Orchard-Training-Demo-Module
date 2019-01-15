@@ -1,8 +1,5 @@
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Models;
-using Lombiq.TrainingDemo.ViewModels;
 using OrchardCore.DisplayManagement.Handlers;
-using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Views;
 
 namespace Lombiq.TrainingDemo.Drivers
@@ -11,7 +8,7 @@ namespace Lombiq.TrainingDemo.Drivers
     // can create a driver for any object (persisted or not-persisted) where you can implement their specific logic for
     // generating reusable shapes. In case of an editor shape the model update and custom validation is also done in
     // these drivers. Finally, you can create multiple drivers for one object and the DisplayDriver will make sure that
-    // all of your drivers are used and their specific logic will be executed. Don't forget to register this class to
+    // all of your drivers are used and their specific logic will be executed. Don't forget to register this class with
     // the service provider (see: Startup.cs).
     public class BookDisplayDriver : DisplayDriver<Book>
     {

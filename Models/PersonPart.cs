@@ -3,7 +3,7 @@
  * content part can be attached to one or more content types. From the content type you can create content items (so
  * you kind of "instantiate" content types as content items). This is the most important part of the Orchard Core's
  * content management. Here is a PersonPart containing some properties of a person. You also need to register this
- * class to the service provider (see: Startup.cs).
+ * class with the service provider (see: Startup.cs).
  */
 
 using System;

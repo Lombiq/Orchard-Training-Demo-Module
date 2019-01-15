@@ -12,7 +12,7 @@ using OrchardCore.ContentManagement;
 
 namespace Lombiq.TrainingDemo.Fields
 {
-    // You also need to register this class to the service provider (see: Startup.cs).
+    // You also need to register this class with the service provider (see: Startup.cs).
     public class ColorField : ContentField
     {
         public string Value { get; set; }

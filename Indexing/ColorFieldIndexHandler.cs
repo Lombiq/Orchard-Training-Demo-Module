@@ -10,7 +10,7 @@ using OrchardCore.Indexing;
 
 namespace Lombiq.TrainingDemo.Indexing
 {
-    // Don't forget to register this class to the service provider (see: Startup.cs).
+    // Don't forget to register this class with the service provider (see: Startup.cs).
     public class ColorFieldIndexHandler : ContentFieldIndexHandler<ColorField>
     {
         public override Task BuildIndexAsync(ColorField field, BuildFieldIndexContext context)
