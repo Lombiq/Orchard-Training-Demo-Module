@@ -35,10 +35,7 @@ namespace Lombiq.TrainingDemo.ViewModels
 
             if (BirthDateUtc.HasValue)
             {
-                var age = clock.UtcNow.Year - BirthDateUtc.Value.Year;
-                if (clock.UtcNow < BirthDateUtc.Value.AddYears(age)) age--;
-
-                if (age < 18)
+                if (clock.UtcNow < BirthDateUtc.Value.AddYears(18))
                 {
                     yield return new ValidationResult(T["The person must be 18 or older."], new[] { nameof(BirthDateUtc) });
                 }

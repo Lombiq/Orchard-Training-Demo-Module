@@ -22,9 +22,11 @@ namespace Lombiq.TrainingDemo.Drivers
                 // Here we define a shape for the Title. It's not necessary to split these to atomic pieces but it
                 // would make sense to make a reusable shape for the title, and it also makes overriding just these
                 // pieces possible (like you hand this module over to somebody and they want to display the title
-                // differently on their site, without modifying your module). In the Location helper you define a
-                // position for the shape. "Header" means that it will be displayed in the Header zone. "1" means that
-                // it will be the first in the Header zone. Soon you will see what the zones are.
+                // differently on their site, without modifying your module). There are multiple helpers you can use to
+                // render a shape (display or edit) this View() comes handy when you don't want to bother with view
+                // models (the view model will be a ShapeViewModel<Book> in this case, you'll see). In the Location
+                // helper you define a position for the shape. "Header" means that it will be displayed in the Header
+                // zone. "1" means that it will be the first in the Header zone. Soon you will see what the zones are.
                 View("Book_Display_Title", model)
                     .Location("Header: 1"),
                 // Same applies here. This shape will be displayed in the Header zone too but in the second position.

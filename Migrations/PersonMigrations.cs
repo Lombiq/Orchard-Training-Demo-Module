@@ -31,16 +31,8 @@ namespace Lombiq.TrainingDemo.Migrations
                 .WithField(nameof(PersonPart.Biography), field => field
                     .OfType(nameof(TextField))
                     .WithDisplayName("Biography")
-                    .WithSettings(new TextFieldSettings
-                    {
-                        Hint = "Person's biography"
-                    })
-                    .WithSettings(new ContentPartFieldSettings
-                    {
-                        // This is an extension point for providing multiple editor flavors for a content field or
-                        // content part. We'll learn this feature later with the content fields.
-                        Editor = "TextArea"
-                    })));
+                    .Hint("Person's biography")
+                    .WithSetting("Editor", "TextArea")));
 
             // We create a new content type. Note that there's only an alter method: this will create the type if it
             // doesn't exist or modify it if it does. Make sure you understand what content types are:

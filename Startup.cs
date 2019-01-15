@@ -28,13 +28,14 @@ namespace Lombiq.TrainingDemo
     {
         static Startup()
         {
-            // Registering both field types and shape types are necessary as they can be accessed from inner
-            // properties.
-
+            // To be able to access these view models in display shapes rendered by the Liquid markup engine you need
+            // to register them. To learn more about Liquid in Orchard Core see this documentation:
+            // https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.Liquid/README/
+            TemplateContext.GlobalMemberAccessStrategy.Register<PersonPartViewModel>();
             TemplateContext.GlobalMemberAccessStrategy.Register<ColorField>();
             TemplateContext.GlobalMemberAccessStrategy.Register<DisplayColorFieldViewModel>();
-            
-            // NEXT STATION: Drivers/ColorFieldDisplayDriver
+
+            // NEXT STATION: Views/PersonPart.Edit.cshtml
         }
 
 

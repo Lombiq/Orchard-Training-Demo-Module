@@ -2,8 +2,11 @@
  * Now let's see what practices Orchard Core provides when it stores data. Here you can see a content part. Each
  * content part can be attached to one or more content types. From the content type you can create content items (so
  * you kind of "instantiate" content types as content items). This is the most important part of the Orchard Core's
- * content management. Here is a PersonPart containing some properties of a person. You also need to register this
- * class with the service provider (see: Startup.cs).
+ * content management.
+ *
+ * Here is a PersonPart containing some properties of a person. We are planning to attach this content part to a Person
+ * content type so when you create a Person content item it will have a PersonPart attached to it. You also need to
+ * register this class with the service provider (see: Startup.cs).
  */
 
 using System;

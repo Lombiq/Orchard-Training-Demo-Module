@@ -31,10 +31,10 @@ namespace Lombiq.TrainingDemo.Drivers
                 model.BirthDateUtc = personPart.BirthDateUtc;
                 model.Name = personPart.Name;
                 model.Handedness = personPart.Handedness;
-            });
+            }).Location("Content:1");
         }
 
-        // NEXT STATION: Views/PersonPart.Edit.cshtml
+        // NEXT STATION: Startup.cs and find the static constructor.
 
         // So we had an Edit (or EditAsync) that generates the editor shape now it's time to do the content
         // part-specific model binding and validation.
