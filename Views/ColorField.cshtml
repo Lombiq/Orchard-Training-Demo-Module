@@ -1,0 +1,15 @@
+@model Lombiq.TrainingDemo.ViewModels.DisplayColorFieldViewModel
+@using OrchardCore.Mvc.Utilities;
+
+@{
+    // To display a very specific class name depending on the actual usage (i.e. technical name given on the dashboard)
+    // you can use these helpers. 
+    var name = (Model.PartFieldDefinition.PartDefinition.Name + "-" +
+    Model.PartFieldDefinition.Name).HtmlClassify(); var hex = Model.Field.Value;
+}
+
+@* Using these class names is conventional. All the Orchard Core fields have similar classes. Custom classes can be
+added of course (e.g. BEM classes). *@ 
+<div class="field field-type-colorfield field-name-@name colorField">
+    <span style="color: @hex;">@Model.Field.ColorName</span>
+</div>

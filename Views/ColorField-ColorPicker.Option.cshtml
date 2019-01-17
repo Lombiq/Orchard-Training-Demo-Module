@@ -1,0 +1,8 @@
+@{
+    string currentEditor = Model.Editor;
+}
+
+@* This is a custom editor option where we want to define a color picker editor for our field. The value is ColorPicker.
+NEXT STATION: ColorField-ColorPicker.Edit.cshtml *@
+
+<option value="ColorPicker" selected="@(currentEditor == "ColorPicker")">@T["Color Picker"]</option>

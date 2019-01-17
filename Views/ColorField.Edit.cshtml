@@ -1,0 +1,26 @@
+@model Lombiq.TrainingDemo.ViewModels.EditColorFieldViewModel
+@using Lombiq.TrainingDemo.Settings;
+@using OrchardCore.ContentManagement.Metadata.Models
+
+@{
+    // In editor shapes you can access the settings from the PartFieldDefinition.Settings. Since it contains all the
+    // settings you need to extract your own settings object. After that you can use it to display the hint for example.
+
+    var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
+}
+
+<fieldset class="form-group colorFieldEditor">
+    <legend>@Model.PartFieldDefinition.DisplayName()</legend>
+
+    <label asp-for="ColorName" class="colorFieldEditor__label">@T["Color name"]</label>
+    <input asp-for="ColorName" class="form-control content-preview-text colorFieldEditor__input" />
+
+    <label asp-for="Value" class="colorFieldEditor__label>@T["Hexadecimal value"]</label>
+    <input asp-for="Value" class="form-control content-preview-text colorFieldEditor__input" />
+    @if (!string.IsNullOrEmpty(settings.Hint))
+    {
+        <span class="hint colorFieldEditor__hint">@settings.Hint</span>
+    }
+</fieldset>
+
+@* NEXT STATION: Drivers/ColorFieldDisplayDriver and find the UpdateAsync method where we left. *@

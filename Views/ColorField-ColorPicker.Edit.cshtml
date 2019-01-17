@@ -1,0 +1,62 @@
+@model Lombiq.TrainingDemo.ViewModels.EditColorFieldViewModel
+@using Lombiq.TrainingDemo.Settings;
+@using OrchardCore.ContentManagement.Metadata.Models
+
+@{
+    var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
+
+    const string BlockName = "colorField";
+
+    var pickerInputElementId = Html.IdFor(m => m.Value);
+    var pickerElementId = $"{pickerInputElementId}-ColorPicker";
+}
+
+@* Script and styling resources can be used in these shapes. We'll get to it really soon first go through this file and
+understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
+helpers all the necessary scripts and styles will be loaded.*@
+
+<script asp-name="Pickr" at="Head"></script>
+<style asp-name="Lombiq.TrainingDemo.ColorPicker" at="Head"></style>
+
+<fieldset class="form-group @BlockName @(BlockName)_editor_colorPicker">
+    <legend class="@(BlockName)__displayName">@Model.PartFieldDefinition.DisplayName()</legend>
+
+    <label asp-for="ColorName" class="@(BlockName)__label">@T["Color name"]</label>
+    <input asp-for="ColorName" class="form-control @(BlockName)__input" />
+
+    <div id="@pickerElementId" class="@(BlockName)__picker"></div>
+    <input asp-for="Value" type="hidden" class="@(BlockName)__input" readonly />
+    @if (!string.IsNullOrEmpty(settings.Hint))
+    {
+        <span class="hint @(BlockName)__hint">@settings.Hint</span>
+    }
+</fieldset>
+
+@* The following script will contain the initialization for the color picker. The at="Foot" will make it rendered in
+the end of the body tag. *@
+
+<script at="Foot" type="text/javascript">
+    //<![CDATA[
+    (function () {
+        new Pickr({
+            el: "#@pickerElementId",
+            default: '@Model.Value',
+            components: {
+                preview: true,
+                opacity: true,
+                hue: true,
+                interaction: {
+                    input: true,
+                    clear: true,
+                    save: true
+                }
+            },
+            onSave(hsva) {
+                document.getElementById("@pickerInputElementId").value = hsva ? hsva.toHEX().toString() : "";
+            }
+        });
+    })();
+    //]]>
+</script>
+
+@* NEXT STATION: ResourceManifest.cs *@
