@@ -34,9 +34,7 @@ namespace Lombiq.TrainingDemo
 
             manifest
                 // With the DefineStyle method you can define a stylesheet. The way of doing this is very similar to
-                // defining scripts. Since stylesheets are actually shapes, it's possible to override them, so you
-                // should try to avoid name collisions: file names (not the full path, just the name!) should be
-                // globally unique.
+                // defining scripts.
                 .DefineStyle("Pickr")
                 .SetUrl("/Lombiq.TrainingDemo/Pickr/pickr.min.css");
 
