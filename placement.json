@@ -1,0 +1,13 @@
+{
+  "PersonPart": [
+    {
+      "place": "Content:1"
+    }
+  ],
+  "TextField": [
+    {
+      "place": "Content:2",
+      "differentiator": "PersonPart-Biography"
+    }
+  ]
+}
