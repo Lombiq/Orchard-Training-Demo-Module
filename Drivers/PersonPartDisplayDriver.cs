@@ -30,7 +30,7 @@ namespace Lombiq.TrainingDemo.Drivers
             // this feature better:
             // https://orchardcore.readthedocs.io/en/latest/OrchardCore/OrchardCore.DisplayManagement/README/#placement-files
 
-            // NEXT STATION: Placement.json then come back here.
+            // NEXT STATION: placement.json (needs to be lowercase) then come back here.
             View(nameof(PersonPart), part);
 
         // This is something that wasn't implemented in the BookDisplayDriver (but could've been). It will generate the
