@@ -4,7 +4,7 @@
 
 ## Project description
 
-Demo Orchard Core module for training purposes guiding you to become an Orchard developer.
+Demo Orchard Core module for training purposes guiding you to become an Orchard developer. Note that this module also has an Orchard 1.x version in the [dev branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev).
 
 **If you are interested in training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
