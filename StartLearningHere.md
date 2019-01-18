@@ -4,7 +4,6 @@
 
 ## Introduction
 
-
 Good to see you want to learn the ins and outs of Orchard Core module creation. Reading code is always a good way for this!
 
 We'll guide you on your journey to become an Orchard Core developer. Look for "NEXT STATION" comments in the code to see where to head next, otherwise look through the code as you like.
@@ -19,10 +18,9 @@ Before you dive deep into this module it'd be best if you made sure that you hav
 
 ## Moving forward
 
-
 We've invested a lot of time creating this module. If you have ideas regarding it or have found mistakes, please let us know on [the project page on GitHub](https://github.com/Lombiq/Orchard-Training-Demo-Module).
 
-If you'd like to get trained instead of self-learning or you need help in form of mentoring sessions take a look at [Orchard Dojo's trainings](https://orcharddojo.net/orchard-training)
+If you'd like to get trained instead of self-learning or you need help in form of mentoring sessions take a look at [Orchard Dojo's trainings](https://orcharddojo.net/orchard-training).
 
 After you complete this tutorial (or even during walking through it) you're encouraged to look at the built-in modules on how they solve similar tasks. If you choose to use the simpler way to add this project to Orchard Core then you should try the other way as well to have the whole Orchard source at your hands: let it be your tutor :-).
 
@@ -30,7 +28,6 @@ Later on, you may want to take a look at *Map.cs* (remember, "X marks the spot!"
 
 
 ## Let's get started!
-
 
 **FIRST STATION**: First of all, let's discuss how a .NET Standard library becomes an Orchard Module. If you look into the Dependencies of this project you will find either a NuGet reference for the `OrchardCore.Module.Targets` package or if you go with the full Orchard Core source code way you can add this particular project as a Project reference.
 
