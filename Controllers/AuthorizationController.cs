@@ -65,7 +65,7 @@ namespace Lombiq.TrainingDemo.Controllers
             return Redirect("~/");
         }
 
-        // NEXT STATION: Permissions/PersonPermissions.cs
+        // NEXT STATION: Permissions/PersonPermissions
 
         public async Task<ActionResult> CanManagePersons()
         {
@@ -83,3 +83,5 @@ namespace Lombiq.TrainingDemo.Controllers
         }
     }
 }
+
+// NEXT STATION: Controllers/AdminController
