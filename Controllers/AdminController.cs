@@ -45,7 +45,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // well.
         public ActionResult Index() => View();
 
-        // NEXT STATION: AdminMenu.cs
+        // NEXT STATION: Navigation/PersonsAdminMenu.cs
 
         public async Task<ActionResult> PersonListNewest()
         {

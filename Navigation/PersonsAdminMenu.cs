@@ -7,16 +7,16 @@ using Lombiq.TrainingDemo.Permissions;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
 
-namespace Lombiq.TrainingDemo
+namespace Lombiq.TrainingDemo.Navigation
 {
     // INavigationProvider is used for building different kind of navigations (not just admin menus). Don't forget to
     // register this class with the service provider (see: Startup.cs).
-    public class AdminMenu : INavigationProvider
+    public class PersonsAdminMenu : INavigationProvider
     {
         private readonly IStringLocalizer T;
 
 
-        public AdminMenu(IStringLocalizer<AdminMenu> stringLocalizer)
+        public PersonsAdminMenu(IStringLocalizer<PersonsAdminMenu> stringLocalizer)
         {
             T = stringLocalizer;
         }

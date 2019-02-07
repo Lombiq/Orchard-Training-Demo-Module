@@ -1,0 +1,8 @@
+@model Lombiq.TrainingDemo.ViewModels.DemoSettingsViewModel
+
+<fieldset class="form-group" asp-validation-class-for="Message">
+    <label asp-for="Message">@T["Message"]</label>
+    <input asp-for="Message" class="form-control" type="text" />
+    <span asp-validation-for="Message"></span>
+    <span class="hint">@T["This message will be displayed as a demonstration."]</span>
+</fieldset>

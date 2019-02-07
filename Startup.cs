@@ -6,6 +6,8 @@ using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
 using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
+using Lombiq.TrainingDemo.Navigation;
+using Lombiq.TrainingDemo.Permissions;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
 using Microsoft.AspNetCore.Builder;
@@ -21,6 +23,8 @@ using OrchardCore.Indexing;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
+using OrchardCore.Security.Permissions;
+using OrchardCore.Settings;
 using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
@@ -63,8 +67,16 @@ namespace Lombiq.TrainingDemo
             // Resources
             services.AddScoped<IResourceManifestProvider, ResourceManifest>();
 
-            // Admin menu
-            services.AddScoped<INavigationProvider, AdminMenu>();
+            // Permissions
+            services.AddScoped<IPermissionProvider, PersonPermissions>();
+
+            // Admin Menu
+            services.AddScoped<INavigationProvider, PersonsAdminMenu>();
+
+            // Demo Settings
+            services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
+            services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();
+            services.AddScoped<INavigationProvider, DemoSettingsAdminMenu>();
         }
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
