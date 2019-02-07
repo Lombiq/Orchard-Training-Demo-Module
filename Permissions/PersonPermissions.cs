@@ -3,7 +3,7 @@ using OrchardCore.Security.Permissions;
 
 namespace Lombiq.TrainingDemo.Permissions
 {
-    public class PersonPermission : IPermissionProvider
+    public class PersonPermissions : IPermissionProvider
     {
         // Define the permissions (can be multiple) that you want to set to roles on the dashboard (or from here as a
         // default). In a PermissionProvider it's a good idea to define the permission publicly accessible so you can

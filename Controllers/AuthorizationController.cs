@@ -72,7 +72,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // We've defined a ManagePersons earlier which is added to the Administrator user by default. If the
             // currently user is not part of the Administrator role then you can add it on the dashboard. Since this
             // permission can be checked without any object as a context the third parameter is left out.
-            if (!await _authorizationService.AuthorizeAsync(User, PersonPermission.ManagePersons))
+            if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
             {
                 return Unauthorized();
             }

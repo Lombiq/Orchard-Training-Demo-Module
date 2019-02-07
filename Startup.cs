@@ -19,6 +19,7 @@ using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Indexing;
 using OrchardCore.Modules;
+using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using YesSql.Indexes;
 
@@ -61,6 +62,9 @@ namespace Lombiq.TrainingDemo
 
             // Resources
             services.AddScoped<IResourceManifestProvider, ResourceManifest>();
+
+            // Admin menu
+            services.AddScoped<INavigationProvider, AdminMenu>();
         }
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)

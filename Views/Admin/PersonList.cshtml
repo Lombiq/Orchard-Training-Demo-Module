@@ -1,0 +1,25 @@
+@* The "shapes" object is an IEnumerable<dynamic> so we just simply enumerate it and use the previously seen
+    DisplayAsync helper to display these shapes. *@
+
+@model IEnumerable<dynamic>
+
+
+<h1>@RenderTitleSegments(T["Person List"])</h1>
+
+@if (Model.Any())
+{
+    <ul class="list-group">
+        @foreach (var contentItemSummary in Model)
+        {
+            <li class="list-group-item">
+                @await DisplayAsync(contentItemSummary)
+            </li>
+        }
+    </ul>
+}
+else
+{
+    <div class="alert alert-info">
+        @T["No result found."]
+    </div>
+}
