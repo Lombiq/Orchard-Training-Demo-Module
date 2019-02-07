@@ -10,11 +10,11 @@
  */
 
 using System.Threading.Tasks;
+using Lombiq.TrainingDemo.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.ContentManagement;
-using OrchardCore.Contents;
 using OrchardCore.DisplayManagement.Notify;
 
 namespace Lombiq.TrainingDemo.Controllers
@@ -41,7 +41,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // Here we will create a Person content item and check if the user has permission to edit it. It's very common
         // to check if you can view or edit a specific item - it also happens if you use the built in URLs like
         // /Contents/Item/Display/{id} to view a content item.
-        public async Task<ActionResult> EditPerson()
+        public async Task<ActionResult> CanEditPerson()
         {
             // Creating a content item for testing (won't be persisted).
             var person = await _contentManager.NewAsync("Person");
@@ -52,7 +52,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // item then the ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checks. This is
             // automatic so you don't need to use them directly. For this newly created Person item the owner is null
             // so the EditContent permission will be used.
-            if (!await _authorizationService.AuthorizeAsync(User, Permissions.EditContent, person))
+            if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.Permissions.EditContent, person))
             {
                 // Return 401 status code using this helper.
                 return Unauthorized();
@@ -64,6 +64,22 @@ namespace Lombiq.TrainingDemo.Controllers
 
             return Redirect("~/");
         }
+
+        // NEXT STATION: Permissions/PersonPermissions.cs
+
+        public async Task<ActionResult> CanManagePersons()
+        {
+            // We've defined a ManagePersons earlier which is added to the Administrator user by default. If the
+            // currently user is not part of the Administrator role then you can add it on the dashboard. Since this
+            // permission can be checked without any object as a context the third parameter is left out.
+            if (!await _authorizationService.AuthorizeAsync(User, PersonPermission.ManagePersons))
+            {
+                return Unauthorized();
+            }
+
+            _notifier.Information(H["You are authorized to manage persons."]);
+
+            return Redirect("~/");
+        }
     }
 }
-
