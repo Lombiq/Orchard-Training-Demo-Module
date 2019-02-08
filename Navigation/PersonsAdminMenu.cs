@@ -64,11 +64,17 @@ namespace Lombiq.TrainingDemo.Navigation
                         // This means that the first child menu item will point to our Person List dashboard and be
                         // shown only to users having the AccessPersonListDashboard permission. WARNING: this doesn't
                         // mean others won't be able to access it directly: we have to check in the controller too!
-                        .Permission(PersonPermissions.AccessPersonListDashboard))
+                        .Permission(PersonPermissions.AccessPersonListDashboard)
+                        // Optionally mark your menu item to be displayed on a local navigation shape placed outside
+                        // the menu. Most probably it will only happen if the theme doesn't support the third-level
+                        // menu items and it will display them somewhere else. In the TheAdmin theme it won't make any
+                        // difference since the three-level menu is supported.
+                        .LocalNav())
 
                     .Add(T["Oldest Items"], thirdLevelItem => thirdLevelItem
                         .Action($"{nameof(AdminController.PersonListOldest)}", "Admin", new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
-                        .Permission(PersonPermissions.AccessPersonListDashboard))));
+                        .Permission(PersonPermissions.AccessPersonListDashboard)
+                        .LocalNav())));
 
             return Task.CompletedTask;
         }
