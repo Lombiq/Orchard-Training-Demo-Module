@@ -2,6 +2,7 @@ using System;
 using Fluid;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
+using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
 using Lombiq.TrainingDemo.Migrations;
@@ -11,6 +12,7 @@ using Lombiq.TrainingDemo.Permissions;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
 using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using OrchardCore.ContentManagement;
@@ -77,6 +79,12 @@ namespace Lombiq.TrainingDemo
             services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
             services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();
             services.AddScoped<INavigationProvider, DemoSettingsAdminMenu>();
+
+            // Filters
+            services.Configure<MvcOptions>((options) =>
+            {
+                options.Filters.Add(typeof(ShapeInjectionFilter));
+            });
         }
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
