@@ -50,6 +50,11 @@ namespace Lombiq.TrainingDemo
 
             // If you go back to the Views/ColorField-ColorPicker.Edit.cshtml you will understand why all these three
             // resources will be loaded using those style and script tag helpers.
+
+            manifest
+                .DefineStyle("Lombiq.TrainingDemo.Filtered")
+                .SetUrl("/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
+                    "/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.css");
         }
     }
 }

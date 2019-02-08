@@ -84,6 +84,7 @@ namespace Lombiq.TrainingDemo
             services.Configure<MvcOptions>((options) =>
             {
                 options.Filters.Add(typeof(ShapeInjectionFilter));
+                options.Filters.Add(typeof(ResourceInjectionFilter));
             });
         }
 

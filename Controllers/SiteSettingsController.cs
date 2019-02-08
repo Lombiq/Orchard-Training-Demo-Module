@@ -40,3 +40,5 @@ namespace Lombiq.TrainingDemo.Controllers
             (await _siteService.GetSiteSettingsAsync()).As<DemoSettings>().Message;
     }
 }
+
+// NEXT STATION: Filters/ShapeInjectionFilter.cs
