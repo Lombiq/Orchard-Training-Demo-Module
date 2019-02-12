@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using Fluid;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
@@ -9,18 +10,21 @@ using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.Navigation;
 using Lombiq.TrainingDemo.Permissions;
+using Lombiq.TrainingDemo.Services;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Options;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
 using OrchardCore.ContentTypes.Editors;
 using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Handlers;
+using OrchardCore.Environment.Shell;
 using OrchardCore.Indexing;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
@@ -85,6 +89,22 @@ namespace Lombiq.TrainingDemo
             {
                 options.Filters.Add(typeof(ShapeInjectionFilter));
                 options.Filters.Add(typeof(ResourceInjectionFilter));
+            });
+
+            // File System
+            services.AddSingleton<ICustomFileStore>(serviceProvider =>
+            {
+                var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
+                var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
+
+                var tenantFolderPath = PathExtensions.Combine(
+                    shellOptions.ShellsApplicationDataPath,
+                    shellOptions.ShellsContainerName,
+                    shellSettings.Name);
+
+                var customFolderPath = PathExtensions.Combine(tenantFolderPath, "CustomFiles");
+
+                return new CustomFileStore(customFolderPath);
             });
         }
 

@@ -24,7 +24,8 @@ using OrchardCore.Modules.Manifest;
     {
         "OrchardCore.Contents",
         "OrchardCore.ContentTypes",
-        "OrchardCore.ContentFields"
+        "OrchardCore.ContentFields",
+        "OrchardCore.Media"
     }
 )]
 
