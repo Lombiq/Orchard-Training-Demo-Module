@@ -94,18 +94,28 @@ namespace Lombiq.TrainingDemo
             // File System
             services.AddSingleton<ICustomFileStore>(serviceProvider =>
             {
+                // So our goal here is to have a custom folder in the tenant's own folder. The Media folder is also
+                // there but we won't use that. To get tenant-specific data we need to use the ShellOptions and
+                // ShellShettings objects.
                 var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
                 var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
-
+                
                 var tenantFolderPath = PathExtensions.Combine(
+                    // This is the absolute path of the "App_Data" folder.
                     shellOptions.ShellsApplicationDataPath,
+                    // This is the folder which contains the tenants which is Sites by default.
                     shellOptions.ShellsContainerName,
+                    // This is the tenant name. We want our custom folder inside this folder.
                     shellSettings.Name);
 
+                // And finally our full base path.
                 var customFolderPath = PathExtensions.Combine(tenantFolderPath, "CustomFiles");
 
+                // Now register our CustomFileStore instance with the path given.
                 return new CustomFileStore(customFolderPath);
             });
+
+            // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
         }
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
