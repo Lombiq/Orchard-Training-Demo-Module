@@ -5,7 +5,8 @@
 
 // Here you will see a standalone Gulpfile for copying third-party resources from the node_modules folder to wwwroot
 // folder and also compiling our own resources (styles and scripts) and moving the results to the wwwroot folder as
-// well.
+// well. Note the .placeholder file in the wwwroot folder: that's a workaround that makes it possible to serve newly
+// compiled static files during the first app start too (the issue is elaborated a bit in the text in the file itself).
 
 const gulp = require("gulp");
 // Gulp plugin used for compiling sass files.
