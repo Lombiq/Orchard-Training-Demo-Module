@@ -7,71 +7,67 @@
 // folder and also compiling our own resources (styles and scripts) and moving the results to the wwwroot folder as
 // well.
 
-const gulp = require("gulp");
-// Gulp plugin used for compiling sass files.
-const sass = require("gulp-sass");
+const gulp = require('gulp');
+// Gulp plugin used for compiling sass files. The sass compiler needs to be set explicitely.
+const sass = require('gulp-sass');
+sass.compiler = require('node-sass');
 // Minifies css files.
-const cssnano = require('gulp-cssnano');
+const cleanCss = require('gulp-clean-css');
 // Renames the file so the result will have a different name (i.e. .min.css or .min.js).
-const rename = require("gulp-rename");
+const rename = require('gulp-rename');
 // Cache the result so the task won't be fully executed if it is not necessary.
-const cached = require("gulp-cached");
+const cached = require('gulp-cached');
 // Gulp watcher if needed when we are actively developing a resource.
-const watch = require("gulp-watch");
+const watch = require('gulp-watch');
 
-const imageFiles = "./Assets/Images/**/*";
-const imageFilesDestination = "./wwwroot/Images";
+const imageFiles = './Assets/Images/**/*';
+const imageFilesDestination = './wwwroot/Images';
 
-const pickrFiles = "./node_modules/pickr-widget/dist/*";
-const pickrFilesDestination = "./wwwroot/Pickr";
+const pickrFiles = './node_modules/pickr-widget/dist/*';
+const pickrFilesDestination = './wwwroot/Pickr';
 
-const sassFiles = "./Assets/Styles/**/*.scss";
-const cssFiles = "./wwwroot/Styles/**/*.css";
-const stylingFilesDestination = "./wwwroot/Styles";
+const sassFiles = './Assets/Styles/**/*.scss';
+const cssFiles = './wwwroot/Styles/**/*.css';
+const stylingFilesDestination = './wwwroot/Styles';
 
 // This task will collect all the images and move it to the wwwroot folder.
-gulp.task("images", function () {
-    return gulp
+gulp.task('images', () =>
+    gulp
         .src(imageFiles)
-        .pipe(cached("images"))
-        .pipe(gulp.dest(imageFilesDestination));
-});
+        .pipe(cached('images'))
+        .pipe(gulp.dest(imageFilesDestination)));
 
 // Task specifically created for our third-party plugin, pickr. It will just copy the files to the wwwroot folder.
-gulp.task("pickr", function () {
-    return gulp
+gulp.task('pickr', () => 
+    gulp
         .src(pickrFiles)
-        .pipe(cached("pickr"))
-        .pipe(gulp.dest(pickrFilesDestination));
-});
+        .pipe(cached('pickr'))
+        .pipe(gulp.dest(pickrFilesDestination)));
 
 // It will compile our sass files to css.
-gulp.task("sass:compile", function (callback) {
-    gulp.src(sassFiles)
-        .pipe(cached("scss"))
-        .pipe(sass({ linefeed: "crlf" })).on("error", sass.logError)
-        .pipe(gulp.dest(stylingFilesDestination))
-        .on("end", callback);
-});
+gulp.task('sass:compile', () => sassCompilerPipelineFactory());
 
-// It will minify our css files and renames them to contain the .min.css suffix.
-gulp.task("sass:minify", ["sass:compile"], function () {
-    return gulp.src(cssFiles)
-        .pipe(cached("css"))
-        .pipe(cssnano())
-        .pipe(rename({ suffix: ".min" }))
-        .pipe(gulp.dest(stylingFilesDestination));
-});
-
-gulp.task("default", ["images", "pickr", "sass:minify"]);
+// Default task that executes all the required tasks to initialize the module assets.
+gulp.task('default', gulp.parallel('images', 'pickr', 'sass:compile'));
 
 // This task won't be executed automatically, if you want to test this, you need to execute it in the Task Runner
-// Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save
-// them.
-gulp.task("sass:watch", function () {
-    watch(sassFiles, function () {
-        gulp.start("sass:minify");
-    });
-});
+// Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save them.
+gulp.task('sass:watch', () =>
+    watch(
+        sassFiles,
+        {
+            verbose: true
+        },
+        () => sassCompilerPipelineFactory()));
 
-// NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the "NpmInstall" name.
+// The actual pipeline is in a separate function so it can be used in the watch task as well.        
+const sassCompilerPipelineFactory = () =>
+    gulp.src(sassFiles)
+        .pipe(cached('scss'))
+        .pipe(sass({ linefeed: 'crlf' })).on('error', sass.logError)
+        .pipe(gulp.dest(stylingFilesDestination))
+        .pipe(cleanCss({ compatibility: 'ie8' }))
+        .pipe(rename({ extname: '.min.css' }))
+        .pipe(gulp.dest(stylingFilesDestination));
+
+// NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name.
