@@ -7,6 +7,7 @@
     <PackageLicenseUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module/blob/master/Licence.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
+    <LangVersion>7.1</LangVersion> 
   </PropertyGroup>
 
   <ItemGroup>
@@ -22,12 +23,22 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-70939" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-beta3-70939" />
   </ItemGroup>
 
-  <ItemGroup>
+
+  <!-- <ItemGroup>
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.ContentTypes.Abstractions\OrchardCore.ContentTypes.Abstractions.csproj" />
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.Data.Abstractions\OrchardCore.Data.Abstractions.csproj" />
@@ -37,7 +48,7 @@
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.Media.Abstractions\OrchardCore.Media.Abstractions.csproj" />
     <ProjectReference Include="..\..\OrchardCore\OrchardCore.Module.Targets\OrchardCore.Module.Targets.csproj" />
     <ProjectReference Include="..\OrchardCore.ContentFields\OrchardCore.ContentFields.csproj" />
-  </ItemGroup>
+  </ItemGroup> -->
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
