@@ -52,13 +52,12 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\Styles\" />
   </ItemGroup>
 
   <!-- This will execute two scripts right before every build. -->
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
     <!-- It will install and initialize the node package manager. -->
-    <Exec Command="npm install" />
+    <Exec Command="npm ci" />
     
     <!-- It will execute the default gulp task. -->
     <Exec Command="gulp" />

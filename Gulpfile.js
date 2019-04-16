@@ -8,7 +8,7 @@
 // well.
 
 const gulp = require('gulp');
-// Gulp plugin used for compiling sass files. The sass compiler needs to be set explicitely.
+// Gulp plugin used for compiling sass files. The sass compiler needs to be set explicitly.
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 // Minifies css files.
@@ -20,29 +20,30 @@ const cached = require('gulp-cached');
 // Gulp watcher if needed when we are actively developing a resource.
 const watch = require('gulp-watch');
 
-const imageFiles = './Assets/Images/**/*';
-const imageFilesDestination = './wwwroot/Images';
+const PATHS = {
+    imageFiles: './Assets/Images/**/*',
+    imageFilesDestination: './wwwroot/Images',
 
-const pickrFiles = './node_modules/pickr-widget/dist/*';
-const pickrFilesDestination = './wwwroot/Pickr';
+    pickrFiles: './node_modules/pickr-widget/dist/*',
+    pickrFilesDestination: './wwwroot/Pickr',
 
-const sassFiles = './Assets/Styles/**/*.scss';
-const cssFiles = './wwwroot/Styles/**/*.css';
-const stylingFilesDestination = './wwwroot/Styles';
+    sassFiles: './Assets/Styles/**/*.scss',
+    stylingFilesDestination: './wwwroot/Styles'
+};
 
 // This task will collect all the images and move it to the wwwroot folder.
 gulp.task('images', () =>
     gulp
-        .src(imageFiles)
+        .src(PATHS.imageFiles)
         .pipe(cached('images'))
-        .pipe(gulp.dest(imageFilesDestination)));
+        .pipe(gulp.dest(PATHS.imageFilesDestination)));
 
 // Task specifically created for our third-party plugin, pickr. It will just copy the files to the wwwroot folder.
 gulp.task('pickr', () => 
     gulp
-        .src(pickrFiles)
+        .src(PATHS.pickrFiles)
         .pipe(cached('pickr'))
-        .pipe(gulp.dest(pickrFilesDestination)));
+        .pipe(gulp.dest(PATHS.pickrFilesDestination)));
 
 // It will compile our sass files to css.
 gulp.task('sass:compile', () => sassCompilerPipelineFactory());
@@ -54,7 +55,7 @@ gulp.task('default', gulp.parallel('images', 'pickr', 'sass:compile'));
 // Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save them.
 gulp.task('sass:watch', () =>
     watch(
-        sassFiles,
+        PATHS.sassFiles,
         {
             verbose: true
         },
@@ -62,12 +63,12 @@ gulp.task('sass:watch', () =>
 
 // The actual pipeline is in a separate function so it can be used in the watch task as well.        
 const sassCompilerPipelineFactory = () =>
-    gulp.src(sassFiles)
+    gulp.src(PATHS.sassFiles)
         .pipe(cached('scss'))
         .pipe(sass({ linefeed: 'crlf' })).on('error', sass.logError)
-        .pipe(gulp.dest(stylingFilesDestination))
+        .pipe(gulp.dest(PATHS.stylingFilesDestination))
         .pipe(cleanCss({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(stylingFilesDestination));
+        .pipe(gulp.dest(PATHS.stylingFilesDestination));
 
 // NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name.

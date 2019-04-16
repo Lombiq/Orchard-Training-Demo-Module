@@ -1,0 +1,31 @@
+<!-- Here a demo Vue.js application will be initialized. Right below you can see a script and a stylesheet inclusion.
+The script is the bundled Vue.js application (we will see it real soon) and the stylesheet is for some basic styling
+required for the app. Note that the stylesheet is not part of the application technically, it's in a separate folder
+(Assets/Styles/demo-app.scss) and processed using a common Gulp pipeline for all the Sass files.-->
+<script asp-name="DemoApp" at="Head"></script>
+<style asp-name="DemoApp"></style>
+
+<!-- This shape renders the template of the Vue.js component. If you have multiple templates then rendere them here
+one-by-one. We'll see how it looks like when we get to our Vue component script file.--> 
+<shape type="VueComponent-Demo_Component"></shape>
+
+<!-- This is the container of the demo app. -->
+<div id="demoApp">
+    <!-- Everything inside this container is processed by Vue. This one here will tell the Vue to render the demo
+    component. -->
+    <demo-component></demo-component>
+</div>
+
+<!-- And finally the initialization. We'd like to pass an options object from here which is tricky since our Vue.js
+application is written using ES6 modules. One way to work this around is to expose an initialization function on the
+window object where we can inject our application options. These options could contain localized texts (assuming that
+you want to localize text only in Orchard Core) and other data like anti-forgery token if you have forms.-->
+<script at="Foot">
+    window.initDemoApp({
+        element: '#demoApp',
+        // Notice that this text is localized.
+        text: '@T["Hi there!"]'
+    });
+</script>
+
+<!-- NEXT STATION: Assets/Apps/main.js -->

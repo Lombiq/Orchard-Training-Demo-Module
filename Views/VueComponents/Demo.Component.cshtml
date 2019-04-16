@@ -1,0 +1,20 @@
+﻿<!-- This is a shape and a Vue component template at the same time. It means that you need to pay attention to the
+syntax. -->
+
+@{
+    const string BlockName = "demo";
+}
+
+<!-- You can use any template format if you want. -->
+<template id="demo-component">
+    <div class="@BlockName">
+        <p v-if="showText" class="@(BlockName)__text">{{ text }}</p>
+        <!-- Here is a v-on shorthand for click event, however, you need to make Razor compiler to ignore it. -->
+        <button type="button" @@click="showFullName = !showFullName" class="@(BlockName)__showHideButton btn">
+            <span v-if="showText">@T["Hide Text"]</span>
+            <span v-else>@T["Show Text"]</span>
+        </button>
+    </div>
+</template>
+
+<!-- NEXT STATION: Gulpfile.js -->
