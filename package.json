@@ -4,6 +4,9 @@
     "pickr-widget": "0.3.6"
   },
   "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0",
     "gulp": "4.0.0",
     "gulp-cached": "1.1.1",
     "gulp-clean-css": "4.0.0",

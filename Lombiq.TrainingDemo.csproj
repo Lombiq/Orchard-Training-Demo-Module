@@ -20,6 +20,7 @@
     <EmbeddedResource Remove=".gitattributes" />
     <EmbeddedResource Remove=".gitignore" />
     <EmbeddedResource Remove=".hgignore" />
+    <EmbeddedResource Remove=".hgtags" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,10 +55,14 @@
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Lombiq.VueJs\Lombiq.VueJs.csproj" />
+  </ItemGroup>
+
   <!-- This will execute two scripts right before every build. -->
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
     <!-- It will install and initialize the node package manager. -->
-    <Exec Command="npm ci" />
+    <Exec Command="npm install" />
     
     <!-- It will execute the default gulp task. -->
     <Exec Command="gulp" />

@@ -1,3 +1,5 @@
+'use strict';
+
 // There are multiple ways of managing your resources (including scripts, stylesheets, images etc.). Orchard Core
 // itself provides its own pipeline for it using an Assets.json file. We don't use it this time but check the
 // http://docs.orchardproject.net/en/latest/Documentation/Processing-client-side-assets/ documentation for more
@@ -7,20 +9,24 @@
 // folder and also compiling our own resources (styles and scripts) and moving the results to the wwwroot folder as
 // well.
 
-const gulp = require('gulp');
+import gulp from 'gulp';
 // Gulp plugin used for compiling sass files. The sass compiler needs to be set explicitly.
-const sass = require('gulp-sass');
-sass.compiler = require('node-sass');
+import sass from 'gulp-sass';
+import nodeSass from 'node-sass';
+sass.compiler = nodeSass;
 // Minifies css files.
-const cleanCss = require('gulp-clean-css');
+import cleanCss from 'gulp-clean-css';
 // Renames the file so the result will have a different name (i.e. .min.css or .min.js).
-const rename = require('gulp-rename');
+import rename from 'gulp-rename';
 // Cache the result so the task won't be fully executed if it is not necessary.
-const cached = require('gulp-cached');
+import cached from 'gulp-cached';
 // Gulp watcher if needed when we are actively developing a resource.
-const watch = require('gulp-watch');
+import watch from 'gulp-watch';
+// This is a helper for generating a gulp pipeline for harvesting Vue applications from the current
+// project's Assets folder and compiling them to wwwroot.
+import getVueAppCompilerPipeline from '../Lombiq.VueJs/Assets/Scripts/helpers/get-vue-app-compiler-pipeline';
 
-const PATHS = {
+const paths = {
     imageFiles: './Assets/Images/**/*',
     imageFilesDestination: './wwwroot/Images',
 
@@ -34,19 +40,22 @@ const PATHS = {
 // This task will collect all the images and move it to the wwwroot folder.
 gulp.task('images', () =>
     gulp
-        .src(PATHS.imageFiles)
+        .src(paths.imageFiles)
         .pipe(cached('images'))
-        .pipe(gulp.dest(PATHS.imageFilesDestination)));
+        .pipe(gulp.dest(paths.imageFilesDestination)));
 
 // Task specifically created for our third-party plugin, pickr. It will just copy the files to the wwwroot folder.
 gulp.task('pickr', () => 
     gulp
-        .src(PATHS.pickrFiles)
+        .src(paths.pickrFiles)
         .pipe(cached('pickr'))
-        .pipe(gulp.dest(PATHS.pickrFilesDestination)));
+        .pipe(gulp.dest(paths.pickrFilesDestination)));
 
 // It will compile our sass files to css.
-gulp.task('sass:compile', () => sassCompilerPipelineFactory());
+gulp.task('sass:compile', () => getSassCompilerPipeline());
+
+// This gulp task is for harvesting and compiling Vue applications in the current project.
+gulp.task('vue:compile', () => getVueAppCompilerPipeline());
 
 // Default task that executes all the required tasks to initialize the module assets.
 gulp.task('default', gulp.parallel('images', 'pickr', 'sass:compile'));
@@ -55,20 +64,20 @@ gulp.task('default', gulp.parallel('images', 'pickr', 'sass:compile'));
 // Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save them.
 gulp.task('sass:watch', () =>
     watch(
-        PATHS.sassFiles,
+        paths.sassFiles,
         {
             verbose: true
         },
-        () => sassCompilerPipelineFactory()));
-
+        () => getSassCompilerPipeline()));
+ 
 // The actual pipeline is in a separate function so it can be used in the watch task as well.        
-const sassCompilerPipelineFactory = () =>
-    gulp.src(PATHS.sassFiles)
+const getSassCompilerPipeline = () =>
+    gulp.src(paths.sassFiles)
         .pipe(cached('scss'))
         .pipe(sass({ linefeed: 'crlf' })).on('error', sass.logError)
-        .pipe(gulp.dest(PATHS.stylingFilesDestination))
+        .pipe(gulp.dest(paths.stylingFilesDestination))
         .pipe(cleanCss({ compatibility: 'ie8' }))
         .pipe(rename({ extname: '.min.css' }))
-        .pipe(gulp.dest(PATHS.stylingFilesDestination));
+        .pipe(gulp.dest(paths.stylingFilesDestination));
 
 // NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name.

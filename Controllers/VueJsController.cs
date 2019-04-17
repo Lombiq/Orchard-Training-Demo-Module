@@ -8,17 +8,7 @@
  * See: https://vuejs.org/v2/guide/
  */
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Lombiq.TrainingDemo.Indexes;
-using Lombiq.TrainingDemo.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Localization;
-using OrchardCore.DisplayManagement;
-using OrchardCore.DisplayManagement.ModelBinding;
-using OrchardCore.DisplayManagement.Notify;
-using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers
 {

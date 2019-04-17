@@ -55,6 +55,11 @@ namespace Lombiq.TrainingDemo
                 .DefineStyle("Lombiq.TrainingDemo.Filtered")
                 .SetUrl("/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
                     "/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.css");
+
+            manifest
+                .DefineScript("Lombiq.TrainingDemo.DemoApp")
+                .SetUrl("/Lombiq.TrainingDemo/Apps/demo.min.js", "/Lombiq.TrainingDemo/Apps/demo.js");
+
         }
     }
 }
