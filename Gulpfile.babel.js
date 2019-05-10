@@ -58,7 +58,7 @@ gulp.task('sass:compile', () => getSassCompilerPipeline());
 gulp.task('vue:compile', () => getVueAppCompilerPipeline());
 
 // Default task that executes all the required tasks to initialize the module assets.
-gulp.task('default', gulp.parallel('images', 'pickr', 'sass:compile'));
+gulp.task('default', gulp.parallel('images', 'pickr', 'sass:compile', 'vue:compile'));
 
 // This task won't be executed automatically, if you want to test this, you need to execute it in the Task Runner
 // Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save them.
