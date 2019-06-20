@@ -27,15 +27,15 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-71077" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-beta3-71077" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-beta3-71610" />
   </ItemGroup>
 
 
