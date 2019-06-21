@@ -31,6 +31,7 @@
     <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-71610" />
     <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-71610" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-71610" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="1.0.0-beta3-71610" />
     <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-beta3-71610" />
     <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-beta3-71610" />
     <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-beta3-71610" />

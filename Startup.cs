@@ -115,6 +115,9 @@ namespace Lombiq.TrainingDemo
                 return new CustomFileStore(customFolderPath);
             });
 
+            // Caching
+            services.AddScoped<IDateTimeCachingService, DateTimeCachingService>();
+
             // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
         }
 

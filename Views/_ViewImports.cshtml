@@ -1,11 +1,12 @@
 @* _ViewImports.cshtml is an ASP.NET Core MVC-related feature. What is interesting to us is the Orchard Core-related
-usings and tag helpers that we will possibly use in most of our shape templates (.cshtml files). *@
+    usings and tag helpers that we will possibly use in most of our shape templates (.cshtml files). *@
 
 @inherits OrchardCore.DisplayManagement.Razor.RazorPage<TModel>
 
 @using OrchardCore.ContentManagement.Display.ViewModels
 @using OrchardCore.DisplayManagement.Views;
 @using Lombiq.TrainingDemo.Models;
+@using Lombiq.TrainingDemo.ViewModels;
 
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, OrchardCore.DisplayManagement
