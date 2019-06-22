@@ -23,6 +23,7 @@ using OrchardCore.Modules.Manifest;
     Dependencies = new[]
     {
         "Lombiq.VueJs",
+        "OrchardCore.BackgroundTasks",
         "OrchardCore.Contents",
         "OrchardCore.ContentTypes",
         "OrchardCore.ContentFields",

@@ -26,6 +26,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.0.0-beta3-71674" />
     <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-71674" />
     <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-71674" />
     <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-71674" />

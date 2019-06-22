@@ -18,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using OrchardCore.BackgroundTasks;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
 using OrchardCore.ContentTypes.Editors;
@@ -117,6 +118,9 @@ namespace Lombiq.TrainingDemo
 
             // Caching
             services.AddScoped<IDateTimeCachingService, DateTimeCachingService>();
+
+            // Background tasks
+            services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
 
             // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
         }
