@@ -62,6 +62,13 @@ namespace Lombiq.TrainingDemo.Controllers
 
             return RedirectToAction("Index");
         }
+
+        // Now let's see how Orchard Core utilizes the Dynamic Cache the most. In this action you will see how shapes
+        // are cached.
+        public ActionResult Shape() =>
+            View();
+
+        // NEXT STATION: Views/Cache/Shape.cshtml
     }
 }
 
