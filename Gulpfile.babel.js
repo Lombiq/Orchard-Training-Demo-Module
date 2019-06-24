@@ -7,7 +7,8 @@
 
 // Here you will see a standalone Gulpfile for copying third-party resources from the node_modules folder to wwwroot
 // folder and also compiling our own resources (styles and scripts) and moving the results to the wwwroot folder as
-// well. 
+// well. Note the .placeholder file in the wwwroot folder: that's a workaround that makes it possible to serve newly
+// compiled static files during the first app start too (the issue is elaborated a bit in the text in the file itself).
 
 // You've might noticed that the Gulpfile filename has a babel suffix which means that you can use code syntax from ES6
 // and above with the help of Babel. To configure this you need to install @babel/core, @babel/preset-env and
