@@ -56,12 +56,14 @@ namespace Lombiq.TrainingDemo
                 .SetUrl("/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
                     "/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.css");
 
+            // This resource will be required for our demo Vue.js application.
             manifest
                 .DefineScript("Lombiq.TrainingDemo.DemoApp")
                 .SetUrl("/Lombiq.TrainingDemo/Apps/demo.min.js", "/Lombiq.TrainingDemo/Apps/demo.js");
-
         }
     }
 }
 
-// NEXT STATION: Gulpfile.js
+// END OF TRAINING: Resource management
+
+// NEXT STATION: Controllers/AuthorizationController.cs

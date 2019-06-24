@@ -136,3 +136,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
     }
 }
+
+// END OF TRAINING: File management
+
+// NEXT STATION: Services/DemoBackgroundTask.cs

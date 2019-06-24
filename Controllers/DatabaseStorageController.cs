@@ -95,6 +95,8 @@ namespace Lombiq.TrainingDemo.Controllers
             return View(bookShapes);
         }
 
+        // END OF TRAINING: Storing data in document database and index records
+
         // NEXT STATION: Models/PersonPart.cs
 
 

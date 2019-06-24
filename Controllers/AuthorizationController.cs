@@ -84,4 +84,6 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
+// END OF TRAINING: Permissions and authorization
+
 // NEXT STATION: Controllers/AdminController

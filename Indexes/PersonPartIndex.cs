@@ -40,5 +40,7 @@ namespace Lombiq.TrainingDemo.Indexes
         }
     }
 
+    // END OF TRAINING: Content Item and Content Part development
+
     // NEXT STATION: Controllers/PersonListController
 }

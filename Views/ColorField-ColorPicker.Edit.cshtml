@@ -12,8 +12,8 @@
 }
 
 @* Script and styling resources can be used in these shapes. We'll get to it really soon first go through this file and
-understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
-helpers all the necessary scripts and styles will be loaded.*@
+    understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
+    helpers all the necessary scripts and styles will be loaded.*@
 
 <script asp-name="Pickr" at="Head"></script>
 <style asp-name="Lombiq.TrainingDemo.ColorPicker" at="Head"></style>
@@ -33,7 +33,7 @@ helpers all the necessary scripts and styles will be loaded.*@
 </fieldset>
 
 @* The following script will contain the initialization for the color picker. The at="Foot" will make it rendered in
-the end of the body tag. *@
+    the end of the body tag. *@
 
 <script at="Foot" type="text/javascript">
     //<![CDATA[
@@ -58,5 +58,7 @@ the end of the body tag. *@
     })();
     //]]>
 </script>
+
+@* END OF TRAINING: Content Field display and editor options *@
 
 @* NEXT STATION: ResourceManifest.cs *@

@@ -70,3 +70,7 @@ namespace Lombiq.TrainingDemo.Services
         }
     }
 }
+
+// END OF TRAINING: Background tasks
+
+// NEXT STATION: Controllers/VueJsController.cs

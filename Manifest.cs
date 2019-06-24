@@ -31,4 +31,5 @@ using OrchardCore.Modules.Manifest;
     }
 )]
 
+// END OF TRAINING: Manifest
 // NEXT STATION: Controllers/YourFirstOrchardCoreController.cs

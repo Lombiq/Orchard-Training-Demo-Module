@@ -7,7 +7,11 @@
 
 // Here you will see a standalone Gulpfile for copying third-party resources from the node_modules folder to wwwroot
 // folder and also compiling our own resources (styles and scripts) and moving the results to the wwwroot folder as
-// well.
+// well. 
+
+// You've might noticed that the Gulpfile filename has a babel suffix which means that you can use code syntax from ES6
+// and above with the help of Babel. To configure this you need to install @babel/core, @babel/preset-env and
+// @babel/register Node packages and add a Babel config file to the root, see: .babelrc file.
 
 import gulp from 'gulp';
 // Gulp plugin used for compiling sass files. The sass compiler needs to be set explicitly.
@@ -80,4 +84,6 @@ const getSassCompilerPipeline = () =>
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(paths.stylingFilesDestination));
 
-// NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name.
+// NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name. After that:
+
+// END OF TRAINING: Compiling resources using Gulp

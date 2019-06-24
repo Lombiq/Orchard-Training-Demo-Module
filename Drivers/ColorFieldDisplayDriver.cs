@@ -93,4 +93,6 @@ namespace Lombiq.TrainingDemo.Drivers
     }
 }
 
+// END OF TRAINING: Content Field development
+
 // NEXT STATION: Indexing/ColorFieldIndexHandler.cs

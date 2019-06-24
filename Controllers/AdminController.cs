@@ -91,3 +91,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 await _contentItemDisplayManager.BuildDisplayAsync(person, this, "SummaryAdmin")));
     }
 }
+
+// END OF TRAINING: Admin menus
+
+// NEXT STATION: Controllers/SiteSettingsController.cs

@@ -29,4 +29,6 @@ namespace Lombiq.TrainingDemo.Indexing
     }
 }
 
+// END OF TRAINING: Indexing Content Fields in Lucene
+
 // NEXT STATION: Views/ColorField.Option.cshtml
