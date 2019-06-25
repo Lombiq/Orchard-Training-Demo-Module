@@ -13,7 +13,7 @@ Demo Orchard Core module for training purposes guiding you to become an Orchard 
 
 You can use this module as part of a vanilla Orchard Core source that including the full source code - which is the recommended way. You can use it as part of a solution the uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
 
-This module is dependent on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to this module.
+This module is depending on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to this module.
 
 The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://orchardcore.readthedocs.io/en/latest/) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
 
@@ -21,19 +21,19 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 ### Using a full Orchard Core source
 
 1. Open an Orchard Core solution. You can download or `git clone` Orchard from [GitHub](https://github.com/OrchardCMS/OrchardCore/).
-2. Add this project and Lombiq.VueJs project to the solution (it doesn't matter which solution folder you use but place it next to each other).
-3. Add these two projects as a references to `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
+2. Add this project and the Lombiq.VueJs project to the solution (it doesn't matter which solution folder you use but place them next to each other).
+3. Add these two projects as references to `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
-5. Setup the website using any recipe except "Blank" (some recipes don't enable the Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*).
+5. Setup the website using any recipe except "Blank" (some recipes don't enable the Messages zone where the related demonstration won't work so make an appropriate theme default like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*).
 
 
 ### Using NuGet packages
 
 1. Open a web project that uses Orchard Core NuGet packages or create one (see: https://orchardcore.readthedocs.io/en/latest/Templates/README/#generate-an-orchard-cms-web-application).
 2. Add this project and Lombiq.VueJs to the solution.
-3. Add these projects as a references to web project.
+3. Add these projects as references to the web project.
 4. Run the web project (F5 or CTRL+F5).
-5. Setup the website using any recipe except "Blank" (some recipes don't enable the Messages zone where the related demonstration won't work so use one appropriate like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*)
+5. Set up the website using any recipe except "Blank" (some recipes don't enable the Messages zone where the related demonstration won't work so make an appropriate theme default like "The Default Theme"), log in and enable this module on the Dashboard (*~/OrchardCore.Features/Admin/Features*)
 
 
 ## Using this module for training purposes
