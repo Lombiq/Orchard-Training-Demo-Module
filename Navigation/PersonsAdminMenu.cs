@@ -25,13 +25,13 @@ namespace Lombiq.TrainingDemo.Navigation
         public Task BuildNavigationAsync(string name, NavigationBuilder builder)
         {
             // The name parameter differentiates different menu types. In our case it is "admin" so let's check if the
-            // menu is being built is for admin.
+            // menu being built is for admin.
             if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase))
             {
                 return Task.CompletedTask;
             }
 
-            // The builder will add different menu items in different levels. Here we'll create a 3-level menu. The
+            // The builder will add different menu items on different levels. Here we'll create a 3-level menu. The
             // first-level menu is what you will see first when you go to the Dashboard and the sub menu items when you
             // click on this. It should have a position parameter as well which not surprisingly will be the position
             // in the admin menu.
@@ -43,7 +43,7 @@ namespace Lombiq.TrainingDemo.Navigation
                 // NEXT STATION: Go check how it's done in Views/NavigationItemText-persons.Id.cshtml and come back
                 // here!
                 .AddClass("persons").Id("persons")
-                // This means that the top-level menu item also will point to the action where it's first child item
+                // This means that the top-level menu item also will point to the action where its first child item
                 // points. Now that is conventional to do, however, it really depends on the Admin theme. The TheAdmin
                 // theme will never link it to the first child, it will always be a dropdown without a link.
                 .LinkToFirstChild(true)

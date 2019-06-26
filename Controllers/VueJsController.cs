@@ -1,11 +1,11 @@
 /*
- * Vue.js is a progressive framework for building user interfaces, most probably single-page applications. What if you
- * want to build an SPA only for one feature or build multiple SPAs in one Orchard Core module? Here's an example of how
- * to organize your Vue apps and components to keep them reusable and also have all the features we like in Orchard Core
- * such as shape overrides and localization?
+ * Vue.js is a progressive framework for building user interfaces, mostly single-page applications. What if you want to
+ * build an SPA only for one feature or build multiple SPAs in one Orchard Core module? Here's an example of how to
+ * organize your Vue apps and components to keep them reusable and also have all the features we like in Orchard Core
+ * such as shape overrides and localization.
  *
- * If you are not familiar with Vue.js you can skip this tutorial or give it a try and see how cool framework it is.
- * See: https://vuejs.org/v2/guide/
+ * If you are not familiar with Vue.js you can skip this tutorial or give it a try and see how cool of a framework it
+ * is. See: https://vuejs.org/v2/guide/
  */
 
 using Microsoft.AspNetCore.Mvc;

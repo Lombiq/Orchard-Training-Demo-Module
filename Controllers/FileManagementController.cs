@@ -1,11 +1,11 @@
 /*
  * In Orchard Core if you want to work with assets you can use the Media feature that will help you manage your files
- * in the tenant's Media folder from the dashboard. If the OrchardCore.Media.Azure is enabled the storage will be the
- * Azure Blob Storage. But what if you want to upload, delete or read files right from the code and maybe outside the
- * Media folder?
+ * in the tenant's Media folder from the dashboard. If OrchardCore.Media.Azure is enabled the storage will be Azure
+ * Blob Storage. But what if you want to upload, delete or read files right from the code and maybe outside the Media
+ * folder?
  *
  * There is a service called IFileStore which is not registered in the service provider. The features that need to do
- * specific file operations have an own service which inherits from IFileStore (or somehow depends on this). For
+ * specific file operations have an own service which inherits from IFileStore (or somehow depend on it). For
  * example the IMediaFileStore service can be used if you want to manage files in the Media folder. This is accessible
  * from anywhere in the code if the Media feature is enabled.
  *
@@ -33,7 +33,6 @@ namespace Lombiq.TrainingDemo.Controllers
         private const string TestFileRelativePath = "TrainingDemo/TestFile1.txt";
         private const string UploadedFileFolderRelativePath = "TrainingDemo/Uploaded";
 
-
         private readonly IMediaFileStore _mediaFileStore;
         private readonly INotifier _notifier;
         private readonly IHtmlLocalizer H;
@@ -56,7 +55,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // This action will demonstrate how to create a file in the Media folder and read it from there.
         public async Task<string> CreateFileInMediaFolder()
         {
-            // You need to initialize a stream if you have a specific text you want to write in the file. If you
+            // You need to initialize a stream if you have a specific text you want to write into the file. If you
             // already have a stream for that just use it (you'll see it later)!
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there!")))
             {
@@ -69,13 +68,13 @@ namespace Lombiq.TrainingDemo.Controllers
             var fileInfo = await _mediaFileStore.GetFileInfoAsync(TestFileRelativePath);
 
             // The IMediaFileStore has its own specific methods such as mapping the file path to a public URL. Since
-            // the files in the Media folder are accessible from outside this can be handy.
+            // the files in the Media folder are accessible from the outside this can be handy.
             var publicUrl = _mediaFileStore.MapPathToPublicUrl(TestFileRelativePath);
 
             return $"Successfully created file! File size: {fileInfo.Length} bytes. Public URL: {publicUrl}";
         }
 
-        // If you've created the file just go to the Dashboard and check if you can see it in the Assets. Also you can
+        // If you've created the file just go to the Dashboard and check if you can see it under Assets. You can also
         // find it in the App_Data/Sites/{TenantName}/Media/TrainingDemo folder.
 
         // This action will read the file you've created earlier.
@@ -98,7 +97,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
         // Now let's see a scenario where you have a file uploader component and you want to save that file to the
-        // Media folder. If you want to see how our demo uploader looks like then go to the
+        // Media folder. If you want to see how our demo uploader looks like then go to
         // Views/FileManagement/UploadFileToMedia.cshtml.
         public ActionResult UploadFileToMedia() => View();
 
@@ -108,7 +107,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // You can use the Combine method to combine paths which is pretty much equivalent to the built-in method.
             var mediaFilePath = _mediaFileStore.Combine(UploadedFileFolderRelativePath, file.FileName);
 
-            // In this case you already have a stream so use it to create file.
+            // In this case you already have a stream so use it to create the file.
             using (var stream = file.OpenReadStream())
             {
                 await _mediaFileStore.CreateFileFromStream(mediaFilePath, stream);
@@ -124,7 +123,7 @@ namespace Lombiq.TrainingDemo.Controllers
         public async Task<string> CreateFileInCustomFolder()
         {
             // Now it will be the same process as it was with the IMediaFileStore but it will be our ICustomFileStore
-            // this time. The files will be created inside our CustomFiles folder as it was described in Startup.cs.
+            // this time. The files will be created inside our CustomFiles folder as it was defined in Startup.cs.
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there in the custom file storage!")))
             {
                 await _customFileStore.CreateFileFromStream(TestFileRelativePath, stream, true);

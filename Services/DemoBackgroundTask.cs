@@ -2,10 +2,10 @@
  * In this demonstration we'll implement a background task that will run 5 times every 2 minutes and will write a
  * message in the error log. In Orchard Core background tasks always run periodically meaning if you want them to stop
  * you need to explicitly disable them from code or from the Background Tasks admin page if the
- * OrchardCore.BackgroundTasks feature is enabled. For scheduling each tasks Orchard Core uses NCrontab
- * (https://github.com/atifaziz/NCrontab) providing functionality to specify crontab expressions. By default it set to
- * be executed every 5 minutes - and as mentioned it will run until you disable it. If you want to learn more about
- * crontab expressions you can use this online tool: https://crontab.guru/.
+ * OrchardCore.BackgroundTasks feature is enabled. For scheduling each task Orchard Core uses NCrontab
+ * (https://github.com/atifaziz/NCrontab) providing functionality to specify crontab expressions. By default tasks are
+ * set to be executed every 5 minutes - and as mentioned they'll run until you disable them. If you want to learn more
+ * about crontab expressions you can use this online tool: https://crontab.guru/.
  */
 
 using Microsoft.Extensions.Logging;
@@ -62,8 +62,8 @@ namespace Lombiq.TrainingDemo.Services
                 var settings = this.GetDefaultSettings();
 
                 // By setting Enabled to false and using IBackgroundTaskManager to update it the settings will be
-                // stored in the databased (or updated if it has already been stored) and from now on Orchard Core will
-                // ignore this task and won't be executed.
+                // stored in the database (or updated if it has already been stored) and from now on Orchard Core will
+                // ignore this task and it won't be executed.
                 settings.Enable = false;
                 await backroundTaskManager.UpdateAsync(settings.Name, settings);
             }

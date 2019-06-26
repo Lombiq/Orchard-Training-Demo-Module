@@ -1,7 +1,7 @@
 /*
- * You can create pages to the Orchard Core dashboard really simply by naming your controller to AdminController or
- * putting an [Admin] attribute to the controller. In this section you will learn how to add pages to the dashboard and
- * how to create menu items as well.
+ * You can create pages for the Orchard Core dashboard  simply by naming your controller AdminController or putting an
+ * [Admin] attribute on the controller. In this section you will learn how to add pages to the dashboard and how to
+ * create menu items as well.
  */
 
 using System.Collections.Generic;
@@ -19,8 +19,7 @@ using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    // If you have multiple admin controllers then name it whatever you want but put an [Admin] attribute on the
-    // controller.
+    // If you have multiple admin controllers then name them whatever you want but put an [Admin] attribute on them.
     public class AdminController : Controller, IUpdateModel
     {
         private readonly IContentItemDisplayManager _contentItemDisplayManager;
@@ -40,9 +39,8 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // Let's see how it will be displayed, just type the default URL into the browser with an administrator account
-        // (or at least a user who is in a role that has AccessAdmin permission). If you are anonymous then a login
-        // page will automatically appear. The permission check (i.e. has AccessAdmin permission) will be automatic as
-        // well.
+        // (or at least a user who has a role that has AccessAdmin permission). If you are anonymous then a login page
+        // will automatically appear. The permission check (i.e. has AccessAdmin permission) will be automatic as well.
         public ActionResult Index() => View();
 
         // NEXT STATION: Navigation/PersonsAdminMenu.cs

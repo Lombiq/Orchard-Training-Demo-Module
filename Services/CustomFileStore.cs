@@ -12,6 +12,7 @@ namespace Lombiq.TrainingDemo.Services
         // You can add additional methods if you want.
     }
 
+
     public class CustomFileStore : FileSystemStore, ICustomFileStore
     {
         // Since FileSystemStore requires a base path we also need to have it. If you have a very specific absolute

@@ -16,6 +16,7 @@ namespace Lombiq.TrainingDemo.Services
         Task InvalidateCachedDateTimeAsync();
     }
 
+
     public class DateTimeCachingService : IDateTimeCachingService
     {
         public const string MemoryCacheKey = "Lombiq.TrainingDemo.MemoryCache.DateTime";
@@ -32,7 +33,7 @@ namespace Lombiq.TrainingDemo.Services
         private readonly IMemoryCache _memoryCache;
 
         // Dynamic Cache is implemented primarily for caching shapes. It is based on the built-in ASP.NET Core
-        // IDistributedCache service which implementation is the DistributedMemoryCache by default. To learn more about
+        // IDistributedCache service which by default is implemented by DistributedMemoryCache. To learn more about
         // distributed caching and IDistributedCache visit
         // https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed.
         private readonly IDynamicCacheService _dynamicCacheService;
@@ -54,7 +55,7 @@ namespace Lombiq.TrainingDemo.Services
         }
 
 
-        // This method will get or create the cached DateTime object using the IMemoryService.
+        // This method will get or create the cached DateTime object using the IMemoryCache.
         public async Task<DateTime> GetMemoryCachedDateTimeAsync() =>
             await _memoryCache.GetOrCreateAsync(
                 MemoryCacheKey,
@@ -72,7 +73,7 @@ namespace Lombiq.TrainingDemo.Services
 
         // This method will cache the current date similarly then the previous one however instead of setting a 30
         // second expiration it will be tagged so later it can be invalidated. Also this cache will be differentiated
-        // by the route. It means that the DateTime here cached on one route will be unaccessible on other routes so
+        // by the route. This means that the DateTime cached here on one route will be unaccessible on other routes so
         // another DateTime will be cached for that other particular route. There are multiple differentiators already
         // implemented in Orchard Core, see:
         // https://orchardcore.readthedocs.io/en/dev/OrchardCore.Modules/OrchardCore.DynamicCache/#available-contexts.
@@ -90,8 +91,7 @@ namespace Lombiq.TrainingDemo.Services
 
         private async Task<DateTime> GetOrCreateDynamicCachedDateTimeAsync(CacheContext cacheContext)
         {
-            // Now that we have a cache context we try to acquire the object. The objects are always need to be
-            // strings.
+            // Now that we have a cache context we try to acquire the object. The objects always need to be strings.
             var cachedDateTimeText = await _dynamicCacheService.GetCachedValueAsync(cacheContext);
 
             // If the date time text is not null then parse it to DateTime otherwise use the ILocalClock service to set
@@ -101,7 +101,7 @@ namespace Lombiq.TrainingDemo.Services
                 (await _localClock.LocalNowAsync).DateTime;
 
             // If the date time text is null (meaning it wasn't cached) cache the DateTime object (which in this case
-            // the current date).
+            // is the current date).
             if (cachedDateTimeText == null)
             {
                 await _dynamicCacheService.SetCachedValueAsync(

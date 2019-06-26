@@ -5,9 +5,9 @@ namespace Lombiq.TrainingDemo.Permissions
 {
     public class PersonPermissions : IPermissionProvider
     {
-        // Define the permissions (can be multiple) that you want to set to roles on the dashboard (or from here as a
-        // default). In a PermissionProvider it's a good idea to define the permission publicly accessible so you can
-        // reference it as you've seen it for checking EditContent permission before.
+        // Define the permissions (can be multiple) that you want to add to roles on the dashboard (or from here as a
+        // default). In a PermissionProvider it's a good idea to define the permission as publicly accessible so you
+        // can reference them as you've seen it for checking the EditContent permission before.
         public static readonly Permission ManagePersons = new Permission(
             nameof(ManagePersons),
             "Manage Person content items.");
@@ -29,7 +29,7 @@ namespace Lombiq.TrainingDemo.Permissions
             };
 
         public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
-            // Giving some defaults: which user groups should possess which permissions.
+            // Giving some defaults: which roles should possess which permissions.
             new[]
             {
                 new PermissionStereotype

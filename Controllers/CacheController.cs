@@ -1,6 +1,6 @@
 /*
  * There are multiple ways to cache data in ASP.NET Core which are used in Orchard Core as well. For example the
- * Content Items are cached using the IMemoryCache service. Some features, however, required some extra functionality
+ * content items are cached using the IMemoryCache service. Some features, however, require some extra functionality
  * and more complex ways of caching such as shapes. In this tutorial we will see a couple of examples of caching a
  * DateTime object and shape caching will also be demonstrated.
  */

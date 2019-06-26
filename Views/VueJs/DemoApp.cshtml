@@ -11,15 +11,15 @@ one-by-one. We'll see how it looks like when we get to our Vue component script 
 
 <!-- This is the container of the demo app. -->
 <div id="demoApp">
-    <!-- Everything inside this container is processed by Vue. This one here will tell the Vue to render the demo
+    <!-- Everything inside this container is processed by Vue. This one here will tell Vue to render the demo
     component. -->
     <demo-component></demo-component>
 </div>
 
 <!-- And finally the initialization. We'd like to pass an options object from here which is tricky since our Vue.js
-application is written using ES6 modules. One way to work this around is to expose an initialization function on the
+application is written using ES6 modules. One way to work around this is to expose an initialization function on the
 window object where we can inject our application options. These options could contain localized texts (assuming that
-you want to localize text only in Orchard Core) and other data like anti-forgery token if you have forms.-->
+you want to localize text only in Orchard Core) and other data like the anti-forgery token if you have forms.-->
 <script at="Foot">
     window.initDemoApp({
         element: '#demoApp',
@@ -28,4 +28,4 @@ you want to localize text only in Orchard Core) and other data like anti-forgery
     });
 </script>
 
-<!-- NEXT STATION: Assets/Apps/main.js -->
+<!-- NEXT STATION: Assets/Apps/demo/main.js -->

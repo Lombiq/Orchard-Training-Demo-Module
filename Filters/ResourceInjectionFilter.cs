@@ -5,7 +5,7 @@ using OrchardCore.ResourceManagement;
 
 namespace Lombiq.TrainingDemo.Filters
 {
-    // Don't forget to add this filter to the filter collection in the Startup.cs.
+    // Don't forget to add this filter to the filter collection in the Startup.cs file.
     public class ResourceInjectionFilter : IAsyncResultFilter
     {
         // To register resources you can use the IResourceManager service.
@@ -21,7 +21,7 @@ namespace Lombiq.TrainingDemo.Filters
         public async Task OnResultExecutionAsync(ResultExecutingContext filterContext, ResultExecutionDelegate next)
         {
             // Let's decide when the filter should be executed. It wouldn't make sense to inject resources if this is a
-            // partial view. Also here's an example about how to check if the request contains a "fadeIn" query string
+            // partial view. Also here's an example of how to check if the request contains a "fadeIn" query string
             // parameter.
             if ((filterContext.Result is PartialViewResult) ||
                 !filterContext.HttpContext.Request.Query.ContainsKey("fadeIn"))
@@ -31,9 +31,9 @@ namespace Lombiq.TrainingDemo.Filters
                 return;
             }
 
-            // You can register "stylesheet" or "script" resources. You also can set where to be rendered with the
-            // .AtHead() or .AtFoot() methods chained the RegisterResource() method which obviously makes sense if the
-            // resource is a script.
+            // You can register "stylesheet" or "script" resources. You can also set where they'll be rendered with the
+            // .AtHead() or .AtFoot() methods chained on the RegisterResource() method which obviously makes sense only
+            // if the resource is a script.
             _resourceManager.RegisterResource("stylesheet", "Lombiq.TrainingDemo.Filtered");
 
             await next();

@@ -1,5 +1,5 @@
-// The main.js is the entry point of one Vue.js app. From now on the Vue.js-specific code won't be commented except if
-// it is related to Orchard Core.
+// The main.js file is the entry point of a Vue.js app. From now on the Vue.js-specific code won't be commented except
+// if it is related to Orchard Core.
 
 import Vue from 'vue';
 import DemoComponent from './components/demo-component';

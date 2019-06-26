@@ -24,7 +24,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
 
-        // Here's a quick a simple demonstration about how to use ISiteService. Orchard Core stores basic settings that
+        // Here's a quick simple demonstration about how to use ISiteService. Orchard Core stores basic settings that
         // are accessible right away in the ISite object. Here you will see how to access the site's name you gave when
         // you set up your website.
         public async Task<string> SiteName() =>
@@ -35,8 +35,8 @@ namespace Lombiq.TrainingDemo.Controllers
         // Now let's see how we access the newly created site settings! Obviously it won't come with a value by default
         // so give it a value on the Dashboard if you want to see something here.
         public async Task<string> DemoSettings() =>
-            // As mentioned the custom settings objects are serialized to the ISite object so use the .As<>() helper to
-            // access it as you see below.
+            // As mentioned the custom settings objects are serialized into the ISite object so use the .As<>() helper
+            // to access it as you see below.
             (await _siteService.GetSiteSettingsAsync()).As<DemoSettings>().Message;
     }
 }
