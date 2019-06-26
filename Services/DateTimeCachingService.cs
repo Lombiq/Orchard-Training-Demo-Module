@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Primitives;
 using OrchardCore.DynamicCache;
 using OrchardCore.Environment.Cache;
 using OrchardCore.Modules;
@@ -38,6 +39,9 @@ namespace Lombiq.TrainingDemo.Services
         // https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed.
         private readonly IDynamicCacheService _dynamicCacheService;
 
+        // We're using ISignals to be able to send a signal to the memory cache to invalidate the given entry.
+        private readonly ISignal _signal;
+
         // Tag cache is a service for tagging cached data and invalidating cache by their tags.
         private readonly ITagCache _tagCache;
 
@@ -46,20 +50,29 @@ namespace Lombiq.TrainingDemo.Services
             IMemoryCache memoryCache, 
             ILocalClock localClock, 
             IDynamicCacheService dynamicCacheService,
-            ITagCache tagCache)
+            ITagCache tagCache,
+            ISignal signal)
         {
             _memoryCache = memoryCache;
             _localClock = localClock;
             _dynamicCacheService = dynamicCacheService;
             _tagCache = tagCache;
+            _signal = signal;
         }
 
 
         // This method will get or create the cached DateTime object using the IMemoryCache.
-        public async Task<DateTime> GetMemoryCachedDateTimeAsync() =>
-            await _memoryCache.GetOrCreateAsync(
-                MemoryCacheKey,
-                async (entry) => (await _localClock.LocalNowAsync).DateTime);
+        public async Task<DateTime> GetMemoryCachedDateTimeAsync()
+        {
+            if (!_memoryCache.TryGetValue(MemoryCacheKey, out DateTime cachedDate))
+            {
+                cachedDate = (await _localClock.LocalNowAsync).DateTime;
+
+                _memoryCache.Set(MemoryCacheKey, cachedDate, GetMemoryCacheChangeToken());
+            }
+
+            return cachedDate;
+        }
 
         // This method a DateTime object will be cached with a 30 second expiration using Orchard Core Dynamic Cache.
         public async Task<DateTime> GetDynamicCachedDateTimeWith30SecondsExpiryAsync() =>
@@ -83,11 +96,21 @@ namespace Lombiq.TrainingDemo.Services
                     .AddContext("route")
                     .AddTag(DynamicCacheTag));
 
-        // It will invalidate all the DateTime cached which has been tagged. In our example it will invalidate all the
-        // route-specific caches.
-        public async Task InvalidateCachedDateTimeAsync() =>
-            await _tagCache.RemoveTagAsync(DynamicCacheTag);
+        // It will invalidate the memory cache all the dynamic caches which have been tagged.
+        public async Task InvalidateCachedDateTimeAsync()
+        {
+            // As mentioned ISignal service is used to invalidate the memory cache.
+            _signal.SignalToken(MemoryCacheKey);
 
+            // ITagCache.RemoveTagAsync will be invalidate all the dynamic caches which are tagged with the given tag.
+            await _tagCache.RemoveTagAsync(DynamicCacheTag);
+        }
+
+
+        // This change token is generated based on the cache key using the ISignal service. It is used to invalidate
+        // the memory cache.
+        private IChangeToken GetMemoryCacheChangeToken() => 
+            _signal.GetToken(MemoryCacheKey);
 
         private async Task<DateTime> GetOrCreateDynamicCachedDateTimeAsync(CacheContext cacheContext)
         {

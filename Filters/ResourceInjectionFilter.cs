@@ -42,6 +42,6 @@ namespace Lombiq.TrainingDemo.Filters
     }
 }
 
-// END OF TRAINING: Utilizing action and result filters
+// END OF TRAINING SECTION: Utilizing action and result filters
 
 // NEXT STATION: Controllers/CacheController.cs

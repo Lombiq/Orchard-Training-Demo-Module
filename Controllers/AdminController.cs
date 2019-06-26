@@ -57,10 +57,13 @@ namespace Lombiq.TrainingDemo.Controllers
             // Nothing special here just display the last 10 Person content items.
             var persons = await _session
                 .Query<ContentItem, ContentItemIndex>()
+                .Where(index => index.ContentType == "Person")
                 .OrderByDescending(index => index.CreatedUtc)
                 .Take(10)
                 .ListAsync();
 
+            // In the Views/Admin/PersonList.cshtml file you can see how shape lists (IEnumerable<dynamic>) are
+            // displayed.
             return View("PersonList", await GetShapes(persons));
         }
 
@@ -74,6 +77,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // Display the first 10 Person content items.
             var persons = await _session
                 .Query<ContentItem, ContentItemIndex>()
+                .Where(index => index.ContentType == "Person")
                 .OrderBy(index => index.CreatedUtc)
                 .Take(10)
                 .ListAsync();
@@ -90,6 +94,6 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
-// END OF TRAINING: Admin menus
+// END OF TRAINING SECTION: Admin menus
 
 // NEXT STATION: Controllers/SiteSettingsController.cs

@@ -6,7 +6,8 @@
  * There are permissions that can be used alone and there are ones that can be checked in conjunction with an object
  * (e.g. ViewContent permission with the ContentItem).
  *
- * Here you will see examples of authorization and also learn how to create your own permissions.
+ * Here you will see examples of authorizing the current user to edit a Person content item and we'll learn how to
+ * create a custom permission called "Manage Persons" and how to use it.
  */
 
 using System.Threading.Tasks;
@@ -56,7 +57,8 @@ namespace Lombiq.TrainingDemo.Controllers
             // null so the EditContent permission will be used.
             if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.Permissions.EditContent, person))
             {
-                // Return 401 status code using this helper.
+                // Return 401 status code using this helper. Although it's a good practice to return 404 (NotFound())
+                // instead to prevent enumeration attacks.
                 return Unauthorized();
             }
 
@@ -86,6 +88,6 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
-// END OF TRAINING: Permissions and authorization
+// END OF TRAINING SECTION: Permissions and authorization
 
 // NEXT STATION: Controllers/AdminController

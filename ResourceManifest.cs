@@ -64,6 +64,6 @@ namespace Lombiq.TrainingDemo
     }
 }
 
-// END OF TRAINING: Resource management
+// END OF TRAINING SECTION: Resource management
 
 // NEXT STATION: Controllers/AuthorizationController.cs

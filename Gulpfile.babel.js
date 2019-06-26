@@ -87,4 +87,8 @@ const getSassCompilerPipeline = () =>
 
 // NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name. After that:
 
-// END OF TRAINING: Compiling resources using Gulp
+// END OF TRAINING SECTION: Compiling resources using Gulp
+
+// This is the end of the training. It is always hard to say goodbye so... don't do it. Let us know your thoughts about
+// this module or Orchard Core itself on GitHub or send us an email at crew@lombiq.com instead. If you feel like you
+// need some more training in developing Orchard Core web applications, don't hesitate to contact us!

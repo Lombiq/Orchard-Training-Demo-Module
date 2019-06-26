@@ -2,31 +2,6 @@
 
 
 
-## Table of contents
-
-* [Introduction](#introduction)
-* [Module manifest](./Manifest.cs)
-* [Map.cs for reminders regarding specific solutions](./Map.cs)
-* [Your first OrchardCore Controller](./Controllers/YourFirstOrchardCoreController.cs)
-* [Display management](./Controllers/DisplayManagementController.cs)
-* [Storing data in document database and index records](./Controllers/DatabaseStorageController.cs)
-* [Content Item and Content Part development](./Models/PersonPart.cs)
-* [Content Item display management and queries](./Controllers/PersonListController.cs)
-* [Content Field development](./Fields/ColorField.cs)
-* [Indexing Content Fields in Lucene](./Indexing/ColorFieldIndexHandler.cs)
-* [Content Field display and editor options](./Views/ColorField.Option.cshtml)
-* [Resource management](./ResourceManifest.cs)
-* [Permissions and authorization](./Controllers/AuthorizationController.cs)
-* [Admin menus](./Controllers/AdminController.cs)
-* [Site settings](./Controllers/SiteSettingsController.cs)
-* [Utilizing action and result filters](./Filters/ShapeInjectionFilter.cs)
-* [Caching objects and shapes](./Controllers/CacheController.cs)
-* [File management](./Controllers/FileManagementController.cs)
-* [Background tasks](./Services/DemoBackgroundTask.cs)
-* [Writing Vue.js applications in Orchard Core modules](./Controllers/VueJsController.cs)
-* [Compiling resources using Gulp](./Gulpfile.babel.js)
-
-
 ## Introduction
 
 Good to see you want to learn the ins and outs of Orchard Core module creation. Reading code is always a good way for this!
@@ -61,3 +36,27 @@ On the other hand the module manifest file is also required. So...
 **NEXT STATION**: Head over to *Manifest.cs*. That file is the module's manifest; a *Manifest.cs* is required for Orchard modules.
 
 This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
+
+
+## Table of contents
+
+* [Module manifest](./Manifest.cs)
+* [Map.cs for reminders regarding specific solutions](./Map.cs)
+* [Your first OrchardCore Controller](./Controllers/YourFirstOrchardCoreController.cs)
+* [Display management](./Controllers/DisplayManagementController.cs)
+* [Storing data in document database and index records](./Controllers/DatabaseStorageController.cs)
+* [Content Item and Content Part development](./Models/PersonPart.cs)
+* [Content Item display management and queries](./Controllers/PersonListController.cs)
+* [Content Field development](./Fields/ColorField.cs)
+* [Indexing Content Fields in Lucene](./Indexing/ColorFieldIndexHandler.cs)
+* [Content Field display and editor options](./Views/ColorField.Option.cshtml)
+* [Resource management](./ResourceManifest.cs)
+* [Permissions and authorization](./Controllers/AuthorizationController.cs)
+* [Admin menus](./Controllers/AdminController.cs)
+* [Site settings](./Controllers/SiteSettingsController.cs)
+* [Utilizing action and result filters](./Filters/ShapeInjectionFilter.cs)
+* [Caching objects and shapes](./Controllers/CacheController.cs)
+* [File management](./Controllers/FileManagementController.cs)
+* [Background tasks](./Services/DemoBackgroundTask.cs)
+* [Writing Vue.js applications in Orchard Core modules](./Controllers/VueJsController.cs)
+* [Compiling resources using Gulp](./Gulpfile.babel.js)

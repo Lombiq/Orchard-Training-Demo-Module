@@ -3,6 +3,8 @@ using OrchardCore.Security.Permissions;
 
 namespace Lombiq.TrainingDemo.Permissions
 {
+    // Permissions that are used when authorizing users and can be added to different roles are defined in Permission
+    // Providers.
     public class PersonPermissions : IPermissionProvider
     {
         // Define the permissions (can be multiple) that you want to add to roles on the dashboard (or from here as a

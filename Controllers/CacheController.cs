@@ -54,8 +54,8 @@ namespace Lombiq.TrainingDemo.Controllers
         public Task<ActionResult> DifferentRoute() =>
             Index();
 
-        // This action will invalidate all the route-specific caches. Calling this action will redirect back to the
-        // Index page and you will notice that the date value is updated.
+        // This action will invalidate the memory cache and all the route-specific caches. Calling this action will
+        // redirect back to the Index page and you will notice that the date value is updated.
         public async Task<ActionResult> InvalidateDateTimeCache()
         {
             await _dateTimeCachingService.InvalidateCachedDateTimeAsync();

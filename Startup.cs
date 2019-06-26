@@ -114,6 +114,8 @@ namespace Lombiq.TrainingDemo
 
                 // Now register our CustomFileStore instance with the path given.
                 return new CustomFileStore(customFolderPath);
+
+                // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
             });
 
             // Caching
@@ -121,8 +123,6 @@ namespace Lombiq.TrainingDemo
 
             // Background tasks
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
-
-            // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
         }
 
         public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
