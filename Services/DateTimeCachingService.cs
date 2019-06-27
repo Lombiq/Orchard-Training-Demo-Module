@@ -109,8 +109,7 @@ namespace Lombiq.TrainingDemo.Services
 
         // This change token is generated based on the cache key using the ISignal service. It is used to invalidate
         // the memory cache.
-        private IChangeToken GetMemoryCacheChangeToken() => 
-            _signal.GetToken(MemoryCacheKey);
+        private IChangeToken GetMemoryCacheChangeToken() => _signal.GetToken(MemoryCacheKey);
 
         private async Task<DateTime> GetOrCreateDynamicCachedDateTimeAsync(CacheContext cacheContext)
         {
