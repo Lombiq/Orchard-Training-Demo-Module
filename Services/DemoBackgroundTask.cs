@@ -1,6 +1,6 @@
 ﻿/*
  * In this demonstration we'll implement a background task that will run in 2 minute intervals five times and will
- * write a message in the error log. In Orchard Core background tasks always run periodically meaning if you want them
+ * write a message into the error log. In Orchard Core background tasks always run periodically meaning if you want them
  * to stop you need to explicitly disable them from code or from the Background Tasks admin page if the
  * OrchardCore.BackgroundTasks feature is enabled. For scheduling each task Orchard Core uses NCrontab
  * (https://github.com/atifaziz/NCrontab) providing functionality to specify crontab expressions. By default tasks are

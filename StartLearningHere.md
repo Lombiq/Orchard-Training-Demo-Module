@@ -38,7 +38,7 @@ On the other hand the module manifest file is also required. So...
 This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
 
 
-## Table of contents
+## Training sections
 
 * [Module manifest](./Manifest.cs)
 * [Map.cs for reminders regarding specific solutions](./Map.cs)

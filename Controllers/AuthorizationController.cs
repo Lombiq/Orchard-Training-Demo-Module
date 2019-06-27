@@ -6,7 +6,7 @@
  * There are permissions that can be used alone and there are ones that can be checked in conjunction with an object
  * (e.g. ViewContent permission with the ContentItem).
  *
- * Here you will see examples of authorizing the current user to edit a Person content item and we'll learn how to
+ * Here you will see examples of authorizing the current user to edit a Person content item. We'll also learn how to
  * create a custom permission called "Manage Persons" and how to use it.
  */
 
