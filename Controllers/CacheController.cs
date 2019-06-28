@@ -3,7 +3,7 @@
  * content items are cached using the IMemoryCache service. In-memory caching holds the copy of data in local server’s
  * memory which could be enough in most cases. Some features, however, require some extra functionality and more
  * complex ways of caching such as shapes. In Orchard Core there is a so-called Dynamic Cache which is built upon the
- * Distributed Cache. Distributed cache maintains cache in a centralized location which is accessible by servers in
+ * Distributed Cache. Distributed cache maintains cache in a centralized location which is accessible by servers in a
  * cluster. In Orchard Core this is also memory cache but opens the possibility to use Redis for example. In this
  * tutorial we will see a couple of examples of caching a DateTime object and shape caching will also be demonstrated.
  */
