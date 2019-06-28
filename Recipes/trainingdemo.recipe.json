@@ -1,0 +1,49 @@
+﻿{
+  "name": "Lombiq.TrainingDemo",
+  "displayName": "Training Demo",
+  "description": "Demo Orchard Core site with the Lombiq.TrainingDemo module enabled.",
+  "author": "Lombiq",
+  "website": "https://lombiq.com",
+  "version": "1.0",
+  "issetuprecipe": true,
+  "categories": [ "training" ],
+  "tags": [ "developer", "training" ],
+  "steps": [
+    {
+      "name": "feature",
+      "disable": [],
+      "enable": [
+        "Lombiq.TrainingDemo",
+        "OrchardCore.Admin",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Localization",
+        "OrchardCore.Features",
+        "OrchardCore.Navigation",
+        "OrchardCore.Recipes",
+        "OrchardCore.Resources",
+        "OrchardCore.Roles",
+        "OrchardCore.Settings",
+        "OrchardCore.Themes",
+        "OrchardCore.Users",
+
+        // Themes
+        "TheTheme",
+        "TheAdmin",
+        "SafeMode"
+      ]
+    },
+    {
+      "name": "themes",
+      "admin": "TheAdmin",
+      "site": "TheTheme"
+    },
+    {
+      "name": "settings",
+      "HomeRoute": {
+        "Action": "Index",
+        "Controller": "Home",
+        "Area": "TheTheme"
+      }
+    }
+  ]
+}
