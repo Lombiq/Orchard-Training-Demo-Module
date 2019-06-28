@@ -1,7 +1,7 @@
 @inject OrchardCore.Modules.ILocalClock LocalClock
 @* Similarly as before we'll display the current date using the ILocalClock service. *@
 
-@T["Current date: {0}", (await LocalClock.LocalNowAsync).DateTime] <br />
+<p>@T["Current date: {0}", (await LocalClock.LocalNowAsync).DateTime]</p>
 
 @* Using the shape tag-helper as we did before we'll display the content of the CachedShape where we'll display the
 current date exactly like here (see its content in the Views/CachedShape.cshtml). Using the cache or cache-id

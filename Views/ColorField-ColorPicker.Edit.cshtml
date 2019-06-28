@@ -12,8 +12,10 @@
 }
 
 @* Script and styling resources can be used in these shapes. We'll get to it really soon first go through this file and
-    understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
-    helpers all the necessary scripts and styles will be loaded.*@
+understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
+helpers all the necessary scripts and styles will be loaded. To specify where the resources should be displayed you can
+use the "at" attribute. For styles it's "Head" by default. For scripts it will be a local script if the "at" attribute
+is missing.*@
 
 <script asp-name="Pickr" at="Head"></script>
 <style asp-name="Lombiq.TrainingDemo.ColorPicker" at="Head"></style>
@@ -39,7 +41,7 @@
     //<![CDATA[
     (function () {
         new Pickr({
-            el: "#@pickerElementId",
+            el: '#@pickerElementId',
             default: '@Model.Value',
             components: {
                 preview: true,
@@ -52,7 +54,7 @@
                 }
             },
             onSave(hsva) {
-                document.getElementById("@pickerInputElementId").value = hsva ? hsva.toHEX().toString() : "";
+                document.getElementById('@pickerInputElementId').value = hsva ? hsva.toHEX().toString() : '';
             }
         });
     })();
