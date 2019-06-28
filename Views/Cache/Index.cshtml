@@ -1,0 +1,15 @@
+@model CacheViewModel
+
+@inject OrchardCore.Modules.ILocalClock LocalClock
+
+@* Here are the different DateTime values cached multiple ways and also the current uncached date time in the first row
+to see the differences. *@
+
+<p>@T["Current date (not cached): {0}", (await LocalClock.LocalNowAsync).DateTime]</p>
+<p>@T["Memory cached date: {0}", Model.MemoryCachedDateTime]</p>
+<p>@T["Dynamic cached date with 30 seconds expiry: {0}", Model.DynamicCachedDateTimeWith30SecondsExpiry]</p>
+<p>@T["Tagged dynamic cached date varied by routes: {0}", Model.DynamicCachedDateTimeVariedByRoutes]</p>
+
+@* To test the route-specific caching go to the /Lombiq.TrainingDemo/Cache/DifferentRoute URL. *@
+
+@* NEXT STATION: Controllers/CacheController.cs and find the InvalidateDateTimeCache action. *@

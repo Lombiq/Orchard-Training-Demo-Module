@@ -1,0 +1,30 @@
+@*Here a demo Vue.js application will be initialized. Right below you can see a script inclusion app which is the
+bundled Vue.js application (we will see it real soon).*@ 
+
+<script asp-name="Lombiq.TrainingDemo.DemoApp" at="Head"></script>
+
+@*This shape renders the template of the Vue.js component. If you have multiple templates then render them here
+one-by-one. We'll see how it looks like when we get to our Vue component script file.*@
+<shape type="VueComponent-Demo_Component"></shape>
+
+@*This is the container of the demo app.*@ 
+<div id="demoApp">
+     @*Everything inside this container is processed by Vue. This one here will tell Vue to render the demo
+    component.*@ 
+    <demo-component></demo-component>
+</div>
+
+@*And finally the initialization. We'd like to pass an options object from here which is tricky since our Vue.js
+application is written using ES6 modules. One way to work around this is to expose an initialization function on the
+window object where we can inject our application options. These options could contain localized texts (assuming that
+you want to localize text only in Orchard Core) and other data like the anti-forgery token if you have forms.*@ 
+
+<script at="Foot">
+    window.initDemoApp({
+        element: '#demoApp',
+        @*Notice that this text is localized.*@
+        text: '@T["Hi there!"]'
+    });
+</script>
+
+@*NEXT STATION: Assets/Apps/demo/main.js*@

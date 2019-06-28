@@ -1,0 +1,3 @@
+@inject OrchardCore.Modules.ILocalClock LocalClock
+
+<p>@T["Current date in the cached shape: {0}", (await LocalClock.LocalNowAsync).DateTime]</p>

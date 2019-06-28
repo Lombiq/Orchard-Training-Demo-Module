@@ -1,0 +1,23 @@
+﻿@* This is a shape and a Vue component template at the same time. The Lombiq.VueJs module contains a custom shape
+harvester which harvests these specific shapes (see: Lombiq.VueJs/Services/VueComponentTemplateHarvester.cs). Since
+it's still a Razor file it means that you need to pay attention to the syntax. *@
+
+@{
+    const string BlockName = "demo";
+}
+
+@* You can use any template format if you want. *@
+<template id="demo-component">
+    <div class="@BlockName">
+        <p v-if="showText" class="@(BlockName)__text">{{ text }}</p>
+        @* Here is a v-on shorthand for the click event, however, you need to make the Razor compiler to ignore it. *@
+        <button type="button" @@click="showText = !showText" class="@(BlockName)__showHideButton btn">
+            <span v-if="showText">@T["Hide Text"]</span>
+            <span v-else>@T["Show Text"]</span>
+        </button>
+    </div>
+</template>
+
+@* END OF TRAINING SECTION: Writing Vue.js applications in Orchard Core modules *@
+
+@* NEXT STATION: Gulpfile.babel.js *@

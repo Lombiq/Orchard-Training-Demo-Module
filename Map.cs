@@ -1,12 +1,17 @@
 using Lombiq.TrainingDemo.Controllers;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
+using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
 using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
+using Lombiq.TrainingDemo.Navigation;
+using Lombiq.TrainingDemo.Permissions;
+using Lombiq.TrainingDemo.Services;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
+using OrchardCore.Settings;
 
 /* 
  * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
@@ -98,6 +103,70 @@ namespace Lombiq.TrainingDemo
             // ResourceManifest, scripts, styles
             // Views/ColorField-ColorPicker.Edit.cshtml resource injection
             Factory<ResourceManifest>();
+
+
+            // IAuthorizationService
+            Factory<AuthorizationController>();
+
+            // Permissions, PermissionProvider
+            Factory<DemoSettingsPermissions>();
+            Factory<PersonPermissions>();
+
+
+            // Admin attribute
+            Factory<AdminController>();
+
+            // Menu, Admin menu, NavigationProvider
+            Factory<DemoSettingsAdminMenu>();
+            Factory<PersonsAdminMenu>();
+
+
+            // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
+            Factory<DemoSettingsDisplayDriver>();
+
+            // SiteSettings, ISite, ISiteService
+            Factory<SiteSettingsController>();
+
+
+            // ResultFilter, IAsyncResultFilter
+            Factory<ShapeInjectionFilter>();
+            Factory<ResourceInjectionFilter>();
+
+            // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection
+            Factory<ShapeInjectionFilter>();
+
+            // IResourceManager, resource injection
+            Factory<ResourceInjectionFilter>();
+
+
+            // Memory Cache, Dynamic Cache
+            // IMemoryCache, IDynamicCacheService, ITagCache
+            Factory<DateTimeCachingService>();
+
+            // ILocalClock
+            // Views/Cache/Index.cshtml
+            // Views/Cache/Shape.cshtml
+            // Views/CachedShape.cshtml
+            Factory<DateTimeCachingService>();
+
+
+            // IMediaFileStore, custom file store
+            Factory<FileManagementController>();
+
+            // FileSystemStore, IFileStore
+            Factory<CustomFileStore>();
+
+
+            // BackgroundTask, BackgroundTaskSettings
+            Factory<DemoBackgroundTask>();
+
+
+            // Vue.js app, Vue.js component, Vue.js initialization
+            // Views/VueJs/DemoApp.cshtml
+            // Views/VueComponents/Demo.Component.cshtml
+
+            // Resource compilation, asset magement, Gulp, Babel
+            // Gulpfile.js
         }
     }
 }

@@ -30,28 +30,40 @@ namespace Lombiq.TrainingDemo
                 // This is the actual script file that will be assigned to the resource name. Please note that the
                 // naming of the file itself is following similar rules as the resource name, with some modifications
                 // applied as it's a file name.
-                .SetUrl("/Lombiq.TrainingDemo/Pickr/pickr.min.js");
+                .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.js");
 
             manifest
                 // With the DefineStyle method you can define a stylesheet. The way of doing this is very similar to
                 // defining scripts.
                 .DefineStyle("Pickr")
-                .SetUrl("/Lombiq.TrainingDemo/Pickr/pickr.min.css");
+                .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.css");
 
             manifest
                 // Finally let's see an example for defining a resource for our custom code. You can see the naming is
                 // more specific and contains our namespace.
                 .DefineStyle("Lombiq.TrainingDemo.ColorPicker")
-                .SetUrl("/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.min.css",
-                    "/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.css")
+                .SetUrl("~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.min.css",
+                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.css")
                 // You can give a list of resource names to SetDependencies to force the loading of other resources
                 // when a given resource is used. Here Pickr is a dependency.
                 .SetDependencies("Pickr");
 
             // If you go back to the Views/ColorField-ColorPicker.Edit.cshtml you will understand why all these three
             // resources will be loaded using those style and script tag helpers.
+
+            manifest
+                .DefineStyle("Lombiq.TrainingDemo.Filtered")
+                .SetUrl("~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
+                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.css");
+
+            // This resource will be required for our demo Vue.js application.
+            manifest
+                .DefineScript("Lombiq.TrainingDemo.DemoApp")
+                .SetUrl("~/Lombiq.TrainingDemo/Apps/demo.min.js", "~/Lombiq.TrainingDemo/Apps/demo.js");
         }
     }
 }
 
-// NEXT STATION: Gulpfile.js
+// END OF TRAINING SECTION: Resource management
+
+// NEXT STATION: Controllers/AuthorizationController.cs

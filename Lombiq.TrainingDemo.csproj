@@ -7,11 +7,13 @@
     <PackageLicenseUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module/blob/master/Licence.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
+    <LangVersion>7.1</LangVersion>
+    <DefaultItemExcludes>$(DefaultItemExcludes);node_modules\**</DefaultItemExcludes>
+    <OrchardCoreLibrariesRoot Condition="Exists('$(SolutionDir)src\OrchardCore')">$(SolutionDir)src\OrchardCore</OrchardCoreLibrariesRoot>
+    <OrchardCoreModulesRoot Condition="Exists('$(SolutionDir)src\OrchardCore.Modules')">$(SolutionDir)src\OrchardCore.Modules</OrchardCoreModulesRoot>
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="node_modules\**" />
-    <EmbeddedResource Remove="node_modules\**" />
     <None Remove="node_modules\**" />
   </ItemGroup>
 
@@ -19,37 +21,59 @@
     <EmbeddedResource Remove=".gitattributes" />
     <EmbeddedResource Remove=".gitignore" />
     <EmbeddedResource Remove=".hgignore" />
+    <EmbeddedResource Remove=".hgtags" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.1.1" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' == '' AND '$(OrchardCoreModulesRoot)' == ''">
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-71674" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' != '' AND '$(OrchardCoreModulesRoot)' != ''">
+    <ProjectReference Include="$(OrchardCoreModulesRoot)\OrchardCore.BackgroundTasks\OrchardCore.BackgroundTasks.csproj" />
+    <ProjectReference Include="$(OrchardCoreModulesRoot)\OrchardCore.ContentFields\OrchardCore.ContentFields.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.ContentTypes.Abstractions\OrchardCore.ContentTypes.Abstractions.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Data.Abstractions\OrchardCore.Data.Abstractions.csproj" />
+    <ProjectReference Include="$(OrchardCoreModulesRoot)\OrchardCore.DynamicCache\OrchardCore.DynamicCache.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.FileStorage.FileSystem\OrchardCore.FileStorage.FileSystem.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Indexing.Abstractions\OrchardCore.Indexing.Abstractions.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Media.Abstractions\OrchardCore.Media.Abstractions.csproj" />
+    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Module.Targets\OrchardCore.Module.Targets.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\OrchardCore\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
-    <ProjectReference Include="..\..\OrchardCore\OrchardCore.ContentTypes.Abstractions\OrchardCore.ContentTypes.Abstractions.csproj" />
-    <ProjectReference Include="..\..\OrchardCore\OrchardCore.Data.Abstractions\OrchardCore.Data.Abstractions.csproj" />
-    <ProjectReference Include="..\..\OrchardCore\OrchardCore.DisplayManagement\OrchardCore.DisplayManagement.csproj" />
-    <ProjectReference Include="..\..\OrchardCore\OrchardCore.Indexing.Abstractions\OrchardCore.Indexing.Abstractions.csproj" />
-    <ProjectReference Include="..\..\OrchardCore\OrchardCore.Module.Targets\OrchardCore.Module.Targets.csproj" />
-    <ProjectReference Include="..\OrchardCore.ContentFields\OrchardCore.ContentFields.csproj" />
+    <ProjectReference Include="..\Lombiq.VueJs\Lombiq.VueJs.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="wwwroot\" />
-    <Folder Include="wwwroot\Styles\" />
   </ItemGroup>
 
   <!-- This will execute two scripts right before every build. -->
   <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
     <!-- It will install and initialize the node package manager. -->
     <Exec Command="npm install" />
-    
+
     <!-- It will execute the default gulp task. -->
     <Exec Command="gulp" />
-    
+
     <!-- With this two scripts we'll make sure that the resources will be ready to use in the wwwroot folder after
     every build. -->
   </Target>

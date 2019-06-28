@@ -19,8 +19,8 @@ namespace Lombiq.TrainingDemo.Controllers
     public class YourFirstOrchardCoreController : Controller
     {
         private readonly INotifier _notifier;
-        private readonly IStringLocalizer<YourFirstOrchardCoreController> T;
-        private readonly IHtmlLocalizer<YourFirstOrchardCoreController> H;
+        private readonly IStringLocalizer T;
+        private readonly IHtmlLocalizer H;
         private readonly ILogger<YourFirstOrchardCoreController> _logger;
 
 

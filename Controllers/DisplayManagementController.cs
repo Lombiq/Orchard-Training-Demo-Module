@@ -86,5 +86,8 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
-// If you've finished with both actions (and their .cshtml files as well), then
-// NEXT STATION: Controllers/DatabaseStorageController is what's next.
+// If you've finished with both actions (and their .cshtml files as well), then you can move forward to the next
+// training.
+
+// END OF TRAINING SECTION: Display management
+// NEXT STATION: Controllers/DatabaseStorageController
