@@ -10,7 +10,7 @@ We'll guide you on your journey to become an Orchard Core developer. Look for "N
 
 Before you dive deep into this module it'd be best if you made sure that you have done the following: 
 
-* You know how ASP.NET Core MVC works. It's important that you understand how ASP.NET Core MVC works or generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at https://docs.microsoft.com/en-us/aspnet/core/tutorials/?view=aspnetcore-2.1.
+* You know how ASP.NET Core MVC works. It's important that you understand how ASP.NET Core MVC works or generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at https://docs.microsoft.com/en-us/aspnet/core/tutorials/?view=aspnetcore-3.0.
 * You've read through the documentation at https://orchardcore.readthedocs.io (at least the "About Orchard Core" section, but it would be great if you'd read the whole documentation).
 * You know Orchard Core from a user's perspective and understand the concepts underlying the system. 
 * If you want to be more familiar with Orchard Core fundamentals you can watch some of the following video about the beta2 capabilities here: https://www.youtube.com/watch?v=6ZaqWmq8Pog or simply pick some of the interesting Orchard CMS podcasts from this YouTube playlist: https://www.youtube.com/watch?v=Xu6S2XawyY4&list=PLuskKJW0FhJfOAN3dL0Y0KBMdG1pKESVn
