@@ -1,5 +1,7 @@
-using System.Collections.Generic;
 using OrchardCore.Security.Permissions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Permissions
 {
@@ -10,11 +12,12 @@ namespace Lombiq.TrainingDemo.Permissions
             "Manage Person content items.");
 
         
-        public IEnumerable<Permission> GetPermissions() =>
-            new[]
+        public Task<IEnumerable<Permission>> GetPermissionsAsync() =>
+            Task.FromResult(new[]
             {
                 ManageDemoSettings
-            };
+            }
+            .AsEnumerable());
 
         public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
             new[]

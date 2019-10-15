@@ -14,9 +14,6 @@
  * that too.
  */
 
-using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -24,6 +21,9 @@ using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.DisplayManagement.Notify;
 using OrchardCore.FileStorage;
 using OrchardCore.Media;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
@@ -60,7 +60,7 @@ namespace Lombiq.TrainingDemo.Controllers
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there!")))
             {
                 // The third parameter here is optional - if true, it will override the file if already exists.
-                await _mediaFileStore.CreateFileFromStream(TestFileRelativePath, stream, true);
+                await _mediaFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, true);
             }
 
             // Use this method to check if the file exists (it will be null if the file doesn't exist). It's similar to
@@ -110,7 +110,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // In this case you already have a stream so use it to create the file.
             using (var stream = file.OpenReadStream())
             {
-                await _mediaFileStore.CreateFileFromStream(mediaFilePath, stream);
+                await _mediaFileStore.CreateFileFromStreamAsync(mediaFilePath, stream);
             }
 
             _notifier.Information(H["Successfully uploaded file!"]);
@@ -126,7 +126,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // this time. The files will be created inside our CustomFiles folder as it was defined in Startup.cs.
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there in the custom file storage!")))
             {
-                await _customFileStore.CreateFileFromStream(TestFileRelativePath, stream, true);
+                await _customFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, true);
             }
 
             var fileInfo = await _customFileStore.GetFileInfoAsync(TestFileRelativePath);

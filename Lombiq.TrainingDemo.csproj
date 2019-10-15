@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <Version>2.0.0-alpha1</Version>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Description>Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going through its source code.</Description>
     <PackageLicenseUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module/blob/master/Licence.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
@@ -25,23 +25,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.2.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="3.0.0" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' == '' AND '$(OrchardCoreModulesRoot)' == ''">
-    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.DynamicCache" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-beta3-71674" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-beta3-71674" />
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-10004" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' != '' AND '$(OrchardCoreModulesRoot)' != ''">
