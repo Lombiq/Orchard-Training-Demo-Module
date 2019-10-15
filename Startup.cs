@@ -25,7 +25,6 @@ using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Indexing;
-using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
@@ -36,7 +35,7 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
 {
-    public class Startup : StartupBase
+    public class Startup
     {
         static Startup()
         {
@@ -51,7 +50,7 @@ namespace Lombiq.TrainingDemo
         }
 
 
-        public override void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             // Book
             services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
@@ -60,13 +59,13 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
             // Person Part
-            services.AddSingleton<ContentPart, PersonPart>();
+            services.AddContentPart<PersonPart>();
             services.AddScoped<IDataMigration, PersonMigrations>();
             services.AddScoped<IContentPartDisplayDriver, PersonPartDisplayDriver>();
             services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
             // Color Field
-            services.AddSingleton<ContentField, ColorField>();
+            services.AddContentField<ColorField>();
             services.AddScoped<IContentFieldDisplayDriver, ColorFieldDisplayDriver>();
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ColorFieldSettingsDriver>();
             services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
@@ -125,7 +124,7 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
         }
 
-        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+        public void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
             // don't need it you can skip overriding it.
