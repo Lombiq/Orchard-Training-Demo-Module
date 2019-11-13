@@ -1,9 +1,9 @@
-using System;
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Permissions;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
+using System;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Navigation
 {
@@ -13,7 +13,7 @@ namespace Lombiq.TrainingDemo.Navigation
         private readonly IStringLocalizer T;
 
 
-        public DemoSettingsAdminMenu(IStringLocalizer<PersonsAdminMenu> stringLocalizer)
+        public DemoSettingsAdminMenu(IStringLocalizer<DemoSettingsAdminMenu> stringLocalizer)
         {
             T = stringLocalizer;
         }

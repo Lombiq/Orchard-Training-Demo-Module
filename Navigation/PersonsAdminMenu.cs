@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Controllers;
 using Lombiq.TrainingDemo.Permissions;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
+using System;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Navigation
 {
