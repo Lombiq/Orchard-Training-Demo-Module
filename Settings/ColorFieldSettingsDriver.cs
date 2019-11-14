@@ -13,7 +13,7 @@ namespace Lombiq.TrainingDemo.Settings
         // This won't have a Display override since it wouldn't make too much sense, settings are just edited.
         public override IDisplayResult Edit(ContentPartFieldDefinition partFieldDefinition) =>
             // Same old Initialize shape helper.
-            Initialize<ColorFieldSettings>("ColorFieldSettings_Edit",
+            Initialize<ColorFieldSettings>($"{nameof(ColorFieldSettings)}_Edit",
                 model => partFieldDefinition.PopulateSettings(model))
             .Location("Content");
 
@@ -29,8 +29,7 @@ namespace Lombiq.TrainingDemo.Settings
 
             // A content field or a content part can have multiple settings. These settings are stored in a single JSON
             // object. This helper will merge our settings to this JSON object so these will be stored.
-            context.Builder.WithSettings(model);
-
+            context.Builder.MergeSettings<ColorFieldSettings>(settings => settings = model);
             return Edit(partFieldDefinition);
         }
     }
