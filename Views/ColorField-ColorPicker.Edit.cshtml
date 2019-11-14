@@ -3,7 +3,7 @@
 @using OrchardCore.ContentManagement.Metadata.Models
 
 @{
-    var settings = Model.PartFieldDefinition.Settings.ToObject<ColorFieldSettings>();
+    var settings = Model.PartFieldDefinition.GetSettings<ColorFieldSettings>();
 
     const string BlockName = "colorField";
 

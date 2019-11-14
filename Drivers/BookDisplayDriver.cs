@@ -27,13 +27,13 @@ namespace Lombiq.TrainingDemo.Drivers
                 // models (the view model will be a ShapeViewModel<Book> in this case, you'll see). In the Location
                 // helper you define a position for the shape. "Header" means that it will be displayed in the Header
                 // zone. "1" means that it will be the first in the Header zone. Soon you will see what the zones are.
-                View("Book_Display_Title", model)
+                View($"{nameof(Book)}_Display_Title", model)
                     .Location("Header: 1"),
                 // Same applies here. This shape will be displayed in the Header zone too but in the second position.
-                View("Book_Display_Author", model)
+                View($"{nameof(Book)}_Display_Author", model)
                     .Location("Header: 2"),
                 // Create a separate shape for the cover photo. This will go to a different zone, the "Cover" zone.
-                View("Book_Display_Cover", model)
+                View($"{nameof(Book)}_Display_Cover", model)
                     .Location("Cover: 1"),
                 // The shape for the description will be the first in the Content zone. However, you can see another
                 // parameter here, that is the display type. It is used to differentiate circumstances of displaying a
@@ -41,7 +41,7 @@ namespace Lombiq.TrainingDemo.Drivers
                 // but the description will be displayed only if the display type is "Description". You'll see an
                 // example for that. Though we can choose any display types the conventional ones are "Detail",
                 // "Summary" and "SummaryAdmin" which are used for ContentItem-related shapes.
-                View("Book_Display_Description", model)
+                View($"{nameof(Book)}_Display_Description", model)
                     .Location("Description", "Content: 1"));
 
         // Now let's see what those zones are and slowly clarify all these things you've seen above!
