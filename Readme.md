@@ -11,7 +11,7 @@ Demo Orchard Core module for training purposes guiding you to become an Orchard 
 
 ## How to start
 
-You can use this module as part of a vanilla Orchard Core source that including the full source code - which is the recommended way. You can use it as part of a solution the uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
+You can use this module as part of a vanilla Orchard Core source that includes the full source code - which is the recommended way. You can also use it as part of a solution that uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
 
 This module is depending on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to this module.
 
@@ -22,7 +22,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 
 1. Open an Orchard Core solution. You can download or `git clone` Orchard from [GitHub](https://github.com/OrchardCMS/OrchardCore/).
 2. Add this project and the Lombiq.VueJs project to the solution (it doesn't matter which solution folder you use but place them next to each other).
-3. Add these two projects as references to `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
+3. Add these two projects as references to the `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
 5. Setup the website using the "Training Demo" recipe.
 
