@@ -11,18 +11,18 @@ Demo Orchard Core module for training purposes guiding you to become an Orchard 
 
 ## How to start
 
-You can use this module as part of a vanilla Orchard Core source that includes the full source code - which is the recommended way. You can also use it as part of a solution that uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
+You can use (and are recommended to use) this module as part of a vanilla Orchard Core source that includes the full source code. You can also use it as part of a solution that uses Orchard Core NuGet packages. Note that it is harder to inspect Orchard Core features.
 
-This module is depending on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to this module.
+Demo Orchard Core module depends on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)**, so you must download Lombiq.VueJs and place it next to this module.
 
-The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://orchardcore.readthedocs.io/en/latest/) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
+The module assumes that you have a good understanding of basic Orchard concepts and are familiar with the Orchard admin area (the [official documentation](https://orchardcore.readthedocs.io/en/latest/) may help you with that), Visual Studio, C#, and the concepts of ASP.NET Core MVC.
 
 
 ### Using a full Orchard Core source
 
 1. Open an Orchard Core solution. You can download or `git clone` Orchard from [GitHub](https://github.com/OrchardCMS/OrchardCore/).
-2. Add this project and the Lombiq.VueJs project to the solution (it doesn't matter which solution folder you use but place them next to each other).
-3. Add these two projects as references to the `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
+2. Add this project and the Lombiq.VueJs project to the solution (place the projects **next to each other** in any folder).
+3. Add these two projects as references to the `OrchardCore.Application.Cms.Targets` project (this project is in the *src/Targets* solution folder).
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
 5. Setup the website using the "Training Demo" recipe.
 
@@ -33,14 +33,14 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 2. Add this project and Lombiq.VueJs to the solution.
 3. Add these projects as references to the web project.
 4. Run the web project (F5 or CTRL+F5).
-5. Setup the website using the "Training Demo" recipe.
+5. Set up the website using the "Training Demo" recipe.
 
 
 ## Using this module for training purposes
 
-If your module compiles and you are able to enable this module on the dashboard then head over to the **[StartLearningHere.md](StartLearningHere.md)** file and start exploring all the great things you can do in Orchard Core.
+If your module compiles and is enabled on the dashboard, then go to the **[StartLearningHere.md](StartLearningHere.md)** file and explore all the features of Orchard Core.
 
-Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
+If you are brave enough to not follow any guide or you want to start the guide from somewhere else, then go to the **Map.cs** file and jump to any class of your interest.
 
 
 ## Contribution and feedback
