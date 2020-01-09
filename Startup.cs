@@ -25,6 +25,7 @@ using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Indexing;
+using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
@@ -35,7 +36,7 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
 {
-    public class Startup
+    public class Startup : StartupBase
     {
         static Startup()
         {
@@ -50,7 +51,7 @@ namespace Lombiq.TrainingDemo
         }
 
 
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             // Book
             services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
@@ -124,7 +125,7 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
         }
 
-        public void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
             // don't need it you can skip overriding it.
