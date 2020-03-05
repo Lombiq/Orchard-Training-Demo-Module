@@ -1,6 +1,6 @@
-using System;
 using Lombiq.TrainingDemo.Models;
 using OrchardCore.ContentManagement;
+using System;
 using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo.Indexes
@@ -26,16 +26,21 @@ namespace Lombiq.TrainingDemo.Indexes
                 .Map(contentItem =>
                 {
                     var personPart = contentItem.As<PersonPart>();
-                    if (personPart != null)
-                    {
-                        return new PersonPartIndex
-                        {
-                            ContentItemId = contentItem.ContentItemId,
-                            BirthDateUtc = personPart.BirthDateUtc,
-                        };
-                    }
 
-                    return null;
+                    // Note that we can write any logic in here to determine when an index record should be created for
+                    // a content item. Here we'll have a record for every content item possessing a PersonPart.
+                    // However, we could e.g. only have an index for only published items (if you don't want to query
+                    // on drafts; you can check contentItem.Published), or only on the latest ones (regardless of it
+                    // being a draft or published version; contentItem.Latest shows this).
+                    // Not cluttering up the index table with unnecessary rows can help with performance and makes
+                    // managing the database easier overall.
+                    if (personPart == null) return null;
+
+                    return new PersonPartIndex
+                    {
+                        ContentItemId = contentItem.ContentItemId,
+                        BirthDateUtc = personPart.BirthDateUtc,
+                    };
                 });
         }
     }
