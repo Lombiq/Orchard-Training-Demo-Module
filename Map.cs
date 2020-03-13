@@ -11,7 +11,6 @@ using Lombiq.TrainingDemo.Permissions;
 using Lombiq.TrainingDemo.Services;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
-using OrchardCore.Settings;
 
 /* 
  * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation 

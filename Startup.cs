@@ -1,5 +1,3 @@
-using System;
-using System.IO;
 using Fluid;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
@@ -32,6 +30,8 @@ using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
+using System;
+using System.IO;
 using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
@@ -60,13 +60,13 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
             // Person Part
-            services.AddSingleton<ContentPart, PersonPart>();
+            services.AddContentPart<PersonPart>();
             services.AddScoped<IDataMigration, PersonMigrations>();
             services.AddScoped<IContentPartDisplayDriver, PersonPartDisplayDriver>();
             services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
             // Color Field
-            services.AddSingleton<ContentField, ColorField>();
+            services.AddContentField<ColorField>();
             services.AddScoped<IContentFieldDisplayDriver, ColorFieldDisplayDriver>();
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ColorFieldSettingsDriver>();
             services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
@@ -125,7 +125,7 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
         }
 
-        public override void Configure(IApplicationBuilder builder, IRouteBuilder routes, IServiceProvider serviceProvider)
+        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
             // don't need it you can skip overriding it.

@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.Permissions;
 using Lombiq.TrainingDemo.ViewModels;
@@ -8,6 +7,7 @@ using OrchardCore.DisplayManagement.Entities;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.DisplayManagement.Views;
 using OrchardCore.Settings;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Drivers
 {
@@ -47,7 +47,7 @@ namespace Lombiq.TrainingDemo.Drivers
             }
 
             // Use the Initialize helper with a view model as usual for editors.
-            return Initialize<DemoSettingsViewModel>("DemoSettings_Edit", model =>
+            return Initialize<DemoSettingsViewModel>($"{nameof(DemoSettings)}_Edit", model =>
                 {
                     model.Message = settings.Message;
                 })

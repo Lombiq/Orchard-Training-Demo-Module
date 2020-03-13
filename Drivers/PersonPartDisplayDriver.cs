@@ -1,9 +1,9 @@
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.ViewModels;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Views;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Drivers
 {
@@ -35,12 +35,11 @@ namespace Lombiq.TrainingDemo.Drivers
 
         // This is something that wasn't implemented in the BookDisplayDriver (but could've been). It will generate the
         // editor shape for the PersonPart.
-        public override IDisplayResult Edit(PersonPart personPart)
-        {
+        public override IDisplayResult Edit(PersonPart personPart) =>
             // Something similar to the Display method happens: you have a shape helper with a shape name possibly and
             // a factory. For editing using Initialize is the best idea. It will instantiate a view model from a type
             // given as a generic parameter. In the factory you will map the content part properties to the view model.
-            return Initialize<PersonPartViewModel>("PersonPart_Edit", model =>
+            Initialize<PersonPartViewModel>($"{nameof(PersonPart)}_Edit", model =>
             {
                 model.PersonPart = personPart;
                 
@@ -48,7 +47,6 @@ namespace Lombiq.TrainingDemo.Drivers
                 model.Name = personPart.Name;
                 model.Handedness = personPart.Handedness;
             }).Location("Content:1");
-        }
 
         // NEXT STATION: Startup.cs and find the static constructor.
 

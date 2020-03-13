@@ -1,4 +1,3 @@
-using System;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Models;
 using OrchardCore.ContentFields.Fields;
@@ -6,6 +5,7 @@ using OrchardCore.ContentFields.Settings;
 using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
+using System;
 
 namespace Lombiq.TrainingDemo.Migrations
 {
@@ -13,7 +13,7 @@ namespace Lombiq.TrainingDemo.Migrations
     // class with the service provider (see: Startup.cs).
     public class PersonMigrations : DataMigration
     {
-        IContentDefinitionManager _contentDefinitionManager;
+        private readonly IContentDefinitionManager _contentDefinitionManager;
 
 
         public PersonMigrations(IContentDefinitionManager contentDefinitionManager)
@@ -31,8 +31,12 @@ namespace Lombiq.TrainingDemo.Migrations
                 .WithField(nameof(PersonPart.Biography), field => field
                     .OfType(nameof(TextField))
                     .WithDisplayName("Biography")
-                    .Hint("Person's biography")
-                    .WithSetting("Editor", "TextArea")));
+                    .WithEditor("TextArea")
+                    .WithSettings(new TextFieldSettings
+                    {
+                        Hint = "Person's biography"
+                    }))
+            );
 
             // We create a new content type. Note that there's only an alter method: this will create the type if it
             // doesn't exist or modify it if it does. Make sure you understand what content types are:

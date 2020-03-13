@@ -1,5 +1,7 @@
-using System.Collections.Generic;
 using OrchardCore.Security.Permissions;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Permissions
 {
@@ -23,12 +25,13 @@ namespace Lombiq.TrainingDemo.Permissions
             new[] { ManagePersons });
 
         
-        public IEnumerable<Permission> GetPermissions() =>
-            new[]
+        public Task<IEnumerable<Permission>> GetPermissionsAsync() =>
+            Task.FromResult(new[]
             {
                 ManagePersons,
                 AccessPersonListDashboard
-            };
+            }
+            .AsEnumerable());
 
         public IEnumerable<PermissionStereotype> GetDefaultStereotypes() =>
             // Giving some defaults: which roles should possess which permissions.
