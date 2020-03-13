@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Description>Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going through its source code.</Description>
     <PackageLicenseUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module/blob/master/Licence.md</PackageLicenseUrl>
