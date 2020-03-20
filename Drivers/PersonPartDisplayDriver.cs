@@ -28,7 +28,7 @@ namespace Lombiq.TrainingDemo.Drivers
             // TextFields will get the same position a "differentiator" property is given which refers to the part name
             // where the field is attached to and the field name. Make sure you also read the documentation to know
             // this feature better:
-            // https://orchardcore.readthedocs.io/en/latest/OrchardCore/OrchardCore.DisplayManagement/README/#placement-files
+            // https://docs.orchardcore.net/en/dev/docs/reference/core/Placement/#placement-files
 
             // NEXT STATION: placement.json (needs to be lowercase) then come back here.
             View(nameof(PersonPart), part);
@@ -42,7 +42,7 @@ namespace Lombiq.TrainingDemo.Drivers
             Initialize<PersonPartViewModel>($"{nameof(PersonPart)}_Edit", model =>
             {
                 model.PersonPart = personPart;
-                
+
                 model.BirthDateUtc = personPart.BirthDateUtc;
                 model.Name = personPart.Name;
                 model.Handedness = personPart.Handedness;
@@ -74,7 +74,7 @@ namespace Lombiq.TrainingDemo.Drivers
             model.BirthDateUtc = viewModel.BirthDateUtc;
             model.Name = viewModel.Name;
             model.Handedness = viewModel.Handedness;
-            
+
             return Edit(model);
         }
     }

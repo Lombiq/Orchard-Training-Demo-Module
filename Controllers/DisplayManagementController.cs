@@ -1,18 +1,18 @@
 /*
  * In this section you will learn how Orchard Core deals with displaying various information on the UI using reusable
  * components called shapes (see:
- * https://orchardcore.readthedocs.io/en/latest/OrchardCore/OrchardCore.DisplayManagement/README/#shapes). This is a
+ * https://docs.orchardcore.net/en/dev/docs/reference/core/Placement/#shapes). This is a
  * very huge and powerful part of Orchard Core, here you will learn the basics of Display Management.
  *
  * To demonstrate this basic functionality, we will create two slightly different pages for displaying information
  * about a book.
  */
 
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers
 {

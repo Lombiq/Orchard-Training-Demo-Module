@@ -15,7 +15,7 @@ You can use this module as part of a vanilla Orchard Core source that includes t
 
 This module is depending on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to this module.
 
-The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://orchardcore.readthedocs.io/en/latest/) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
+The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
 
 
 ### Using a full Orchard Core source
@@ -29,7 +29,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 
 ### Using NuGet packages
 
-1. Open a web project that uses Orchard Core NuGet packages or create one (see: https://orchardcore.readthedocs.io/en/latest/Templates/README/#generate-an-orchard-cms-web-application).
+1. Open a web project that uses Orchard Core NuGet packages or create one (see: https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application).
 2. Add this project and Lombiq.VueJs to the solution.
 3. Add these projects as references to the web project.
 4. Run the web project (F5 or CTRL+F5).

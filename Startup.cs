@@ -42,7 +42,7 @@ namespace Lombiq.TrainingDemo
         {
             // To be able to access these view models in display shapes rendered by the Liquid markup engine you need
             // to register them. To learn more about Liquid in Orchard Core see this documentation:
-            // https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.Liquid/README/
+            // https://docs.orchardcore.net/en/dev/docs/reference/modules/Liquid/
             TemplateContext.GlobalMemberAccessStrategy.Register<PersonPartViewModel>();
             TemplateContext.GlobalMemberAccessStrategy.Register<ColorField>();
             TemplateContext.GlobalMemberAccessStrategy.Register<DisplayColorFieldViewModel>();
@@ -100,7 +100,7 @@ namespace Lombiq.TrainingDemo
                 // ShellShettings objects.
                 var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
                 var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
-                
+
                 var tenantFolderPath = PathExtensions.Combine(
                     // This is the absolute path of the "App_Data" folder.
                     shellOptions.ShellsApplicationDataPath,

@@ -48,7 +48,7 @@ namespace Lombiq.TrainingDemo.Controllers
         {
             // Simple texts can be localized using the IStringLocalizer service as you can see below. To learn more
             // about how localization works in Orchard check out the docs:
-            // https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.Localization/README/
+            // https://docs.orchardcore.net/en/dev/docs/reference/modules/Localize/
             ViewData["Message"] = T["Hello you!"];
 
             // Nothing special happens in the view but you can check it in the
@@ -73,7 +73,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // everywhere in the code base not only in Controllers. This service requires a LocalizedHtmlString object
             // so the IHtmlLocalizer service needs to be used for localization.
             _notifier.Information(H["Congratulations! You have been notified! Check the error log too!"]);
-            
+
             return View();
 
             // NEXT STATION: Views/YourFirstOrchardCore/NotifyMe.cshtml

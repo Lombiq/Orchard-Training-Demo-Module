@@ -1,14 +1,14 @@
 @* You can create custom editor options for a field which is very similar to creating custom shapes from the driver,
-   however, this way you don't need to write any C# code to achieve this so you can implement them in any theme even if
-   it contains only Liquid markup.
-   
-   Let's say you want to have a HEX editor (default) and a color picker editor for the ColorField. Then you need to
-   create an option shape and the editor shape to each editor options. The default editor shape is already created
-   (ColorField.Edit.cshtml) and this file is the option shape. For all the other editor options you need to create the
-   shapes with this pattern: [FieldName]-[OptionName].Option.cshtml and [FieldName]-[OptionName].Edit.cshtml.
+    however, this way you don't need to write any C# code to achieve this so you can implement them in any theme even
+    if it contains only Liquid markup.
 
-   For detailed documentation see:
-   https://orchardcore.readthedocs.io/en/latest/OrchardCore.Modules/OrchardCore.ContentFields/README/#creating-custom-editors
+    Let's say you want to have a HEX editor (default) and a color picker editor for the ColorField. Then you need to
+    create an option shape and the editor shape to each editor options. The default editor shape is already created
+    (ColorField.Edit.cshtml) and this file is the option shape. For all the other editor options you need to create the
+    shapes with this pattern: [FieldName]-[OptionName].Option.cshtml and [FieldName]-[OptionName].Edit.cshtml.
+
+    For detailed documentation see:
+    https://docs.orchardcore.net/en/dev/docs/reference/modules/ContentFields/#creating-custom-editors
 *@
 
 @{
@@ -16,8 +16,8 @@
 }
 
 @* These options will actually be options in the markup on the Dashboard on the content definition editor. This is a
-   default option with no value. We gave the name Hexadecimal. The ColorField.Edit.cshtml will be applied as the
-   default editor shape. *@
+    default option with no value. We gave the name Hexadecimal. The ColorField.Edit.cshtml will be applied as the
+    default editor shape. *@
 
 <option value="" selected="@(string.IsNullOrEmpty(currentEditor))">@T["Hexadecimal"]</option>
 

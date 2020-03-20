@@ -47,8 +47,8 @@ namespace Lombiq.TrainingDemo.Services
 
 
         public DateTimeCachingService(
-            IMemoryCache memoryCache, 
-            ILocalClock localClock, 
+            IMemoryCache memoryCache,
+            ILocalClock localClock,
             IDynamicCacheService dynamicCacheService,
             ITagCache tagCache,
             ISignal signal)
@@ -89,7 +89,7 @@ namespace Lombiq.TrainingDemo.Services
         // by the route. This means that the DateTime cached here on one route will be unaccessible on other routes so
         // another DateTime will be cached for that other particular route. There are multiple differentiators already
         // implemented in Orchard Core, see:
-        // https://orchardcore.readthedocs.io/en/dev/OrchardCore.Modules/OrchardCore.DynamicCache/#available-contexts.
+        // https://docs.orchardcore.net/en/dev/docs/reference/modules/DynamicCache/.
         public async Task<DateTime> GetDynamicCachedDateTimeVariedByRoutesAsync() =>
             await GetOrCreateDynamicCachedDateTimeAsync(
                 new CacheContext(DynamicCacheKey)
