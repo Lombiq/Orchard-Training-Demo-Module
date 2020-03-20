@@ -29,7 +29,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 
 ### Using NuGet packages
 
-1. Open a web project that uses Orchard Core NuGet packages or create one (see: https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application).
+1. Open a web project that uses the Orchard Core NuGet packages or [create one using the code generation template](https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application). Be sure not to disable logging (it's enabled by default) when using the template otherwise logging won't work. If you're starting an app from scratch it's highly recommended to use the templates instead of creating it manually.
 2. Add this project and Lombiq.VueJs to the solution.
 3. Add these projects as references to the web project.
 4. Run the web project (F5 or CTRL+F5).
