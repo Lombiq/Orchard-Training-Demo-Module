@@ -47,7 +47,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // A page with a button that will call the CreateBooks POST action.
-        // See it under /Lombiq.TrainingDemo/Store/CreateBooks.
+        // See it under /Lombiq.TrainingDemo/DatabaseStorage/CreateBooks.
         [HttpGet]
         public ActionResult CreateBooks() => View();
         
@@ -73,7 +73,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
         // This page will display the books written by J.K. Rowling.
-        // See it under /Lombiq.TrainingDemo/Store/JKRowlingBooks.
+        // See it under /Lombiq.TrainingDemo/DatabaseStorage/JKRowlingBooks.
         public async Task<ActionResult> JKRowlingBooks()
         {
             // ISession service is used for querying items.
