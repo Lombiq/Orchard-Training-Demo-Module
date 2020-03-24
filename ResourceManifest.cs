@@ -21,7 +21,7 @@ namespace Lombiq.TrainingDemo
             var manifest = builder.Add();
 
             manifest
-                // We're registering a script with DefineStyle and defining it's name. It's a global name, so choose
+                // We're registering a script with DefineScript and defining its name. It's a global name, so choose
                 // wisely. There is no strict naming convention, but we can give you an advice how to choose a unique
                 // name: it should contain the module's full namespace followed by a meaningful name. Although if it's
                 // a third-party library you can give a more general name like you see below. This script will be the
