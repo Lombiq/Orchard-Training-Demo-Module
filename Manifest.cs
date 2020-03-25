@@ -27,6 +27,7 @@ using OrchardCore.Modules.Manifest;
         "OrchardCore.Contents",
         "OrchardCore.ContentTypes",
         "OrchardCore.ContentFields",
+        "OrchardCore.DynamicCache",
         "OrchardCore.Media",
         "OrchardCore.Navigation"
     }
