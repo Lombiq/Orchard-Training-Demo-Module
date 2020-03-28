@@ -16,7 +16,7 @@ using Lombiq.TrainingDemo.ViewModels;
 /* 
  * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
  * between topics. You can navigate directly to classes and their methods by clicking on their names (enclosed in a 
- * Factory<T>() ) and pressing F12.
+ * Pointer<T>() ) and pressing F12.
  * 
  * This class is not doing anything and only serves as an easy to use table of contents.
  */
@@ -24,7 +24,7 @@ namespace Lombiq.TrainingDemo
 {
     static class Map
     {
-        private static T Factory<T>() => default;
+        private static T Pointer<T>() => default;
 
         private static void Treasure()
         {
@@ -32,61 +32,61 @@ namespace Lombiq.TrainingDemo
 
             // Static resources: styles and scripts
             // Declaration
-            Factory<ResourceManifest>();
+            Pointer<ResourceManifest>();
 
             // Usage: require/include
             // Views/PersonListDashboard
 
 
             // Basic controller demonstrating localization, Notifier, Logger, routing
-            Factory<YourFirstOrchardCoreController>();
+            Pointer<YourFirstOrchardCoreController>();
 
 
             // Display management, IDisplayManager
-            Factory<DisplayManagementController>();
+            Pointer<DisplayManagementController>();
 
             // Display types, zones, placement
             // Views/Book.cshtml
             // Views/Book.Description.cshtml
-            Factory<BookDisplayDriver>();
+            Pointer<BookDisplayDriver>();
 
 
             // ContentPart, ContentField on ContentPart
-            Factory<PersonPart>();
+            Pointer<PersonPart>();
 
             // Displaying, editing and updating ContentPart
             // Views/PersonPart.cshtml
             // Views/PersonPart.Edit.cshtml
             // Views/PersonPart.Summary.cshtml built-in Summary display type
             // Views/PersonPart.SummaryAdmin.cshtml built-in SummaryAdmin display type
-            Factory<PersonPartDisplayDriver>();
+            Pointer<PersonPartDisplayDriver>();
 
             // Validating ContentPart fields
-            Factory<PersonPartViewModel>();
+            Pointer<PersonPartViewModel>();
 
             // IndexProvider, indexing simple obj
 
             // IndexProvider, indexing simple object or ContentPart in records
-            Factory<BookIndex>();
-            Factory<PersonPartIndex>();
+            Pointer<BookIndex>();
+            Pointer<PersonPartIndex>();
 
             // Content Type, ContentPart, ContentField, index record creation.
-            Factory<PersonMigrations>();
+            Pointer<PersonMigrations>();
 
             // ISession, IContentItemDisplayManager, IClock
-            Factory<DatabaseStorageController>();
-            Factory<PersonListController>();
+            Pointer<DatabaseStorageController>();
+            Pointer<PersonListController>();
 
 
             // ContentField
-            Factory<ColorField>();
+            Pointer<ColorField>();
 
             // ContentFieldSettings
-            Factory<ColorFieldSettings>();
+            Pointer<ColorFieldSettings>();
 
             // Editing and updating ContentFieldSettings
             // Views/ColorFieldSettings.Edit.cshtml
-            Factory<ColorFieldSettingsDriver>();
+            Pointer<ColorFieldSettingsDriver>();
 
             // Displaying, editing and updating ContentField
             // Views/ColorField.cshtml
@@ -94,78 +94,78 @@ namespace Lombiq.TrainingDemo
             // Views/ColorField.Option.cshtml default editor option name
             // Views/ColorField-ColorPicker.Option.cshtml custom editor option name
             // Views/ColorField-ColorPicker.Edit.cshtml custom editor option editor
-            Factory<ColorFieldDisplayDriver>();
+            Pointer<ColorFieldDisplayDriver>();
 
             // ContentFieldIndexHandler, indexing ContentField using custom index provider (e.g. Lucene).
-            Factory<ColorFieldIndexHandler>();
+            Pointer<ColorFieldIndexHandler>();
 
 
             // ResourceManifest, scripts, styles
             // Views/ColorField-ColorPicker.Edit.cshtml resource injection
-            Factory<ResourceManifest>();
+            Pointer<ResourceManifest>();
 
 
             // IAuthorizationService
-            Factory<AuthorizationController>();
+            Pointer<AuthorizationController>();
 
             // Permissions, PermissionProvider
-            Factory<DemoSettingsPermissions>();
-            Factory<PersonPermissions>();
+            Pointer<DemoSettingsPermissions>();
+            Pointer<PersonPermissions>();
 
 
             // Admin attribute
-            Factory<AdminController>();
+            Pointer<AdminController>();
 
             // Menu, Admin menu, NavigationProvider
-            Factory<DemoSettingsAdminMenu>();
-            Factory<PersonsAdminMenu>();
+            Pointer<DemoSettingsAdminMenu>();
+            Pointer<PersonsAdminMenu>();
 
 
             // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
-            Factory<DemoSettingsDisplayDriver>();
+            Pointer<DemoSettingsDisplayDriver>();
 
             // SiteSettings, ISite, ISiteService
-            Factory<SiteSettingsController>();
+            Pointer<SiteSettingsController>();
 
 
             // ResultFilter, IAsyncResultFilter
-            Factory<ShapeInjectionFilter>();
-            Factory<ResourceInjectionFilter>();
+            Pointer<ShapeInjectionFilter>();
+            Pointer<ResourceInjectionFilter>();
 
             // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection
-            Factory<ShapeInjectionFilter>();
+            Pointer<ShapeInjectionFilter>();
 
             // IResourceManager, resource injection
-            Factory<ResourceInjectionFilter>();
+            Pointer<ResourceInjectionFilter>();
 
 
             // Memory Cache, Dynamic Cache
             // IMemoryCache, IDynamicCacheService, ITagCache
-            Factory<DateTimeCachingService>();
+            Pointer<DateTimeCachingService>();
 
             // ILocalClock
             // Views/Cache/Index.cshtml
             // Views/Cache/Shape.cshtml
             // Views/CachedShape.cshtml
-            Factory<DateTimeCachingService>();
+            Pointer<DateTimeCachingService>();
 
 
             // IMediaFileStore, custom file store
-            Factory<FileManagementController>();
+            Pointer<FileManagementController>();
 
             // FileSystemStore, IFileStore
-            Factory<CustomFileStore>();
+            Pointer<CustomFileStore>();
 
 
             // BackgroundTask, BackgroundTaskSettings
-            Factory<DemoBackgroundTask>();
+            Pointer<DemoBackgroundTask>();
 
             // Middleware
-            Factory<RequestLoggingMiddleware>();
+            Pointer<RequestLoggingMiddleware>();
 
 
             // Vue.js app, Vue.js component, Vue.js initialization
-            Factory<VueJsController>();
+            Pointer<VueJsController>();
             // Views/VueJs/DemoApp.cshtml
             // Views/VueComponents/Demo.Component.cshtml
 
