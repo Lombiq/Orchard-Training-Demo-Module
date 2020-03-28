@@ -4,6 +4,7 @@ using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
+using Lombiq.TrainingDemo.Middlewares;
 using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.Navigation;
@@ -128,7 +129,9 @@ namespace Lombiq.TrainingDemo
         public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
-            // don't need it you can skip overriding it.
+            // don't need it you can skip overriding it. However, here we need it for our middleware.
+
+            builder.UseMiddleware<RequestLoggingMiddleware>();
         }
     }
 }

@@ -8,13 +8,13 @@
  * about crontab expressions you can use this online tool: https://crontab.guru/.
  */
 
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OrchardCore.BackgroundTasks;
+using OrchardCore.BackgroundTasks.Services;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
-using OrchardCore.BackgroundTasks.Services;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace Lombiq.TrainingDemo.Services
 {
@@ -45,6 +45,8 @@ namespace Lombiq.TrainingDemo.Services
             // This is where the task is implemented. Increment _count and print it to the error log with a message.
             // Notice that there is a GetTaskName() extension method for IBackgroundTask which will return the
             // technical name of the task.
+            // We use LogError() not because we're logging an error just so the message shows up in the log even with
+            // log levels ignoring e.g. info or debug entries. Use the logging methods appropriately otherwise!
             _logger.LogError($"{++_count}/{MaxCount}: Hello from {this.GetTaskName()}!");
 
             if (_count == MaxCount)
@@ -73,4 +75,4 @@ namespace Lombiq.TrainingDemo.Services
 
 // END OF TRAINING SECTION: Background tasks
 
-// NEXT STATION: Controllers/VueJsController.cs
+// NEXT STATION: Middlewares/RequestLoggingMiddleware.cs

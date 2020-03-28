@@ -4,6 +4,7 @@ using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
+using Lombiq.TrainingDemo.Middlewares;
 using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.Navigation;
@@ -159,13 +160,17 @@ namespace Lombiq.TrainingDemo
             // BackgroundTask, BackgroundTaskSettings
             Factory<DemoBackgroundTask>();
 
+            // Middleware
+            Factory<RequestLoggingMiddleware>();
+
 
             // Vue.js app, Vue.js component, Vue.js initialization
+            Factory<VueJsController>();
             // Views/VueJs/DemoApp.cshtml
             // Views/VueComponents/Demo.Component.cshtml
 
-            // Resource compilation, asset magement, Gulp, Babel
-            // Gulpfile.js
+            // Resource compilation, asset management, Gulp, Babel
+            // Gulpfile.babel.js
         }
     }
 }
