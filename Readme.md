@@ -47,13 +47,14 @@ If your module compiles and you are able to enable this module on the dashboard 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
 
 
-## Contribution and feedback
+## Contributing and support
 
-The module's source is available in two public source repositories, automatically mirrored in both directions with [Git-hg Mirror](https://githgmirror.com):
+Bug reports, feature requests, comments, questions, and code contributions are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source) while doing so. For further training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).
 
-- [https://bitbucket.org/Lombiq/orchard-training-demo-module](https://bitbucket.org/Lombiq/orchard-training-demo-module) (Mercurial repository)
-- [https://github.com/Lombiq/Orchard-Training-Demo-Module](https://github.com/Lombiq/Orchard-Training-Demo-Module) (Git repository)
+When adding new tutorials please keep in mind the following:
 
-Bug reports, feature requests and comments are warmly welcome, **please do so via GitHub**. Feel free to send pull requests too, no matter which source repository you choose for this purpose.
+- Insert tutorial steps into the existing flow, either at the end or between two existing ones.
+- If it's a new training section then indicate as such by an "END OF TRAINING SECTION" comment at the end and add it to the list under [StartLearningHere.md](StartLearningHere.md).
+- Add pointers to its classes/files in *Map.cs*.
 
-This project is developed by [Lombiq Technologies Ltd](https://lombiq.com/). Commercial-grade support is available through Lombiq.
+This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
