@@ -18,7 +18,7 @@ namespace Lombiq.TrainingDemo.Settings
             .Location("Content");
 
         // ColorFieldSettings.Edit.cshtml file will contain the editor inputs.
-        
+
         public override async Task<IDisplayResult> UpdateAsync(
             ContentPartFieldDefinition partFieldDefinition,
             UpdatePartFieldEditorContext context)
@@ -28,8 +28,9 @@ namespace Lombiq.TrainingDemo.Settings
             await context.Updater.TryUpdateModelAsync(model, Prefix);
 
             // A content field or a content part can have multiple settings. These settings are stored in a single JSON
-            // object. This helper will merge our settings to this JSON object so these will be stored.
-            context.Builder.MergeSettings<ColorFieldSettings>(settings => settings = model);
+            // object. This helper will merge our settings into this JSON object so these will be stored.
+            context.Builder.WithSettings(model);
+
             return Edit(partFieldDefinition);
         }
     }
