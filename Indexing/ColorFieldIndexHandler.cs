@@ -1,12 +1,12 @@
 /*
  * IndexHandlers are different from IndexProviders. While IndexProviders will store indexed values in the SQL database
- * to index documents these will use a text search index provider (e.g. Lucene) to index data. This way the text search
- * will be executed by the indexing service.
+ * to index documents, IndexHandlers will use a text search index provider (e.g. Lucene) to index data. This way the
+ * text search will be executed by the indexing service.
  */
 
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Fields;
 using OrchardCore.Indexing;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Indexing
 {
