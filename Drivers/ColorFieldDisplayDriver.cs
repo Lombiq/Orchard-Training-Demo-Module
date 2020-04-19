@@ -68,13 +68,13 @@ namespace Lombiq.TrainingDemo.Drivers
             {
                 // Get the ColorFieldSettings to use it when validating the view model.
                 var settings = context.PartFieldDefinition.GetSettings<ColorFieldSettings>();
-                if (settings.Required && string.IsNullOrWhiteSpace(field.Value))
+                if (settings.Required && string.IsNullOrWhiteSpace(viewModel.Value))
                 {
                     updater.ModelState.AddModelError(Prefix, T["A value is required for {0}.", context.PartFieldDefinition.DisplayName()]);
                 }
 
                 // Also some custom validation for our ColorField hex value. Could be done in the view model instead.
-                if (!string.IsNullOrWhiteSpace(field.Value) &&
+                if (!string.IsNullOrWhiteSpace(viewModel.Value) &&
                     !Regex.IsMatch(viewModel.Value, "^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"))
                 {
                     updater.ModelState.AddModelError(Prefix, T["The given color is invalid."]);
