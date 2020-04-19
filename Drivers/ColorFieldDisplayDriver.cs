@@ -73,7 +73,7 @@ namespace Lombiq.TrainingDemo.Drivers
                     updater.ModelState.AddModelError(Prefix, T["A value is required for {0}.", context.PartFieldDefinition.DisplayName()]);
                 }
 
-                // Also some custom validation for our ColorField hex value. Could be done in the view model instead.
+                // Also some custom validation for our ColorField hex value.
                 if (!string.IsNullOrWhiteSpace(viewModel.Value) &&
                     !Regex.IsMatch(viewModel.Value, "^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"))
                 {
