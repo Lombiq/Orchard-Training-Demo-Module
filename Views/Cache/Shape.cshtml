@@ -4,7 +4,7 @@
 <p>@T["Current date: {0}", (await LocalClock.LocalNowAsync).DateTime]</p>
 
 @* Using the shape tag-helper as we did before we'll display the content of the CachedShape where we'll display the
-    current date exactly like here (see its content in the Views/CachedShape.cshtml). Using the cache
+    current date exactly like here (see its content in the Views/CachedShape.cshtml). Using the cache-id
     attributes you can specify a cache key that identifies the cache item with the content of the shape the way we did
     in DateTimeCachingService. There are multiple attributes that can be used for cache options like cache-fixed-duration,
     cache-tag for tagging or cache-context for making it specific to some context like current user or routes. To learn
