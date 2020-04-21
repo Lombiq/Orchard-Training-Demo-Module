@@ -26,6 +26,7 @@ namespace Lombiq.TrainingDemo
     {
         private static T Pointer<T>() => default;
 
+        [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It's used but by humans :).")]
         private static void Treasure()
         {
             // Manifest.cs: module manifest and dependencies
