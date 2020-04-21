@@ -38,6 +38,12 @@ namespace Lombiq.TrainingDemo.Migrations
                     }))
             );
 
+            // This one will create an index table for the PersonPartIndex as explained in the BookMigrations file.
+            SchemaBuilder.CreateMapIndexTable(nameof(PersonPartIndex), table => table
+                .Column<DateTime>(nameof(PersonPartIndex.BirthDateUtc))
+                .Column<string>(nameof(PersonPartIndex.ContentItemId), c => c.WithLength(26))
+            );
+
             // We create a new content type. Note that there's only an alter method: this will create the type if it
             // doesn't exist or modify it if it does. Make sure you understand what content types are:
             // https://docs.orchardcore.net/en/dev/docs/glossary/#content-type. The content type's name is arbitrary,
@@ -49,11 +55,15 @@ namespace Lombiq.TrainingDemo.Migrations
                 .WithPart(nameof(PersonPart))
             );
 
-            // This one will create an index table for the PersonPartIndex as explained in the BookMigrations file.
-            SchemaBuilder.CreateMapIndexTable(nameof(PersonPartIndex), table => table
-                .Column<DateTime>(nameof(PersonPartIndex.BirthDateUtc))
-                .Column<string>(nameof(PersonPartIndex.ContentItemId), c => c.WithLength(26))
+            // We can even create a widget with the same content part. Widgets are just content types as usual but with
+            // the Stereotype set as "Widget". 
+            // You'll notice that our site's configuration includes three zones on the frontend that you can add 
+            // widgets to, as well as two layers. Check them out on the admin!
+            _contentDefinitionManager.AlterTypeDefinition("PersonWidget", builder => builder
+                .Stereotype("Widget")
+                .WithPart(nameof(PersonPart))
             );
+
 
             return 1;
         }

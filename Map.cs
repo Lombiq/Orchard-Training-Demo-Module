@@ -12,6 +12,7 @@ using Lombiq.TrainingDemo.Permissions;
 using Lombiq.TrainingDemo.Services;
 using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
+using System.Diagnostics.CodeAnalysis;
 
 /* 
  * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
@@ -71,7 +72,7 @@ namespace Lombiq.TrainingDemo
             Pointer<BookIndex>();
             Pointer<PersonPartIndex>();
 
-            // Content Type, ContentPart, ContentField, index record creation.
+            // Content Type (standard and widget), ContentPart, ContentField, index record creation.
             Pointer<PersonMigrations>();
 
             // ISession, IContentItemDisplayManager, IClock
@@ -172,6 +173,9 @@ namespace Lombiq.TrainingDemo
 
             // Resource compilation, asset management, Gulp, Babel
             // Gulpfile.babel.js
+
+            // Recipes
+            // Recipes/TrainingDemo.recipe.json
         }
     }
 }
