@@ -35,6 +35,8 @@ On the other hand the module manifest file is also required. So...
 
 **NEXT STATION**: Head over to *Manifest.cs*. That file is the module's manifest; a *Manifest.cs* is required for Orchard modules.
 
+Note that the module's [recipe file](https://docs.orchardcore.net/en/dev/docs/reference/modules/Recipes/)that you used during setup is in the *Recipes* folder. It's JSON so we won't be able to add comments there but do note that a lot of features included in this module are configured from there.
+
 This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
 
 

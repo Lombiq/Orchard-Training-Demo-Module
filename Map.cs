@@ -30,6 +30,9 @@ namespace Lombiq.TrainingDemo
         [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It's used but by humans :).")]
         private static void Treasure()
         {
+            // Recipes
+            // Recipes/TrainingDemo.recipe.json
+
             // Manifest.cs: module manifest and dependencies
 
             // Static resources: styles and scripts
@@ -173,9 +176,6 @@ namespace Lombiq.TrainingDemo
 
             // Resource compilation, asset management, Gulp, Babel
             // Gulpfile.babel.js
-
-            // Recipes
-            // Recipes/TrainingDemo.recipe.json
         }
     }
 }
