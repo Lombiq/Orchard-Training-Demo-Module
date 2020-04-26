@@ -129,7 +129,7 @@ namespace Lombiq.TrainingDemo
             // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
             Pointer<DemoSettingsDisplayDriver>();
 
-            // SiteSettings, ISite, ISiteService
+            // SiteSettings, ISite, ISiteService, Options
             Pointer<SiteSettingsController>();
 
 

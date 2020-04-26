@@ -25,6 +25,7 @@ using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
+using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Indexing;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
@@ -39,6 +40,15 @@ namespace Lombiq.TrainingDemo
 {
     public class Startup : StartupBase
     {
+        private readonly IShellConfiguration _shellConfiguration;
+
+
+        public Startup(IShellConfiguration shellConfiguration)
+        {
+            _shellConfiguration = shellConfiguration;
+        }
+
+
         static Startup()
         {
             // To be able to access these view models in display shapes rendered by the Liquid markup engine you need
@@ -82,9 +92,12 @@ namespace Lombiq.TrainingDemo
             services.AddScoped<INavigationProvider, PersonsAdminMenu>();
 
             // Demo Settings
+            services.Configure<DemoSettings>(_shellConfiguration.GetSection("Lombiq_TrainingDemo"));
+            services.AddTransient<IConfigureOptions<DemoSettings>, DemoSettingsConfiguration>();
             services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
             services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();
             services.AddScoped<INavigationProvider, DemoSettingsAdminMenu>();
+
 
             // Filters
             services.Configure<MvcOptions>((options) =>
