@@ -34,6 +34,8 @@ namespace Lombiq.TrainingDemo.Indexes
                     // being a draft or published version; contentItem.Latest shows this).
                     // Not cluttering up the index table with unnecessary rows can help with performance and makes
                     // managing the database easier overall.
+                    // Also note that there is a lot more to index providers than just Map() (although this is what you
+                    // need to use the most), see the YesSQL documentation: https://github.com/sebastienros/yessql/wiki/Tutorial
                     if (personPart == null) return null;
 
                     return new PersonPartIndex
