@@ -2,9 +2,9 @@
 
 
 
-## Project description
+## About
 
-Demo Orchard Core module for training purposes guiding you to become an Orchard developer. Note that this module also has an Orchard 1.x version in the [dev branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev).
+Demo [Orchard Core CMS](https://www.orchardcore.net/) module for training purposes guiding you to become an Orchard developer. Note that this module also has an Orchard 1.x version in the [dev branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev).
 
 **If you are interested in training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
@@ -47,9 +47,9 @@ If your module compiles and you are able to enable this module on the dashboard 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
 
 
-## Contributing and support
+## Contribution and support
 
-Bug reports, feature requests, comments, questions, and code contributions are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source) while doing so. For further training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).
+Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
 When adding new tutorials please keep in mind the following:
 
