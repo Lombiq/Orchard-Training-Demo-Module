@@ -16,7 +16,7 @@ Download the source and unzip it to the Modules folder in your Orchard solution.
 Open StartHere.txt and read the instructions. You will be guided through the module.
 
 
-## Contribution and support
+## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
