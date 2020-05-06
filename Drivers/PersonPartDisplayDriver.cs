@@ -48,9 +48,10 @@ namespace Lombiq.TrainingDemo.Drivers
         public override IDisplayResult Edit(PersonPart personPart, BuildPartEditorContext context) =>
             // Something similar to the Display method happens: you have a shape helper with a shape name possibly and
             // a factory. For editing using Initialize is the best idea. It will instantiate a view model from a type
-            // given as a generic parameter. In the factory you will map the content part properties to the view model.
+            // given as a generic parameter.
             // There are helper methods to generate the shape type. GetEditorShapeType() in this case will generate
-            // "PersonPart_Edit".
+            // "PersonPart_Edit" by default but this can be overridden form the part's settings under the content
+            // type's settings on the admin. In the factory you will map the content part properties to the view model.
             Initialize<PersonPartViewModel>(GetEditorShapeType(context), model =>
             {
                 model.PersonPart = personPart;
