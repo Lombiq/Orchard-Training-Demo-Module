@@ -32,7 +32,8 @@ namespace Lombiq.TrainingDemo.Drivers
         }
 
 
-        // Here's the EditAsync override to display editor for our site settings on the Dashboard.
+        // Here's the EditAsync override to display editor for our site settings on the Dashboard. Note that it has a
+        // sync version too.
         public override async Task<IDisplayResult> EditAsync(DemoSettings settings, BuildEditorContext context)
         {
             // What you really don't want to is to let unauthorized users update site-level settings of your site so

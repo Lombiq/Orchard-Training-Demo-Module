@@ -1,6 +1,7 @@
 using Lombiq.TrainingDemo.Models;
 using Lombiq.TrainingDemo.ViewModels;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
+using OrchardCore.ContentManagement.Display.Models;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Views;
 using System.Threading.Tasks;
@@ -12,6 +13,15 @@ namespace Lombiq.TrainingDemo.Drivers
     // (see: Startup.cs).
     public class PersonPartDisplayDriver : ContentPartDisplayDriver<PersonPart>
     {
+        // Some notes on the various methods you can override: 
+        // - Keep in mind that all of them have a sync and async version, use the one more appropriate for what you do
+        //   inside them (use the async ones if you'll write any async code in the body, the sync ones otherwise).
+        // - Also, some overrides will take a context object: When in doubt use the one with the context object,
+        //   otherwise there is no difference apart from what you can see: The context can be passed to helper methods
+        //   and is otherwise used in the background to carry some other contextual object like the current
+        //   IUpdateModel. If you end up not using the context anywhere in the method's body than that means that you
+        //   don't actually need it, no magic will happen behind the scenes because of it.
+
         // A Display method that we already know. This time it's much simpler because we don't want to create multiple
         // shapes for the PersonPart - however we could.
         public override IDisplayResult Display(PersonPart part) =>
@@ -35,11 +45,13 @@ namespace Lombiq.TrainingDemo.Drivers
 
         // This is something that wasn't implemented in the BookDisplayDriver (but could've been). It will generate the
         // editor shape for the PersonPart.
-        public override IDisplayResult Edit(PersonPart personPart) =>
+        public override IDisplayResult Edit(PersonPart personPart, BuildPartEditorContext context) =>
             // Something similar to the Display method happens: you have a shape helper with a shape name possibly and
             // a factory. For editing using Initialize is the best idea. It will instantiate a view model from a type
             // given as a generic parameter. In the factory you will map the content part properties to the view model.
-            Initialize<PersonPartViewModel>($"{nameof(PersonPart)}_Edit", model =>
+            // There are helper methods to generate the shape type. GetEditorShapeType() in this case will generate
+            // "PersonPart_Edit".
+            Initialize<PersonPartViewModel>(GetEditorShapeType(context), model =>
             {
                 model.PersonPart = personPart;
 
