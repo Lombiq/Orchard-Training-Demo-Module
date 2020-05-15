@@ -31,7 +31,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 
 ### Using NuGet packages
 
-The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases such a web app (and it also contains all of Lombiq's open-source Orchard themes and modules as a bonus!). So if you want to skip ahead you can just use that directly. If you feel adventurous then by all means create your own app as explained below!
+The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases such a web app. (And it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! Check it out for what we have already solved for you.) So if you want to skip ahead you can just use that directly. If you feel adventurous then by all means create your own app as explained below!
 
 1. Open a web project that uses the Orchard Core NuGet packages or [create one using the code generation template](https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application). Be sure not to disable logging (it's enabled by default) when using the template otherwise logging won't work. If you're starting an app from scratch it's highly recommended to use the templates instead of creating it manually.
 2. Add this project and Lombiq.VueJs to the solution.
