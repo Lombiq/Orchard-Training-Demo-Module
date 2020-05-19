@@ -1,4 +1,4 @@
-# Orchard Core Training Demo module
+# Lombiq Training Demo for Orchard Core
 
 
 

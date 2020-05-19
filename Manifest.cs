@@ -2,9 +2,9 @@ using OrchardCore.Modules.Manifest;
 
 [assembly: Module(
     // Name of the module to be displayed on the Modules page of the Dashboard.
-    Name = "Orchard Core Training Demo",
+    Name = "Lombiq Training Demo",
     // Your name, company or any name that identifies the developers working on the project.
-    Author = "Lombiq",
+    Author = "Lombiq Technologies",
     // Optionally you can add a website URL (e.g. your company's website, GitHub repository URL).
     Website = "https://github.com/Lombiq/Orchard-Training-Demo-Module",
     // Version of the module.
