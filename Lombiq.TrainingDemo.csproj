@@ -8,20 +8,13 @@
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
     <LangVersion>7.1</LangVersion>
-    <DefaultItemExcludes>$(DefaultItemExcludes);node_modules\**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
     <OrchardCoreLibrariesRoot Condition="Exists('$(SolutionDir)src\OrchardCore')">$(SolutionDir)src\OrchardCore</OrchardCoreLibrariesRoot>
     <OrchardCoreModulesRoot Condition="Exists('$(SolutionDir)src\OrchardCore.Modules')">$(SolutionDir)src\OrchardCore.Modules</OrchardCoreModulesRoot>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="node_modules\**" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Remove=".gitattributes" />
-    <EmbeddedResource Remove=".gitignore" />
-    <EmbeddedResource Remove=".hgignore" />
-    <EmbeddedResource Remove=".hgtags" />
   </ItemGroup>
 
   <ItemGroup>
