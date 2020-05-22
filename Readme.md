@@ -6,6 +6,8 @@
 
 Demo Orchard module for training purposes. This module completes the training materials at [https://orcharddojo.net/orchard-resources](https://orcharddojo.net/orchard-resources). Note that this module also has an Orchard Core version in the [orchard-core branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/orchard-core).
 
+Note that this module has an Orchard Core version in the [dev branch](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev).
+
 **For all our training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
 
