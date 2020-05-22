@@ -2,6 +2,8 @@
 
 
 
+**Note** that the development of this modules now continues in the [dev branch](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev).
+
 ## About
 
 Demo [Orchard Core CMS](https://www.orchardcore.net/) module for training purposes guiding you to become an Orchard developer. Note that this module also has an Orchard 1.x version in the [dev branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev).
