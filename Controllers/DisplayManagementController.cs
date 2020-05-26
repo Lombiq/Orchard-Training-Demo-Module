@@ -16,9 +16,6 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    // Notice that the controller implements the IUpdateModel interface. This interface encapsulates the properties and
-    // methods related to ASP.NET Core MVC model binding. Orchard Core needs this model binding functionality outside
-    // the controllers (you will see it later).
     public class DisplayManagementController : Controller, IUpdateModel
     {
         // The core display management features can be used via the IDisplayManager service. The generic parameter will

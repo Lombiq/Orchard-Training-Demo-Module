@@ -71,9 +71,8 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
             // Person Part
-            services.AddContentPart<PersonPart>();
+            services.AddContentPart<PersonPart>().UseDisplayDriver<PersonPartDisplayDriver>();
             services.AddScoped<IDataMigration, PersonMigrations>();
-            services.AddScoped<IContentPartDisplayDriver, PersonPartDisplayDriver>();
             services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
             // Color Field

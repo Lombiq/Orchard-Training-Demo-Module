@@ -28,17 +28,17 @@
   </ItemGroup>
 
   <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' == '' AND '$(OrchardCoreModulesRoot)' == ''">
-    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.DynamicCache" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-rc1-10004" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-10004" />
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.0.0-rc1-13309" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.0.0-rc1-13309" />
   </ItemGroup>
 
   <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' != '' AND '$(OrchardCoreModulesRoot)' != ''">

@@ -11,9 +11,6 @@
  * the YesSql documentation.
  */
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -21,27 +18,33 @@ using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Notify;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    public class DatabaseStorageController : Controller, IUpdateModel
+    public class DatabaseStorageController : Controller
     {
         private readonly ISession _session;
         private readonly IDisplayManager<Book> _bookDisplayManager;
         private readonly INotifier _notifier;
         private readonly IHtmlLocalizer H;
+        private readonly IUpdateModelAccessor _updateModelAccessor;
 
 
         public DatabaseStorageController(
             ISession session,
             IDisplayManager<Book> bookDisplayManager,
             INotifier notifier,
-            IHtmlLocalizer<DatabaseStorageController> htmlLocalizer)
+            IHtmlLocalizer<DatabaseStorageController> htmlLocalizer,
+            IUpdateModelAccessor updateModelAccessor)
         {
             _session = session;
             _bookDisplayManager = bookDisplayManager;
             _notifier = notifier;
+            _updateModelAccessor = updateModelAccessor;
             H = htmlLocalizer;
         }
 
@@ -50,7 +53,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // See it under /Lombiq.TrainingDemo/DatabaseStorage/CreateBooks.
         [HttpGet]
         public ActionResult CreateBooks() => View();
-        
+
         [HttpPost, ActionName(nameof(CreateBooks))]
         public ActionResult CreateBooksPost()
         {
@@ -89,7 +92,9 @@ namespace Lombiq.TrainingDemo.Controllers
             // Now this is what we possibly understand now, we will create a list of display shapes from the previously
             // fetched books.
             var bookShapes = await Task.WhenAll(jkRowlingBooks.Select(async book =>
-                await _bookDisplayManager.BuildDisplayAsync(book, this)));
+                // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access
+                // via its accessor service. Later you'll also see how we'll use this to run validations in drivers.
+                await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater)));
 
             // You can check out Views/Store/JKRowlingBooks.cshtml and come back here.
             return View(bookShapes);

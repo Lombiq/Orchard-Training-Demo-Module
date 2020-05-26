@@ -69,12 +69,11 @@ namespace Lombiq.TrainingDemo.Drivers
         {
             var viewModel = new PersonPartViewModel();
 
-            // Now it's where the IUpdateModel interface is really used (remember we first used it in
-            // DisplayManagementController?). With this you will be able to use the Controller's model binding helpers
-            // here in the driver. The prefix property will be used to distinguish between similarly named input fields
-            // when building the editor form (so e.g. two content parts composing a content item can have an input
-            // field called "Name"). By default Orchard Core will use the content part name but if you have multiple
-            // drivers with editors for a content part you need to override it in the driver.
+            // Via the IUpdateModel you will be able to use the current controller's model binding helpers here in the
+            // driver. The prefix property will be used to distinguish between similarly named input fields when
+            // building the editor form (so e.g. two content parts composing a content item can have an input field
+            // called "Name"). By default Orchard Core will use the content part name but if you have multiple drivers
+            // with editors for a content part you need to override it in the driver.
             await updater.TryUpdateModelAsync(viewModel, Prefix);
 
             // Now you can do some validation if needed. One way to do it you can simply write your own validation here
