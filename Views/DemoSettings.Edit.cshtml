@@ -1,5 +1,6 @@
 @model Lombiq.TrainingDemo.ViewModels.DemoSettingsViewModel
 @using Lombiq.TrainingDemo.Controllers;
+@using OrchardCore.Mvc.Core.Utilities;
 
 <fieldset class="form-group" asp-validation-class-for="Message">
     <label asp-for="Message">@T["Message"]</label>
@@ -7,6 +8,6 @@
     <span asp-validation-for="Message"></span>
     <span class="hint">
         @T["This message will be displayed as a demonstration if you open <a href=\"{0}\" target=\"_blank\">its action</a>.",
-            Url.Action(nameof(SiteSettingsController.DemoSettings), "SiteSettings", new { Area = "Lombiq.TrainingDemo" })]
+            Url.Action(nameof(SiteSettingsController.DemoSettings), typeof(SiteSettingsController).ControllerName(), new { Area = "Lombiq.TrainingDemo" })]
     </span>
 </fieldset>
