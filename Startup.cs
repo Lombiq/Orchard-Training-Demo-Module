@@ -135,7 +135,7 @@ namespace Lombiq.TrainingDemo
             // Caching
             services.AddScoped<IDateTimeCachingService, DateTimeCachingService>();
 
-            // Background tasks
+            // Background tasks. Note that these have to be singletons.
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
         }
 
