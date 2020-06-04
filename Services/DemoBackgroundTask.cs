@@ -40,6 +40,8 @@ namespace Lombiq.TrainingDemo.Services
         }
 
 
+        // Since background tasks are singletons we'll need this IServiceProvider instance to resolve every 
+        // non-singleton service
         public async Task DoWorkAsync(IServiceProvider serviceProvider, CancellationToken cancellationToken)
         {
             // This is where the task is implemented. Increment _count and print it to the error log with a message.
@@ -56,7 +58,7 @@ namespace Lombiq.TrainingDemo.Services
 
                 // Here is an example of disabling a background task programmatically using BackgroundTaskManager. You
                 // can use this method from anywhere in the code base. Here you need to get this service from the
-                // service provider since it's a scoped service.
+                // service provider since it's a scoped service but background tasks are singletons.
                 var backroundTaskManager = serviceProvider.GetService<BackgroundTaskManager>();
 
                 // The GetDefaultSettings() extension method will return the settings you defined in the BackgroundTask
