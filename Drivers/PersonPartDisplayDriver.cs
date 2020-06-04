@@ -65,7 +65,7 @@ namespace Lombiq.TrainingDemo.Drivers
 
         // So we had an Edit (or EditAsync) that generates the editor shape now it's time to do the content
         // part-specific model binding and validation.
-        public override async Task<IDisplayResult> UpdateAsync(PersonPart model, IUpdateModel updater)
+        public override async Task<IDisplayResult> UpdateAsync(PersonPart part, IUpdateModel updater, UpdatePartEditorContext context)
         {
             var viewModel = new PersonPartViewModel();
 
@@ -83,11 +83,11 @@ namespace Lombiq.TrainingDemo.Drivers
 
             // Finally map the view model to the content part. By default these changes won't be persisted if there was
             // a validation error. Otherwise these will be automatically stored in the database.
-            model.BirthDateUtc = viewModel.BirthDateUtc;
-            model.Name = viewModel.Name;
-            model.Handedness = viewModel.Handedness;
+            part.BirthDateUtc = viewModel.BirthDateUtc;
+            part.Name = viewModel.Name;
+            part.Handedness = viewModel.Handedness;
 
-            return Edit(model);
+            return Edit(part, context);
         }
     }
 }
