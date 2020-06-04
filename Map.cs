@@ -2,6 +2,7 @@ using Lombiq.TrainingDemo.Controllers;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
+using Lombiq.TrainingDemo.Handlers;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
 using Lombiq.TrainingDemo.Middlewares;
@@ -65,6 +66,7 @@ namespace Lombiq.TrainingDemo
             // Views/PersonPart.Summary.cshtml built-in Summary display type
             // Views/PersonPart.SummaryAdmin.cshtml built-in SummaryAdmin display type
             Pointer<PersonPartDisplayDriver>();
+            Pointer<PersonPartHandler>();
 
             // Validating ContentPart fields
             Pointer<PersonPartViewModel>();
