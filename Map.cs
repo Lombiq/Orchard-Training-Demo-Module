@@ -170,6 +170,9 @@ namespace Lombiq.TrainingDemo
             // Middleware
             Pointer<RequestLoggingMiddleware>();
 
+            // Accessing services from other tenants
+            Pointer<CrossTenantServicesController>();
+
 
             // Vue.js app, Vue.js component, Vue.js initialization
             Pointer<VueJsController>();

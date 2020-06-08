@@ -61,5 +61,6 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 * [File management](Controllers/FileManagementController.cs)
 * [Background tasks](Services/DemoBackgroundTask.cs)
 * [Middlewares](Middlewares/RequestLoggingMiddleware.cs)
+* [Accessing services from other tenants](Controllers/CrossTenantServicesController.cs)
 * [Writing Vue.js applications in Orchard Core modules](Controllers/VueJsController.cs)
 * [Compiling resources using Gulp](Gulpfile.babel.js)
