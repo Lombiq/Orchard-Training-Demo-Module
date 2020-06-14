@@ -52,7 +52,7 @@ namespace Lombiq.TrainingDemo.Migrations
             // https://docs.orchardcore.net/en/dev/docs/glossary/#content-type. The content type's name is arbitrary,
             // but choose a meaningful one. Notice that we attach parts by specifying their name. For our own parts we
             // use nameof(): this is not mandatory but serves great if we change the part's name during development.
-            _contentDefinitionManager.AlterTypeDefinition("Person", builder => builder
+            _contentDefinitionManager.AlterTypeDefinition("Person", type => type
                 .Creatable()
                 .Listable()
                 .WithPart(nameof(PersonPart))
@@ -62,7 +62,7 @@ namespace Lombiq.TrainingDemo.Migrations
             // the Stereotype set as "Widget". 
             // You'll notice that our site's configuration includes three zones on the frontend that you can add 
             // widgets to, as well as two layers. Check them out on the admin!
-            _contentDefinitionManager.AlterTypeDefinition("PersonWidget", builder => builder
+            _contentDefinitionManager.AlterTypeDefinition("PersonWidget", type => type
                 .Stereotype("Widget")
                 .WithPart(nameof(PersonPart))
             );
