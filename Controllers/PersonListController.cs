@@ -8,33 +8,36 @@
  * administration page (/Admin) and create a few Person content items, including ones with ages above 30.
  */
 
-using System.Linq;
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Indexes;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.Modules;
+using System.Linq;
+using System.Threading.Tasks;
 using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
-    public class PersonListController : Controller, IUpdateModel
+    public class PersonListController : Controller
     {
         private readonly ISession _session;
         private readonly IClock _clock;
         private readonly IContentItemDisplayManager _contentItemDisplayManager;
+        private readonly IUpdateModelAccessor _updateModelAccessor;
 
 
         public PersonListController(
             ISession session,
             IClock clock,
-            IContentItemDisplayManager contentItemDisplayManager)
+            IContentItemDisplayManager contentItemDisplayManager,
+            IUpdateModelAccessor updateModelAccessor)
         {
             _session = session;
             _clock = clock;
             _contentItemDisplayManager = contentItemDisplayManager;
+            _updateModelAccessor = updateModelAccessor;
         }
 
 
@@ -56,12 +59,12 @@ namespace Lombiq.TrainingDemo.Controllers
             // created for these parts and fields.
             // NEXT STATION: Drivers/PersonPartDisplayDriver
             var shapes = await Task.WhenAll(people.Select(async person =>
-                await _contentItemDisplayManager.BuildDisplayAsync(person, this, "Summary")));
+                await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary")));
 
             // Now assuming that you've already created a few Person content items on the dashboard and some of
             // these persons are more than 30 years old then this query will contain items to display.
             // NEXT STATION: Views/PersonList/OlderThan30.cshtml
-            
+
             return View(shapes);
         }
     }

@@ -29,12 +29,16 @@ namespace Lombiq.TrainingDemo.Services
         // current local date based on the site settings. Also dates can be converted from or to UTC.
         private readonly ILocalClock _localClock;
 
-        // IMemoryCache service is a built-in service in ASP.NET Core. To learn more about this visit
+        // IMemoryCache service is a built-in service in ASP.NET Core. Use this if you want a fast cache that's local
+        // to the current process. Do note that if you app runs on multiple servers this cache won't be shared among
+        // nodes. To learn more about IMemoryCache visit
         // https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory.
         private readonly IMemoryCache _memoryCache;
 
         // Dynamic Cache is implemented primarily for caching shapes. It is based on the built-in ASP.NET Core
-        // IDistributedCache service which by default is implemented by DistributedMemoryCache. To learn more about
+        // IDistributedCache service which by default is implemented by DistributedMemoryCache. If you just want to
+        // cache simple values like you'd do with IMemoryCache but in a way that also shares cache entries between
+        // servers when your app runs on multiple servers then use IDistributedCache directly. To learn more about
         // distributed caching and IDistributedCache visit
         // https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed.
         private readonly IDynamicCacheService _dynamicCacheService;

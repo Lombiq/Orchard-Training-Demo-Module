@@ -2,6 +2,7 @@ using Fluid;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
+using Lombiq.TrainingDemo.Handlers;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
 using Lombiq.TrainingDemo.Middlewares;
@@ -71,9 +72,10 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
             // Person Part
-            services.AddContentPart<PersonPart>();
+            services.AddContentPart<PersonPart>()
+                .UseDisplayDriver<PersonPartDisplayDriver>()
+                .AddHandler<PersonPartHandler>();
             services.AddScoped<IDataMigration, PersonMigrations>();
-            services.AddScoped<IContentPartDisplayDriver, PersonPartDisplayDriver>();
             services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
             // Color Field

@@ -10,13 +10,13 @@
  * create a custom permission called "Manage Persons" and how to use it.
  */
 
-using System.Threading.Tasks;
 using Lombiq.TrainingDemo.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.ContentManagement;
 using OrchardCore.DisplayManagement.Notify;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers
 {
@@ -55,7 +55,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // item then the ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checked. This
             // is automatic so you don't need to use them directly. For this newly created Person item the owner is
             // null so the EditContent permission will be used.
-            if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.Permissions.EditContent, person))
+            if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.CommonPermissions.EditContent, person))
             {
                 // Return 401 status code using this helper. Although it's a good practice to return 404 (NotFound())
                 // instead to prevent enumeration attacks.

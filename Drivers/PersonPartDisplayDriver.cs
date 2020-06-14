@@ -65,16 +65,15 @@ namespace Lombiq.TrainingDemo.Drivers
 
         // So we had an Edit (or EditAsync) that generates the editor shape now it's time to do the content
         // part-specific model binding and validation.
-        public override async Task<IDisplayResult> UpdateAsync(PersonPart model, IUpdateModel updater)
+        public override async Task<IDisplayResult> UpdateAsync(PersonPart part, IUpdateModel updater, UpdatePartEditorContext context)
         {
             var viewModel = new PersonPartViewModel();
 
-            // Now it's where the IUpdateModel interface is really used (remember we first used it in
-            // DisplayManagementController?). With this you will be able to use the Controller's model binding helpers
-            // here in the driver. The prefix property will be used to distinguish between similarly named input fields
-            // when building the editor form (so e.g. two content parts composing a content item can have an input
-            // field called "Name"). By default Orchard Core will use the content part name but if you have multiple
-            // drivers with editors for a content part you need to override it in the driver.
+            // Via the IUpdateModel you will be able to use the current controller's model binding helpers here in the
+            // driver. The prefix property will be used to distinguish between similarly named input fields when
+            // building the editor form (so e.g. two content parts composing a content item can have an input field
+            // called "Name"). By default Orchard Core will use the content part name but if you have multiple drivers
+            // with editors for a content part you need to override it in the driver.
             await updater.TryUpdateModelAsync(viewModel, Prefix);
 
             // Now you can do some validation if needed. One way to do it you can simply write your own validation here
@@ -84,11 +83,11 @@ namespace Lombiq.TrainingDemo.Drivers
 
             // Finally map the view model to the content part. By default these changes won't be persisted if there was
             // a validation error. Otherwise these will be automatically stored in the database.
-            model.BirthDateUtc = viewModel.BirthDateUtc;
-            model.Name = viewModel.Name;
-            model.Handedness = viewModel.Handedness;
+            part.BirthDateUtc = viewModel.BirthDateUtc;
+            part.Name = viewModel.Name;
+            part.Handedness = viewModel.Handedness;
 
-            return Edit(model);
+            return Edit(part, context);
         }
     }
 }

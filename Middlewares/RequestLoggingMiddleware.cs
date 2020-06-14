@@ -11,7 +11,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.Extensions.Logging;
 using OrchardCore.Settings;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Middlewares
@@ -57,4 +56,4 @@ namespace Lombiq.TrainingDemo.Middlewares
 
 // END OF TRAINING SECTION: Middlewares
 
-// NEXT STATION: Controllers/VueJsController.cs
+// NEXT STATION: Controllers/CrossTenantServicesController.cs
