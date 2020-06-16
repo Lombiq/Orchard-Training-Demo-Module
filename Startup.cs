@@ -1,3 +1,9 @@
+/*
+ * A Startup class (there can be multiple ones in a module under different namespaces) will be called by the framework.
+ * It's the same as the ASP.NET Startup class (https://docs.microsoft.com/en-us/aspnet/core/fundamentals/startup). In
+ * there you can e.g. register injected services and change the request pipeline.
+ */
+
 using Fluid;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Fields;
@@ -28,7 +34,6 @@ using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Indexing;
-using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
@@ -39,7 +44,9 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
 {
-    public class Startup : StartupBase
+    // Note that the Startup class is a conventionally named class with conventionally named methods. This way it'll be
+    // hooked up to the rest of the app automatically. Magic!
+    public class Startup
     {
         private readonly IShellConfiguration _shellConfiguration;
 
@@ -63,7 +70,7 @@ namespace Lombiq.TrainingDemo
         }
 
 
-        public override void ConfigureServices(IServiceCollection services)
+        public void ConfigureServices(IServiceCollection services)
         {
             // Book
             services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
@@ -141,7 +148,7 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
         }
 
-        public override void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
+        public void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
         {
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
             // don't need it you can skip overriding it. However, here we need it for our middleware.
