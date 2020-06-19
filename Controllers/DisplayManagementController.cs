@@ -33,6 +33,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // Before we learn how shapes are generated using the display manager let's see what are these shapes actually.
         // Ad-hoc shapes can be created anywhere without the display manager. In this example we'll see how to create
         // an ad-hoc shape inside a view (or could be another shape).
+        // Open from under /Lombiq.TrainingDemo/DisplayManagement/AdHocShape.
         public ActionResult AdHocShape() => View();
 
         // NEXT STATION: Views/DisplayManagement/AdHocShape.cshtml

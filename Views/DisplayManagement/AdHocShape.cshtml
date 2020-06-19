@@ -1,7 +1,17 @@
 @* The shape tag helper will render a shape in the markup. The type attribute will be the shape type which is mapped
-   primarily from cshtml or liquid files (there are other ways of creating shape types but it will be described later).
-   The following attributes will be actual parameters in a dynamic view model passed to the shape. *@
+    primarily from cshtml or liquid files (there are other ways of creating shape types but that will be described
+    later). The following attributes will be actual parameters in a dynamic view model passed to the shape. *@
 
 <shape type="TestShape" name="John Doe" age="26" />
 
-@* NEXT STATION: Views/TestShape.cshtml *@
+@* NEXT STATION: Check out Views/TestShape.cshtml and then come back here. *@
+
+@* Note that you can only pass primitive values to the <shape> Tag Helper. Shapes can very well accept complex object
+    in their parameters too but for that you'd need to write a bit more complex code:*@
+
+@await DisplayAsync(await New.ComplexTestShape(Values: new[] { "one", "two", "three" }))
+
+@* The New property contains a shape factory that you can use like above to create shapes. Then you can use
+    DisplayAsync, which we'll also use a lot later, to display it. *@
+
+@* NEXT STATION: Views/ComplexTestShape.cshtml *@

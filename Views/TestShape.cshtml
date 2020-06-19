@@ -1,10 +1,7 @@
 @model dynamic
-
 @* So we are in a shape now. With the shape tag helper we've rendered this and passed a dynamic view model including
-name and age properties. *@
+    name and age properties. *@
 
 <p>@T["This is inside an ad-hoc shape."]</p>
 <p>@T["Name: {0}", Model.Name]</p>
 <p>@T["Age: {0}", Model.Age]</p>
-
-@* NEXT STATION: Controllers/DisplayManagementController and find the DisplayBook action. *@
