@@ -5,7 +5,6 @@
  */
 
 using Lombiq.TrainingDemo.Indexes;
-using OrchardCore.ContentManagement.Metadata;
 using OrchardCore.Data.Migration;
 
 namespace Lombiq.TrainingDemo.Migrations
@@ -20,6 +19,13 @@ namespace Lombiq.TrainingDemo.Migrations
             SchemaBuilder.CreateMapIndexTable(nameof(BookIndex), table => table
                 .Column<string>(nameof(BookIndex.Author))
                 .Column<string>(nameof(BookIndex.Title))
+            );
+
+            // Let's suppose that we'll store many books, tens of thousands in the database. In this case, it's also
+            // advised to add SQL indices to columns that are frequently queried on. In our case, Author is like this
+            // so we add an index below. Note that you can only add indices in AlterTable().
+            SchemaBuilder.AlterTable(nameof(BookIndex), table => table
+                .CreateIndex($"IDX_{nameof(BookIndex)}_{nameof(BookIndex.Author)}", "Author")
             );
 
             // Here we return the version number of the migration. If there were no update methods we'd return 1. But
@@ -38,8 +44,8 @@ namespace Lombiq.TrainingDemo.Migrations
             // out an update that modifies the schema to add the Name. Remember, we've returned 2 in the Create method
             // so this update method won't be executed in a fresh setup. This is why you need to include all these
             // changes in the Create method as well.
-            SchemaBuilder.CreateMapIndexTable(nameof(BookIndex), table => table
-                .Column<string>(nameof(BookIndex.Title))
+            SchemaBuilder.AlterTable(nameof(BookIndex), table => table
+                .AddColumn<string>(nameof(BookIndex.Title))
             );
 
             return 2;
