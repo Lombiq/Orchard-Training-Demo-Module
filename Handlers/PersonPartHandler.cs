@@ -10,9 +10,9 @@ namespace Lombiq.TrainingDemo.Handlers
     // inheriting from ContentHandlerBase.
     public class PersonPartHandler : ContentPartHandler<PersonPart>
     {
-        // Did you notice that when you list Person content items on the dashboard  the title of the list item also 
-        // says the person's name? This is because what's displayed there is the content item's DisplayText (you can
-        // think of it as a universal title) that we actually set here.
+        // Did you notice that when you list Person content items on the dashboard the title of the list item also says
+        // the person's name? This is because what's displayed there is the content item's DisplayText (you can think
+        // of it as a universal title) that we actually set here.
         // Here we implement UpdatedAsync() which runs every time after a content item is updated. Check out all the
         // other events that you can use!
         public override Task UpdatedAsync(UpdateContentContext context, PersonPart part)
