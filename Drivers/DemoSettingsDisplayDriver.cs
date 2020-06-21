@@ -49,12 +49,12 @@ namespace Lombiq.TrainingDemo.Drivers
 
             // Use the Initialize helper with a view model as usual for editors.
             return Initialize<DemoSettingsViewModel>($"{nameof(DemoSettings)}_Edit", model =>
-                {
-                    model.Message = settings.Message;
-                })
-                .Location("Content:1")
-                // The OnGroup helper will make sure that the shape will be displayed on the desired editor group.
-                .OnGroup(EditorGroupId);
+            {
+                model.Message = settings.Message;
+            })
+            .Location("Content:1")
+            // The OnGroup helper will make sure that the shape will be displayed on the desired editor group.
+            .OnGroup(EditorGroupId);
         }
 
         public override async Task<IDisplayResult> UpdateAsync(DemoSettings settings, BuildEditorContext context)
