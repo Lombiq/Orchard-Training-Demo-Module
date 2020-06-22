@@ -57,10 +57,10 @@ namespace Lombiq.TrainingDemo.Controllers
                 return Unauthorized();
             }
 
-            // Nothing special here just display the last 10 Person content items.
+            // Nothing special here just display the last 10 Person Page content items.
             var persons = await _session
                 .Query<ContentItem, ContentItemIndex>()
-                .Where(index => index.ContentType == "Person")
+                .Where(index => index.ContentType == ContentTypes.PersonPage)
                 .OrderByDescending(index => index.CreatedUtc)
                 .Take(10)
                 .ListAsync();
@@ -77,10 +77,10 @@ namespace Lombiq.TrainingDemo.Controllers
                 return Unauthorized();
             }
 
-            // Display the first 10 Person content items.
+            // Display the first 10 Person Page content items.
             var persons = await _session
                 .Query<ContentItem, ContentItemIndex>()
-                .Where(index => index.ContentType == "Person")
+                .Where(index => index.ContentType == ContentTypes.PersonPage)
                 .OrderBy(index => index.CreatedUtc)
                 .Take(10)
                 .ListAsync();

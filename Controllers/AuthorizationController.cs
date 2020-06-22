@@ -47,7 +47,7 @@ namespace Lombiq.TrainingDemo.Controllers
         public async Task<ActionResult> CanEditPerson()
         {
             // Creating a content item for testing (won't be persisted).
-            var person = await _contentManager.NewAsync("Person");
+            var person = await _contentManager.NewAsync(ContentTypes.PersonPage);
 
             // Check if the user has permission to edit the content item. When you check content-related permissions
             // (ViewContent, EditContent, PublishContent etc.) there is a difference between checking these for your

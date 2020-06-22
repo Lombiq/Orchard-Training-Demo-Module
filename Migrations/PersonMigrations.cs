@@ -49,12 +49,14 @@ namespace Lombiq.TrainingDemo.Migrations
 
             // We create a new content type. Note that there's only an alter method: this will create the type if it
             // doesn't exist or modify it if it does. Make sure you understand what content types are:
-            // https://docs.orchardcore.net/en/dev/docs/glossary/#content-type. The content type's name is arbitrary,
-            // but choose a meaningful one. Notice that we attach parts by specifying their name. For our own parts we
-            // use nameof(): this is not mandatory but serves great if we change the part's name during development.
-            _contentDefinitionManager.AlterTypeDefinition("Person", type => type
+            // https://docs.orchardcore.net/en/dev/docs/glossary/#content-type. The content type's name is arbitrary
+            // but choose a meaningful one. Notice how we use a class with constants to store the type name so we
+            // prevent risky copy-pasting.
+            _contentDefinitionManager.AlterTypeDefinition(ContentTypes.PersonPage, type => type
                 .Creatable()
                 .Listable()
+                // We attach parts by specifying their name. For our own parts we use nameof(): This is not mandatory
+                // but serves great if we change the part's name during development.
                 .WithPart(nameof(PersonPart))
             );
 

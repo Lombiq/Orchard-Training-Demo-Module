@@ -34,7 +34,7 @@ namespace Lombiq.TrainingDemo.Navigation
             // first-level menu is what you will see first when you go to the Dashboard and the sub menu items when you
             // click on this. It should have a position parameter as well which not surprisingly will be the position
             // in the admin menu.
-            builder.Add(T["Persons"], "5", menu => menu
+            builder.Add(T["Person Pages"], "5", menu => menu
                 // The first-level item should be a nice looking menu item so let's add a class name and an ID. It can
                 // be used if you want to override the menu item shape (because these are shapes too) in order to add a
                 // nice looking icon to it. If you want to override it then use the NavigationItemText-[id].Id
