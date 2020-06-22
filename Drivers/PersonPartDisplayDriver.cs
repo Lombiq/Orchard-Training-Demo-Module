@@ -52,13 +52,13 @@ namespace Lombiq.TrainingDemo.Drivers
             // There are helper methods to generate the shape type. GetEditorShapeType() in this case will generate
             // "PersonPart_Edit" by default but this can be overridden form the part's settings under the content
             // type's settings on the admin. In the factory you will map the content part properties to the view model.
-            Initialize<PersonPartViewModel>(GetEditorShapeType(context), model =>
+            Initialize<PersonPartViewModel>(GetEditorShapeType(context), viewModel =>
             {
-                model.PersonPart = personPart;
+                viewModel.PersonPart = personPart;
 
-                model.BirthDateUtc = personPart.BirthDateUtc;
-                model.Name = personPart.Name;
-                model.Handedness = personPart.Handedness;
+                viewModel.BirthDateUtc = personPart.BirthDateUtc;
+                viewModel.Name = personPart.Name;
+                viewModel.Handedness = personPart.Handedness;
             }).Location("Content:1");
 
         // NEXT STATION: Startup.cs and find the static constructor.

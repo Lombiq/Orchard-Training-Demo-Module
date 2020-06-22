@@ -10,12 +10,12 @@
  * which will make the page fade in on load.
  */
 
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Layout;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Filters
 {
@@ -55,7 +55,6 @@ namespace Lombiq.TrainingDemo.Filters
             contentZone.Add(await _shapeFactory.New.InjectedShape());
 
             await next();
-            return;
         }
     }
 }

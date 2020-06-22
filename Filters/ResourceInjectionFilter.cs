@@ -1,7 +1,7 @@
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using OrchardCore.ResourceManagement;
+using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Filters
 {
@@ -37,7 +37,6 @@ namespace Lombiq.TrainingDemo.Filters
             _resourceManager.RegisterResource("stylesheet", "Lombiq.TrainingDemo.Filtered");
 
             await next();
-            return;
         }
     }
 }
