@@ -32,11 +32,11 @@ namespace Lombiq.TrainingDemo.Drivers
             // shape type for our content field which will be the name the field. Obviously, alternates can also be
             // used - so if the content item is being displayed with a display type named "Custom" then the
             // ColorField.Custom.cshtml file will be used, otherwise, the ColorField.cshtml will be active.
-            Initialize<DisplayColorFieldViewModel>(GetDisplayShapeType(context), model =>
+            Initialize<DisplayColorFieldViewModel>(GetDisplayShapeType(context), viewModel =>
             {
-                model.Field = field;
-                model.Part = context.ContentPart;
-                model.PartFieldDefinition = context.PartFieldDefinition;
+                viewModel.Field = field;
+                viewModel.Part = context.ContentPart;
+                viewModel.PartFieldDefinition = context.PartFieldDefinition;
             })
             .Location("Content")
             .Location("SummaryAdmin", "");
@@ -46,13 +46,13 @@ namespace Lombiq.TrainingDemo.Drivers
 
         public override IDisplayResult Edit(ColorField field, BuildFieldEditorContext context) =>
             // Nothing new here, the Initialize shape helper is being used to generate an editor shape.
-            Initialize<EditColorFieldViewModel>(GetEditorShapeType(context), model =>
+            Initialize<EditColorFieldViewModel>(GetEditorShapeType(context), viewModel =>
             {
-                model.Value = field.Value;
-                model.ColorName = field.ColorName;
-                model.Field = field;
-                model.Part = context.ContentPart;
-                model.PartFieldDefinition = context.PartFieldDefinition;
+                viewModel.Value = field.Value;
+                viewModel.ColorName = field.ColorName;
+                viewModel.Field = field;
+                viewModel.Part = context.ContentPart;
+                viewModel.PartFieldDefinition = context.PartFieldDefinition;
             });
 
         // NEXT STATION: Settings/ColorFieldSettings
@@ -62,8 +62,8 @@ namespace Lombiq.TrainingDemo.Drivers
             var viewModel = new EditColorFieldViewModel();
 
             // Using this overload of the model updater you can specifically say what properties need to be updated.
-            // This way you make sure no other properties will be bound to the view model. Instead of this you could put
-            // [BindNever] attributes to the properties to make the model binder to skip those, it's up to you.
+            // This way you make sure no other properties will be bound to the view model. Instead of this you could
+            // put [BindNever] attributes on the properties to make the model binder to skip those, it's up to you.
             if (await updater.TryUpdateModelAsync(viewModel, Prefix, f => f.Value, f => f.ColorName))
             {
                 // Get the ColorFieldSettings to use it when validating the view model.

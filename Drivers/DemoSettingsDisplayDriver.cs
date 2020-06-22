@@ -48,9 +48,9 @@ namespace Lombiq.TrainingDemo.Drivers
             }
 
             // Use the Initialize helper with a view model as usual for editors.
-            return Initialize<DemoSettingsViewModel>($"{nameof(DemoSettings)}_Edit", model =>
+            return Initialize<DemoSettingsViewModel>($"{nameof(DemoSettings)}_Edit", viewModel =>
             {
-                model.Message = settings.Message;
+                viewModel.Message = settings.Message;
             })
             .Location("Content:1")
             // The OnGroup helper will make sure that the shape will be displayed on the desired editor group.
@@ -69,12 +69,12 @@ namespace Lombiq.TrainingDemo.Drivers
                     return null;
                 }
 
-                // Update the view model and the model as usual.
-                var model = new DemoSettingsViewModel();
+                // Update the view model and the settings model as usual.
+                var viewModel = new DemoSettingsViewModel();
 
-                await context.Updater.TryUpdateModelAsync(model, Prefix);
+                await context.Updater.TryUpdateModelAsync(viewModel, Prefix);
 
-                settings.Message = model.Message;
+                settings.Message = viewModel.Message;
             }
 
             return await EditAsync(settings, context);
