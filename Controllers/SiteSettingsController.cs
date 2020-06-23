@@ -58,6 +58,6 @@ namespace Lombiq.TrainingDemo.Controllers
     }
 }
 
-// END OF TRAINING SECTION: Site settings
+// END OF TRAINING SECTION: Site settings and IConfiguration
 
 // NEXT STATION: Filters/ShapeInjectionFilter.cs

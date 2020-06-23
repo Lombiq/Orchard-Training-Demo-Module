@@ -55,7 +55,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 * [Resource management](ResourceManifest.cs)
 * [Permissions and authorization](Controllers/AuthorizationController.cs)
 * [Admin menus](Controllers/AdminController.cs)
-* [Site settings](Controllers/SiteSettingsController.cs)
+* [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
 * [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
 * [Caching objects and shapes](Controllers/CacheController.cs)
 * [File management](Controllers/FileManagementController.cs)
