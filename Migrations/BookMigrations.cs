@@ -25,7 +25,7 @@ namespace Lombiq.TrainingDemo.Migrations
             // advised to add SQL indices to columns that are frequently queried on. In our case, Author is like this
             // so we add an index below. Note that you can only add indices in AlterTable().
             SchemaBuilder.AlterTable(nameof(BookIndex), table => table
-                .CreateIndex($"IDX_{nameof(BookIndex)}_{nameof(BookIndex.Author)}", "Author")
+                .CreateIndex($"IDX_{nameof(BookIndex)}_{nameof(BookIndex.Author)}", nameof(BookIndex.Author))
             );
 
             // Here we return the version number of the migration. If there were no update methods we'd return 1. But
