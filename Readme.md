@@ -13,7 +13,7 @@ Demo [Orchard Core CMS](https://www.orchardcore.net/) module for training purpos
 
 You can use this module as part of a vanilla Orchard Core source that includes the full source code - which is the recommended way. You can also use it as part of a solution that uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
 
-The module depends on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to it.
+The module depends on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to it as elaborated below. Be sure to set up tools for building client-side resources as explained under the [VueJs module's docs](https://github.com/Lombiq/Orchard-Vue.js#prerequisites).
 
 The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
 
