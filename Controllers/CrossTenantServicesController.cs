@@ -89,4 +89,4 @@ namespace Lombiq.TrainingDemo.Controllers
 
 // END OF TRAINING SECTION: Accessing services from other tenants
 
-// NEXT STATION: Controllers/VueJsController.cs
+// NEXT STATION: Services/TestedService.cs

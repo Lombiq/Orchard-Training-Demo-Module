@@ -85,7 +85,7 @@ const getSassCompilerPipeline = () =>
         .pipe(rename({ extname: '.min.css' }))
         .pipe(gulp.dest(paths.stylingFilesDestination));
 
-// NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name. After that:
+// NEXT STATION: Lombiq.TrainingDemo.csproj and find the target with the 'NpmInstall' name and then come back.
 
 // END OF TRAINING SECTION: Compiling resources using Gulp
 

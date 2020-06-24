@@ -173,6 +173,9 @@ namespace Lombiq.TrainingDemo
             // Accessing services from other tenants
             Pointer<CrossTenantServicesController>();
 
+            // Unit and integration testing
+            Pointer<TestedService>();
+
 
             // Vue.js app, Vue.js component, Vue.js initialization
             Pointer<VueJsController>();

@@ -28,23 +28,27 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
 5. Setup the website using the "Training Demo" recipe.
 
+If you want to learn about unit and integration testing too then also add the test project to the solution: Add it from the module's *Tests* folder to the solution's *test* solution folder.
+
 
 ### Using NuGet packages
 
 The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases such a web app. (And it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! Check it out for what we have already solved for you.) So if you want to skip ahead you can just use that directly. If you feel adventurous then by all means create your own app as explained below!
 
 1. Create a new web project using [the Init-OrchardCore script from the Utility Scripts project](https://github.com/Lombiq/Utility-Scripts). You can also follow the slightly more involved [official documentation](https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application) on how the use the code generation templates. Be sure not to disable logging (it's enabled by default) when using the template otherwise logging won't work. If you're starting an app from scratch it's highly recommended to use the templates instead of creating it manually.
-2. Add this project and Lombiq.VueJs to the solution.
+2. Add this project and Lombiq.VueJs to the solution. For Lombiq.VueJs use a folder named exactly "Lombiq.VueJs".
 3. Add these projects as references to the web project.
-4. Run the web project (F5 or CTRL+F5).
+4. Set the web project as the startup project and run it (F5 or CTRL+F5).
 5. Setup the website using the "Training Demo" recipe.
+
+If you want to learn about unit and integration testing too then also add the test project to the solution: Add it from the module's *Tests* folder to a new *test* solution folder.
 
 
 ## Using this module for training purposes
 
 If your module compiles and you are able to enable this module on the dashboard then head over to the **[StartLearningHere.md](StartLearningHere.md)** file and start exploring all the great things you can do in Orchard Core.
 
-Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in.
+Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in. [StartLearningHere.md](StartLearningHere.md) also has training sections linked so you can go to a broader section.
 
 Be sure to check out the [Orchard Dojo Library for Orchard Core](https://orcharddojo.net/orchard-resources/CoreLibrary/) for a wealth of Orchard Core guidelines, best practices, development utilities (like scripts and snippets), and more as well!
 
