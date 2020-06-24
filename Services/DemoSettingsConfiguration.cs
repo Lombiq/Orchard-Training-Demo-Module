@@ -8,12 +8,12 @@ namespace Lombiq.TrainingDemo.Services
     // This is a configuration class that'll load the options from site settings.
     public class DemoSettingsConfiguration : IConfigureOptions<DemoSettings>
     {
-        private readonly ISiteService _site;
+        private readonly ISiteService _siteService;
 
 
-        public DemoSettingsConfiguration(ISiteService site)
+        public DemoSettingsConfiguration(ISiteService siteService)
         {
-            _site = site;
+            _siteService = siteService;
         }
 
 
@@ -44,7 +44,7 @@ namespace Lombiq.TrainingDemo.Services
             // check out what we have there related to settings and come back!
 
             // Unfortunately, no async here so we need to run this synchronously.
-            var settings = _site.GetSiteSettingsAsync()
+            var settings = _siteService.GetSiteSettingsAsync()
                 .GetAwaiter().GetResult()
                 .As<DemoSettings>();
 
