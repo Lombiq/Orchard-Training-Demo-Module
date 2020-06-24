@@ -25,7 +25,7 @@ namespace Lombiq.TrainingDemo.Services
     public interface ITestedService
     {
         // Just a simple sample method that will retrieve a content item or throw an exception if it can't be found.
-        Task<ContentItem> GetContentItemOrThrow(string id);
+        Task<ContentItem> GetContentItemOrThrowAsync(string id);
     }
 
 
@@ -41,7 +41,7 @@ namespace Lombiq.TrainingDemo.Services
         }
 
 
-        public async Task<ContentItem> GetContentItemOrThrow(string id)
+        public async Task<ContentItem> GetContentItemOrThrowAsync(string id)
         {
             // As you can see we rigorously check the input. Something we'll surely need to test later!
             if (string.IsNullOrEmpty(id))

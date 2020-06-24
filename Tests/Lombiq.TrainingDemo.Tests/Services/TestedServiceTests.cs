@@ -28,7 +28,7 @@ namespace Lombiq.TrainingDemo.Tests.Services
             // First we'll test that the service checks the input properly. Note that we're using the Shouldly library
             // for nice assertions.
 
-            Should.Throw<ArgumentNullException>(service.GetContentItemOrThrow(id));
+            Should.Throw<ArgumentNullException>(() => service.GetContentItemOrThrowAsync(id));
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace Lombiq.TrainingDemo.Tests.Services
             // AutoMocker will inject an IContentManager mock that'll by default return the default values of every 
             // type, so IContentManager.GetAsync() will return null wrapped into a Task.
 
-            Should.Throw<InvalidOperationException>(service.GetContentItemOrThrow(TestContentId));
+            Should.Throw<InvalidOperationException>(() => service.GetContentItemOrThrowAsync(TestContentId));
 
             // Let's also make sure that the content manager method was actually called, and with the correct 
             // parameter.
@@ -63,7 +63,7 @@ namespace Lombiq.TrainingDemo.Tests.Services
                 .Setup(contentManager => contentManager.GetAsync(It.IsAny<string>()))
                 .ReturnsAsync<string, IContentManager, ContentItem>(id => new ContentItem { ContentItemId = id });
 
-            var contentItem = await service.GetContentItemOrThrow(TestContentId);
+            var contentItem = await service.GetContentItemOrThrowAsync(TestContentId);
 
             contentItem.ContentItemId.ShouldBe(TestContentId);
         }
