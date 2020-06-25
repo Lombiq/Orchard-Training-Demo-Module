@@ -64,4 +64,5 @@ namespace Lombiq.TrainingDemo.Services
 }
 
 // NEXT STATION: Now that we have the service done, let's write some tests for it! These will be in a separate project
-// because usually you don't want to mix tests and production code. So head over to 
+// because usually you don't want to mix tests and production code. So head over to the Lombiq.TrainingDemo.Tests
+// project!
