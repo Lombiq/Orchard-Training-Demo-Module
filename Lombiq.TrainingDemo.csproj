@@ -15,6 +15,7 @@
 
   <ItemGroup>
     <None Remove="node_modules\**" />
+    <None Remove="Tests\**" />
   </ItemGroup>
 
   <ItemGroup>
