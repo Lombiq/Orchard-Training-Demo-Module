@@ -17,7 +17,7 @@ namespace Lombiq.TrainingDemo.Handlers
         // other events that you can use!
         public override Task UpdatedAsync(UpdateContentContext context, PersonPart part)
         {
-            part.ContentItem.DisplayText = part.Name;
+            context.ContentItem.DisplayText = part.Name;
 
             return Task.CompletedTask;
         }
