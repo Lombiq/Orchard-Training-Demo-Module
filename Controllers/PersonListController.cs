@@ -120,7 +120,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // this should get you going!
 
             // There is one final piece missing to make what we need to know about content items complete. NEXT
-            // STATION: Check out Handlers / PersonPartHandler.
+            // STATION: Check out Handlers/PersonPartHandler.
         }
     }
 }
