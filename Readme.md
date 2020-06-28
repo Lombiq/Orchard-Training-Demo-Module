@@ -1,4 +1,4 @@
-# Orchard Training Demo module Readme
+# Orchard Training Demo module
 
 
 
