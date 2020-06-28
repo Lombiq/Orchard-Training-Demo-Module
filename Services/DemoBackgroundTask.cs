@@ -44,8 +44,9 @@ namespace Lombiq.TrainingDemo.Services
         }
 
 
-        // Since background tasks are singletons we'll need this IServiceProvider instance to resolve every 
-        // non-singleton service
+        // Since background tasks are singletons we'll need this IServiceProvider instance to resolve every
+        // non-singleton service. When in doubt, just use this IServiceProvider instance to resolve everything instead
+        // of injecting a service via the constructor.
         public async Task DoWorkAsync(IServiceProvider serviceProvider, CancellationToken cancellationToken)
         {
             // This is where the task is implemented. Increment _count and print it to the error log with a message.
