@@ -1,6 +1,9 @@
 @model PersonPartViewModel
 @* Not much interesting happening here, we just display data from the view model. Note that there's no need to display
-    anything from the Biography Text Field: The field has its own display already defined so it'll handle it for itself. *@
+    anything from the Biography Text Field: The field has its own display already defined so it'll handle it for
+    itself. However, we could retrieve and display data from it here by accessing it via the
+    Model.PersonPart.Biography.Text property (though at that point it would be nicer to put a Biography property
+    directly on to the view model) *@
 
 <div><strong>@Model.Name</strong></div>
 <div>@T["Birth Date: {0}", Model.BirthDateUtc?.ToShortDateString()]</div>

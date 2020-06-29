@@ -9,9 +9,9 @@
  * register this class with the service provider (see: Startup.cs).
  */
 
-using System;
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
+using System;
 
 namespace Lombiq.TrainingDemo.Models
 {
@@ -27,7 +27,9 @@ namespace Lombiq.TrainingDemo.Models
         // This is a content field. Content fields are similar to content parts, however, fields are a bit smaller
         // components encapsulating a simple editor and display for a single piece of data. Content parts could provide
         // more complex functionality and also can contain a set of fields.
-        // TextField is one of Orchard's many built-in fields.
+        // TextField is one of Orchard's many built-in fields. To utilize it you don't need to add a property for it to
+        // the part (you just need to attach it to the content type, what we're doing from migrations) but having such
+        // a property is a nice shortcut to it.
         public TextField Biography { get; set; }
     }
 
