@@ -1,5 +1,7 @@
-@model ShapeViewModel<PersonPart>
+@model PersonPartViewModel
+@* Not much interesting happening here, we just display data from the view model. Note that there's no need to display
+    anything from the Biography Text Field: The field has its own display already defined so it'll handle it for itself. *@
 
-<div><strong>@Model.Value.Name</strong></div>
-<div>@T["Birth Date: {0}", Model.Value.BirthDateUtc?.ToShortDateString()]</div>
-<div>@T["Handedness: {0}", Model.Value.Handedness]</div>
+<div><strong>@Model.Name</strong></div>
+<div>@T["Birth Date: {0}", Model.BirthDateUtc?.ToShortDateString()]</div>
+<div>@T["Handedness: {0}", Model.Handedness]</div>
