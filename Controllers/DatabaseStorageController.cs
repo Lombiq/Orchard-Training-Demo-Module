@@ -96,7 +96,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 // via its accessor service. Later you'll also see how we'll use this to run validations in drivers.
                 await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater)));
 
-            // You can check out Views/Store/JKRowlingBooks.cshtml and come back here.
+            // You can check out Views/DatabaseStorage/JKRowlingBooks.cshtml and come back here.
             return View(bookShapes);
         }
 
