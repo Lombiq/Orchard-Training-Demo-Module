@@ -12,11 +12,11 @@
 }
 
 @* Script and styling resources can be used in these shapes. We'll get to it really soon but first go through this file
-and understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
-helpers all the necessary scripts and styles will be loaded. To specify where the resources should be displayed you can
-use the "at" attribute (either in the "Head", i.e. in the <head> tag, or "Foot", just before </body>). For styles it's
-"Head" by default (and Foot doesn't really make sense). For scripts it will be a local script if the "at" attribute is
-missing.*@
+    and understand what is happening. Pickr is a javascript plugin used for displaying color pickers. With these two tag
+    helpers all the necessary scripts and styles will be loaded. To specify where the resources should be displayed you can
+    use the "at" attribute (either in the "Head", i.e. in the <head> tag, or "Foot", just before </body>). For styles it's
+    "Head" by default (and Foot doesn't really make sense). For scripts it will be a local script if the "at" attribute is
+    missing.*@
 
 <script asp-name="Pickr" at="Head"></script>
 <style asp-name="Lombiq.TrainingDemo.ColorPicker"></style>

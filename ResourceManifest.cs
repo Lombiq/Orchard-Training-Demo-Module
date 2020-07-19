@@ -30,7 +30,23 @@ namespace Lombiq.TrainingDemo
                 // This is the actual script file that will be assigned to the resource name. Please note that the
                 // naming of the file itself is following similar rules as the resource name, with some modifications
                 // applied as it's a file name.
-                .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.js");
+                // If you add two arguments then the first one can be the production variant of the resource (the one
+                // commonly minified) and the other one the debug variant (non-minified, for local development). In
+                // this case be sure to use one variant for both the local and CDN URL, or two for both so there is no
+                // confusion.
+                .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.js")
+                // You can also use a CDN (or just a CDN) if you want to optimize static resource loading. If a
+                // resource has both a local and CDN version then you can decide when including it which one to use or
+                // you can set this globally under General Settings from the admin.
+                .SetCdn("https://cdn.jsdelivr.net/npm/pickr-widget@0.3.6/dist/pickr.min.js")
+                // In case of a CDN make sure to also utilize Subresource Integrity so the script can't be changed on
+                // the CDN and potentially harm your site! For more info on SRI see: 
+                // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity.
+                // You can create such hashes with e.g. this tool: https://www.srihash.org/.
+                .SetCdnIntegrity("sha384-9QkVz27WSgTpBfZqt9HJh4LIH88MjcPx4wGafm3SZOHXnje8A5mIeWwQ332WZxS/")
+                // You can also define a version for a resource. Multiple resources with the same name but different
+                // version can exist and when including the resource you can decide which one to use.
+                .SetVersion("0.3.6");
 
             manifest
                 // With the DefineStyle method you can define a stylesheet. The way of doing this is very similar to
