@@ -23,7 +23,7 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 **Warning:** At the moment the latest released Orchard Core version is RC1 and it targets the unsupported 3.0 version of .NET Core. Since we updated our extensions to 3.1 they won't be compatible anymore. Thus for the time being please use the other approach with NuGet packages.
 
 1. Open an Orchard Core solution. You can download or `git clone` Orchard from [GitHub](https://github.com/OrchardCMS/OrchardCore/). Be sure to clone to the `master` branch, i.e. the latest released source, as this is what the module is kept up to date with (not the latest `dev` which serves for ongoing development).
-2. Add the Lombiq.VueJs project first, then this one to the solution into folders named exactly "Lombiq.VueJs" and "Lombiq.TrainingDemo" under *src/OrchardCore.Modules* (it's important that you put them into this file system folder - the logical solution folder doesn't matter).
+2. Add the Lombiq.VueJs project first, then this one to the solution into folders named exactly "Lombiq.VueJs" and "Lombiq.TrainingDemo" under *src/OrchardCore.Modules* (it's important that you put them into this file system folder - the logical solution folder doesn't matter). Be sure to read the Vue.js module's Readme on what to install for it to build properly!
 3. Add these two projects as references to the `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
 4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
 5. Setup the website using the "Training Demo" recipe.
@@ -36,7 +36,7 @@ If you want to learn about unit and integration testing too then also add the te
 The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases such a web app. (And it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! Check it out for what we have already solved for you.) So if you want to skip ahead you can just use that directly. If you feel adventurous then by all means create your own app as explained below!
 
 1. Create a new web project using [the Init-OrchardCore script from the Utility Scripts project](https://github.com/Lombiq/Utility-Scripts). You can also follow the slightly more involved [official documentation](https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application) on how the use the code generation templates. Be sure not to disable logging (it's enabled by default) when using the template otherwise logging won't work. If you're starting an app from scratch it's highly recommended to use the templates instead of creating it manually.
-2. Add this project and Lombiq.VueJs to the solution. For Lombiq.VueJs use a folder named exactly "Lombiq.VueJs".
+2. Add this project and Lombiq.VueJs to the solution. For Lombiq.VueJs use a folder named exactly "Lombiq.VueJs". Be sure to read the Vue.js module's Readme on what to install for it to build properly!
 3. Add these projects as references to the web project.
 4. Set the web project as the startup project and run it (F5 or CTRL+F5).
 5. Setup the website using the "Training Demo" recipe.
