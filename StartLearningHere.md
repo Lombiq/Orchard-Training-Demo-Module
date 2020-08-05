@@ -60,6 +60,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 * [Caching objects and shapes](Controllers/CacheController.cs)
 * [File management](Controllers/FileManagementController.cs)
 * [Background tasks](Services/DemoBackgroundTask.cs)
+* [Web API](Controllers/ApiController.cs)
 * [Middlewares](Middlewares/RequestLoggingMiddleware.cs)
 * [Accessing services from other tenants](Controllers/CrossTenantServicesController.cs)
 * [Unit and integration testing](Services/TestedService.cs)

@@ -167,6 +167,9 @@ namespace Lombiq.TrainingDemo
             // BackgroundTask, BackgroundTaskSettings
             Pointer<DemoBackgroundTask>();
 
+            // Web API (RESTful API controller)
+            Pointer<ApiController>();
+
             // Middleware
             Pointer<RequestLoggingMiddleware>();
 
