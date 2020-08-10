@@ -51,7 +51,9 @@ namespace Lombiq.TrainingDemo.Filters
 
             // The dynamic Layout object will contain a Zones dictionary that you can use to access a zone.
             var contentZone = layout.Zones["Content"];
-            // Here you can add an ad-hoc generated shape to the content zone.
+            // Here you can add an ad-hoc generated shape to the content zone. This works in the same way as we've seen
+            // previously when we talked about display management. You can find the template that'll renders this shape
+            // under Views/InjectedShape.cshtml.
             contentZone.Add(await _shapeFactory.New.InjectedShape());
 
             await next();
