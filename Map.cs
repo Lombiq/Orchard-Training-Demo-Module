@@ -48,7 +48,7 @@ namespace Lombiq.TrainingDemo
             Pointer<YourFirstOrchardCoreController>();
 
 
-            // Display management, IDisplayManager
+            // Display management, IDisplayManager, ad-hoc shapes, shape injection from template
             Pointer<DisplayManagementController>();
 
             // Display types, zones, placement
@@ -139,7 +139,7 @@ namespace Lombiq.TrainingDemo
             Pointer<ShapeInjectionFilter>();
             Pointer<ResourceInjectionFilter>();
 
-            // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection
+            // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection from filter
             Pointer<ShapeInjectionFilter>();
 
             // IResourceManager, resource injection
