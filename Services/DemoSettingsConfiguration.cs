@@ -1,4 +1,4 @@
-﻿using Lombiq.TrainingDemo.Models;
+using Lombiq.TrainingDemo.Models;
 using Microsoft.Extensions.Options;
 using OrchardCore.Entities;
 using OrchardCore.Settings;
@@ -11,10 +11,7 @@ namespace Lombiq.TrainingDemo.Services
         private readonly ISiteService _siteService;
 
 
-        public DemoSettingsConfiguration(ISiteService siteService)
-        {
-            _siteService = siteService;
-        }
+        public DemoSettingsConfiguration(ISiteService siteService) => _siteService = siteService;
 
 
         public void Configure(DemoSettings options)
@@ -26,19 +23,19 @@ namespace Lombiq.TrainingDemo.Services
 
             // If you'd like to try this out, add an "OrchardCore" section to your web app's appsettings.json file. So
             // in the end it should look something like this:
-            //{
-            //  "Logging": {
-            //    "IncludeScopes": false,
-            //    "LogLevel": {
-            //      "Default": "Warning"
-            //    }
-            //  },
-            //  "OrchardCore": {
-            //    "Lombiq_TrainingDemo": {
-            //      "Message": "This comes from appsettings!"
-            //    }
-            //  }
-            //}
+            ////{
+            ////  "Logging": {
+            ////    "IncludeScopes": false,
+            ////    "LogLevel": {
+            ////      "Default": "Warning"
+            ////    }
+            ////  },
+            ////  "OrchardCore": {
+            ////    "Lombiq_TrainingDemo": {
+            ////      "Message": "This comes from appsettings!"
+            ////    }
+            ////  }
+            ////}
 
             // Not that for this to work IShellConfiguration needs to be accessed from the Startup class, so quickly
             // check out what we have there related to settings and come back!

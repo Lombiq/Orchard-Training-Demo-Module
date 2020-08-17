@@ -40,7 +40,7 @@ namespace Lombiq.TrainingDemo
                 // you can set this globally under General Settings from the admin.
                 .SetCdn("https://cdn.jsdelivr.net/npm/pickr-widget@0.3.6/dist/pickr.min.js")
                 // In case of a CDN make sure to also utilize Subresource Integrity so the script can't be changed on
-                // the CDN and potentially harm your site! For more info on SRI see: 
+                // the CDN and potentially harm your site! For more info on SRI see:
                 // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity.
                 // You can create such hashes with e.g. this tool: https://www.srihash.org/.
                 .SetCdnIntegrity("sha384-9QkVz27WSgTpBfZqt9HJh4LIH88MjcPx4wGafm3SZOHXnje8A5mIeWwQ332WZxS/")
@@ -58,7 +58,8 @@ namespace Lombiq.TrainingDemo
                 // Finally let's see an example for defining a resource for our custom code. You can see the naming is
                 // more specific and contains our namespace.
                 .DefineStyle("Lombiq.TrainingDemo.ColorPicker")
-                .SetUrl("~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.min.css",
+                .SetUrl(
+                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.min.css",
                     "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.css")
                 // You can give a list of resource names to SetDependencies to force the loading of other resources
                 // when a given resource is used. Here Pickr is a dependency.
@@ -69,7 +70,8 @@ namespace Lombiq.TrainingDemo
 
             manifest
                 .DefineStyle("Lombiq.TrainingDemo.Filtered")
-                .SetUrl("~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
+                .SetUrl(
+                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
                     "~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.css");
 
             // This resource will be required for our demo Vue.js application.

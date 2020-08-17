@@ -34,7 +34,7 @@ namespace Lombiq.TrainingDemo.Drivers
 
         // Here's the EditAsync override to display editor for our site settings on the Dashboard. Note that it has a
         // sync version too.
-        public override async Task<IDisplayResult> EditAsync(DemoSettings settings, BuildEditorContext context)
+        public override async Task<IDisplayResult> EditAsync(DemoSettings section, BuildEditorContext context)
         {
             // What you really don't want to is to let unauthorized users update site-level settings of your site so
             // it's really advisable to create a separate permission for managing the settings or the feature related
@@ -48,16 +48,15 @@ namespace Lombiq.TrainingDemo.Drivers
             }
 
             // Use the Initialize helper with a view model as usual for editors.
-            return Initialize<DemoSettingsViewModel>($"{nameof(DemoSettings)}_Edit", viewModel =>
-            {
-                viewModel.Message = settings.Message;
-            })
+            return Initialize<DemoSettingsViewModel>(
+                $"{nameof(DemoSettings)}_Edit",
+                viewModel => viewModel.Message = section.Message)
             .Location("Content:1")
             // The OnGroup helper will make sure that the shape will be displayed on the desired editor group.
             .OnGroup(EditorGroupId);
         }
 
-        public override async Task<IDisplayResult> UpdateAsync(DemoSettings settings, BuildEditorContext context)
+        public override async Task<IDisplayResult> UpdateAsync(DemoSettings section, BuildEditorContext context)
         {
             // Since this DisplayDriver is for the ISite object this UpdateAsync will be called every time if a site
             // settings editor is being updated. To make sure that this is for our editor group check it here.
@@ -74,10 +73,10 @@ namespace Lombiq.TrainingDemo.Drivers
 
                 await context.Updater.TryUpdateModelAsync(viewModel, Prefix);
 
-                settings.Message = viewModel.Message;
+                section.Message = viewModel.Message;
             }
 
-            return await EditAsync(settings, context);
+            return await EditAsync(section, context);
         }
 
 

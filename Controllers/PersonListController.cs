@@ -93,13 +93,13 @@ namespace Lombiq.TrainingDemo.Controllers
 
                 var eighteenYearOld = _clock.UtcNow.AddYears(-18);
 
-                // Don't just overwrite the part's property directly! That'll change the index record but not the 
-                // document!
-                //person.As<PersonPart>().BirthDateUtc = eighteenYearOld;
+                // Don't just overwrite the part's property directly! That'll change the index record but not the
+                // document! Don't just do this:
+                ////person.As<PersonPart>().BirthDateUtc = eighteenYearOld;
                 // Instead, use Alter() as we do below:
                 person.Alter<PersonPart>(part => part.BirthDateUtc = eighteenYearOld);
 
-                // Once you're done you have to save the content item explicitly. Remember when we saved Books with 
+                // Once you're done you have to save the content item explicitly. Remember when we saved Books with
                 // ISession.Save()? This is something similar for content items.
                 await _contentManager.UpdateAsync(person);
 
@@ -116,7 +116,7 @@ namespace Lombiq.TrainingDemo.Controllers
                     string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                     "Nobody. Did you create people older than 90?");
 
-            // That was a quick intro to modifying content items from code. It's a lot more involved than this but 
+            // That was a quick intro to modifying content items from code. It's a lot more involved than this but
             // this should get you going!
 
             // There is one final piece missing to make what we need to know about content items complete. NEXT

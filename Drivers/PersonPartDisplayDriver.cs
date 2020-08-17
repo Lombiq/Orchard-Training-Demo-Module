@@ -13,7 +13,7 @@ namespace Lombiq.TrainingDemo.Drivers
     // (see: Startup.cs).
     public class PersonPartDisplayDriver : ContentPartDisplayDriver<PersonPart>
     {
-        // Some notes on the various methods you can override: 
+        // Some notes on the various methods you can override:
         // - Keep in mind that all of them have a sync and async version, use the one more appropriate for what you do
         //   inside them (use the async ones if you'll write any async code in the body, the sync ones otherwise).
         // - Also, some overrides will take a context object: When in doubt use the one with the context object,
@@ -102,7 +102,7 @@ namespace Lombiq.TrainingDemo.Drivers
         }
 
 
-        private void PopulateViewModel(PersonPart part, PersonPartViewModel viewModel)
+        private static void PopulateViewModel(PersonPart part, PersonPartViewModel viewModel)
         {
             viewModel.PersonPart = part;
 

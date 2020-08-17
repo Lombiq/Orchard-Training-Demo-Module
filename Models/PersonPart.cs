@@ -36,7 +36,7 @@ namespace Lombiq.TrainingDemo.Models
     public enum Handedness
     {
         Right,
-        Left
+        Left,
     }
 }
 

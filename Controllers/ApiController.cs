@@ -1,10 +1,10 @@
-﻿/*
+/*
  * Creating RESTful web APIs as part of an Orchard module is very similar to creating an MVC controller and pretty much
- * the same as creating one in plain ASP.NET Core (see the related tutorial here: 
+ * the same as creating one in plain ASP.NET Core (see the related tutorial here:
  * https://docs.microsoft.com/en-us/aspnet/core/web-api/). Let's just see a basic example!
- * 
- * Note that out of the box Orchard provides a web API too: There are many RESTful API endpoints available e.g. for 
- * content and tenant management, as well as a GraphQL API infrastructure that many modules contribute to (see: 
+ *
+ * Note that out of the box Orchard provides a web API too: There are many RESTful API endpoints available e.g. for
+ * content and tenant management, as well as a GraphQL API infrastructure that many modules contribute to (see:
  * https://docs.orchardcore.net/en/dev/docs/reference/modules/Apis.GraphQL/) and you can extend too.
  */
 
@@ -42,7 +42,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // Look up the ID of a Person Page that you've created previously (when you open one from the admin content
-        // item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access 
+        // item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access
         // this action under api/Lombiq.TrainingDemo?contentItemId=<content item ID>.
         public async Task<IActionResult> Get(string contentItemId)
         {

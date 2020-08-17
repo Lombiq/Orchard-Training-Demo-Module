@@ -1,4 +1,4 @@
-﻿using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Primitives;
 using OrchardCore.DynamicCache;
 using OrchardCore.Environment.Cache;
@@ -9,15 +9,6 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Services
 {
-    public interface IDateTimeCachingService
-    {
-        Task<DateTime> GetMemoryCachedDateTimeAsync();
-        Task<DateTime> GetDynamicCachedDateTimeWith30SecondsExpiryAsync();
-        Task<DateTime> GetDynamicCachedDateTimeVariedByRoutesAsync();
-        Task InvalidateCachedDateTimeAsync();
-    }
-
-
     public class DateTimeCachingService : IDateTimeCachingService
     {
         public const string MemoryCacheKey = "Lombiq.TrainingDemo.MemoryCache.DateTime";
@@ -86,7 +77,9 @@ namespace Lombiq.TrainingDemo.Services
             await GetOrCreateDynamicCachedDateTimeAsync(
                 // Notice that the CacheContext object has chainable methods so you can use them to populate the
                 // settings.
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
                 new CacheContext(DynamicCacheKey).WithExpiryAfter(TimeSpan.FromSeconds(30)));
+#pragma warning restore SA1114 // Parameter list should follow declaration
 
         // This method will cache the current date similarly then the previous one however instead of setting a 30
         // second expiration it will be tagged so later it can be invalidated. Also this cache will be differentiated
@@ -100,7 +93,7 @@ namespace Lombiq.TrainingDemo.Services
                     .AddContext("route")
                     .AddTag(DynamicCacheTag));
 
-        // It will invalidate the memory cache and all the dynamic caches which have been tagged.
+        // Invalidates the memory cache and all the dynamic caches which have been tagged.
         public async Task InvalidateCachedDateTimeAsync()
         {
             // As mentioned ISignal service is used to invalidate the memory cache.

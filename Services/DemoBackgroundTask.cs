@@ -1,11 +1,11 @@
-﻿/*
+/*
  * In this demonstration we'll implement a background task that will run in 2 minute intervals five times and will
  * write a message into the error log.
- * 
+ *
  * In Orchard Core background tasks always run periodically meaning if you want them to stop you need to explicitly
  * disable them from code or from the Background Tasks admin page if the OrchardCore.BackgroundTasks feature is
  * enabled.
- * 
+ *
  * For scheduling each task Orchard Core uses NCrontab (https://github.com/atifaziz/NCrontab) providing functionality
  * to specify crontab expressions. By default tasks are set to be executed every 5 minutes - and as mentioned they'll
  * run until you disable them. If you want to learn more about crontab expressions you can use this online tool:
@@ -32,16 +32,14 @@ namespace Lombiq.TrainingDemo.Services
         // Setting a maximum time this background task will be executed.
         private const int MaxCount = 5;
 
+        private readonly ILogger<DemoBackgroundTask> _logger;
+
         // Storing execution times in a private field. Since background tasks are singleton objects this will keep its
         // value while the application runs.
         private int _count;
-        private readonly ILogger<DemoBackgroundTask> _logger;
 
 
-        public DemoBackgroundTask(ILogger<DemoBackgroundTask> logger)
-        {
-            _logger = logger;
-        }
+        public DemoBackgroundTask(ILogger<DemoBackgroundTask> logger) => _logger = logger;
 
 
         // Since background tasks are singletons we'll need this IServiceProvider instance to resolve every

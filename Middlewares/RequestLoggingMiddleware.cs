@@ -1,4 +1,4 @@
-﻿/*
+/*
  * A middleware in ASP.NET Core is, to quote the official documentation, "software that's assembled into an app
  * pipeline to handle requests and responses". Well said! Middlewares work pretty much the same in Orchard as they do
  * in any ASP.NET Core app but nevertheless, let's see a simple example, though a bit spiced up with Orchard services.
@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Middlewares
 {
-    // This middleware will serve as a simple logger for requests and log each request with the site's name. 
+    // This middleware will serve as a simple logger for requests and log each request with the site's name
     // Note that while this middleware is in its own class we could just write it as a delegate in the Startup class
     // too. This way Startup won't get cluttered.
     public class RequestLoggingMiddleware
@@ -24,10 +24,7 @@ namespace Lombiq.TrainingDemo.Middlewares
 
 
         // You need to inject a RequestDelegate instance here.
-        public RequestLoggingMiddleware(RequestDelegate next)
-        {
-            _next = next;
-        }
+        public RequestLoggingMiddleware(RequestDelegate next) => _next = next;
 
 
         // This method is the actual middleware. Note that apart from the first parameter obligatorily being

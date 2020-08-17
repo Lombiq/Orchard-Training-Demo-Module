@@ -1,4 +1,4 @@
-﻿using Lombiq.TrainingDemo.Services;
+using Lombiq.TrainingDemo.Services;
 using Moq;
 using Moq.AutoMock;
 using OrchardCore.ContentManagement;
@@ -16,7 +16,7 @@ namespace Lombiq.TrainingDemo.Tests.Services
         private const string TestContentId = "content ID";
 
 
-        // Here we have a nice data-driven test. If you're new to this check out this blog post: 
+        // Here we have a nice data-driven test. If you're new to this check out this blog post:
         // https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/
         [Theory]
         [InlineData(null)]
@@ -37,12 +37,12 @@ namespace Lombiq.TrainingDemo.Tests.Services
             var service = CreateTestedService(out var mocker);
 
             // Let's see if the service properly throws an exception if there is no matching content item. Note that
-            // AutoMocker will inject an IContentManager mock that'll by default return the default values of every 
+            // AutoMocker will inject an IContentManager mock that'll by default return the default values of every
             // type, so IContentManager.GetAsync() will return null wrapped into a Task.
 
             Should.Throw<InvalidOperationException>(() => service.GetContentItemOrThrowAsync(TestContentId));
 
-            // Let's also make sure that the content manager method was actually called, and with the correct 
+            // Let's also make sure that the content manager method was actually called, and with the correct
             // parameter.
 
             mocker

@@ -1,6 +1,6 @@
 /*
  * There are multiple ways to cache data in ASP.NET Core which are used in Orchard Core as well. For example the
- * content items are cached using the IMemoryCache service. In-memory caching holds the copy of data in local server’s
+ * content items are cached using the IMemoryCache service. In-memory caching holds the copy of data in local serverâ€™s
  * memory which could be enough in most cases. Some features, however, require some extra functionality and more
  * complex ways of caching such as shapes. In Orchard Core there is a so-called Dynamic Cache which is built upon the
  * Distributed Cache. Distributed cache maintains cache in a centralized location which is accessible by servers in a
@@ -21,11 +21,7 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IDateTimeCachingService _dateTimeCachingService;
 
 
-        public CacheController(
-            IDateTimeCachingService dateTimeCachingService)
-        {
-            _dateTimeCachingService = dateTimeCachingService;
-        }
+        public CacheController(IDateTimeCachingService dateTimeCachingService) => _dateTimeCachingService = dateTimeCachingService;
 
 
         // In this action we'll cache a DateTime three different ways.
@@ -48,7 +44,7 @@ namespace Lombiq.TrainingDemo.Controllers
             {
                 MemoryCachedDateTime = memoryCachedDateTime,
                 DynamicCachedDateTimeWith30SecondsExpiry = dynamicCachedDateTimeWith30SecondsExpiry,
-                DynamicCachedDateTimeVariedByRoutes = dynamicCachedDateTimeVariedByRoutes
+                DynamicCachedDateTimeVariedByRoutes = dynamicCachedDateTimeVariedByRoutes,
             });
         }
 
@@ -74,4 +70,3 @@ namespace Lombiq.TrainingDemo.Controllers
         // NEXT STATION: Views/Cache/Shape.cshtml
     }
 }
-

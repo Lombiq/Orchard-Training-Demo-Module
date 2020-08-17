@@ -20,8 +20,7 @@ namespace Lombiq.TrainingDemo.Indexes
     public class PersonPartIndexProvider : IndexProvider<ContentItem>
     {
         // Notice that ContentItem is what we are describing the provider for not the part.
-        public override void Describe(DescribeContext<ContentItem> context)
-        {
+        public override void Describe(DescribeContext<ContentItem> context) =>
             context.For<PersonPartIndex>()
                 .Map(contentItem =>
                 {
@@ -36,15 +35,14 @@ namespace Lombiq.TrainingDemo.Indexes
                     // managing the database easier overall.
                     // Also note that there is a lot more to index providers than just Map() (although this is what you
                     // need to use the most), see the YesSQL documentation: https://github.com/sebastienros/yessql/wiki/Tutorial
-                    if (personPart == null) return null;
-
-                    return new PersonPartIndex
-                    {
-                        ContentItemId = contentItem.ContentItemId,
-                        BirthDateUtc = personPart.BirthDateUtc,
-                    };
+                    return personPart == null
+                        ? null
+                        : new PersonPartIndex
+                        {
+                            ContentItemId = contentItem.ContentItemId,
+                            BirthDateUtc = personPart.BirthDateUtc,
+                        };
                 });
-        }
     }
 
     // END OF TRAINING SECTION: Content Item and Content Part development

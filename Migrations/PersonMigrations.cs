@@ -19,10 +19,7 @@ namespace Lombiq.TrainingDemo.Migrations
         private readonly IContentDefinitionManager _contentDefinitionManager;
 
 
-        public PersonMigrations(IContentDefinitionManager contentDefinitionManager)
-        {
-            _contentDefinitionManager = contentDefinitionManager;
-        }
+        public PersonMigrations(IContentDefinitionManager contentDefinitionManager) => _contentDefinitionManager = contentDefinitionManager;
 
 
         public int Create()
@@ -37,7 +34,7 @@ namespace Lombiq.TrainingDemo.Migrations
                     .WithEditor("TextArea")
                     .WithSettings(new TextFieldSettings
                     {
-                        Hint = "Person's biography"
+                        Hint = "Person's biography",
                     }))
             );
 
@@ -61,8 +58,8 @@ namespace Lombiq.TrainingDemo.Migrations
             );
 
             // We can even create a widget with the same content part. Widgets are just content types as usual but with
-            // the Stereotype set as "Widget". 
-            // You'll notice that our site's configuration includes three zones on the frontend that you can add 
+            // the Stereotype set as "Widget".
+            // You'll notice that our site's configuration includes three zones on the frontend that you can add
             // widgets to, as well as two layers. Check them out on the admin!
             _contentDefinitionManager.AlterTypeDefinition("PersonWidget", type => type
                 .Stereotype("Widget")

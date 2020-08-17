@@ -24,12 +24,12 @@ namespace Lombiq.TrainingDemo.Permissions
             "Access the Person List dashboard",
             new[] { ManagePersons });
 
-        
+
         public Task<IEnumerable<Permission>> GetPermissionsAsync() =>
             Task.FromResult(new[]
             {
                 ManagePersons,
-                AccessPersonListDashboard
+                AccessPersonListDashboard,
             }
             .AsEnumerable());
 
@@ -42,13 +42,13 @@ namespace Lombiq.TrainingDemo.Permissions
                     // Administrators will have all the permissions by default.
                     Name = "Administrator",
                     // Since AccessPersonListDashboard is implied by EditPersonList we don't have to list the former here.
-                    Permissions = new[] { ManagePersons }
+                    Permissions = new[] { ManagePersons },
                 },
                 new PermissionStereotype
                 {
                     Name = "Editor",
-                    Permissions = new[] { AccessPersonListDashboard }
-                }
+                    Permissions = new[] { AccessPersonListDashboard },
+                },
             };
     }
 }

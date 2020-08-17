@@ -16,44 +16,45 @@ namespace Lombiq.TrainingDemo.Drivers
     // for content fields. Don't forget to register this class with the service provider (see: Startup.cs).
     public class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
     {
-        public IStringLocalizer T { get; set; }
+        private readonly IStringLocalizer T;
 
 
-        public ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> stringLocalizer)
-        {
-            T = stringLocalizer;
-        }
+        public ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> stringLocalizer) => T = stringLocalizer;
 
 
-        public override IDisplayResult Display(ColorField field, BuildFieldDisplayContext context) =>
+        public override IDisplayResult Display(ColorField field, BuildFieldDisplayContext fieldDisplayContext) =>
             // Same Display method for generating display shapes but this time the Initialize shape helper is being
             // used. We've seen it in the PersonPartDisplayDriver.Edit method. For this we need a view model object
             // which will be populated with the field data. The GetDisplayShapeType helper will generate a conventional
             // shape type for our content field which will be the name the field. Obviously, alternates can also be
             // used - so if the content item is being displayed with a display type named "Custom" then the
             // ColorField.Custom.cshtml file will be used, otherwise, the ColorField.cshtml will be active.
-            Initialize<DisplayColorFieldViewModel>(GetDisplayShapeType(context), viewModel =>
-            {
-                viewModel.Field = field;
-                viewModel.Part = context.ContentPart;
-                viewModel.PartFieldDefinition = context.PartFieldDefinition;
-            })
+            Initialize<DisplayColorFieldViewModel>(
+                GetDisplayShapeType(fieldDisplayContext),
+                viewModel =>
+                {
+                    viewModel.Field = field;
+                    viewModel.Part = fieldDisplayContext.ContentPart;
+                    viewModel.PartFieldDefinition = fieldDisplayContext.PartFieldDefinition;
+                })
             .Location("Content")
-            .Location("SummaryAdmin", "");
+            .Location("SummaryAdmin", string.Empty);
 
         // NEXT STATION: Take a look at the Views/ColorField.cshtml shape to see how our field should display the given
         // color and then come back here.
 
         public override IDisplayResult Edit(ColorField field, BuildFieldEditorContext context) =>
             // Nothing new here, the Initialize shape helper is being used to generate an editor shape.
-            Initialize<EditColorFieldViewModel>(GetEditorShapeType(context), viewModel =>
-            {
-                viewModel.Value = field.Value;
-                viewModel.ColorName = field.ColorName;
-                viewModel.Field = field;
-                viewModel.Part = context.ContentPart;
-                viewModel.PartFieldDefinition = context.PartFieldDefinition;
-            });
+            Initialize<EditColorFieldViewModel>(
+                GetEditorShapeType(context),
+                viewModel =>
+                {
+                    viewModel.Value = field.Value;
+                    viewModel.ColorName = field.ColorName;
+                    viewModel.Field = field;
+                    viewModel.Part = context.ContentPart;
+                    viewModel.PartFieldDefinition = context.PartFieldDefinition;
+                });
 
         // NEXT STATION: Settings/ColorFieldSettings
 

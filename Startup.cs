@@ -34,6 +34,7 @@ using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Indexing;
+using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
@@ -44,17 +45,14 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo
 {
-    // Note that the Startup class is a conventionally named class with conventionally named methods. This way it'll be
-    // hooked up to the rest of the app automatically. Magic!
-    public class Startup
+    // While the startup class doesn't need to derive from StartupBase and can just use conventionally named methods
+    // it's a bit less of a magic this way, and code analysis won't tell us to make it static.
+    public class Startup : StartupBase
     {
         private readonly IShellConfiguration _shellConfiguration;
 
 
-        public Startup(IShellConfiguration shellConfiguration)
-        {
-            _shellConfiguration = shellConfiguration;
-        }
+        public Startup(IShellConfiguration shellConfiguration) => _shellConfiguration = shellConfiguration;
 
 
         static Startup()
@@ -70,7 +68,7 @@ namespace Lombiq.TrainingDemo
         }
 
 
-        public void ConfigureServices(IServiceCollection services)
+        public override void ConfigureServices(IServiceCollection services)
         {
             // Book
             services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
@@ -126,7 +124,9 @@ namespace Lombiq.TrainingDemo
 
                 var tenantFolderPath = PathExtensions.Combine(
                     // This is the absolute path of the "App_Data" folder.
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
                     shellOptions.ShellsApplicationDataPath,
+#pragma warning restore SA1114 // Parameter list should follow declaration
                     // This is the folder which contains the tenants which is Sites by default.
                     shellOptions.ShellsContainerName,
                     // This is the tenant name. We want our custom folder inside this folder.
@@ -148,12 +148,9 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
         }
 
-        public void Configure(IApplicationBuilder builder, IEndpointRouteBuilder routes, IServiceProvider serviceProvider)
-        {
+        public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) =>
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
             // don't need it you can skip overriding it. However, here we need it for our middleware.
-
-            builder.UseMiddleware<RequestLoggingMiddleware>();
-        }
+            app.UseMiddleware<RequestLoggingMiddleware>();
     }
 }

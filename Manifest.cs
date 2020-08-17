@@ -2,7 +2,9 @@ using OrchardCore.Modules.Manifest;
 
 [assembly: Module(
     // Name of the module to be displayed on the Modules page of the Dashboard.
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
     Name = "Lombiq Training Demo",
+#pragma warning restore SA1114 // Parameter list should follow declaration
     // Your name, company or any name that identifies the developers working on the project.
     Author = "Lombiq Technologies",
     // Optionally you can add a website URL (e.g. your company's website, GitHub repository URL).
@@ -29,7 +31,7 @@ using OrchardCore.Modules.Manifest;
         "OrchardCore.ContentFields",
         "OrchardCore.DynamicCache",
         "OrchardCore.Media",
-        "OrchardCore.Navigation"
+        "OrchardCore.Navigation",
     }
 )]
 

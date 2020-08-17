@@ -67,7 +67,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
             // In the Views/Admin/PersonList.cshtml file you can see how shape lists (IEnumerable<dynamic>) are
             // displayed.
-            return View("PersonList", await GetShapes(persons));
+            return View("PersonList", await GetShapesAsync(persons));
         }
 
         public async Task<ActionResult> PersonListOldest()
@@ -85,11 +85,11 @@ namespace Lombiq.TrainingDemo.Controllers
                 .Take(10)
                 .ListAsync();
 
-            return View("PersonList", await GetShapes(persons));
+            return View("PersonList", await GetShapesAsync(persons));
         }
 
 
-        private async Task<IEnumerable<IShape>> GetShapes(IEnumerable<ContentItem> persons) =>
+        private async Task<IEnumerable<IShape>> GetShapesAsync(IEnumerable<ContentItem> persons) =>
             // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items
             // on the dashboard.
             await Task.WhenAll(persons.Select(async person =>

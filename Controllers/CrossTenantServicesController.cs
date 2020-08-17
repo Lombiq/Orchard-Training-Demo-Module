@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Multi-tenancy is in Orchard's very core, utilized everywhere even if you don't notice it. A tenant is basically a
  * subsite with its own independent content and configuration, under its own domain or URL prefix. You can use tenants
  * to e.g. host websites for multiple customers of yours from a single Orchard Core app. The sites won't know anything
@@ -31,8 +31,8 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // Two things will be needed here: IShellSettingsManager lets you access the shell setting for all tenants
-        // (shell settings are a tenant's basic settings, like its technical name and its URL), and IShellHost we'll 
-        // use to access services from a currently running shell's dependency injection container (Service Provider). 
+        // (shell settings are a tenant's basic settings, like its technical name and its URL), and IShellHost we'll
+        // use to access services from a currently running shell's dependency injection container (Service Provider).
         public CrossTenantServicesController(IShellSettingsManager shellSettingsManager, IShellHost shellHost)
         {
             _shellSettingsManager = shellSettingsManager;

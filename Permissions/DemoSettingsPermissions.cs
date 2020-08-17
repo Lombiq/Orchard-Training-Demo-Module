@@ -11,11 +11,11 @@ namespace Lombiq.TrainingDemo.Permissions
             nameof(ManageDemoSettings),
             "Manage Person content items.");
 
-        
+
         public Task<IEnumerable<Permission>> GetPermissionsAsync() =>
             Task.FromResult(new[]
             {
-                ManageDemoSettings
+                ManageDemoSettings,
             }
             .AsEnumerable());
 
@@ -25,8 +25,8 @@ namespace Lombiq.TrainingDemo.Permissions
                 new PermissionStereotype
                 {
                     Name = "Administrator",
-                    Permissions = new[] { ManageDemoSettings }
-                }
+                    Permissions = new[] { ManageDemoSettings },
+                },
             };
     }
 }

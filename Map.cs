@@ -15,18 +15,20 @@ using Lombiq.TrainingDemo.Settings;
 using Lombiq.TrainingDemo.ViewModels;
 using System.Diagnostics.CodeAnalysis;
 
-/* 
- * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation 
- * between topics. You can navigate directly to classes and their methods by clicking on their names (enclosed in a 
+/*
+ * In this file you'll find the index of the whole (or at least most of the) module's classes for easier navigation
+ * between topics. You can navigate directly to classes and their methods by clicking on their names (enclosed in a
  * Pointer<T>() ) and pressing F12.
- * 
+ *
  * This class is not doing anything and only serves as an easy to use table of contents.
  */
 namespace Lombiq.TrainingDemo
 {
-    static class Map
+    internal static class Map
     {
+#pragma warning disable S3241 // Methods should not return values that are never used
         private static T Pointer<T>() => default;
+#pragma warning restore S3241 // Methods should not return values that are never used
 
         [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It's used but by humans :).")]
         private static void Treasure()

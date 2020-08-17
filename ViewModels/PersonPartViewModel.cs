@@ -1,11 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using Lombiq.TrainingDemo.Models;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Modules;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Lombiq.TrainingDemo.ViewModels
 {
@@ -30,15 +30,12 @@ namespace Lombiq.TrainingDemo.ViewModels
         {
             // To use GetService overload you need to add the Microsoft.Extensions.DependencyInjection NuGet package
             // to your module. This way you can get any service you want just as you've injected them in a constructor.
-            var T = validationContext.GetService<IStringLocalizer<PersonPartViewModel>>();
+            var localizer = validationContext.GetService<IStringLocalizer<PersonPartViewModel>>();
             var clock = validationContext.GetService<IClock>();
 
-            if (BirthDateUtc.HasValue)
+            if (BirthDateUtc.HasValue && clock.UtcNow < BirthDateUtc.Value.AddYears(18))
             {
-                if (clock.UtcNow < BirthDateUtc.Value.AddYears(18))
-                {
-                    yield return new ValidationResult(T["The person must be 18 or older."], new[] { nameof(BirthDateUtc) });
-                }
+                yield return new ValidationResult(localizer["The person must be 18 or older."], new[] { nameof(BirthDateUtc) });
             }
 
             // Now go back to the PersonPartDisplayDrvier.

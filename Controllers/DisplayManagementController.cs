@@ -24,10 +24,7 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IDisplayManager<Book> _bookDisplayManager;
 
 
-        public DisplayManagementController(IDisplayManager<Book> bookDisplayManager)
-        {
-            _bookDisplayManager = bookDisplayManager;
-        }
+        public DisplayManagementController(IDisplayManager<Book> bookDisplayManager) => _bookDisplayManager = bookDisplayManager;
 
 
         // Before we learn how shapes are generated using the display manager let's see what are these shapes actually.
@@ -72,7 +69,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
 
-        private Book CreateDemoBook() =>
+        private static Book CreateDemoBook() =>
             new Book
             {
                 CoverPhotoUrl = "/Lombiq.TrainingDemo/Images/HarryPotter.jpg",

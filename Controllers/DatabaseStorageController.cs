@@ -105,8 +105,8 @@ namespace Lombiq.TrainingDemo.Controllers
         // NEXT STATION: Models/PersonPart.cs
 
 
-        private IEnumerable<Book> CreateDemoBooks() =>
-            new Book[]
+        private static IEnumerable<Book> CreateDemoBooks() =>
+            new[]
             {
                 new Book
                 {
@@ -114,7 +114,7 @@ namespace Lombiq.TrainingDemo.Controllers
                     Title = "Harry Potter and The Sorcerer's Stone",
                     Author = "J.K. (Joanne) Rowling",
                     Description = "Harry hasn't had a birthday party in eleven years - but all that is about to " +
-                        "change when a mysterious letter arrives with an invitation to an incredible place."
+                        "change when a mysterious letter arrives with an invitation to an incredible place.",
                 },
                 new Book
                 {
@@ -122,15 +122,15 @@ namespace Lombiq.TrainingDemo.Controllers
                     Author = "J.K. (Joanne) Rowling",
                     Description = "With his magical suitcase in hand, Magizoologist Newt Scamander arrives in New " +
                         "York in 1926 for a brief stopover. However, when the suitcase is misplaced and some of his " +
-                        "fantastic beasts escape, there will be trouble for everyone."
+                        "fantastic beasts escape, there will be trouble for everyone.",
                 },
                 new Book
                 {
                     Title = "The Hunger Games",
                     Author = "Suzanne Collins",
                     Description = "The nation of Panem, formed from a post-apocalyptic North America, is a country " +
-                        "that consists of a wealthy Capitol region surrounded by 12 poorer districts."
-                }
+                        "that consists of a wealthy Capitol region surrounded by 12 poorer districts.",
+                },
             };
     }
 }

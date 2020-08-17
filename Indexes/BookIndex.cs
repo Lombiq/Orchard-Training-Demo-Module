@@ -18,16 +18,14 @@ namespace Lombiq.TrainingDemo.Indexes
     // (see: Startup.cs).
     public class BookIndexProvider : IndexProvider<Book>
     {
-        public override void Describe(DescribeContext<Book> context)
-        {
+        public override void Describe(DescribeContext<Book> context) =>
             context.For<BookIndex>()
                 .Map(book =>
                     new BookIndex
                     {
                         Author = book.Author,
-                        Title = book.Title
+                        Title = book.Title,
                     });
-        }
     }
 
     // NEXT STATION: Migrations/BookMigrations.
