@@ -20,8 +20,6 @@ The module assumes that you have a good understanding of basic Orchard concepts,
 
 ### Using a full Orchard Core source
 
-**Warning:** At the moment the latest released Orchard Core version is RC1 and it targets the unsupported 3.0 version of .NET Core. Since we updated our extensions to 3.1 they won't be compatible anymore. Thus for the time being please use the other approach with NuGet packages.
-
 1. Open an Orchard Core solution. You can download or `git clone` Orchard from [GitHub](https://github.com/OrchardCMS/OrchardCore/). Be sure to clone to the `master` branch, i.e. the latest released source, as this is what the module is kept up to date with (not the latest `dev` which serves for ongoing development).
 2. Add the Lombiq.VueJs project first, then this one to the solution into folders named exactly "Lombiq.VueJs" and "Lombiq.TrainingDemo" under *src/OrchardCore.Modules* (it's important that you put them into this file system folder - the logical solution folder doesn't matter). Be sure to read the Vue.js module's Readme on what to install for it to build properly!
 3. Add these two projects as references to the `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
