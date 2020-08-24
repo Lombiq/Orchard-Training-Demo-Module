@@ -18,7 +18,11 @@ namespace Lombiq.TrainingDemo.Migrations
         {
             SchemaBuilder.CreateMapIndexTable(nameof(BookIndex), table => table
                 .Column<string>(nameof(BookIndex.Author))
-                .Column<string>(nameof(BookIndex.Title))
+                // Titles of books can be really long sometimes (even as long as 26000 characters:
+                // https://www.guinnessworldrecords.com/world-records/358711-longest-title-of-a-book) so we have to
+                // make sure it'll fit into the column. By default, text columns have a limit of 255 characters so we
+                // have to enforce that and make it unlimited in cases the space is indeed needed.
+                .Column<string>(nameof(BookIndex.Title), column => column.Unlimited())
             );
 
             // Let's suppose that we'll store many books, tens of thousands in the database. In this case, it's also
