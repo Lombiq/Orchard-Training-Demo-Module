@@ -2,8 +2,13 @@
     DisplayAsync helper to display these shapes. *@
 
 @model IEnumerable<dynamic>
+@using Microsoft.AspNetCore.Mvc.Localization
 
 <h1>@T["People older then 30 years old"]</h1>
+
+@* Notice how we use T.Plural() to display a different string based on the number of people. You could use the lazy
+    "There are {0} person(s)." technique but that would not only be grammatically incorrect, it would also be lazy :). *@
+<strong>@T.Plural(Model.Count(), "There's one person.", "There are {0} people.")</strong>
 <ul>
     @foreach (var shape in Model)
     {
