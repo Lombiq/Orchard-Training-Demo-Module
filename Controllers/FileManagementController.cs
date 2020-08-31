@@ -90,7 +90,7 @@ namespace Lombiq.TrainingDemo.Controllers
             using (var stream = await _mediaFileStore.GetFileStreamAsync(TestFileRelativePath))
             using (var streamReader = new StreamReader(stream))
             {
-                var content = streamReader.ReadToEnd();
+                var content = await streamReader.ReadToEndAsync();
 
                 return $"File content: {content}";
             }

@@ -98,7 +98,7 @@ namespace Lombiq.TrainingDemo.Drivers
             part.Name = viewModel.Name;
             part.Handedness = viewModel.Handedness;
 
-            return Edit(part, context);
+            return await EditAsync(part, context);
         }
 
 

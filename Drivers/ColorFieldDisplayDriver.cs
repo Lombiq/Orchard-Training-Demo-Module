@@ -85,7 +85,7 @@ namespace Lombiq.TrainingDemo.Drivers
                 field.Value = viewModel.Value;
             }
 
-            return Edit(field, context);
+            return await EditAsync(field, context);
         }
     }
 }
