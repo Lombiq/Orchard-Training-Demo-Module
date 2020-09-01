@@ -63,7 +63,13 @@ namespace Lombiq.TrainingDemo.Controllers
             // created for these parts and fields.
             // NEXT STATION: Drivers/PersonPartDisplayDriver
             var shapes = await Task.WhenAll(people.Select(async person =>
-                await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary")));
+            {
+                // When you retrieve content items via ISession then you also need to run LoadAsync() on them to
+                // initialize everything.
+                await _contentManager.LoadAsync(person);
+
+                return await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary");
+            }));
 
             // Now assuming that you've already created a few Person content items on the dashboard and some of these
             // persons are more than 30 years old then this query will contain items to display.
@@ -87,8 +93,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
             foreach (var person in oldPeople)
             {
-                // When you retrieve content items via ISession then you also need to run LoadAsync() on them to
-                // initialize everything.
+                // Have to run LoadAsync() here too.
                 await _contentManager.LoadAsync(person);
 
                 var eighteenYearOld = _clock.UtcNow.AddYears(-18);
