@@ -80,4 +80,4 @@ namespace Lombiq.TrainingDemo.Services
 
 // END OF TRAINING SECTION: Background tasks
 
-// NEXT STATION: Controllers/ApiController.cs Middlewares/RequestLoggingMiddleware.cs
+// NEXT STATION: Events/LoginGreeting.cs

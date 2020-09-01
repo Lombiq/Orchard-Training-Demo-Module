@@ -1,5 +1,6 @@
 using Lombiq.TrainingDemo.Controllers;
 using Lombiq.TrainingDemo.Drivers;
+using Lombiq.TrainingDemo.Events;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Handlers;
@@ -168,6 +169,9 @@ namespace Lombiq.TrainingDemo
 
             // BackgroundTask, BackgroundTaskSettings
             Pointer<DemoBackgroundTask>();
+
+            // Event handlers
+            Pointer<LoginGreeting>();
 
             // Web API (RESTful API controller)
             Pointer<ApiController>();

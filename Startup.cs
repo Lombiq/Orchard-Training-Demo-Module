@@ -6,6 +6,7 @@
 
 using Fluid;
 using Lombiq.TrainingDemo.Drivers;
+using Lombiq.TrainingDemo.Events;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Handlers;
@@ -39,6 +40,7 @@ using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
+using OrchardCore.Users.Events;
 using System;
 using System.IO;
 using YesSql.Indexes;
@@ -146,6 +148,9 @@ namespace Lombiq.TrainingDemo
 
             // Background tasks. Note that these have to be singletons.
             services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
+
+            // Event handlers
+            services.AddScoped<ILoginFormEvent, LoginGreeting>();
         }
 
         public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) =>
