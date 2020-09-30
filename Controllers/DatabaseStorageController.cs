@@ -54,7 +54,10 @@ namespace Lombiq.TrainingDemo.Controllers
         [HttpGet]
         public ActionResult CreateBooks() => View();
 
-        [HttpPost, ActionName(nameof(CreateBooks))]
+        // Note the ValidateAntiForgeryToken attribute too: This validates the XSRF-prevention token automatically
+        // added in the form (check for the input field named __RequestVerificationToken in the HTML output) of the
+        // CreateBooks view.
+        [HttpPost, ActionName(nameof(CreateBooks)), ValidateAntiForgeryToken]
         public ActionResult CreateBooksPost()
         {
             // For demonstration purposes this will create 3 books and store them in the database one-by-one using the

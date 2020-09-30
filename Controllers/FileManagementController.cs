@@ -53,6 +53,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
 
         // This action will demonstrate how to create a file in the Media folder and read it from there.
+        // See it under /Lombiq.TrainingDemo/FileManagement/CreateFileInMediaFolder.
         public async Task<string> CreateFileInMediaFolder()
         {
             // You need to initialize a stream if you have a specific text you want to write into the file. If you
@@ -78,6 +79,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // find it in the App_Data/Sites/{TenantName}/Media/TrainingDemo folder.
 
         // This action will read the file you've created earlier.
+        // See it under /Lombiq.TrainingDemo/FileManagement/ReadFileFromMediaFolder.
         public async Task<string> ReadFileFromMediaFolder()
         {
             // This way you can check if the given file exists.
@@ -99,9 +101,10 @@ namespace Lombiq.TrainingDemo.Controllers
         // Now let's see a scenario where you have a file uploader component and you want to save that file to the
         // Media folder. If you want to see how our demo uploader looks like then go to
         // Views/FileManagement/UploadFileToMedia.cshtml.
+        // See the action under /Lombiq.TrainingDemo/FileManagement/UploadFileToMedia.
         public ActionResult UploadFileToMedia() => View();
 
-        [HttpPost, ActionName(nameof(UploadFileToMedia))]
+        [HttpPost, ActionName(nameof(UploadFileToMedia)), ValidateAntiForgeryToken]
         public async Task<ActionResult> UploadFileToMediaPost(IFormFile file)
         {
             // You can use the Combine method to combine paths which is pretty much equivalent to the built-in method.
@@ -120,6 +123,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
         // NEXT STATION: Services/CustomFileStore.cs
 
+        // See it under /Lombiq.TrainingDemo/FileManagement/CreateFileInCustomFolder.
         public async Task<string> CreateFileInCustomFolder()
         {
             // Now it will be the same process as it was with the IMediaFileStore but it will be our ICustomFileStore
