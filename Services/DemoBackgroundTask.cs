@@ -62,7 +62,7 @@ namespace Lombiq.TrainingDemo.Services
                 // Here is an example of disabling a background task programmatically using BackgroundTaskManager. You
                 // can use this method from anywhere in the code base. Here you need to get this service from the
                 // service provider since it's a scoped service but background tasks are singletons.
-                var backroundTaskManager = serviceProvider.GetService<BackgroundTaskManager>();
+                var backgroundTaskManager = serviceProvider.GetService<BackgroundTaskManager>();
 
                 // The GetDefaultSettings() extension method will return the settings you defined in the BackgroundTask
                 // attribute.
@@ -72,7 +72,7 @@ namespace Lombiq.TrainingDemo.Services
                 // stored in the database (or updated if it has already been stored) and from now on Orchard Core will
                 // ignore this task and it won't be executed.
                 settings.Enable = false;
-                await backroundTaskManager.UpdateAsync(settings.Name, settings);
+                await backgroundTaskManager.UpdateAsync(settings.Name, settings);
             }
         }
     }
