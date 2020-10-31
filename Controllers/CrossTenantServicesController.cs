@@ -26,18 +26,12 @@ namespace Lombiq.TrainingDemo.Controllers
     // This is just an example though, really you can access any other service as well.
     public class CrossTenantServicesController : Controller
     {
-        private readonly IShellSettingsManager _shellSettingsManager;
         private readonly IShellHost _shellHost;
 
 
-        // Two things will be needed here: IShellSettingsManager lets you access the shell setting for all tenants
-        // (shell settings are a tenant's basic settings, like its technical name and its URL), and IShellHost we'll
-        // use to access services from a currently running shell's dependency injection container (Service Provider).
-        public CrossTenantServicesController(IShellSettingsManager shellSettingsManager, IShellHost shellHost)
-        {
-            _shellSettingsManager = shellSettingsManager;
-            _shellHost = shellHost;
-        }
+        // We'll need IShellHost to access services from a currently running shell's dependency injection container
+        // (Service Provider).
+        public CrossTenantServicesController(IShellHost shellHost) => _shellHost = shellHost;
 
 
         // A simple route for convenience. You can access this from under /CrossTenantServices?contentItemId=ID. Here
@@ -54,11 +48,10 @@ namespace Lombiq.TrainingDemo.Controllers
             // course. Create a tenant in your app (enable the Tenants feature and then create it from under
             // Configuration / Tenants), enable the Training Demo on it too and check out how this works there!
 
-            // First you have to get the shell settings for the tenant in question.
-            var shellSettings = await _shellSettingsManager.LoadSettingsAsync("Default");
-
-            // Then you have to retrieve the tenant's shell scope that contains the shell's Service Provider.
-            var shellScope = await _shellHost.GetScopeAsync(shellSettings);
+            // First you have to retrieve the tenant's shell scope that contains the shell's Service Provider. Note
+            // that there is also an IShellSettingsManager service that you can use to access the just shell settings
+            // for all tenants (shell settings are a tenant's basic settings, like its technical name and its URL).
+            var shellScope = await _shellHost.GetScopeAsync("Default");
 
             // We'll just return the title of the content item from this action but you can do anything else with the
             // item too, like displaying it.
