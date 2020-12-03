@@ -47,10 +47,8 @@ namespace Lombiq.TrainingDemo
             // Usage: require/include
             // Views/PersonListDashboard
 
-
             // Basic controller demonstrating localization, Notifier, Logger, routing
             Pointer<YourFirstOrchardCoreController>();
-
 
             // Display management, IDisplayManager, ad-hoc shapes, shape injection from template
             Pointer<DisplayManagementController>();
@@ -59,7 +57,6 @@ namespace Lombiq.TrainingDemo
             // Views/Book.cshtml
             // Views/Book.Description.cshtml
             Pointer<BookDisplayDriver>();
-
 
             // ContentPart, ContentField on ContentPart
             Pointer<PersonPart>();
@@ -88,7 +85,6 @@ namespace Lombiq.TrainingDemo
             Pointer<DatabaseStorageController>();
             Pointer<PersonListController>();
 
-
             // ContentField
             Pointer<ColorField>();
 
@@ -110,11 +106,9 @@ namespace Lombiq.TrainingDemo
             // ContentFieldIndexHandler, indexing ContentField using custom index provider (e.g. Lucene).
             Pointer<ColorFieldIndexHandler>();
 
-
             // ResourceManifest, scripts, styles
             // Views/ColorField-ColorPicker.Edit.cshtml resource injection
             Pointer<ResourceManifest>();
-
 
             // IAuthorizationService
             Pointer<AuthorizationController>();
@@ -123,7 +117,6 @@ namespace Lombiq.TrainingDemo
             Pointer<DemoSettingsPermissions>();
             Pointer<PersonPermissions>();
 
-
             // Admin attribute
             Pointer<AdminController>();
 
@@ -131,13 +124,11 @@ namespace Lombiq.TrainingDemo
             Pointer<DemoSettingsAdminMenu>();
             Pointer<PersonsAdminMenu>();
 
-
             // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
             Pointer<DemoSettingsDisplayDriver>();
 
             // SiteSettings, ISite, ISiteService, Options
             Pointer<SiteSettingsController>();
-
 
             // ResultFilter, IAsyncResultFilter
             Pointer<ShapeInjectionFilter>();
@@ -149,7 +140,6 @@ namespace Lombiq.TrainingDemo
             // IResourceManager, resource injection
             Pointer<ResourceInjectionFilter>();
 
-
             // Memory Cache, Dynamic Cache
             // IMemoryCache, IDynamicCacheService, ITagCache
             Pointer<DateTimeCachingService>();
@@ -160,13 +150,11 @@ namespace Lombiq.TrainingDemo
             // Views/CachedShape.cshtml
             Pointer<DateTimeCachingService>();
 
-
             // IMediaFileStore, custom file store
             Pointer<FileManagementController>();
 
             // FileSystemStore, IFileStore
             Pointer<CustomFileStore>();
-
 
             // BackgroundTask, BackgroundTaskSettings
             Pointer<DemoBackgroundTask>();
@@ -185,7 +173,6 @@ namespace Lombiq.TrainingDemo
 
             // Unit and integration testing
             Pointer<TestedService>();
-
 
             // Vue.js app, Vue.js component, Vue.js initialization
             Pointer<VueJsController>();

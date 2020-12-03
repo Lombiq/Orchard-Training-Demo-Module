@@ -14,10 +14,7 @@ namespace Lombiq.TrainingDemo.Navigation
     {
         private readonly IStringLocalizer T;
 
-        public PersonsAdminMenu(IStringLocalizer<PersonsAdminMenu> stringLocalizer)
-        {
-            T = stringLocalizer;
-        }
+        public PersonsAdminMenu(IStringLocalizer<PersonsAdminMenu> stringLocalizer) => T = stringLocalizer;
 
         public Task BuildNavigationAsync(string name, NavigationBuilder builder)
         {
