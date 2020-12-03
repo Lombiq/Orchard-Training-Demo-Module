@@ -1,9 +1,8 @@
 @model CacheViewModel
 
 @inject OrchardCore.Modules.ILocalClock LocalClock
-
 @* Here are the different DateTime values cached multiple ways and also the current uncached date time in the first row
-to see the differences. *@
+    to see the differences. *@
 
 <p>@T["Current date (not cached): {0}", (await LocalClock.LocalNowAsync).DateTime]</p>
 <p>@T["Memory cached date: {0}", Model.MemoryCachedDateTime]</p>

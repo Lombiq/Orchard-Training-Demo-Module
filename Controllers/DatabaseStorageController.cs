@@ -33,7 +33,6 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IHtmlLocalizer H;
         private readonly IUpdateModelAccessor _updateModelAccessor;
 
-
         public DatabaseStorageController(
             ISession session,
             IDisplayManager<Book> bookDisplayManager,
@@ -48,14 +47,13 @@ namespace Lombiq.TrainingDemo.Controllers
             H = htmlLocalizer;
         }
 
-
-        // A page with a button that will call the CreateBooks POST action.
-        // See it under /Lombiq.TrainingDemo/DatabaseStorage/CreateBooks.
+        // A page with a button that will call the CreateBooks POST action. See it under
+        // /Lombiq.TrainingDemo/DatabaseStorage/CreateBooks.
         [HttpGet]
         public ActionResult CreateBooks() => View();
 
-        // Note the ValidateAntiForgeryToken attribute too: This validates the XSRF-prevention token automatically
-        // added in the form (check for the input field named __RequestVerificationToken in the HTML output) of the
+        // Note the ValidateAntiForgeryToken attribute too: This validates the XSRF-prevention token automatically added
+        // in the form (check for the input field named __RequestVerificationToken in the HTML output) of the
         // CreateBooks view.
         [HttpPost, ActionName(nameof(CreateBooks)), ValidateAntiForgeryToken]
         public ActionResult CreateBooksPost()
@@ -64,9 +62,8 @@ namespace Lombiq.TrainingDemo.Controllers
             // ISession service. Note that you can even go to the database directly, circumventing YesSql too, by
             // injecting the IDbConnectionAccessor service and access the underlying connection.
 
-            // Since storing them in the documents is not enough we need to index them to be able to
-            // filter them in a query.
-            // NEXT STATION: Indexes/BookIndex.cs
+            // Since storing them in the documents is not enough we need to index them to be able to filter them in a
+            // query. NEXT STATION: Indexes/BookIndex.cs
             foreach (var book in CreateDemoBooks())
             {
                 // So now you understand what will happen in the background when this service is being called.
@@ -78,14 +75,13 @@ namespace Lombiq.TrainingDemo.Controllers
             return RedirectToAction(nameof(CreateBooks));
         }
 
-        // This page will display the books written by J.K. Rowling.
-        // See it under /Lombiq.TrainingDemo/DatabaseStorage/JKRowlingBooks.
+        // This page will display the books written by J.K. Rowling. See it under
+        // /Lombiq.TrainingDemo/DatabaseStorage/JKRowlingBooks.
         public async Task<ActionResult> JKRowlingBooks()
         {
             // ISession service is used for querying items.
             var jkRowlingBooks = await _session
-                // First, we define what object (document) we want to query and what index should be used for
-                // filtering.
+                // First, we define what object (document) we want to query and what index should be used for filtering.
                 .Query<Book, BookIndex>()
                 // In the .Where() method you can describe a lambda where the object will be the index object.
                 .Where(index => index.Author == "J.K. (Joanne) Rowling")
@@ -95,8 +91,8 @@ namespace Lombiq.TrainingDemo.Controllers
             // Now this is what we possibly understand now, we will create a list of display shapes from the previously
             // fetched books.
             var bookShapes = await Task.WhenAll(jkRowlingBooks.Select(async book =>
-                // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access
-                // via its accessor service. Later you'll also see how we'll use this to run validations in drivers.
+                // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access via
+                // its accessor service. Later you'll also see how we'll use this to run validations in drivers.
                 await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater)));
 
             // You can check out Views/DatabaseStorage/JKRowlingBooks.cshtml and come back here.
@@ -106,7 +102,6 @@ namespace Lombiq.TrainingDemo.Controllers
         // END OF TRAINING SECTION: Storing data in document database and index records
 
         // NEXT STATION: Models/PersonPart.cs
-
 
         private static IEnumerable<Book> CreateDemoBooks() =>
             new[]

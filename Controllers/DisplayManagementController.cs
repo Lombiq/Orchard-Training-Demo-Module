@@ -23,20 +23,18 @@ namespace Lombiq.TrainingDemo.Controllers
         // the service provider (see: Startup.cs).
         private readonly IDisplayManager<Book> _bookDisplayManager;
 
-
         public DisplayManagementController(IDisplayManager<Book> bookDisplayManager) => _bookDisplayManager = bookDisplayManager;
 
-
         // Before we learn how shapes are generated using the display manager let's see what are these shapes actually.
-        // Ad-hoc shapes can be created anywhere without the display manager. In this example we'll see how to create
-        // an ad-hoc shape inside a view (or could be another shape). Later we'll see how to do it from a filter too.
-        // Open from under /Lombiq.TrainingDemo/DisplayManagement/AdHocShape.
+        // Ad-hoc shapes can be created anywhere without the display manager. In this example we'll see how to create an
+        // ad-hoc shape inside a view (or could be another shape). Later we'll see how to do it from a filter too. Open
+        // from under /Lombiq.TrainingDemo/DisplayManagement/AdHocShape.
         public ActionResult AdHocShape() => View();
 
         // NEXT STATION: Views/DisplayManagement/AdHocShape.cshtml
 
-        // First, create a page that will display a summary and some additional data of the book.
-        // See it under /Lombiq.TrainingDemo/DisplayManagement/DisplayBook.
+        // First, create a page that will display a summary and some additional data of the book. See it under
+        // /Lombiq.TrainingDemo/DisplayManagement/DisplayBook.
         public async Task<ActionResult> DisplayBook()
         {
             // For demonstration purposes create a dummy book object.
@@ -46,14 +44,13 @@ namespace Lombiq.TrainingDemo.Controllers
             var shape = await _bookDisplayManager.BuildDisplayAsync(book, this);
 
             // We will see how this display shape is generated and what will contain but first let's see how is this
-            // rendered in the MVC view.
-            // NEXT STATION: Go to Views/DisplayManagement/DisplayBook.cshtml.
+            // rendered in the MVC view. NEXT STATION: Go to Views/DisplayManagement/DisplayBook.cshtml.
 
             return View(shape);
         }
 
-        // Let's generate another Book display shape, but now with a display type.
-        // See it under /Lombiq.TrainingDemo/DisplayManagement/DisplayBookDescription.
+        // Let's generate another Book display shape, but now with a display type. See it under
+        // /Lombiq.TrainingDemo/DisplayManagement/DisplayBookDescription.
         public async Task<ActionResult> DisplayBookDescription()
         {
             // Generate another book object to be used for demonstration purposes.
@@ -67,7 +64,6 @@ namespace Lombiq.TrainingDemo.Controllers
 
             return View(shape);
         }
-
 
         private static Book CreateDemoBook() =>
             new Book

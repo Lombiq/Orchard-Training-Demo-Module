@@ -27,7 +27,6 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly INotifier _notifier;
         private readonly IHtmlLocalizer H;
 
-
         public AuthorizationController(
             IAuthorizationService authorizationService,
             IContentManager contentManager,
@@ -40,7 +39,6 @@ namespace Lombiq.TrainingDemo.Controllers
             H = htmlLocalizer;
         }
 
-
         // Here we will create a Person content item and check if the user has permission to edit it. It's very common
         // to check if you can view or edit a specific item - it also happens if you use the built-in URLs like
         // /Contents/Item/Display/{id} to view a content item.
@@ -52,9 +50,9 @@ namespace Lombiq.TrainingDemo.Controllers
             // Check if the user has permission to edit the content item. When you check content-related permissions
             // (ViewContent, EditContent, PublishContent etc.) there is a difference between checking these for your
             // content items (i.e. the owner is you) and others' content items. When you are the owner of the content
-            // item then the ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checked. This
-            // is automatic so you don't need to use them directly. For this newly created Person item the owner is
-            // null so the EditContent permission will be used.
+            // item then the ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checked. This is
+            // automatic so you don't need to use them directly. For this newly created Person item the owner is null so
+            // the EditContent permission will be used.
             if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.CommonPermissions.EditContent, person))
             {
                 // Return 401 status code using this helper. Although it's a good practice to return 404 (NotFound())

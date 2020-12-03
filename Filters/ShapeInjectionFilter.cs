@@ -24,16 +24,15 @@ namespace Lombiq.TrainingDemo.Filters
     {
         // To access the layout which contains the zones you need to use the ILayoutAccessor service.
         private readonly ILayoutAccessor _layoutAccessor;
+
         // To generate ad-hoc shapes the IShapeFactory can be used.
         private readonly IShapeFactory _shapeFactory;
-
 
         public ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory shapeFactory)
         {
             _layoutAccessor = layoutAccessor;
             _shapeFactory = shapeFactory;
         }
-
 
         public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {

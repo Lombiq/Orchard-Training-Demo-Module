@@ -14,12 +14,11 @@ namespace Lombiq.TrainingDemo.Services
         // You can add additional methods if you want.
     }
 
-
     public class CustomFileStore : FileSystemStore, ICustomFileStore
     {
-        // Since FileSystemStore requires a base path we also need to have it. If you have a very specific absolute
-        // path then you don't need it to be injected but for demonstration purposes we'll inject it from Startup.cs
-        // because it will be in the tenant's folder.
+        // Since FileSystemStore requires a base path we also need to have it. If you have a very specific absolute path
+        // then you don't need it to be injected but for demonstration purposes we'll inject it from Startup.cs because
+        // it will be in the tenant's folder.
         public CustomFileStore(string fileSystemPath)
             : base(fileSystemPath)
         {

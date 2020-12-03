@@ -1,4 +1,4 @@
-﻿namespace Lombiq.TrainingDemo
+namespace Lombiq.TrainingDemo
 {
     // Instead of copy-pasting we store frequently used content type names here.
     public static class ContentTypes

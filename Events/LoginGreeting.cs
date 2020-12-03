@@ -20,13 +20,11 @@ namespace Lombiq.TrainingDemo.Events
         private readonly INotifier _notifier;
         private readonly IHtmlLocalizer T;
 
-
         public LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer)
         {
             _notifier = notifier;
             T = htmlLocalizer;
         }
-
 
         public Task LoggedInAsync(string userName)
         {

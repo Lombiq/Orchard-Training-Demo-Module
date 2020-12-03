@@ -20,9 +20,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // The actual caching is implemented in a service which we'll soon investigate.
         private readonly IDateTimeCachingService _dateTimeCachingService;
 
-
         public CacheController(IDateTimeCachingService dateTimeCachingService) => _dateTimeCachingService = dateTimeCachingService;
-
 
         // In this action we'll cache a DateTime three different ways.
         public async Task<ActionResult> Index()
@@ -48,8 +46,8 @@ namespace Lombiq.TrainingDemo.Controllers
             });
         }
 
-        // This action will result in the same page as Index, however, the route will be different so the
-        // route-specific cache can be tested.
+        // This action will result in the same page as Index, however, the route will be different so the route-specific
+        // cache can be tested.
         public Task<ActionResult> DifferentRoute() =>
             Index();
 

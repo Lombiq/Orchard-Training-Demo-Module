@@ -28,19 +28,19 @@ namespace Lombiq.TrainingDemo.Drivers
             // Here you have a shape helper with a shape name possibly and a factory. The Initialize method will
             // instantiate a view model from a type given as a generic parameter. It's recommended to use view models
             // for the views like we're doing it here (sometimes you'd want a separate view model for the Display() and
-            // Edit().
-            // There are helper methods to generate the shape type. GetDisplayShapeType() in this case will generate
-            // "PersonPart" by default but this can be overridden form the part's settings under the content type's
-            // settings on the admin. In the factory we map the content part properties to the view model; if there is
-            // any heavy lifting needed to generate the view model (like fetching data from the database or an external
+            // Edit(). There are helper methods to generate the shape type. GetDisplayShapeType() in this case will
+            // generate "PersonPart" by default but this can be overridden form the part's settings under the content
+            // type's settings on the admin. In the factory we map the content part properties to the view model; if
+            // there is any heavy lifting needed to generate the view model (like fetching data from the database or an
+            // external
             // API) then do it in that factory. That way the work will only be done if the shape is actually displayed.
             Initialize<PersonPartViewModel>(GetDisplayShapeType(context), viewModel => PopulateViewModel(part, viewModel))
                 // Note that again we're referring to a display type here just as with Books, the Detail display type.
                 // While display types can be customized, by default Orchard uses "Detail" when the content item is
                 // opened in its entirety on the frontend, "Summary" when it's listed on the frontend, and
-                // "SummaryAdmin" when it's listed on the admin site. You can specify how a content part is displayed
-                // in these scenarios with these location settings.
-                // In this simple case, the same shape will be used both in Detail and Summary.
+                // "SummaryAdmin" when it's listed on the admin site. You can specify how a content part is displayed in
+                // these scenarios with these location settings. In this simple case, the same shape will be used both
+                // in Detail and Summary.
 
                 // NEXT STATION: Check out PersonPart.cshtml quickly and come back here.
 
@@ -100,7 +100,6 @@ namespace Lombiq.TrainingDemo.Drivers
 
             return await EditAsync(part, context);
         }
-
 
         private static void PopulateViewModel(PersonPart part, PersonPartViewModel viewModel)
         {

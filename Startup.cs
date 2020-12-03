@@ -53,14 +53,12 @@ namespace Lombiq.TrainingDemo
     {
         private readonly IShellConfiguration _shellConfiguration;
 
-
         public Startup(IShellConfiguration shellConfiguration) => _shellConfiguration = shellConfiguration;
-
 
         static Startup()
         {
-            // To be able to access these view models in display shapes rendered by the Liquid markup engine you need
-            // to register them. To learn more about Liquid in Orchard Core see this documentation:
+            // To be able to access these view models in display shapes rendered by the Liquid markup engine you need to
+            // register them. To learn more about Liquid in Orchard Core see this documentation:
             // https://docs.orchardcore.net/en/dev/docs/reference/modules/Liquid/
             TemplateContext.GlobalMemberAccessStrategy.Register<PersonPartViewModel>();
             TemplateContext.GlobalMemberAccessStrategy.Register<ColorField>();
@@ -68,7 +66,6 @@ namespace Lombiq.TrainingDemo
 
             // NEXT STATION: Views/PersonPart.Edit.cshtml
         }
-
 
         public override void ConfigureServices(IServiceCollection services)
         {
@@ -106,7 +103,6 @@ namespace Lombiq.TrainingDemo
             services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
             services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();
             services.AddScoped<INavigationProvider, DemoSettingsAdminMenu>();
-
 
             // Filters
             services.Configure<MvcOptions>((options) =>

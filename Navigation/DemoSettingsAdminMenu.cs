@@ -12,9 +12,7 @@ namespace Lombiq.TrainingDemo.Navigation
     {
         private readonly IStringLocalizer T;
 
-
         public DemoSettingsAdminMenu(IStringLocalizer<DemoSettingsAdminMenu> stringLocalizer) => T = stringLocalizer;
-
 
         public Task BuildNavigationAsync(string name, NavigationBuilder builder)
         {
@@ -28,8 +26,8 @@ namespace Lombiq.TrainingDemo.Navigation
                 .Add(T["Settings"], settings => settings
                     .Add(T["Demo"], T["Demo"], demo => demo
                         // The Action will be the AdminController.Index action in the OrchardCore.Settings module. It
-                        // will make sure that the proper editor group will be displayed so give the editor group ID
-                        // too using your publicly accessible editor group constant.
+                        // will make sure that the proper editor group will be displayed so give the editor group ID too
+                        // using your publicly accessible editor group constant.
                         .Action("Index", "Admin", new { area = "OrchardCore.Settings", groupId = DemoSettingsDisplayDriver.EditorGroupId })
                         // Authorize so it will be displayed only if the user has permission to access it.
                         .Permission(DemoSettingsPermissions.ManageDemoSettings)

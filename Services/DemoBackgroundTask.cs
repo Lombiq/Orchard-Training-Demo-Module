@@ -24,8 +24,8 @@ namespace Lombiq.TrainingDemo.Services
 {
     // To set up the default settings for your background task you can use the BackgroundTask attribute. Here you can
     // specify the frequency using crontab expressions and setting a description which will be displayed on the
-    // Background Tasks admin page. Also you can set Enabled to false if you don't want it start right after
-    // application start. These settings can be updated entirely on the Background Tasks admin page.
+    // Background Tasks admin page. Also you can set Enabled to false if you don't want it start right after application
+    // start. These settings can be updated entirely on the Background Tasks admin page.
     [BackgroundTask(Schedule = "*/2 * * * *", Description = "Demo background task that runs every 2 minutes.")]
     public class DemoBackgroundTask : IBackgroundTask
     {
@@ -38,9 +38,7 @@ namespace Lombiq.TrainingDemo.Services
         // value while the application runs.
         private int _count;
 
-
         public DemoBackgroundTask(ILogger<DemoBackgroundTask> logger) => _logger = logger;
-
 
         // Since background tasks are singletons we'll need this IServiceProvider instance to resolve every
         // non-singleton service. When in doubt, just use this IServiceProvider instance to resolve everything instead
@@ -68,9 +66,9 @@ namespace Lombiq.TrainingDemo.Services
                 // attribute.
                 var settings = this.GetDefaultSettings();
 
-                // By setting Enabled to false and using IBackgroundTaskManager to update it the settings will be
-                // stored in the database (or updated if it has already been stored) and from now on Orchard Core will
-                // ignore this task and it won't be executed.
+                // By setting Enabled to false and using IBackgroundTaskManager to update it the settings will be stored
+                // in the database (or updated if it has already been stored) and from now on Orchard Core will ignore
+                // this task and it won't be executed.
                 settings.Enable = false;
                 await backgroundTaskManager.UpdateAsync(settings.Name, settings);
             }

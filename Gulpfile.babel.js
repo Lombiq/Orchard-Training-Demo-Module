@@ -50,7 +50,7 @@ gulp.task('images', () =>
         .pipe(gulp.dest(paths.imageFilesDestination)));
 
 // Task specifically created for our third-party plugin, pickr. It will just copy the files to the wwwroot folder.
-gulp.task('pickr', () => 
+gulp.task('pickr', () =>
     gulp
         .src(paths.pickrFiles)
         .pipe(cached('pickr'))
@@ -74,8 +74,8 @@ gulp.task('sass:watch', () =>
             verbose: true
         },
         () => getSassCompilerPipeline()));
- 
-// The actual pipeline is in a separate function so it can be used in the watch task as well.        
+
+// The actual pipeline is in a separate function so it can be used in the watch task as well.
 const getSassCompilerPipeline = () =>
     gulp.src(paths.sassFiles)
         .pipe(cached('scss'))

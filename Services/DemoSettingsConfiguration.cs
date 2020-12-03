@@ -10,9 +10,7 @@ namespace Lombiq.TrainingDemo.Services
     {
         private readonly ISiteService _siteService;
 
-
         public DemoSettingsConfiguration(ISiteService siteService) => _siteService = siteService;
-
 
         public void Configure(DemoSettings options)
         {

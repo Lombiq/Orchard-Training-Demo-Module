@@ -12,19 +12,18 @@ namespace Lombiq.TrainingDemo
     // see: https://docs.orchardcore.net/en/dev/docs/reference/modules/Resources/
     public class ResourceManifest : IResourceManifestProvider
     {
-        // This is the only method to implement. Using it we're going to register some static resources
-        // to be able to use them in our templates.
+        // This is the only method to implement. Using it we're going to register some static resources to be able to
+        // use them in our templates.
         public void BuildManifests(IResourceManifestBuilder builder)
         {
-            // We add a new instance of ResourceManifest to the ResourceManifestBuilder,
-            // instantiated by the Add method.
+            // We add a new instance of ResourceManifest to the ResourceManifestBuilder, instantiated by the Add method.
             var manifest = builder.Add();
 
             manifest
                 // We're registering a script with DefineScript and defining its name. It's a global name, so choose
                 // wisely. There is no strict naming convention, but we can give you an advice how to choose a unique
-                // name: it should contain the module's full namespace followed by a meaningful name. Although if it's
-                // a third-party library you can give a more general name like you see below. This script will be the
+                // name: it should contain the module's full namespace followed by a meaningful name. Although if it's a
+                // third-party library you can give a more general name like you see below. This script will be the
                 // javascript plugin for the color picker.
                 .DefineScript("Pickr")
                 // This is the actual script file that will be assigned to the resource name. Please note that the
@@ -35,14 +34,14 @@ namespace Lombiq.TrainingDemo
                 // this case be sure to use one variant for both the local and CDN URL, or two for both so there is no
                 // confusion.
                 .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.js")
-                // You can also use a CDN (or just a CDN) if you want to optimize static resource loading. If a
-                // resource has both a local and CDN version then you can decide when including it which one to use or
-                // you can set this globally under General Settings from the admin.
+                // You can also use a CDN (or just a CDN) if you want to optimize static resource loading. If a resource
+                // has both a local and CDN version then you can decide when including it which one to use or you can
+                // set this globally under General Settings from the admin.
                 .SetCdn("https://cdn.jsdelivr.net/npm/pickr-widget@0.3.6/dist/pickr.min.js")
                 // In case of a CDN make sure to also utilize Subresource Integrity so the script can't be changed on
                 // the CDN and potentially harm your site! For more info on SRI see:
-                // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity.
-                // You can create such hashes with e.g. this tool: https://www.srihash.org/.
+                // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity. You can create such
+                // hashes with e.g. this tool: https://www.srihash.org/.
                 .SetCdnIntegrity("sha384-9QkVz27WSgTpBfZqt9HJh4LIH88MjcPx4wGafm3SZOHXnje8A5mIeWwQ332WZxS/")
                 // You can also define a version for a resource. Multiple resources with the same name but different
                 // version can exist and when including the resource you can decide which one to use.
@@ -61,8 +60,8 @@ namespace Lombiq.TrainingDemo
                 .SetUrl(
                     "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.min.css",
                     "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.css")
-                // You can give a list of resource names to SetDependencies to force the loading of other resources
-                // when a given resource is used. Here Pickr is a dependency.
+                // You can give a list of resource names to SetDependencies to force the loading of other resources when
+                // a given resource is used. Here Pickr is a dependency.
                 .SetDependencies("Pickr");
 
             // If you go back to the Views/ColorField-ColorPicker.Edit.cshtml you will understand why all these three

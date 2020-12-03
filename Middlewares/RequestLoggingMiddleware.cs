@@ -15,20 +15,18 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Middlewares
 {
-    // This middleware will serve as a simple logger for requests and log each request with the site's name
-    // Note that while this middleware is in its own class we could just write it as a delegate in the Startup class
-    // too. This way Startup won't get cluttered.
+    // This middleware will serve as a simple logger for requests and log each request with the site's name Note that
+    // while this middleware is in its own class we could just write it as a delegate in the Startup class too. This way
+    // Startup won't get cluttered.
     public class RequestLoggingMiddleware
     {
         private readonly RequestDelegate _next;
 
-
         // You need to inject a RequestDelegate instance here.
         public RequestLoggingMiddleware(RequestDelegate next) => _next = next;
 
-
-        // This method is the actual middleware. Note that apart from the first parameter obligatorily being
-        // HttpContext further parameters can be injected Orchard services.
+        // This method is the actual middleware. Note that apart from the first parameter obligatorily being HttpContext
+        // further parameters can be injected Orchard services.
         public async Task InvokeAsync(
             HttpContext context,
             ISiteService siteService,

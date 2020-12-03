@@ -21,6 +21,7 @@ namespace Lombiq.TrainingDemo.Models
         // further information check the Json.NET documentation:
         // https://www.newtonsoft.com/json/help/html/Introduction.htm
         public string Name { get; set; }
+
         public Handedness Handedness { get; set; }
         public DateTime? BirthDateUtc { get; set; }
 

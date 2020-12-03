@@ -14,12 +14,10 @@ namespace Lombiq.TrainingDemo.Navigation
     {
         private readonly IStringLocalizer T;
 
-
         public PersonsAdminMenu(IStringLocalizer<PersonsAdminMenu> stringLocalizer)
         {
             T = stringLocalizer;
         }
-
 
         public Task BuildNavigationAsync(string name, NavigationBuilder builder)
         {
@@ -32,8 +30,8 @@ namespace Lombiq.TrainingDemo.Navigation
 
             // The builder will add different menu items on different levels. Here we'll create a 3-level menu. The
             // first-level menu is what you will see first when you go to the Dashboard and the sub menu items when you
-            // click on this. It should have a position parameter as well which not surprisingly will be the position
-            // in the admin menu.
+            // click on this. It should have a position parameter as well which not surprisingly will be the position in
+            // the admin menu.
             builder.Add(T["Person Pages"], "5", menu => menu
                 // The first-level item should be a nice looking menu item so let's add a class name and an ID. It can
                 // be used if you want to override the menu item shape (because these are shapes too) in order to add a
@@ -49,8 +47,8 @@ namespace Lombiq.TrainingDemo.Navigation
                 // Now let's add the sub menu items with the same Add() method we used for the first-level item but
                 // chained to this one.
                 .Add(T["Test"], subitem => subitem
-                    // The Action method will bind the menu item to the action. This is the test action that we've
-                    // added to the AdminController to see if this is working automatically. Note the use of Orchard's
+                    // The Action method will bind the menu item to the action. This is the test action that we've added
+                    // to the AdminController to see if this is working automatically. Note the use of Orchard's
                     // ControllerName() helper method.
                     .Action(nameof(AdminController.Index), typeof(AdminController).ControllerName(), new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
                 )
@@ -65,9 +63,9 @@ namespace Lombiq.TrainingDemo.Navigation
                         // shown only to users having the AccessPersonListDashboard permission. WARNING: this doesn't
                         // mean others won't be able to access it directly: we have to check in the controller too!
                         .Permission(PersonPermissions.AccessPersonListDashboard)
-                        // Optionally mark your menu item to be displayed on a local navigation shape placed outside
-                        // the menu. Most probably it will only happen if the theme doesn't support the third-level
-                        // menu items and it will display them somewhere else. In the TheAdmin theme it won't make any
+                        // Optionally mark your menu item to be displayed on a local navigation shape placed outside the
+                        // menu. Most probably it will only happen if the theme doesn't support the third-level menu
+                        // items and it will display them somewhere else. In the TheAdmin theme it won't make any
                         // difference since the three-level menu is supported.
                         .LocalNav())
 

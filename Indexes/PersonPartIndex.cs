@@ -5,8 +5,8 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo.Indexes
 {
-    // This is also very similar to the one we've seen in BookIndex.cs. The difference is that we have ContentItems
-    // now instead of simple objects.
+    // This is also very similar to the one we've seen in BookIndex.cs. The difference is that we have ContentItems now
+    // instead of simple objects.
     public class PersonPartIndex : MapIndex
     {
         // Here we will reference the ContentItem ID.

@@ -33,24 +33,21 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IAuthorizationService _authorizationService;
         private readonly IContentManager _contentManager;
 
-
         public ApiController(IAuthorizationService authorizationService, IContentManager contentManager)
         {
             _authorizationService = authorizationService;
             _contentManager = contentManager;
         }
 
-
-        // Look up the ID of a Person Page that you've created previously (when you open one from the admin content
-        // item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access
-        // this action under api/Lombiq.TrainingDemo?contentItemId=<content item ID>.
+        // Look up the ID of a Person Page that you've created previously (when you open one from the admin content item
+        // list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access this
+        // action under api/Lombiq.TrainingDemo?contentItemId=<content item ID>.
         public async Task<IActionResult> Get(string contentItemId)
         {
             // Authorization is important in API endpoints as well of course. We're re-using the previously created
-            // permission here.
-            // To authenticate with the API you can use any ASP.NET Core authentication scheme but Orchard offers
-            // various OpenID-based options. If you just want to quickly check out the API then grant the permission
-            // for the Anonymous role on the admin.
+            // permission here. To authenticate with the API you can use any ASP.NET Core authentication scheme but
+            // Orchard offers various OpenID-based options. If you just want to quickly check out the API then grant the
+            // permission for the Anonymous role on the admin.
             if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
             {
                 return this.ChallengeOrForbid();

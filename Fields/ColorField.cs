@@ -25,7 +25,7 @@ namespace Lombiq.TrainingDemo.Fields
     }
 }
 
-// Don't forget to register your content field and the related view models in the Startup.cs static constructor so
-// these will be accessible in the Liquid markup.
+// Don't forget to register your content field and the related view models in the Startup.cs static constructor so these
+// will be accessible in the Liquid markup.
 
 // NEXT STATION: Drivers/ColorFieldDisplayDriver

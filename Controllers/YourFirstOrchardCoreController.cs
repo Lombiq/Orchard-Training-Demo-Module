@@ -21,10 +21,10 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly INotifier _notifier;
         private readonly IStringLocalizer T;
         private readonly IHtmlLocalizer H;
+
         // You can use the non-generic counterpart of ILogger once injected just be sure to inject the generic one
         // otherwise the log entries won't contain the name of the class.
         private readonly ILogger _logger;
-
 
         // Orchard Core uses the built in dependency injection feature coming with ASP.NET Core. You can use the
         // module's Startup class to register your own services with the service provider. To learn more see:
@@ -41,7 +41,6 @@ namespace Lombiq.TrainingDemo.Controllers
             T = stringLocalizer;
             H = htmlLocalizer;
         }
-
 
         // Here's a simple action that will return some message. Nothing special here just demonstrates that this will
         // work in Orchard Core right after enabling the module. The route for this action will be
@@ -62,10 +61,10 @@ namespace Lombiq.TrainingDemo.Controllers
         [Route("TrainingDemo/NotifyMe")]
         public ActionResult NotifyMe()
         {
-            // ILogger is an ASP.NET Core service that will write something into the specific log files. In Orchard
-            // Core NLog is used for logging and the error level is "Error" by default. You can find the error log in
-            // the /App_Data/logs/orchard-log-[date].log file. Logging can be configured in the NLog.config file in the
-            // web project (e.g. OrchardCore.Cms.Web). Oh, and one more thing: if you install the Lombiq Orchard Visual
+            // ILogger is an ASP.NET Core service that will write something into the specific log files. In Orchard Core
+            // NLog is used for logging and the error level is "Error" by default. You can find the error log in the
+            // /App_Data/logs/orchard-log-[date].log file. Logging can be configured in the NLog.config file in the web
+            // project (e.g. OrchardCore.Cms.Web). Oh, and one more thing: if you install the Lombiq Orchard Visual
             // Studio Extension it'll provide you a handy Error Log Watcher which lights up if there's a new error!
             // Check it out here:
             // https://marketplace.visualstudio.com/items?itemName=LombiqVisualStudioExtension.LombiqOrchardVisualStudioExtension

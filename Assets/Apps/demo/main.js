@@ -7,9 +7,9 @@ import DemoComponent from './components/demo-component';
 // Here is the initDemoApp function defined you've seen right before.
 window.initDemoApp = function (options) {
     // The options will be added to the Vue config object. To make it injectable you can add an options.js which proxies
-    // the options in a strongly typed object (see Assets/Apps/demo/options.js). 
+    // the options in a strongly typed object (see Assets/Apps/demo/options.js).
     Vue.config.demoApp = options;
-    
+
     new Vue({
         el: options.element,
         components: {

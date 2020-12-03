@@ -27,7 +27,6 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IAuthorizationService _authorizationService;
         private readonly IUpdateModelAccessor _updateModelAccessor;
 
-
         public AdminController(
             IContentItemDisplayManager contentItemDisplayManager,
             ISession session,
@@ -39,7 +38,6 @@ namespace Lombiq.TrainingDemo.Controllers
             _authorizationService = authorizationService;
             _updateModelAccessor = updateModelAccessor;
         }
-
 
         // Let's see how it will be displayed, just type the default URL into the browser with an administrator account
         // (or at least a user who has a role that has AccessAdmin permission). If you are anonymous then a login page
@@ -88,10 +86,9 @@ namespace Lombiq.TrainingDemo.Controllers
             return View("PersonList", await GetShapesAsync(persons));
         }
 
-
         private async Task<IEnumerable<IShape>> GetShapesAsync(IEnumerable<ContentItem> persons) =>
-            // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items
-            // on the dashboard.
+            // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items on
+            // the dashboard.
             await Task.WhenAll(persons.Select(async person =>
                 await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin")));
     }

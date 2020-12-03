@@ -11,7 +11,6 @@ namespace Lombiq.TrainingDemo.Permissions
             nameof(ManageDemoSettings),
             "Manage Person content items.");
 
-
         public Task<IEnumerable<Permission>> GetPermissionsAsync() =>
             Task.FromResult(new[]
             {

@@ -28,15 +28,13 @@ namespace Lombiq.TrainingDemo.Controllers
     {
         private readonly IShellHost _shellHost;
 
-
         // We'll need IShellHost to access services from a currently running shell's dependency injection container
         // (Service Provider).
         public CrossTenantServicesController(IShellHost shellHost) => _shellHost = shellHost;
 
-
-        // A simple route for convenience. You can access this from under /CrossTenantServices?contentItemId=ID. Here
-        // ID needs to be a content item ID that you can get e.g. from the URL when you open an item to edit from the
-        // admin (it looks something like "4da2sme18cc2k2rpdgwx3d4cwj" which is NOT made by a cat walking across the
+        // A simple route for convenience. You can access this from under /CrossTenantServices?contentItemId=ID. Here ID
+        // needs to be a content item ID that you can get e.g. from the URL when you open an item to edit from the admin
+        // (it looks something like "4da2sme18cc2k2rpdgwx3d4cwj" which is NOT made by a cat walking across the
         // keyboard!).
         [Route("CrossTenantServices")]
         public async Task<string> Index(string contentItemId)
@@ -48,9 +46,9 @@ namespace Lombiq.TrainingDemo.Controllers
             // course. Create a tenant in your app (enable the Tenants feature and then create it from under
             // Configuration / Tenants), enable the Training Demo on it too and check out how this works there!
 
-            // First you have to retrieve the tenant's shell scope that contains the shell's Service Provider. Note
-            // that there is also an IShellSettingsManager service that you can use to access the just shell settings
-            // for all tenants (shell settings are a tenant's basic settings, like its technical name and its URL).
+            // First you have to retrieve the tenant's shell scope that contains the shell's Service Provider. Note that
+            // there is also an IShellSettingsManager service that you can use to access the just shell settings for all
+            // tenants (shell settings are a tenant's basic settings, like its technical name and its URL).
             var shellScope = await _shellHost.GetScopeAsync("Default");
 
             // We'll just return the title of the content item from this action but you can do anything else with the
@@ -66,9 +64,9 @@ namespace Lombiq.TrainingDemo.Controllers
                 // services in the constructor.
                 var contentManager = scope.ServiceProvider.GetRequiredService<IContentManager>();
 
-                // We can use IContentManager as usual, it'll just work.
-                // Note that for the sake of simplicity there is no error handling for missing content items here, or
-                // any authorization. It's up to you to add those :).
+                // We can use IContentManager as usual, it'll just work. Note that for the sake of simplicity there is
+                // no error handling for missing content items here, or any authorization. It's up to you to add those
+                // :).
                 var contentItem = await contentManager.GetAsync(contentItemId);
 
                 // DisplayText is what you've already learned about in PersonPartHandler.

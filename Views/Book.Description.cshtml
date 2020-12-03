@@ -4,14 +4,14 @@ Description. The zone-related properties of the Model objects will be populated 
 <div class="book">
     @* Display Header zone if there is any shape placed in the zone. Remember that since Title and Author shapes have
     no display type property given in the Driver these will also be rendered here. This way you can reuse any shapes
-    you want in Orchard Core! *@ 
+    you want in Orchard Core! *@
     @if (Model.Header != null)
     {
         <header class="bookHeader">
             @await DisplayAsync(Model.Header)
         </header>
     }
-    
+
     @* Display Content zone if there is any shape placed in the zone. *@
     @if (Model.Content != null)
     {

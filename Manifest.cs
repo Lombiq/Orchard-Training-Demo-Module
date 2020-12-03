@@ -20,8 +20,8 @@ using OrchardCore.Modules.Manifest;
     // Modules can have dependencies which are other module names (name of the project) or if these modules have
     // subfeatures then the name of the feature. If you use any service, taghelper etc. coming from an Orchard Core
     // feature then you need to include them in this list. Orchard Core will make sure to enable all dependent modules
-    // when you enable a module that has dependencies. Without this some features would not work even if the assembly
-    // is referenced in the project.
+    // when you enable a module that has dependencies. Without this some features would not work even if the assembly is
+    // referenced in the project.
     Dependencies = new[]
     {
         "Lombiq.VueJs",

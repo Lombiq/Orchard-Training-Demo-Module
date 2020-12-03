@@ -30,15 +30,12 @@ namespace Lombiq.TrainingDemo.Services
         Task<ContentItem> GetContentItemOrThrowAsync(string id);
     }
 
-
     // The implementation of the service follows.
     public class TestedService : ITestedService
     {
         private readonly IContentManager _contentManager;
 
-
         public TestedService(IContentManager contentManager) => _contentManager = contentManager;
-
 
         public Task<ContentItem> GetContentItemOrThrowAsync(string id)
         {
@@ -48,10 +45,10 @@ namespace Lombiq.TrainingDemo.Services
                 throw new ArgumentNullException(nameof(id), "The supplied content item ID was null or empty.");
             }
 
-            // This is factored out to adhere to the recommendations here: https://rules.sonarsource.com/csharp/RSPEC-4457.
+            // This is factored out to adhere to the recommendations here:
+            // https://rules.sonarsource.com/csharp/RSPEC-4457.
             return GetContentItemOrThrowInternalAsync(id);
         }
-
 
         private async Task<ContentItem> GetContentItemOrThrowInternalAsync(string id)
         {

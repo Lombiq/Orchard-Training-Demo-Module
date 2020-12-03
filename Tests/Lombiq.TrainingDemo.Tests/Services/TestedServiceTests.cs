@@ -15,7 +15,6 @@ namespace Lombiq.TrainingDemo.Tests.Services
     {
         private const string TestContentId = "content ID";
 
-
         // Here we have a nice data-driven test. If you're new to this check out this blog post:
         // https://andrewlock.net/creating-parameterised-tests-in-xunit-with-inlinedata-classdata-and-memberdata/
         [Theory]
@@ -42,8 +41,7 @@ namespace Lombiq.TrainingDemo.Tests.Services
 
             Should.Throw<InvalidOperationException>(() => service.GetContentItemOrThrowAsync(TestContentId));
 
-            // Let's also make sure that the content manager method was actually called, and with the correct
-            // parameter.
+            // Let's also make sure that the content manager method was actually called, and with the correct parameter.
 
             mocker
                 .GetMock<IContentManager>()
@@ -67,7 +65,6 @@ namespace Lombiq.TrainingDemo.Tests.Services
 
             contentItem.ContentItemId.ShouldBe(TestContentId);
         }
-
 
         private static TestedService CreateTestedService(out AutoMocker mocker)
         {

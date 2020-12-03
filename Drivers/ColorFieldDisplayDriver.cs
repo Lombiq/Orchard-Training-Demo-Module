@@ -18,16 +18,14 @@ namespace Lombiq.TrainingDemo.Drivers
     {
         private readonly IStringLocalizer T;
 
-
         public ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> stringLocalizer) => T = stringLocalizer;
-
 
         public override IDisplayResult Display(ColorField field, BuildFieldDisplayContext fieldDisplayContext) =>
             // Same Display method for generating display shapes but this time the Initialize shape helper is being
             // used. We've seen it in the PersonPartDisplayDriver.Edit method. For this we need a view model object
             // which will be populated with the field data. The GetDisplayShapeType helper will generate a conventional
-            // shape type for our content field which will be the name the field. Obviously, alternates can also be
-            // used - so if the content item is being displayed with a display type named "Custom" then the
+            // shape type for our content field which will be the name the field. Obviously, alternates can also be used
+            // - so if the content item is being displayed with a display type named "Custom" then the
             // ColorField.Custom.cshtml file will be used, otherwise, the ColorField.cshtml will be active.
             Initialize<DisplayColorFieldViewModel>(
                 GetDisplayShapeType(fieldDisplayContext),
@@ -63,8 +61,8 @@ namespace Lombiq.TrainingDemo.Drivers
             var viewModel = new EditColorFieldViewModel();
 
             // Using this overload of the model updater you can specifically say what properties need to be updated.
-            // This way you make sure no other properties will be bound to the view model. Instead of this you could
-            // put [BindNever] attributes on the properties to make the model binder to skip those, it's up to you.
+            // This way you make sure no other properties will be bound to the view model. Instead of this you could put
+            // [BindNever] attributes on the properties to make the model binder to skip those, it's up to you.
             if (await updater.TryUpdateModelAsync(viewModel, Prefix, f => f.Value, f => f.ColorName))
             {
                 // Get the ColorFieldSettings to use it when validating the view model.

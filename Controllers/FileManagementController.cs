@@ -31,13 +31,13 @@ namespace Lombiq.TrainingDemo.Controllers
     {
         // Let's have the paths here in constants to avoid repeating ourselves.
         private const string TestFileRelativePath = "TrainingDemo/TestFile1.txt";
+
         private const string UploadedFileFolderRelativePath = "TrainingDemo/Uploaded";
 
         private readonly IMediaFileStore _mediaFileStore;
         private readonly INotifier _notifier;
         private readonly IHtmlLocalizer H;
         private readonly ICustomFileStore _customFileStore;
-
 
         public FileManagementController(
             IMediaFileStore mediaFileStore,
@@ -51,9 +51,8 @@ namespace Lombiq.TrainingDemo.Controllers
             H = htmlLocalizer;
         }
 
-
-        // This action will demonstrate how to create a file in the Media folder and read it from there.
-        // See it under /Lombiq.TrainingDemo/FileManagement/CreateFileInMediaFolder.
+        // This action will demonstrate how to create a file in the Media folder and read it from there. See it under
+        // /Lombiq.TrainingDemo/FileManagement/CreateFileInMediaFolder.
         public async Task<string> CreateFileInMediaFolder()
         {
             // You need to initialize a stream if you have a specific text you want to write into the file. If you
@@ -68,8 +67,8 @@ namespace Lombiq.TrainingDemo.Controllers
             // the built-in FileInfo class but not that robust.
             var fileInfo = await _mediaFileStore.GetFileInfoAsync(TestFileRelativePath);
 
-            // The IMediaFileStore has its own specific methods such as mapping the file path to a public URL. Since
-            // the files in the Media folder are accessible from the outside this can be handy.
+            // The IMediaFileStore has its own specific methods such as mapping the file path to a public URL. Since the
+            // files in the Media folder are accessible from the outside this can be handy.
             var publicUrl = _mediaFileStore.MapPathToPublicUrl(TestFileRelativePath);
 
             return $"Successfully created file! File size: {fileInfo.Length} bytes. Public URL: {publicUrl}";
@@ -78,8 +77,8 @@ namespace Lombiq.TrainingDemo.Controllers
         // If you've created the file just go to the Dashboard and check if you can see it under Assets. You can also
         // find it in the App_Data/Sites/{TenantName}/Media/TrainingDemo folder.
 
-        // This action will read the file you've created earlier.
-        // See it under /Lombiq.TrainingDemo/FileManagement/ReadFileFromMediaFolder.
+        // This action will read the file you've created earlier. See it under
+        // /Lombiq.TrainingDemo/FileManagement/ReadFileFromMediaFolder.
         public async Task<string> ReadFileFromMediaFolder()
         {
             // This way you can check if the given file exists.
@@ -98,10 +97,10 @@ namespace Lombiq.TrainingDemo.Controllers
             }
         }
 
-        // Now let's see a scenario where you have a file uploader component and you want to save that file to the
-        // Media folder. If you want to see how our demo uploader looks like then go to
-        // Views/FileManagement/UploadFileToMedia.cshtml.
-        // See the action under /Lombiq.TrainingDemo/FileManagement/UploadFileToMedia.
+        // Now let's see a scenario where you have a file uploader component and you want to save that file to the Media
+        // folder. If you want to see how our demo uploader looks like then go to
+        // Views/FileManagement/UploadFileToMedia.cshtml. See the action under
+        // /Lombiq.TrainingDemo/FileManagement/UploadFileToMedia.
         public ActionResult UploadFileToMedia() => View();
 
         [HttpPost, ActionName(nameof(UploadFileToMedia)), ValidateAntiForgeryToken]

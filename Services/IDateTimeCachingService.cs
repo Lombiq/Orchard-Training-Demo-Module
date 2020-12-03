@@ -6,8 +6,8 @@ namespace Lombiq.TrainingDemo.Services
 {
     /// <summary>
     /// Service to demonstrate caching by caching the current <see cref="DateTime"/>. Not much to see here apart from
-    /// some docs (this is how we recommend documenting interfaces), for the implementation check out
-    /// <see cref="DateTimeCachingService"/>.
+    /// some docs (this is how we recommend documenting interfaces), for the implementation check out <see
+    /// cref="DateTimeCachingService"/>.
     /// </summary>
     public interface IDateTimeCachingService
     {

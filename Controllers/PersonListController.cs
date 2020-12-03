@@ -29,7 +29,6 @@ namespace Lombiq.TrainingDemo.Controllers
         private readonly IUpdateModelAccessor _updateModelAccessor;
         private readonly IContentManager _contentManager;
 
-
         public PersonListController(
             ISession session,
             IClock clock,
@@ -44,15 +43,14 @@ namespace Lombiq.TrainingDemo.Controllers
             _contentManager = contentManager;
         }
 
-
         // See it under /Lombiq.TrainingDemo/PersonList/OlderThan30.
         public async Task<ActionResult> OlderThan30()
         {
             var thresholdDate = _clock.UtcNow.AddYears(-30);
             var people = await _session
                 // This will query for content items where the related PersonPartIndex.BirthDateUtc is lower than the
-                // threshold date. Notice that there is no Where method. The Query method has an overload for that
-                // which can be useful if you don't want to filter in multiple indexes.
+                // threshold date. Notice that there is no Where method. The Query method has an overload for that which
+                // can be useful if you don't want to filter in multiple indexes.
                 .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
                 .ListAsync();
 
@@ -108,21 +106,21 @@ namespace Lombiq.TrainingDemo.Controllers
                 // ISession.Save()? This is something similar for content items.
                 await _contentManager.UpdateAsync(person);
 
-                // After saving the content item with UpdateAsync() you also need to publish it to make sure that even
-                // a draftable content item gets updated.
+                // After saving the content item with UpdateAsync() you also need to publish it to make sure that even a
+                // draftable content item gets updated.
                 await _contentManager.PublishAsync(person);
             }
 
-            // If you want to manage just one content item or a couple of them that you know by ID then fetch them
-            // with IContentManager.GetAsync() instead.
+            // If you want to manage just one content item or a couple of them that you know by ID then fetch them with
+            // IContentManager.GetAsync() instead.
 
             return "People modified: " +
                 (oldPeople.Any() ?
                     string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                     "Nobody. Did you create people older than 90?");
 
-            // That was a quick intro to modifying content items from code. It's a lot more involved than this but
-            // this should get you going!
+            // That was a quick intro to modifying content items from code. It's a lot more involved than this but this
+            // should get you going!
 
             // There is one final piece missing to make what we need to know about content items complete. NEXT
             // STATION: Check out Handlers/PersonPartHandler.

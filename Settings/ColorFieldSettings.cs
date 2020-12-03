@@ -20,8 +20,8 @@ namespace Lombiq.TrainingDemo.Settings
     }
 }
 
-// How can these settings be edited? If you attach a content field to a content part / content type from a migration
-// you can set these values there (see: Migrations/PersonMigrations where the Biography field is being added to the
+// How can these settings be edited? If you attach a content field to a content part / content type from a migration you
+// can set these values there (see: Migrations/PersonMigrations where the Biography field is being added to the
 // PersonPart). If you attach the field on the dashboard yourself then Orchard Core will display its editor. Editor of
 // an object like this? You know what you need to do... Create a DisplayDriver for this!
 

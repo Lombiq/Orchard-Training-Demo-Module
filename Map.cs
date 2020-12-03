@@ -23,6 +23,7 @@ using System.Diagnostics.CodeAnalysis;
  *
  * This class is not doing anything and only serves as an easy to use table of contents.
  */
+
 namespace Lombiq.TrainingDemo
 {
     internal static class Map
