@@ -17,8 +17,8 @@ namespace Lombiq.TrainingDemo.Indexes
     // (see: Startup.cs).
     // Note that this IndexProvider is registered as a singleton which is the good choice usually. However, if you want
     // to inject other services into it (like any of the basic Orchard services you've seen until now) then you need to
-    // register it with AddScoped<IScopedIndexProvider, BookIndexProvider>() and make the class also implement
-    // IScopedIndexProvider.
+    // register it with AddScoped<IIndexProvider, BookIndexProvider>() and make the class also implement
+    // IIndexProvider.
     public class BookIndexProvider : IndexProvider<Book>
     {
         public override void Describe(DescribeContext<Book> context) =>
