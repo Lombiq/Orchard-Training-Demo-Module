@@ -39,11 +39,14 @@ namespace Lombiq.TrainingDemo.Controllers
             _updateModelAccessor = updateModelAccessor;
         }
 
-        // Let's see how it will be displayed, just type the default URL into the browser with an administrator account
-        // (or at least a user who has a role that has AccessAdmin permission). If you are anonymous then a login page
-        // will automatically appear. The permission check (i.e. has AccessAdmin permission) will be automatic as well.
+        // Let's see how it will be displayed, just type the default URL (/Lombiq.TrainingDemo/Admin/Index) into the
+        // browser with an administrator account (or at least a user who has a role that has AccessAdmin permission).
+        // If you are anonymous then a login page will automatically appear. The permission check (i.e. has AccessAdmin
+        // permission) will be automatic as well.
         public ActionResult Index() => View();
 
+        // You don't have to access the below two actions by typing in their URLs because we have admin menu items for
+        // them!
         // NEXT STATION: Navigation/PersonsAdminMenu.cs
 
         public async Task<ActionResult> PersonListNewest()
