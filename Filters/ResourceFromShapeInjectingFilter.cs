@@ -26,7 +26,7 @@ namespace Lombiq.TrainingDemo.Filters
 
         public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
         {
-            // Similarly to ResourceInjectionFilter only run this if we're in a full view and the "alert" query string
+            // Similar to ResourceInjectionFilter only run this if we're in a full view and the "alert" query string
             // parameter is present. Just open any page and add "?alert" or "&alert" to the URL and see what happens!
             if (context.Result is PartialViewResult || !context.HttpContext.Request.Query.ContainsKey("alert"))
             {
