@@ -17,9 +17,8 @@ namespace Lombiq.TrainingDemo.Filters
         {
             // Let's decide when the filter should be executed. It wouldn't make sense to inject resources if this is a
             // partial view. Also here's an example of how to check if the request contains a "fadeIn" query string
-            // parameter.
-            if ((context.Result is PartialViewResult) ||
-                !context.HttpContext.Request.Query.ContainsKey("fadeIn"))
+            // parameter. Just open any page and add "?fadeIn" or "&fadeIn" to the URL and see what happens!
+            if (context.Result is PartialViewResult || !context.HttpContext.Request.Query.ContainsKey("fadeIn"))
             {
                 await next();
 
@@ -36,6 +35,4 @@ namespace Lombiq.TrainingDemo.Filters
     }
 }
 
-// END OF TRAINING SECTION: Utilizing action and result filters
-
-// NEXT STATION: Controllers/CacheController.cs
+// NEXT STATION: Filters/ResourceFromShapeInjectingFilter.cs

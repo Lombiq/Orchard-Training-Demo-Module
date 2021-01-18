@@ -8,6 +8,8 @@
  * The second filter (ResourceInjectionFilter) will be an example of injecting a resource (script or stylesheet) into a
  * page or pages. In the example a stylesheet will be injected if the URL contains a "fadeIn" query string parameter
  * which will make the page fade in on load.
+ *
+ * The third filter, ResourceFromShapeInjectingFilter will combine the two and totally blow your mind!
  */
 
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +27,8 @@ namespace Lombiq.TrainingDemo.Filters
         // To access the layout which contains the zones you need to use the ILayoutAccessor service.
         private readonly ILayoutAccessor _layoutAccessor;
 
-        // To generate ad-hoc shapes the IShapeFactory can be used.
+        // To generate ad-hoc shapes the IShapeFactory can be used. This is the same which is behind the New property
+        // in templates that you have previously seen in AdHocShape.cshtml.
         private readonly IShapeFactory _shapeFactory;
 
         public ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory shapeFactory)
