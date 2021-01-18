@@ -109,6 +109,7 @@ namespace Lombiq.TrainingDemo
             {
                 options.Filters.Add(typeof(ShapeInjectionFilter));
                 options.Filters.Add(typeof(ResourceInjectionFilter));
+                options.Filters.Add(typeof(ResourceFromShapeInjectingFilter));
             });
 
             // File System

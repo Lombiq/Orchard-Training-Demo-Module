@@ -133,12 +133,17 @@ namespace Lombiq.TrainingDemo
             // ResultFilter, IAsyncResultFilter
             Pointer<ShapeInjectionFilter>();
             Pointer<ResourceInjectionFilter>();
+            Pointer<ResourceFromShapeInjectingFilter>();
 
             // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection from filter
             Pointer<ShapeInjectionFilter>();
 
             // IResourceManager, resource injection
             Pointer<ResourceInjectionFilter>();
+
+            // IShapeFactory, IDisplayHelper, ad-hoc shapes, script shape injection from filter via resource manager,
+            // executing shapes into HTML
+            Pointer<ResourceFromShapeInjectingFilter>();
 
             // Memory Cache, Dynamic Cache
             // IMemoryCache, IDynamicCacheService, ITagCache

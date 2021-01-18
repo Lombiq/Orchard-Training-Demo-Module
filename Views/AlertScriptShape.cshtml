@@ -1,0 +1,12 @@
+@{
+    // This is needed so the below code won't be wrapped into an HTML document and the shape's output will only contain
+    // the output of this file. Note that this is only needed in such special cases when you execute a shape directly
+    // with IDisplayHelper.
+    Layout = null;
+}
+
+@* Just a script displaying an alert. *@
+<script>
+    alert("@T["Hello there!"]");
+    @* alert(@T["General Kenobi..."]) *@
+</script>
