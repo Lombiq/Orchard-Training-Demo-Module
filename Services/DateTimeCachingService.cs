@@ -67,16 +67,15 @@ namespace Lombiq.TrainingDemo.Services
         }
 
         // This method a DateTime object will be cached with a 30 second expiration using Orchard Core Dynamic Cache.
-        public async Task<DateTime> GetDynamicCachedDateTimeWith30SecondsExpiryAsync() =>
+        public Task<DateTime> GetDynamicCachedDateTimeWith30SecondsExpiryAsync() =>
             // To cache and object or retrieve them a CacheContext object must be used. It has one mandatory property,
             // the cache key. The caching parameters are also set in this object. To see how it works go inside this
             // method.
-            await GetOrCreateDynamicCachedDateTimeAsync(
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
+            GetOrCreateDynamicCachedDateTimeAsync(
                 // Notice that the CacheContext object has chainable methods so you can use them to populate the
                 // settings.
-#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
                 new CacheContext(DynamicCacheKey).WithExpiryAfter(TimeSpan.FromSeconds(30)));
-
 #pragma warning restore SA1114 // Parameter list should follow declaration
 
         // This method will cache the current date similarly then the previous one however instead of setting a 30
@@ -84,8 +83,8 @@ namespace Lombiq.TrainingDemo.Services
         // the route. This means that the DateTime cached here on one route will be unaccessible on other routes so
         // another DateTime will be cached for that other particular route. There are multiple differentiators already
         // implemented in Orchard Core, see: https://docs.orchardcore.net/en/dev/docs/reference/modules/DynamicCache/.
-        public async Task<DateTime> GetDynamicCachedDateTimeVariedByRoutesAsync() =>
-            await GetOrCreateDynamicCachedDateTimeAsync(
+        public Task<DateTime> GetDynamicCachedDateTimeVariedByRoutesAsync() =>
+            GetOrCreateDynamicCachedDateTimeAsync(
                 new CacheContext(DynamicCacheKey)
                     .AddContext("route")
                     .AddTag(DynamicCacheTag));

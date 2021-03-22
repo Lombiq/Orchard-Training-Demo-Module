@@ -41,7 +41,7 @@ namespace Lombiq.TrainingDemo.Filters
         {
             // You can decide when the filter should be executed here. If this is a ViewResult or PageResult the shape
             // injection wouldn't make any sense since there wouldn't be any zones.
-            if (!(context.Result is ViewResult || context.Result is PageResult))
+            if (context.Result is not (ViewResult or PageResult))
             {
                 await next();
 
