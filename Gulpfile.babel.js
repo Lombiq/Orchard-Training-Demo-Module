@@ -90,5 +90,6 @@ const getSassCompilerPipeline = () =>
 // END OF TRAINING SECTION: Compiling resources using Gulp
 
 // This is the end of the training. It is always hard to say goodbye so... don't do it. Let us know your thoughts about
-// this module or Orchard Core itself on GitHub or send us an email at crew@lombiq.com instead. If you feel like you
-// need some more training in developing Orchard Core web applications, don't hesitate to contact us!
+// this module or Orchard Core itself on GitHub (https://github.com/Lombiq/Orchard-Training-Demo-Module) or send us an
+// email to crew@lombiq.com instead. If you feel like you need some more training on developing Orchard Core web
+// applications, don't hesitate to contact us!
