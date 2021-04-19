@@ -11,16 +11,16 @@
 // (https://github.com/Lombiq/Gulp-Extensions) projects to hook Gulp build up with the .NET build pipeline, as well as
 // to provide JS linting. Check out their documentations for more details!
 
-// This is a helper for generating a gulp pipeline for harvesting Vue applications from the current
-// project's Assets folder and compiling them to wwwroot.
-import vue from '../Lombiq.VueJs/Assets/Scripts/helpers/vue-app-compiler-pipeline';
-
 const gulp = require('gulp');
 // Gulp watcher if needed when we are actively developing a resource.
 const watch = require('gulp-watch');
 
 // Importing an SCSS-compiling Gulp task from the Gulp Extensions project.
 const scssTargets = require('../../Utilities/Lombiq.Gulp.Extensions/Tasks/scss-targets');
+
+// This is a helper for generating a gulp pipeline for harvesting Vue applications from the current
+// project's Assets folder and compiling them to wwwroot.
+const vue = require('../Lombiq.VueJs/Assets/Scripts/helpers/vue-app-compiler-pipeline');
 
 // It's handy to define all the paths beforehand.
 const assetsBasePath = './Assets/';
@@ -48,7 +48,7 @@ gulp.task('pickr', () => gulp
 gulp.task('build:vue', () => vue.compile());
 
 // Default task that executes all the required tasks to initialize the module assets.
-gulp.task('default', gulp.parallel('build:styles', 'copy:images', 'pickr', 'vue:compile'));
+gulp.task('default', gulp.parallel('build:styles', 'copy:images', 'pickr', 'build:vue'));
 
 // This task won't be executed automatically, if you want to test this, you need to execute it in the Task Runner
 // Explorer. With this you'll be able to automatically compile and minify the sass files right after when you save them.
