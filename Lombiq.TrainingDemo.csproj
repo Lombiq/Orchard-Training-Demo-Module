@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Razor">
+﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
@@ -13,6 +13,10 @@
     <OrchardCoreModulesRoot Condition="Exists('$(SolutionDir)src\OrchardCore.Modules')">$(SolutionDir)src\OrchardCore.Modules</OrchardCoreModulesRoot>
   </PropertyGroup>
 
+  <Import Project="..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
+  <Import Project="..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
+  <Import Project="..\..\Utilities\Lombiq.Gulp.Extensions\Lombiq.Gulp.Extensions.targets"/>
+  
   <ItemGroup>
     <None Remove="node_modules\**" />
     <None Remove="Tests\**" />
@@ -68,17 +72,5 @@
   <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
-
-  <!-- This will execute two scripts right before every build. -->
-  <Target Name="NpmInstall" BeforeTargets="BeforeBuild">
-    <!-- It will install and initialize the node package manager. -->
-    <Exec Command="npm install" />
-
-    <!-- It will execute the default gulp task. -->
-    <Exec Command="gulp" />
-
-    <!-- With this two scripts we'll make sure that the resources will be ready to use in the wwwroot folder after
-    every build. -->
-  </Target>
 
 </Project>

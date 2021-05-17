@@ -33,7 +33,7 @@ namespace Lombiq.TrainingDemo
                 // commonly minified) and the other one the debug variant (non-minified, for local development). In
                 // this case be sure to use one variant for both the local and CDN URL, or two for both so there is no
                 // confusion.
-                .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.js")
+                .SetUrl("~/Lombiq.TrainingDemo/pickr/pickr.min.js")
                 // You can also use a CDN (or just a CDN) if you want to optimize static resource loading. If a resource
                 // has both a local and CDN version then you can decide when including it which one to use or you can
                 // set this globally under General Settings from the admin.
@@ -51,15 +51,15 @@ namespace Lombiq.TrainingDemo
                 // With the DefineStyle method you can define a stylesheet. The way of doing this is very similar to
                 // defining scripts.
                 .DefineStyle("Pickr")
-                .SetUrl("~/Lombiq.TrainingDemo/Pickr/pickr.min.css");
+                .SetUrl("~/Lombiq.TrainingDemo/pickr/pickr.min.css");
 
             manifest
                 // Finally let's see an example for defining a resource for our custom code. You can see the naming is
                 // more specific and contains our namespace.
                 .DefineStyle("Lombiq.TrainingDemo.ColorPicker")
                 .SetUrl(
-                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.min.css",
-                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-colorpicker.css")
+                    "~/Lombiq.TrainingDemo/css/trainingdemo-colorpicker.min.css",
+                    "~/Lombiq.TrainingDemo/css/trainingdemo-colorpicker.css")
                 // You can give a list of resource names to SetDependencies to force the loading of other resources when
                 // a given resource is used. Here Pickr is a dependency.
                 .SetDependencies("Pickr");
@@ -70,8 +70,8 @@ namespace Lombiq.TrainingDemo
             manifest
                 .DefineStyle("Lombiq.TrainingDemo.Filtered")
                 .SetUrl(
-                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.min.css",
-                    "~/Lombiq.TrainingDemo/Styles/trainingdemo-filtered.css");
+                    "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.min.css",
+                    "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.css");
 
             // This resource will be required for our demo Vue.js application.
             manifest
