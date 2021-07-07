@@ -100,7 +100,24 @@ namespace Lombiq.TrainingDemo.Controllers
                 // document! Don't just do this:
                 ////person.As<PersonPart>().BirthDateUtc = eighteenYearOld;
                 // Instead, use Alter() as we do below:
-                person.Alter<PersonPart>(part => part.BirthDateUtc = eighteenYearOld);
+                person.Alter<PersonPart>(part =>
+                {
+                    part.BirthDateUtc = eighteenYearOld;
+
+                    // You can also edit content fields:
+                    // It's actually a different instance concatenated with so the analyzer violation is incorrect.
+#pragma warning disable S1643 // Strings should not be concatenated using '+' in a loop
+                    part.Biography.Text += " I'm young again!";
+#pragma warning restore S1643 // Strings should not be concatenated using '+' in a loop
+                });
+
+                // If you happen to use reusable/named parts like BagPart (see the docs on it here:
+                // https://docs.orchardcore.net/en/dev/docs/reference/modules/Flow/BagPart.html) then it gets a bit
+                // trickier since there can be more than one BagPart on the content item. You can then either access the
+                // part by also supplying its name like this:
+                ////person.Alter<BagPart>("The technical name of the BagPart instance.", part => ...);
+                // Or you can create a content part class inheriting from BagPart that has the same name as the BagPart
+                // instance.
 
                 // Once you're done you have to save the content item explicitly. Remember when we saved Books with
                 // ISession.Save()? This is something similar for content items.

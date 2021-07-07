@@ -81,7 +81,7 @@ namespace Lombiq.TrainingDemo
             // Content Type (standard and widget), ContentPart, ContentField, index record creation.
             Pointer<PersonMigrations>();
 
-            // ISession, IContentItemDisplayManager, IClock
+            // ISession, IContentItemDisplayManager, IClock, IContentManager
             Pointer<DatabaseStorageController>();
             Pointer<PersonListController>();
 

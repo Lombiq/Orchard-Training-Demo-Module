@@ -41,7 +41,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 * [Display management](Controllers/DisplayManagementController.cs)
 * [Storing data in document database and index records](Controllers/DatabaseStorageController.cs)
 * [Content Item and Content Part development](Models/PersonPart.cs)
-* [Content Item display management and queries](Controllers/PersonListController.cs)
+* [Content Item display management and querying/modifying content items from code](Controllers/PersonListController.cs)
 * [Content Field development](Fields/ColorField.cs)
 * [Indexing Content Fields in Lucene](Indexing/ColorFieldIndexHandler.cs)
 * [Content Field display and editor options](Views/ColorField.Option.cshtml)
