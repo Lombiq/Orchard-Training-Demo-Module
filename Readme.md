@@ -13,44 +13,31 @@ If you prefer tutorial videos more then check out the [Dojo Course 3, the comple
 
 ## How to start
 
-You can use this module as part of a vanilla Orchard Core source that includes the full source code - which is the recommended way. You can also use it as part of a solution that uses Orchard Core NuGet packages, however, it's harder to look under the hood of Orchard Core features.
+The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) and the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
 
-The module depends on **[Lombiq.VueJs](https://github.com/Lombiq/Orchard-Vue.js)** so you need to download it and place it next to it as elaborated below. Be sure to set up tools for building client-side resources as explained under the [VueJs module's docs](https://github.com/Lombiq/Orchard-Vue.js#prerequisites).
+Before you dive deep into this module it'd be best if you make sure that you have done the following: 
 
-The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
+* You know how ASP.NET Core MVC works. It's important that you understand how ASP.NET Core MVC works or generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at https://docs.microsoft.com/en-us/aspnet/core/tutorials/?view=aspnetcore-3.1.
+* You've read through the documentation under https://docs.orchardcore.net/ (at least the "About Orchard Core" section, but it would be great if you'd skim the whole documentation).
+* You know Orchard Core from a user's perspective and understand the fundamental concepts underlying the system. (The [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that.) 
 
+The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases a web app using Orchard Core from NuGet packages, and it includes this module too. Furthermore, it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! (Check them out for what we have already solved for you.) So, just use that to work with this module:
 
-### Using a full Orchard Core source
-
-1. Open an Orchard Core solution. You can download or `git clone` Orchard from [GitHub](https://github.com/OrchardCMS/OrchardCore/). Be sure to clone to the `master` branch, i.e. the latest released source, as this is what the module is kept up to date with (not the latest `dev` which serves for ongoing development).
-2. Add the Lombiq.VueJs project first, then this one to the solution into folders named exactly "Lombiq.VueJs" and "Lombiq.TrainingDemo" under *src/OrchardCore.Modules* (it's important that you put them into this file system folder - the logical solution folder doesn't matter). Be sure to read the Vue.js module's Readme on what to install for it to build properly!
-3. Add these two projects as references to the `OrchardCore.Application.Cms.Targets` project (it's in the *src/Targets* solution folder).
-4. Set the `OrchardCore.Cms.Web` project as the startup project if it isn't already and run it (F5 or CTRL+F5).
-5. Setup the website using the "Training Demo" recipe.
-
-If you want to learn about unit and integration testing too then also add the test project to the solution: Add it from the module's *Tests* folder to the solution's *test* solution folder.
+1. Clone the repository to the latest `dev` branch. The repository uses submodules to include all the other projects like this one. Thus when first cloning it you'll need to initialize them: When using a GUI this should happen by default, and when using the command line use the `--recurse-submodules` switch.
+2. Make sure the `Lombiq.OSOCE.Web` project is the startup project (it should be).
+3. Start the app with <kbd>Ctrl</kbd> + <kbd>F5</kbd>.
+4. Set up the website using the "Training Demo" recipe.
 
 
-### Using NuGet packages
+## Learning Orchard Core with this module
 
-The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases such a web app. (And it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! Check it out for what we have already solved for you.) So if you want to skip ahead you can just use that directly. If you feel adventurous then by all means create your own app as explained below!
-
-1. Create a new web project using [the Init-OrchardCore script from the Utility Scripts project](https://github.com/Lombiq/Utility-Scripts). You can also follow the slightly more involved [official documentation](https://docs.orchardcore.net/en/dev/docs/getting-started/templates/#generate-an-orchard-cms-web-application) on how the use the code generation templates. Be sure not to disable logging (it's enabled by default) when using the template otherwise logging won't work. If you're starting an app from scratch it's highly recommended to use the templates instead of creating it manually.
-2. Add this project and Lombiq.VueJs to the solution. For Lombiq.VueJs use a folder named exactly "Lombiq.VueJs". Be sure to read the Vue.js module's Readme on what to install for it to build properly!
-3. Add these projects as references to the web project.
-4. Set the web project as the startup project and run it (F5 or CTRL+F5).
-5. Setup the website using the "Training Demo" recipe.
-
-If you want to learn about unit and integration testing too then also add the test project to the solution: Add it from the module's *Tests* folder to a new *test* solution folder.
-
-
-## Using this module for training purposes
-
-If your module compiles and you are able to enable this module on the dashboard then head over to the **[StartLearningHere.md](StartLearningHere.md)** file and start exploring all the great things you can do in Orchard Core.
+Once the app is running, head over to the **[StartLearningHere.md](StartLearningHere.md)** file and start exploring all the great things you can do in Orchard Core.
 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in. [StartLearningHere.md](StartLearningHere.md) also has training sections linked so you can go to a broader section.
 
 Be sure to check out the [Orchard Dojo Library for Orchard Core](https://orcharddojo.net/orchard-resources/CoreLibrary/) for a wealth of Orchard Core guidelines, best practices, development utilities (like scripts and snippets), and more as well!
+
+If you'd like to clean out comments from code files so you can just see the essence, then use the [Comment Remover VS extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommentRemover) to quickly do it.
 
 
 ## Contributing and support

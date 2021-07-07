@@ -108,7 +108,7 @@ namespace Lombiq.TrainingDemo.Controllers
             {
                 new Book
                 {
-                    CoverPhotoUrl = "/Lombiq.TrainingDemo/Images/HarryPotter.jpg",
+                    CoverPhotoUrl = "/Lombiq.TrainingDemo/images/HarryPotter.jpg",
                     Title = "Harry Potter and The Sorcerer's Stone",
                     Author = "J.K. (Joanne) Rowling",
                     Description = "Harry hasn't had a birthday party in eleven years - but all that is about to " +
