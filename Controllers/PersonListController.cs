@@ -4,6 +4,8 @@
  * the documents (which contain the parts and fields serialized) and can have multiple index records referencing a
  * content item (e.g. the previously created PersonPartIndex that indexes data in from PersonPart).
  *
+ * We'll also see some examples of how to modify and create content items from code.
+ *
  * Note that there is no custom controller or action demonstrated for displaying the editor for the Person. Go to the
  * administration page (/Admin) and create a few Person content items, including ones with ages above 30.
  */
