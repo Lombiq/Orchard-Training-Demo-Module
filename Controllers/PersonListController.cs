@@ -11,6 +11,7 @@
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Models;
 using Microsoft.AspNetCore.Mvc;
+using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display;
 using OrchardCore.DisplayManagement.ModelBinding;
@@ -136,11 +137,51 @@ namespace Lombiq.TrainingDemo.Controllers
                     string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                     "Nobody. Did you create people older than 90?");
 
-            // That was a quick intro to modifying content items from code. It's a lot more involved than this but this
-            // should get you going!
+            // That was a quick intro to modifying content items from code. It's a lot more involved than this but it
+            // should get you going! Let's see an example of creating content items from scratch too: Follow up with the
+            // next action.
+        }
 
-            // There is one final piece missing to make what we need to know about content items complete. NEXT
-            // STATION: Check out Handlers/PersonPartHandler.
+        // Open this under /Lombiq.TrainingDemo/PersonList/CreateAnAndroid.
+        public async Task<string> CreateAnAndroid()
+        {
+            // Here we'll create a new content item from scratch.
+
+            // First you need to instantiate the new content item. This just creates an object for now, nothing is yet
+            // persisted into the database.
+            var person = await _contentManager.NewAsync(ContentTypes.PersonPage);
+
+            // We add some identity to our new synthetic friend.
+            var serialNumber = _clock.UtcNow.Ticks;
+            var name = $"X Doe #{serialNumber}";
+
+            // Again we can save date into parts like this:
+            person.Alter<PersonPart>(part =>
+            {
+                part.Name = name;
+                part.BirthDateUtc = _clock.UtcNow;
+                part.Handedness = Handedness.Right; // Actually ambidextrous.
+            });
+
+            // Watch out, this is different compared to editing existing content items! You can't do this within
+            // person.Alter<PersonPart>(). You have to fetch the content part anew and alter the fields like this:
+            var personPart = person.As<PersonPart>();
+            personPart.Alter<TextField>(nameof(PersonPart.Biography), field => field.Text = "I'm sentient now!");
+
+            // This is the point where we actually save the content item into the database. Note that it's saved as a
+            // draft; you could also publish it right away but if you want to be safe and make sure that every part runs
+            // nicely (like AutoroutePart, which we don't use on PersonPage, generates the permalink) it's safer to
+            // first create a draft, then also update it, and finally publish it explicitly.
+            await _contentManager.CreateAsync(person, VersionOptions.Draft);
+            await _contentManager.UpdateAsync(person);
+            await _contentManager.PublishAsync(person);
+
+            // You should see a new content item, check it out from the admin!
+
+            return $"{name} came into existence.";
+
+            // There is one final piece missing to make what we need to know about content items complete.
+            // NEXT STATION: Check out Handlers/PersonPartHandler.
         }
     }
 }
