@@ -8,7 +8,7 @@ Demo [Orchard Core CMS](https://www.orchardcore.net/) module for training purpos
 
 If you prefer tutorial videos more then check out the [Dojo Course 3, the complete Orchard Core tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial).
 
-**If you are interested in training materials and Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
+**If you are interested in training materials and personalized Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
 
 ## How to start
@@ -36,6 +36,10 @@ Once the app is running, head over to the **[StartLearningHere.md](StartLearning
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in. [StartLearningHere.md](StartLearningHere.md) also has training sections linked so you can go to a broader section.
 
 Be sure to check out the [Orchard Dojo Library for Orchard Core](https://orcharddojo.net/orchard-resources/CoreLibrary/) for a wealth of Orchard Core guidelines, best practices, development utilities (like scripts and snippets), and more as well!
+
+You can also follow the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) if you like to learn from videos.
+
+Keep in mind that your best living reference of how to do something in Orchard is [the official repo](https://github.com/orchardCMS/OrchardCore/) and our Open-Source Orchard Core Extensions solution. Clone both and keep the solutions open when you’re working on something so you can quickly look up anything.
 
 If you'd like to clean out comments from code files so you can just see the essence, then use the [Comment Remover VS extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommentRemover) to quickly do it.
 
