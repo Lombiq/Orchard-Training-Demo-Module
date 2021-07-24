@@ -47,7 +47,8 @@
       },
       "LayerSettings": {
         "Zones": [ "Header", "Messages", "Footer" ]
-      }
+      },
+      "CacheMode": 1
     },
     {
       "name": "layers",
