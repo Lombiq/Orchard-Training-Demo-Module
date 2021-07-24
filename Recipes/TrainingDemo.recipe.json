@@ -48,7 +48,13 @@
       "LayerSettings": {
         "Zones": [ "Header", "Messages", "Footer" ]
       },
-      "CacheMode": 1
+      "CacheMode": 1,
+      "AdminSettings": {
+        "DisplayDarkMode": true,
+        "DisplayMenuFilter": false,
+        "DisplayNewMenu": true,
+        "DisplayTitlesInTopbar": false
+      }
     },
     {
       "name": "layers",
