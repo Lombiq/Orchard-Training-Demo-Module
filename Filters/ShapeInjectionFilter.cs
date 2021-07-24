@@ -48,15 +48,16 @@ namespace Lombiq.TrainingDemo.Filters
                 return;
             }
 
-            // The layout can be handled easily if this is dynamic.
-            dynamic layout = await _layoutAccessor.GetLayoutAsync();
+            // We first retrieve the layout.
+            var layout = await _layoutAccessor.GetLayoutAsync();
 
-            // The dynamic Layout object will contain a Zones dictionary that you can use to access a zone.
+            // The Layout object will contain a Zones dictionary that you can use to access a zone. The Content zone is
+            // usually available in all themes and is the main zone in the middle of each page.
             var contentZone = layout.Zones["Content"];
-            // Here you can add an ad-hoc generated shape to the content zone. This works in the same way as we've seen
-            // previously when we talked about display management. You can find the template that'll renders this shape
+            // Here you can add an ad-hoc generated shape to the Content zone. This works in the same way as we've seen
+            // previously when we talked about display management. You can find the template that'll render this shape
             // under Views/InjectedShape.cshtml.
-            contentZone.Add(await _shapeFactory.New.InjectedShape());
+            await contentZone.AddAsync(await _shapeFactory.CreateAsync("InjectedShape"));
 
             await next();
         }
