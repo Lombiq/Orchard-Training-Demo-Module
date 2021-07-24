@@ -2,8 +2,9 @@
     DisplayAsync helper to display these shapes. *@
 
 @model IEnumerable<dynamic>
-@* Titles displayed on the admin need to be wrapped in such a <zone> to be properly displayed. You don't need to do this
-    for titles on the frontend. *@
+@* Titles displayed on the admin need to be wrapped in such a <zone> to be properly displayed (this way they can also be
+    displayed in the top bar of the admin theme, something you can enable under Configuration -> Settings -> Admin.) You
+    don't need to do this for titles on the frontend. *@
 <zone Name="Title">
     @* Note how we use RenderTitleSegments() here. It'll show the title here that might have been collaboratively
         modified by multiple pieces of code (like adding suffixes, section names), and most importantly, it'll also add
