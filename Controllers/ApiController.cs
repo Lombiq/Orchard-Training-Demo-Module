@@ -26,7 +26,9 @@ namespace Lombiq.TrainingDemo.Controllers
     // The ApiController attribute is not strictly mandatory but pretty useful, see:
     // https://docs.microsoft.com/en-us/aspnet/core/web-api/#apicontroller-attribute
     [ApiController]
-    // We'll handle authorization within the actions (i.e. API endpoints) so nothing else needed here.
+    // We'll handle authorization within the actions (i.e. API endpoints) so nothing else needed here. Note that API
+    // endpoints should most of the time use the "Api" authentication scheme: This is not the same that standard users
+    // are authenticated with (via cookies).
     [Authorize(AuthenticationSchemes = "Api"), IgnoreAntiforgeryToken, AllowAnonymous]
     public class ApiController : Controller
     {
@@ -39,9 +41,12 @@ namespace Lombiq.TrainingDemo.Controllers
             _contentManager = contentManager;
         }
 
-        // Look up the ID of a Person Page that you've created previously (when you open one from the admin content item
-        // list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access this
-        // action under api/Lombiq.TrainingDemo?contentItemId=<content item ID>.
+        // You can look up the ID of a Person Page that you've created previously (when you open one from the admin
+        // content item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to
+        // access this action under /api/Lombiq.TrainingDemo?contentItemId=<content item ID>. Note though that you'll
+        // only be able to authorize with a client ID and secret of an OpenID app set up from the Orchard admin. For
+        // more info see: https://docs.orchardcore.net/en/latest/docs/reference/modules/OpenId/.
+        // If you just want to quickly test this API then remove the Authorize attribute above.
         public async Task<IActionResult> Get(string contentItemId)
         {
             // Authorization is important in API endpoints as well of course. We're re-using the previously created
@@ -50,7 +55,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // permission for the Anonymous role on the admin.
             if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
             {
-                return this.ChallengeOrForbid();
+                return this.ChallengeOrForbid("Api");
             }
 
             // Just the usual stuff again.
