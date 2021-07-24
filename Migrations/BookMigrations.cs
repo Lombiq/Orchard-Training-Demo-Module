@@ -6,6 +6,7 @@
 
 using Lombiq.TrainingDemo.Indexes;
 using OrchardCore.Data.Migration;
+using YesSql.Sql;
 
 namespace Lombiq.TrainingDemo.Migrations
 {
@@ -16,7 +17,7 @@ namespace Lombiq.TrainingDemo.Migrations
         // it can set up DB tables.
         public int Create()
         {
-            SchemaBuilder.CreateMapIndexTable(nameof(BookIndex), table => table
+            SchemaBuilder.CreateMapIndexTable<BookIndex>(table => table
                 .Column<string>(nameof(BookIndex.Author))
                 // Titles of books can be really long sometimes (even as long as 26000 characters:
                 // https://www.guinnessworldrecords.com/world-records/358711-longest-title-of-a-book) so we have to make

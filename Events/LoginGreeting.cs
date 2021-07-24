@@ -7,6 +7,7 @@
 
 using Microsoft.AspNetCore.Mvc.Localization;
 using OrchardCore.DisplayManagement.Notify;
+using OrchardCore.Users;
 using OrchardCore.Users.Events;
 using System;
 using System.Threading.Tasks;
@@ -26,15 +27,17 @@ namespace Lombiq.TrainingDemo.Events
             T = htmlLocalizer;
         }
 
-        public Task LoggedInAsync(string userName)
+        public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
+
+        public Task LoggedInAsync(IUser user)
         {
-            _notifier.Success(T["Hi {0}!", userName]);
+            _notifier.Success(T["Hi {0}!", user.UserName]);
             return Task.CompletedTask;
         }
 
         public Task LoggingInAsync(string userName, Action<string, string> reportError) => Task.CompletedTask;
-
         public Task LoggingInFailedAsync(string userName) => Task.CompletedTask;
+        public Task LoggingInFailedAsync(IUser user) => Task.CompletedTask;
     }
 }
 

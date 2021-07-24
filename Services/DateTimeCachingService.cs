@@ -90,14 +90,14 @@ namespace Lombiq.TrainingDemo.Services
                     .AddTag(DynamicCacheTag));
 
         // Invalidates the memory cache and all the dynamic caches which have been tagged.
-        public Task InvalidateCachedDateTimeAsync()
+        public async Task InvalidateCachedDateTimeAsync()
         {
             // As mentioned ISignal service is used to invalidate the memory cache. This will invalidate all cache
             // entries if there are multiple ones related to the token.
-            _signal.SignalToken(MemoryCacheKey);
+            await _signal.SignalTokenAsync(MemoryCacheKey);
 
             // ITagCache.RemoveTagAsync will invalidate all the dynamic caches which are tagged with the given tag.
-            return _tagCache.RemoveTagAsync(DynamicCacheTag);
+            await _tagCache.RemoveTagAsync(DynamicCacheTag);
         }
 
         // This change token is generated based on the cache key using the ISignal service. It is used to invalidate the
