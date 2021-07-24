@@ -61,7 +61,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
             // The action will return the JSON representation of the content item automatically. You can then consume
             // that from a web SPA or a mobile app, for example.
-            return contentItem == null ? (IActionResult)NotFound() : Ok(contentItem);
+            return contentItem == null ? NotFound() : Ok(contentItem);
         }
     }
 }
