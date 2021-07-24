@@ -2,11 +2,15 @@
     DisplayAsync helper to display these shapes. *@
 
 @model IEnumerable<dynamic>
-@* Note how we use RenderTitleSegments() here. It'll show the title here that might have been collaboratively modified
-    by multiple pieces of code (like adding suffixes, section names), and most importantly, it'll also add the string
-    supplied here to the <title> tag (which will by default include the site's name as the prefix too, like "My Site -
-    Person List"). So use this if you want to display and set the title of a whole page. *@
-<h1>@RenderTitleSegments(T["Person List"])</h1>
+@* Titles displayed on the admin need to be wrapped in such a <zone> to be properly displayed. You don't need to do this
+    for titles on the frontend. *@
+<zone Name="Title">
+    @* Note how we use RenderTitleSegments() here. It'll show the title here that might have been collaboratively
+        modified by multiple pieces of code (like adding suffixes, section names), and most importantly, it'll also add
+        the string supplied here to the <title> tag (which will by default include the site's name as the prefix too,
+        like "My Site - Person List"). So use this if you want to display and set the title of a whole page. *@
+    <h1>@RenderTitleSegments(T["Person List"])</h1>
+</zone>
 
 @if (Model.Any())
 {
