@@ -8,9 +8,10 @@ using OrchardCore.ResourceManagement;
 
 namespace Lombiq.TrainingDemo
 {
-    // ResourceManagementOptionsConfiguration classes implement IResourceManifestProvider and possess the BuildManifests
-    // method. Don't forget to register this class with the service provider (see: Startup.cs). If you want to learn
-    // more about resources see: https://docs.orchardcore.net/en/dev/docs/reference/modules/Resources/
+    // ResourceManagementOptionsConfiguration classes implement a configuration provider for ResourceManagementOptions
+    // and usually define resources in a static constructor. Don't forget to register this class with the service
+    // provider (see: Startup.cs). If you want to learn more about resources see:
+    // https://docs.orchardcore.net/en/dev/docs/reference/modules/Resources/
     public class ResourceManagementOptionsConfiguration : IConfigureOptions<ResourceManagementOptions>
     {
         private static readonly ResourceManifest _manifest = new();
