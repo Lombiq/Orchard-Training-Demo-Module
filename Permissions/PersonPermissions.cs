@@ -12,14 +12,14 @@ namespace Lombiq.TrainingDemo.Permissions
         // Define the permissions (can be multiple) that you want to add to roles on the dashboard (or from here as a
         // default). In a PermissionProvider it's a good idea to define the permission as publicly accessible so you can
         // reference them as you've seen it for checking the EditContent permission before.
-        public static readonly Permission ManagePersons = new Permission(
+        public static readonly Permission ManagePersons = new(
             nameof(ManagePersons),
             "Manage Person content items.");
 
         // Here's another permission that has a third parameter which is called "ImpliedBy". It means that everybody who
         // has the ManagePersons permission also automatically possesses the AccessPersonListDashboard permission as
         // well. Be aware that because of this AccessPersonListDashboard should be written after ManagePersons.
-        public static readonly Permission AccessPersonListDashboard = new Permission(
+        public static readonly Permission AccessPersonListDashboard = new(
             nameof(AccessPersonListDashboard),
             "Access the Person List dashboard",
             new[] { ManagePersons });

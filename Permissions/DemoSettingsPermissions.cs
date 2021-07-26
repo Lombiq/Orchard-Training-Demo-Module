@@ -7,9 +7,9 @@ namespace Lombiq.TrainingDemo.Permissions
 {
     public class DemoSettingsPermissions : IPermissionProvider
     {
-        public static readonly Permission ManageDemoSettings = new Permission(
+        public static readonly Permission ManageDemoSettings = new(
             nameof(ManageDemoSettings),
-            "Manage Person content items.");
+            "Manage demo settings.");
 
         public Task<IEnumerable<Permission>> GetPermissionsAsync() =>
             Task.FromResult(new[]

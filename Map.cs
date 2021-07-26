@@ -40,10 +40,6 @@ namespace Lombiq.TrainingDemo
 
             // Manifest.cs: module manifest and dependencies
 
-            // Static resources: styles and scripts
-            // Declaration
-            Pointer<ResourceManifest>();
-
             // Usage: require/include
             // Views/PersonListDashboard
 
@@ -106,9 +102,9 @@ namespace Lombiq.TrainingDemo
             // ContentFieldIndexHandler, indexing ContentField using custom index provider (e.g. Lucene).
             Pointer<ColorFieldIndexHandler>();
 
-            // ResourceManifest, scripts, styles
+            // ResourceManifest, static resources, scripts, styles
             // Views/ColorField-ColorPicker.Edit.cshtml resource injection
-            Pointer<ResourceManifest>();
+            Pointer<ResourceManagementOptionsConfiguration>();
 
             // IAuthorizationService
             Pointer<AuthorizationController>();

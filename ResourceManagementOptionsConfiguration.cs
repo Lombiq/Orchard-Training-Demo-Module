@@ -3,23 +3,26 @@
  * in any shape and let the resource manager know where these need to be included (head or foot).
  */
 
+using Microsoft.Extensions.Options;
 using OrchardCore.ResourceManagement;
 
 namespace Lombiq.TrainingDemo
 {
-    // ResourceManifest classes implement IResourceManifestProvider and possess the BuildManifests method. Don't forget
-    // to register this class with the service provider (see: Startup.cs). If you want to learn more about resources
-    // see: https://docs.orchardcore.net/en/dev/docs/reference/modules/Resources/
-    public class ResourceManifest : IResourceManifestProvider
+    // ResourceManagementOptionsConfiguration classes implement a configuration provider for ResourceManagementOptions
+    // and usually define resources in a static constructor. Don't forget to register this class with the service
+    // provider (see: Startup.cs). If you want to learn more about resources see:
+    // https://docs.orchardcore.net/en/dev/docs/reference/modules/Resources/
+    public class ResourceManagementOptionsConfiguration : IConfigureOptions<ResourceManagementOptions>
     {
-        // This is the only method to implement. Using it we're going to register some static resources to be able to
-        // use them in our templates.
-        public void BuildManifests(IResourceManifestBuilder builder)
-        {
-            // We add a new instance of ResourceManifest to the ResourceManifestBuilder, instantiated by the Add method.
-            var manifest = builder.Add();
+        private static readonly ResourceManifest _manifest = new();
 
-            manifest
+        // This is the only method to implement. Using it we're going to register some static resources to be able to
+        // use them in our templates. Note that while a common convention for simple resource manifests like the ones
+        // registered here is to define then in the static constructor once, you can still run instance-level logic when
+        // registering them if you need to in Configure().
+        static ResourceManagementOptionsConfiguration()
+        {
+            _manifest
                 // We're registering a script with DefineScript and defining its name. It's a global name, so choose
                 // wisely. There is no strict naming convention, but we can give you an advice how to choose a unique
                 // name: it should contain the module's full namespace followed by a meaningful name. Although if it's a
@@ -47,13 +50,13 @@ namespace Lombiq.TrainingDemo
                 // version can exist and when including the resource you can decide which one to use.
                 .SetVersion("0.3.6");
 
-            manifest
+            _manifest
                 // With the DefineStyle method you can define a stylesheet. The way of doing this is very similar to
                 // defining scripts.
                 .DefineStyle("Pickr")
                 .SetUrl("~/Lombiq.TrainingDemo/pickr/pickr.min.css");
 
-            manifest
+            _manifest
                 // Finally let's see an example for defining a resource for our custom code. You can see the naming is
                 // more specific and contains our namespace.
                 .DefineStyle("Lombiq.TrainingDemo.ColorPicker")
@@ -67,17 +70,19 @@ namespace Lombiq.TrainingDemo
             // If you go back to the Views/ColorField-ColorPicker.Edit.cshtml you will understand why all these three
             // resources will be loaded using those style and script tag helpers.
 
-            manifest
+            _manifest
                 .DefineStyle("Lombiq.TrainingDemo.Filtered")
                 .SetUrl(
                     "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.min.css",
                     "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.css");
 
             // This resource will be required for our demo Vue.js application.
-            manifest
+            _manifest
                 .DefineScript("Lombiq.TrainingDemo.DemoApp")
                 .SetUrl("~/Lombiq.TrainingDemo/Apps/demo.min.js", "~/Lombiq.TrainingDemo/Apps/demo.js");
         }
+
+        public void Configure(ResourceManagementOptions options) => options.ResourceManifests.Add(_manifest);
     }
 }
 

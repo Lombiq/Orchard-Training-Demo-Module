@@ -55,20 +55,20 @@ namespace Lombiq.TrainingDemo
 
         public Startup(IShellConfiguration shellConfiguration) => _shellConfiguration = shellConfiguration;
 
-        static Startup()
+        public override void ConfigureServices(IServiceCollection services)
         {
             // To be able to access these view models in display shapes rendered by the Liquid markup engine you need to
             // register them. To learn more about Liquid in Orchard Core see this documentation:
             // https://docs.orchardcore.net/en/dev/docs/reference/modules/Liquid/
-            TemplateContext.GlobalMemberAccessStrategy.Register<PersonPartViewModel>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<ColorField>();
-            TemplateContext.GlobalMemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+            services.Configure<TemplateOptions>(options =>
+            {
+                options.MemberAccessStrategy.Register<PersonPartViewModel>();
+                options.MemberAccessStrategy.Register<ColorField>();
+                options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+            });
 
             // NEXT STATION: Views/PersonPart.Edit.cshtml
-        }
 
-        public override void ConfigureServices(IServiceCollection services)
-        {
             // Book
             services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
             services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
@@ -89,7 +89,7 @@ namespace Lombiq.TrainingDemo
             services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
 
             // Resources
-            services.AddScoped<IResourceManifestProvider, ResourceManifest>();
+            services.AddTransient<IConfigureOptions<ResourceManagementOptions>, ResourceManagementOptionsConfiguration>();
 
             // Permissions
             services.AddScoped<IPermissionProvider, PersonPermissions>();
