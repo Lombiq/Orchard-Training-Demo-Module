@@ -19,19 +19,19 @@ namespace Lombiq.TrainingDemo.Events
     public class LoginGreeting : ILoginFormEvent
     {
         private readonly INotifier _notifier;
-        private readonly IHtmlLocalizer T;
+        private readonly IHtmlLocalizer H;
 
         public LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer)
         {
             _notifier = notifier;
-            T = htmlLocalizer;
+            H = htmlLocalizer;
         }
 
         public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
 
         public Task LoggedInAsync(IUser user)
         {
-            _notifier.Success(T["Hi {0}!", user.UserName]);
+            _notifier.Success(H["Hi {0}!", user.UserName]);
             return Task.CompletedTask;
         }
 
