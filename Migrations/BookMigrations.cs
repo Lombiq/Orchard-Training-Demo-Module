@@ -2,6 +2,8 @@
  * Previously we've seen how to describe an index. We also have to declare how to store it as well. This is where we
  * need migrations. Migrations are automatically run by the framework (after you've registered it in the service
  * provider). You can use them to describe DB schema changes.
+ * Here's the documentation page about migrations:
+ * https://docs.orchardcore.net/en/latest/docs/reference/modules/Migrations/.
  */
 
 using Lombiq.TrainingDemo.Indexes;
