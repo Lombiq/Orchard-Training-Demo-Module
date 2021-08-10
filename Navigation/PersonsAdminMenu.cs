@@ -47,7 +47,10 @@ namespace Lombiq.TrainingDemo.Navigation
                     // The Action method will bind the menu item to the action. This is the test action that we've added
                     // to the AdminController to see if this is working automatically. Note the use of Orchard's
                     // ControllerName() helper method.
-                    .Action(nameof(AdminController.Index), typeof(AdminController).ControllerName(), new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
+                    .Action(
+                        nameof(AdminController.Index),
+                        typeof(AdminController).ControllerName(),
+                        new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
                 )
                 // Add another menu item that will display multiple Person items. However, branch this item to two
                 // different third-level items!
@@ -55,7 +58,10 @@ namespace Lombiq.TrainingDemo.Navigation
                     .LinkToFirstChild(true)
 
                     .Add(T["Newest Items"], thirdLevelItem => thirdLevelItem
-                        .Action(nameof(AdminController.PersonListNewest), typeof(AdminController).ControllerName(), new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
+                        .Action(
+                            nameof(AdminController.PersonListNewest),
+                            typeof(AdminController).ControllerName(),
+                            new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
                         // This means that the first child menu item will point to our Person List dashboard and be
                         // shown only to users having the AccessPersonListDashboard permission. WARNING: this doesn't
                         // mean others won't be able to access it directly: we have to check in the controller too!
@@ -67,7 +73,10 @@ namespace Lombiq.TrainingDemo.Navigation
                         .LocalNav())
 
                     .Add(T["Oldest Items"], thirdLevelItem => thirdLevelItem
-                        .Action(nameof(AdminController.PersonListOldest), typeof(AdminController).ControllerName(), new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
+                        .Action(
+                            nameof(AdminController.PersonListOldest),
+                            typeof(AdminController).ControllerName(),
+                            new { area = $"{nameof(Lombiq)}.{nameof(TrainingDemo)}" })
                         .Permission(PersonPermissions.AccessPersonListDashboard)
                         .LocalNav())));
 
