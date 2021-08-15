@@ -14,4 +14,21 @@
 @* The New property contains a shape factory that you can use like above to create shapes. Then you can use
     DisplayAsync, which we'll also use a lot later, to display it. *@
 
-@* NEXT STATION: Views/ComplexTestShape.cshtml *@
+@* NEXT STATION: Check out Views/ComplexTestShape.cshtml and then come back here. *@
+
+@* You can also create shapes that use a statically typed model, not a dynamic one. This is slightly more complex though
+    and you have to do the following: *@
+
+@* This is necessary to be able to use an extension method on IShapeFactory. *@
+@using OrchardCore.DisplayManagement
+
+@* Factory is an IShapeFactory instance. It's behind the New property as well, BTW. *@
+@await DisplayAsync(await Factory.CreateAsync<StaticallyTypedTestShapeViewModel>(
+    "StaticallyTypedTestShape",
+    cacheViewModel =>
+    {
+        cacheViewModel.SomeValue = 4;
+        cacheViewModel.SomeOtherValue = 5;
+    }))
+
+@* NEXT STATION: Check out Views/StaticallyTypedTestShape.cshtml and follow up from there. *@
