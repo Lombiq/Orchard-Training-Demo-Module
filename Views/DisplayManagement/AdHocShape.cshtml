@@ -31,4 +31,12 @@
         cacheViewModel.SomeOtherValue = 5;
     }))
 
-@* NEXT STATION: Check out Views/StaticallyTypedTestShape.cshtml and follow up from there. *@
+@* NEXT STATION: Check out Views/StaticallyTypedTestShape.cshtml and then come back here. *@
+
+@* You can also do a statically typed approach simpler than the previous one if it's OK to derive your view model from
+    ShapeViewModel. Check out StaticallyTypedDerivedTestShapeViewModel on what needs to be done in your view model, then
+    see how to use it below:*@
+
+@await DisplayAsync(new StaticallyTypedDerivedTestShapeViewModel { SomeValue = 6, SomeOtherValue = 7 })
+
+@* NEXT STATION: Check out Views/StaticallyTypedDerivedTestShape.cshtml and follow up from there. *@
