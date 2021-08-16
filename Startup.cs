@@ -59,7 +59,7 @@ namespace Lombiq.TrainingDemo
         {
             // To be able to access these view models in display shapes rendered by the Liquid markup engine you need to
             // register them. To learn more about Liquid in Orchard Core see this documentation:
-            // https://docs.orchardcore.net/en/dev/docs/reference/modules/Liquid/
+            // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
             services.Configure<TemplateOptions>(options =>
             {
                 options.MemberAccessStrategy.Register<PersonPartViewModel>();

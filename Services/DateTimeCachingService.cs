@@ -82,7 +82,7 @@ namespace Lombiq.TrainingDemo.Services
         // second expiration it will be tagged so later it can be invalidated. Also this cache will be differentiated by
         // the route. This means that the DateTime cached here on one route will be unaccessible on other routes so
         // another DateTime will be cached for that other particular route. There are multiple differentiators already
-        // implemented in Orchard Core, see: https://docs.orchardcore.net/en/dev/docs/reference/modules/DynamicCache/.
+        // implemented in Orchard Core, see: https://docs.orchardcore.net/en/latest/docs/reference/modules/DynamicCache/.
         public Task<DateTime> GetDynamicCachedDateTimeVariedByRoutesAsync() =>
             GetOrCreateDynamicCachedDateTimeAsync(
                 new CacheContext(DynamicCacheKey)

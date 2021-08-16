@@ -67,7 +67,7 @@ namespace Lombiq.TrainingDemo.Drivers
             // TextFields will get the same position a "differentiator" property is given which refers to the part name
             // where the field is attached to and the field name. Make sure you also read the documentation to know
             // this feature better:
-            // https://docs.orchardcore.net/en/dev/docs/reference/core/Placement/#placement-files
+            // https://docs.orchardcore.net/en/latest/docs/reference/core/Placement/#placement-files
 
             // NEXT STATION: placement.json (needs to be lowercase) then come back here.
             Initialize<PersonPartViewModel>(GetEditorShapeType(context), viewModel => PopulateViewModel(part, viewModel));

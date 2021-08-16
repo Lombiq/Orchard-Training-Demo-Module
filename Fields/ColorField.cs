@@ -6,7 +6,7 @@
  * Conventionally we put these objects in the Fields folder.
  *
  * To learn more about content fields see:
- * https://docs.orchardcore.net/en/dev/docs/reference/modules/ContentFields/
+ * https://docs.orchardcore.net/en/latest/docs/reference/modules/ContentFields/
  */
 
 using OrchardCore.ContentManagement;
