@@ -10,8 +10,8 @@ namespace Lombiq.TrainingDemo
 {
     // ResourceManagementOptionsConfiguration classes implement a configuration provider for ResourceManagementOptions
     // and usually define resources in a static constructor. Don't forget to register this class with the service
-    // provider (see: Startup.cs). If you want to learn more about resources see:
-    // https://docs.orchardcore.net/en/dev/docs/reference/modules/Resources/
+    // provider (see: Startup.cs). If you want to learn more about resources and such classes see:
+    // https://docs.orchardcore.net/en/latest/docs/reference/modules/Resources/#registering-a-resource-manifest
     public class ResourceManagementOptionsConfiguration : IConfigureOptions<ResourceManagementOptions>
     {
         private static readonly ResourceManifest _manifest = new();
