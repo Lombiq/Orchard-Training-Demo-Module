@@ -87,14 +87,10 @@ namespace Lombiq.TrainingDemo.Controllers
                 return "Create the file first!";
             }
 
-            // Disabling S3966 because we don't know whether dispose happens within StreamReader so we need the two
-            // usings.
-#pragma warning disable S3966 // Objects should not be disposed more than once
             // If you want to extract the content of the file use a StreamReader to read the stream.
             using var stream = await _mediaFileStore.GetFileStreamAsync(TestFileRelativePath);
             using var streamReader = new StreamReader(stream);
             var content = await streamReader.ReadToEndAsync();
-#pragma warning restore S3966 // Objects should not be disposed more than once
 
             return $"File content: {content}";
         }

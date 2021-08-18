@@ -115,7 +115,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 });
 
                 // If you happen to use reusable/named parts like BagPart (see the docs on it here:
-                // https://docs.orchardcore.net/en/dev/docs/reference/modules/Flow/BagPart.html) then it gets a bit
+                // https://docs.orchardcore.net/en/latest/docs/reference/modules/Flow/BagPart) then it gets a bit
                 // trickier since there can be more than one BagPart on the content item. You can then either access the
                 // part by also supplying its name like this:
                 ////person.Alter<BagPart>("The technical name of the BagPart instance.", part => ...);

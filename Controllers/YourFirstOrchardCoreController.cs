@@ -49,7 +49,7 @@ namespace Lombiq.TrainingDemo.Controllers
         {
             // Simple texts can be localized using the IStringLocalizer service as you can see below. To learn more
             // about how localization works in Orchard check out the docs:
-            // https://docs.orchardcore.net/en/dev/docs/reference/modules/Localize/
+            // https://docs.orchardcore.net/en/latest/docs/reference/modules/Localize/
             ViewData["Message"] = T["Hello you!"];
 
             // Nothing special happens in the view but you can check it in the

@@ -5,7 +5,7 @@
  *
  * Note that out of the box Orchard provides a web API too: There are many RESTful API endpoints available e.g. for
  * content and tenant management, as well as a GraphQL API infrastructure that many modules contribute to (see:
- * https://docs.orchardcore.net/en/dev/docs/reference/modules/Apis.GraphQL/) and you can extend too.
+ * https://docs.orchardcore.net/en/latest/docs/reference/modules/Apis.GraphQL/) and you can extend too.
  */
 
 using Lombiq.TrainingDemo.Permissions;

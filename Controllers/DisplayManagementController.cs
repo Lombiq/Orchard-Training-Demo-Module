@@ -1,7 +1,7 @@
 /*
  * In this section you will learn how Orchard Core deals with displaying various information on the UI using reusable
  * components called shapes (see:
- * https://docs.orchardcore.net/en/dev/docs/reference/core/Placement/#shapes). This is a very huge and powerful part of
+ * https://docs.orchardcore.net/en/latest/docs/reference/core/Placement/#shapes). This is a very huge and powerful part of
  * Orchard Core, here you will learn the basics of Display Management.
  *
  * To demonstrate this basic functionality, we will create two slightly different pages for displaying information

@@ -4,7 +4,7 @@
  * to e.g. host websites for multiple customers of yours from a single Orchard Core app. The sites won't know anything
  * about each other but they'll run from the same app built from the same codebase, and have access to the same modules
  * and themes. This makes maintaining such sites very efficient, both for hosting and for development. For more details
- * check out the documentation: https://docs.orchardcore.net/en/dev/docs/glossary/#tenant
+ * check out the documentation: https://docs.orchardcore.net/en/latest/docs/glossary/#tenant
  *
  * What if you want tenants to be not that isolated though? What if there is certain content or configuration that you
  * actually want to share among tenants or some functionality that you want to centralize on one tenant? You can use
