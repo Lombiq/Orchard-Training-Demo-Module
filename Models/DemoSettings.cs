@@ -13,6 +13,11 @@ namespace Lombiq.TrainingDemo.Models
     {
         // We will store a simple message for demonstration purposes.
         public string Message { get; set; }
+
+        // This is a JSON encoded string property. You can use such a thing to store complex user data or configuration
+        // that's coming from or consumed by a Javascript library on your site. Usually when you don't actually need to
+        // parse this data on the server side.
+        public string JsonSerializedConfiguration { get; set; }
     }
 }
 

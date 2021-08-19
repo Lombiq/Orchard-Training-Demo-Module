@@ -67,6 +67,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Lombiq.VueJs\Lombiq.VueJs.csproj" />
+    <ProjectReference Include="..\Lombiq.JsonEditor\Lombiq.JsonEditor.csproj" />
   </ItemGroup>
 
   <ItemGroup>
