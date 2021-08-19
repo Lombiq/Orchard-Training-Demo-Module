@@ -1,6 +1,39 @@
 @model Lombiq.TrainingDemo.ViewModels.DemoSettingsViewModel
 @using Lombiq.TrainingDemo.Controllers;
 @using OrchardCore.Mvc.Core.Utilities;
+@using Lombiq.JsonEditor.Models
+
+@{
+    var jsonEditorOptions = new JsonEditorOptions
+    {
+        // Most of the editor options are fine as-is, but you may want to add some templates for known complex objects.
+        Templates = new[]
+        {
+            new JsonEditorTemplate
+            {
+                Field = nameof(PersonPart), // A technical name that has to be unique.
+                Text = T["Person Part"].Value, // The template's name in the dropdown.
+                Title = T["Adds a new Person content part."].Value, // The tooltip text.
+                Value = new PersonPart(),
+            },
+            new JsonEditorTemplate
+            {
+                Field = "AnonymousObject",
+                Text = T["Anonymous Object"].Value,
+                Title = T["Adds a new ad-hoc anonymous object."].Value,
+                Value = new
+                {
+                    Foo = 10,
+                    Bar = false,
+                    Baz = new
+                    {
+                        Latin = new[] { "Lorem", "Ipsum" },
+                    },
+                },
+            },
+        },
+    };
+}
 
 <fieldset class="form-group" asp-validation-class-for="Message">
     <label asp-for="Message">@T["Message"]</label>
@@ -11,3 +44,8 @@
             Url.Action(nameof(SiteSettingsController.DemoSettings), typeof(SiteSettingsController).ControllerName(), new { Area = "Lombiq.TrainingDemo" })]
     </span>
 </fieldset>
+
+<json-editor
+    json="@Model.JsonSerializedConfiguration"
+    options="@jsonEditorOptions"
+    name="@Html.NameFor(model => model.JsonSerializedConfiguration)"></json-editor>
