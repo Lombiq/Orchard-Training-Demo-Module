@@ -14,6 +14,7 @@
       "disable": [],
       "enable": [
         "Lombiq.TrainingDemo",
+        "Lombiq.JsonEditor",
         "OrchardCore.Admin",
         "OrchardCore.HomeRoute",
         "OrchardCore.Layers",
