@@ -21,7 +21,7 @@
             new JsonEditorTemplate
             {
                 Field = "AnonymousObject",
-                Text = T["Anonymous Object"].Value,
+                Text = T["Anonymous Item"].Value,
                 Title = T["Adds a new ad-hoc anonymous object."].Value,
                 Value = new
                 {
@@ -53,11 +53,3 @@
     json="@Model.JsonSerializedConfiguration"
     options="@jsonEditorOptions"
     name="@Html.NameFor(model => model.JsonSerializedConfiguration)"></json-editor>
-
-@* Here we style the JSON Editor. If you have a theme module, you should do it there instead of the view. *@
-<style at="Head">
-    .jsonEditor__editor {
-        height: 60vh;
-        margin-bottom: 1rem;
-    }
-</style>
