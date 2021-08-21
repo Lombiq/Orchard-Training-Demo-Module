@@ -48,7 +48,11 @@ namespace Lombiq.TrainingDemo.Drivers
             // Use the Initialize helper with a view model as usual for editors.
             return Initialize<DemoSettingsViewModel>(
                 $"{nameof(DemoSettings)}_Edit",
-                viewModel => viewModel.Message = section.Message)
+                viewModel =>
+                {
+                    viewModel.Message = section.Message;
+                    viewModel.JsonSerializedConfiguration = section.JsonSerializedConfiguration;
+                })
             .Location("Content:1")
             // The OnGroup helper will make sure that the shape will be displayed on the desired editor group.
             .OnGroup(EditorGroupId);
@@ -72,6 +76,7 @@ namespace Lombiq.TrainingDemo.Drivers
                 await context.Updater.TryUpdateModelAsync(viewModel, Prefix);
 
                 section.Message = viewModel.Message;
+                section.JsonSerializedConfiguration = viewModel.JsonSerializedConfiguration;
             }
 
             return await EditAsync(section, context);
