@@ -5,6 +5,7 @@
 @using OrchardCore.DisplayManagement.TagHelpers
 
 @{
+    // This is the JSON Editor's configuration. Each option has inline documentation in case you want to customize.
     var jsonEditorOptions = new JsonEditorOptions
     {
         // Most of the editor options are fine as-is, but you may want to add some templates for known complex objects.
@@ -46,7 +47,17 @@
     </span>
 </fieldset>
 
+
+@* These attributes are explained in module readme: https://github.com/Lombiq/Orchard-JSON-Editor/blob/dev/Readme.md *@
 <json-editor
     json="@Model.JsonSerializedConfiguration"
     options="@jsonEditorOptions"
     name="@Html.NameFor(model => model.JsonSerializedConfiguration)"></json-editor>
+
+@* Here we style the JSON Editor. If you have a theme module, you should do it there instead of the view. *@
+<style at="Head">
+    .jsonEditor__editor {
+        height: 60vh;
+        margin-bottom: 1rem;
+    }
+</style>
