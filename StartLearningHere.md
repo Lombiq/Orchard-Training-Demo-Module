@@ -49,6 +49,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 * [Permissions and authorization](Controllers/AuthorizationController.cs)
 * [Admin menus](Controllers/AdminController.cs)
 * [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
+  * This section also demonstrates JSON Editor usage (with a detour to [ViewImports](Views/_ViewImports.cshtml) for the additional tag helper).
 * [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
 * [Caching objects and shapes](Controllers/CacheController.cs)
 * [File management](Controllers/FileManagementController.cs)

@@ -125,6 +125,7 @@ namespace Lombiq.TrainingDemo
 
             // SiteSettings, ISite, ISiteService, Options
             Pointer<SiteSettingsController>();
+            Pointer<DemoSettings>(); // Also used for JSON Editor demonstration.
 
             // ResultFilter, IAsyncResultFilter
             Pointer<ShapeInjectionFilter>();
