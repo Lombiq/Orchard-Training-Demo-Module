@@ -52,12 +52,12 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
         private static bool Filter(int totalYears, int age, string filterType) =>
             filterType switch
             {
-                "ge" => age >= totalYears,
-                "gt" => age > totalYears,
-                "le" => age <= totalYears,
-                "lt" => age < totalYears,
-                "ne" => age != totalYears,
-                _ => age == totalYears,
+                "ge" => totalYears >= age,
+                "gt" => totalYears > age,
+                "le" => totalYears <= age,
+                "lt" => totalYears < age,
+                "ne" => totalYears != age,
+                _ => totalYears == age,
             };
     }
 }
