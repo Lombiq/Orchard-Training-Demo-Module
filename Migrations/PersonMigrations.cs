@@ -39,6 +39,7 @@ namespace Lombiq.TrainingDemo.Migrations
             // This one will create an index table for the PersonPartIndex as explained in the BookMigrations file.
             SchemaBuilder.CreateMapIndexTable<PersonPartIndex>(table => table
                 .Column<DateTime>(nameof(PersonPartIndex.BirthDateUtc))
+                .Column<Handedness>(nameof(PersonPartIndex.Handedness))
                 // The content item ID is always 26 characters.
                 .Column<string>(nameof(PersonPartIndex.ContentItemId), column => column.WithLength(26))
             );

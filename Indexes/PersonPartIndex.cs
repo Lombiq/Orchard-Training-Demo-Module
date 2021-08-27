@@ -14,6 +14,9 @@ namespace Lombiq.TrainingDemo.Indexes
 
         // Store the birth date only for demonstration purposes so we can run queries on it.
         public DateTime? BirthDateUtc { get; set; }
+
+        // Store the handedness only for demonstration purposes so we can show off enum filtering in GraphQL.
+        public Handedness Handedness { get; set; }
     }
 
     // Don't forget to register this class with the service provider (see: Startup.cs).
@@ -41,6 +44,7 @@ namespace Lombiq.TrainingDemo.Indexes
                         {
                             ContentItemId = contentItem.ContentItemId,
                             BirthDateUtc = personPart.BirthDateUtc,
+                            Handedness = personPart.Handedness,
                         };
                 });
     }
