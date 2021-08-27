@@ -26,6 +26,7 @@
         "OrchardCore.Settings",
         "OrchardCore.Themes",
         "OrchardCore.Users",
+        "OrchardCore.Apis.GraphQL",
 
         // Themes
         "TheTheme",
