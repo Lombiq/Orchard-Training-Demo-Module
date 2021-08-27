@@ -21,7 +21,7 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
                 resolve: context => context.Source.Biography.Text);
 
             // You have to add a separate GraphQL type to enumerations so they are converted to GraphQL enum types.
-            Field<PersonPartQueryObjectType>(
+            Field<HandednessEnumerationGraphType>(
                 nameof(PersonPart.Handedness),
                 "The person's dominant hand.",
                 resolve: context => context.Source.Handedness);
