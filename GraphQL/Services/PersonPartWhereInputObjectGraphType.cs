@@ -9,10 +9,12 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
     public class PersonPartWhereInputObjectGraphType : WhereInputObjectGraphType<PersonPart>
     {
         // The "where" filter gets automatically generated YesSql query based on your part index. You can add other
-        // filters too but that's more complicated and outside of the scope of this tutorial. You can learn more about
-        // it on GraphQL.Net's documentation at: TODO
-        public PersonPartWhereInputObjectGraphType() =>
+        // filters too but that's more complicated and less effective. See PersonAgeGraphQLFilter for that.
+        public PersonPartWhereInputObjectGraphType()
+        {
             // Since filters depend on the index, we use their "nameof" as reference.
-            AddScalarFilterFields<StringGraphType>(nameof(PersonPartIndex.BirthDateUtc), BirthDateDescription);
+            AddScalarFilterFields<DateTimeGraphType>(nameof(PersonPartIndex.BirthDateUtc), BirthDateDescription);
+            AddScalarFilterFields<HandednessEnumerationGraphType>(nameof(PersonPartIndex.Handedness), HandednessDescription);
+        }
     }
 }
