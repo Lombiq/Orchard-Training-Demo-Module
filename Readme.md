@@ -43,6 +43,7 @@ Keep in mind that your best living reference of how to do something in Orchard i
 
 If you'd like to clean out comments from code files so you can just see the essence, then use the [Comment Remover VS extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommentRemover) to quickly do it.
 
+Take a look at the Recipes menu in the Admin screen to load in additional sample content. This is not included by default to reduce clutter.
 
 ## Contributing and support
 
