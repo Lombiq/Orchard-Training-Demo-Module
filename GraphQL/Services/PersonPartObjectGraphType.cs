@@ -4,11 +4,11 @@ using Lombiq.TrainingDemo.Models;
 namespace Lombiq.TrainingDemo.GraphQL.Services
 {
     // We add a model for the content part to the GraphQL Schema. Content Types are added by Orchard Core automatically.
-    public class PersonPartQueryObjectType : ObjectGraphType<PersonPart>
+    public class PersonPartObjectGraphType : ObjectGraphType<PersonPart>
     {
         internal static string BirthDateDescription = "The person's date of birth, if any.";
 
-        public PersonPartQueryObjectType()
+        public PersonPartObjectGraphType()
         {
             // Usually we want to allow null values, but these primitive fields are by default so we have to permit it.
             Field(part => part.Name, nullable: true).Description("The person's name.");

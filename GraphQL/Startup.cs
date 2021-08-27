@@ -12,8 +12,8 @@ namespace Lombiq.TrainingDemo.GraphQL
     {
         public override void ConfigureServices(IServiceCollection services)
         {
-            services.AddObjectGraphType<PersonPart, PersonPartQueryObjectType>();
-            services.AddInputObjectGraphType<PersonPart, PersonPartWhereObjectType>();
+            services.AddObjectGraphType<PersonPart, PersonPartObjectGraphType>();
+            services.AddInputObjectGraphType<PersonPart, PersonPartWhereInputObjectGraphType>();
             services.AddTransient<IIndexAliasProvider, PersonPartIndexAliasProvider>();
         }
     }
