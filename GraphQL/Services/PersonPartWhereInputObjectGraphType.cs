@@ -6,15 +6,19 @@ using static Lombiq.TrainingDemo.GraphQL.Services.PersonPartObjectGraphType;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services
 {
+    // This class adds a content part specific section in the "where" filter. It relies on the content part index to
+    // automatically generate YesSql logic for database-side filtering.
     public class PersonPartWhereInputObjectGraphType : WhereInputObjectGraphType<PersonPart>
     {
-        // The "where" filter gets automatically generated YesSql query based on your part index. You can add other
-        // filters too but that's more complicated and less effective. See PersonAgeGraphQLFilter for that.
         public PersonPartWhereInputObjectGraphType()
         {
             // Since filters depend on the index, we use their "nameof" as reference.
             AddScalarFilterFields<DateTimeGraphType>(nameof(PersonPartIndex.BirthDateUtc), BirthDateDescription);
+
+            // Using the enumeration graph type turns the filter into a dropdown of the valid options in GraphiQL.
             AddScalarFilterFields<HandednessEnumerationGraphType>(nameof(PersonPartIndex.Handedness), HandednessDescription);
         }
     }
 }
+
+// NEXT STATION: Services/PersonPartIndexAliasProvider.cs

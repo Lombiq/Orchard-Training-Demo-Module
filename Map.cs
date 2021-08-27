@@ -3,6 +3,7 @@ using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Events;
 using Lombiq.TrainingDemo.Fields;
 using Lombiq.TrainingDemo.Filters;
+using Lombiq.TrainingDemo.GraphQL.Services;
 using Lombiq.TrainingDemo.Handlers;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
@@ -182,6 +183,16 @@ namespace Lombiq.TrainingDemo
 
             // Resource compilation, asset management, Gulp, Babel
             // Gulpfile.babel.js
+
+            // GraphQL - content part
+            Pointer<PersonPartObjectGraphType>();
+            Pointer<PersonPartWhereInputObjectGraphType>();
+            Pointer<PersonPartIndexAliasProvider>();
+            Pointer<HandednessEnumerationGraphType>();
+
+            // GraphQL - filtering
+            Pointer<PersonAgeGraphQLFilter>();
+            Pointer<ContentItemTypeBuilder>();
         }
     }
 }
