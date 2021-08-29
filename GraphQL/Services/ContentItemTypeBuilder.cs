@@ -25,7 +25,7 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
             if (contentItemType.Fields.All(field => field.Name != "person")) return;
 
             // The resolved type can be anything that can be represented with JSON and has a known graph type, but we
-            // stick with numbers for simplicity's sake.
+            // stick with numbers for simplicity's sake. This one filters for equation.
             contentQuery.Arguments.Add(new QueryArgument<IntGraphType>
             {
                 Name = AgeFilterName,
@@ -33,7 +33,7 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
             });
 
             // You can't use special characters in the argument names so by GraphQL convention these two letter suffixes
-            // that represent the relational operators.
+            // that represent the relational operators. Except equation which customarily gets no suffix.
             AddFilter(contentQuery, "_lt");
             AddFilter(contentQuery, "_le");
 
