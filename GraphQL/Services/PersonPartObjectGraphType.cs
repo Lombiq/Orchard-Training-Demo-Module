@@ -13,7 +13,7 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
 
         public PersonPartObjectGraphType()
         {
-            // Usually it's fine to permit null values. However they aren't enabled for these simple fields by default
+            // Usually it's fine to permit null values. However, they aren't enabled for these simple fields by default
             // so make sure to set the nullable parameter to true.
             Field(part => part.Name, nullable: true).Description("The person's name.");
             Field(part => part.BirthDateUtc, nullable: true).Description(BirthDateDescription);
@@ -30,8 +30,11 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
                 description: "This is the person's life story.",
                 resolve: context => context.Source.Biography.Text);
 
-            // You have to add a separate GraphQL type to enumerations so they are converted to GraphQL enum types. This
-            // way they are returned as UPPERCASE text instead of their integer representation.
+            // You have to add a separate GraphQL type to enumerations so they are converted to GraphQL enum types.
+            // This way they are returned as UPPERCASE text instead of their integer representation. Before moving on,
+            // check out the GraphQL/Models/HandednessEnumerationGraphType.cs file to see how this is done.
+            // Note: This type is explicitly referenced whenever it is used, you don't have to add it to your dependency
+            // injection service collection.
             Field<HandednessEnumerationGraphType>(
                 nameof(PersonPart.Handedness),
                 HandednessDescription,

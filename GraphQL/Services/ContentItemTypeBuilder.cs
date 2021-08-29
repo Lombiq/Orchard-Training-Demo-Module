@@ -5,6 +5,9 @@ using System.Linq;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services
 {
+    // Services that implement IContentTypeBuilder extend the features of existing ContentItem type fields, including
+    // the top level fields automatically created by Orchard Core for every content type. You can use this to add new
+    // sub-fields or filter attributes to existing ContentItem type fields.
     public class ContentItemTypeBuilder : IContentTypeBuilder
     {
         // It's a good practice to make the argument name a const because you will reuse it in the IGraphQLFilter.
@@ -20,15 +23,15 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
             if (contentItemType.Fields.All(field => field.Name != "person")) return;
 
             // The resolved type can be anything that can be represented with JSON and has a known graph type, but we
-            // tick with numbers for simplicity's sake.
+            // stick with numbers for simplicity's sake.
             contentQuery.Arguments.Add(new QueryArgument<IntGraphType>
             {
                 Name = AgeFilterName,
                 ResolvedType = new IntGraphType(),
             });
 
-            // You can't use special characters in the argument names so by GraphQL convention these two letter
-            // suffixes that represent the relational operators.
+            // You can't use special characters in the argument names so by GraphQL convention these two letter suffixes
+            // that represent the relational operators.
             AddFilter(contentQuery, "_lt");
             AddFilter(contentQuery, "_le");
 

@@ -13,7 +13,7 @@ using static Lombiq.TrainingDemo.GraphQL.Services.ContentItemTypeBuilder;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services
 {
-    // The IGraphQLFilters can append conditions to the YesSql query, alter its result, or do both.
+    // IGraphQLFilters can append conditions to the YesSql query, alter its result, or do both.
     public class PersonAgeGraphQLFilter : IGraphQLFilter<ContentItem>
     {
         private readonly IClock _clock;

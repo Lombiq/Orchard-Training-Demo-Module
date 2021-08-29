@@ -6,7 +6,7 @@ using static Lombiq.TrainingDemo.GraphQL.Services.PersonPartObjectGraphType;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services
 {
-    // This class adds a content part specific section in the "where" filter. It relies on the content part index to
+    // This class adds a content part-specific section in the "where" filter. It relies on the content part index to
     // automatically generate YesSql logic for database-side filtering.
     public class PersonPartWhereInputObjectGraphType : WhereInputObjectGraphType<PersonPart>
     {
