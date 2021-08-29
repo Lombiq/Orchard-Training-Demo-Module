@@ -63,3 +63,8 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
 }
 
 // END OF TRAINING SECTION: GraphQL
+
+// This is the end of the training. It is always hard to say goodbye so... don't do it. Let us know your thoughts about
+// this module or Orchard Core itself on GitHub (https://github.com/Lombiq/Orchard-Training-Demo-Module) or send us an
+// email to crew@lombiq.com instead. If you feel like you need some more training on developing Orchard Core web
+// applications, don't hesitate to contact us!
