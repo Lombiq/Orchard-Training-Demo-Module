@@ -38,7 +38,6 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
             AddFilter(contentQuery, "_ge");
             AddFilter(contentQuery, "_gt");
 
-            AddFilter(contentQuery, "_eq");
             AddFilter(contentQuery, "_ne");
         }
 
