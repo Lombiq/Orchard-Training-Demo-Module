@@ -32,6 +32,7 @@ using OrchardCore.Modules.Manifest;
         "OrchardCore.DynamicCache",
         "OrchardCore.Media",
         "OrchardCore.Navigation",
+        "OrchardCore.Apis.GraphQL",
     }
 )]
 

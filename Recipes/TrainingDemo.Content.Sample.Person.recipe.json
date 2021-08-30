@@ -1,0 +1,234 @@
+{
+  "name": "Lombiq.TrainingDemo.Content.Sample.Person",
+  "displayName": "Training Demo - Sample Content - Person",
+  "description": "Randomly generated sample Person content items.",
+  "author": "Lombiq",
+  "website": "https://lombiq.com",
+  "version": "1.0",
+  "issetuprecipe": false,
+  "categories": [
+    "training"
+  ],
+  "tags": [
+    "developer",
+    "training",
+    "sample"
+  ],
+  "steps": [
+    {
+      "name": "content",
+      "data": [
+        {
+          "ContentItemId": "4cgbxr3ek5nktzbv3t5t3ydhcd",
+          "ContentItemVersionId": "4bm3mbfkjmmcevh55m7esc6s56",
+          "ContentType": "PersonPage",
+          "DisplayText": "Elmer S. Willis",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:33:27.9546354Z",
+          "PublishedUtc": "2021-08-27T22:33:27.9726285Z",
+          "CreatedUtc": "2021-08-27T22:33:27.9546354Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Elmer S. Willis",
+            "Handedness": 0,
+            "BirthDateUtc": "1966-05-03T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Parade of Shoes\r\n\r\nOccupation\r\n    Poultry scientist\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    6' 1\" (185 centimeters)\r\n\r\nWeight\r\n    195.1 pounds (88.7 kilograms)\r\n\r\nBlood type\r\n    A+ "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4qsgp06jw9jx114yyxqr9ykhw2",
+          "ContentItemVersionId": "4crate7wmacqm4fha0qr91cdxm",
+          "ContentType": "PersonPage",
+          "DisplayText": "David J. Davis",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:36:00.0827887Z",
+          "PublishedUtc": "2021-08-27T22:36:00.0860077Z",
+          "CreatedUtc": "2021-08-27T22:36:00.0827887Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "David J. Davis",
+            "Handedness": 1,
+            "BirthDateUtc": "1952-03-15T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    McMahan's Furniture\r\n\r\nOccupation\r\n    Telephone station repairer\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    6' 0\" (182 centimeters)\r\n\r\nWeight\r\n    205.7 pounds (93.5 kilograms)\r\n\r\nBlood type\r\n    O- "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4w10xb1ne3z4xraxwr15z7a2m4",
+          "ContentItemVersionId": "4qjcjchxevxg3ww4mqwaqzcbwy",
+          "ContentType": "PersonPage",
+          "DisplayText": "Alfred D. Vasquez",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:36:46.3444197Z",
+          "PublishedUtc": "2021-08-27T22:36:46.3485883Z",
+          "CreatedUtc": "2021-08-27T22:36:46.3444197Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Alfred D. Vasquez",
+            "Handedness": 1,
+            "BirthDateUtc": "1995-02-24T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Shoe Town\r\n\r\nOccupation\r\n    Order processor\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    5' 9\" (175 centimeters)\r\n\r\nWeight\r\n    157.1 pounds (71.4 kilograms)\r\n\r\nBlood type\r\n    B+ "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4jrk0bpfeyqcpwnav9sxhw8h5m",
+          "ContentItemVersionId": "4wj5c45sj4xp1vny5z2sg1vzw1",
+          "ContentType": "PersonPage",
+          "DisplayText": "Donald S. Byrnes",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:37:51.0979735Z",
+          "PublishedUtc": "2021-08-27T22:37:51.1012996Z",
+          "CreatedUtc": "2021-08-27T22:37:51.0979735Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Donald S. Byrnes",
+            "Handedness": 0,
+            "BirthDateUtc": "1970-09-04T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Red Baron Electronics\r\n\r\nOccupation\r\n    Appraiser\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    6' 1\" (186 centimeters)\r\n\r\nWeight\r\n    165.0 pounds (75.0 kilograms)\r\n\r\nBlood type\r\n    O+ "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4rqafwx0g3f0bw64mpdpqfp3nd",
+          "ContentItemVersionId": "4qdv5kwpb3kx82ve0vjkmshkxt",
+          "ContentType": "PersonPage",
+          "DisplayText": "Kathryn A. Gibson",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:39:02.9249212Z",
+          "PublishedUtc": "2021-08-27T22:39:02.9288017Z",
+          "CreatedUtc": "2021-08-27T22:39:02.9249212Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Kathryn A. Gibson",
+            "Handedness": 0,
+            "BirthDateUtc": "2000-11-27T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Rainbow Records\r\n\r\nOccupation\r\n    Correctional treatment specialist\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    5' 3\" (159 centimeters)\r\n\r\nWeight\r\n    126.5 pounds (57.5 kilograms)\r\n\r\nBlood type\r\n    AB+ "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4pcrx7ne50jrzy8gqwbr8r36dn",
+          "ContentItemVersionId": "4a3y5jsfysq8y38dckswddevn8",
+          "ContentType": "PersonPage",
+          "DisplayText": "Glenna J. Edwards",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:39:38.2214925Z",
+          "PublishedUtc": "2021-08-27T22:39:38.2250184Z",
+          "CreatedUtc": "2021-08-27T22:39:38.2214925Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Glenna J. Edwards",
+            "Handedness": 0,
+            "BirthDateUtc": "1944-07-12T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Dreamscape Garden Care\r\n\r\nOccupation\r\n    Control technician\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    5' 4\" (162 centimeters)\r\n\r\nWeight\r\n    211.6 pounds (96.2 kilograms)\r\n\r\nBlood type\r\n    O+ "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4bfvbmr4ffh28sd6dpxec3f3w4",
+          "ContentItemVersionId": "47dwehba9e16tvgtr6m0jgevnh",
+          "ContentType": "PersonPage",
+          "DisplayText": "Estelle N. Legault",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:40:22.6573522Z",
+          "PublishedUtc": "2021-08-27T22:40:22.660682Z",
+          "CreatedUtc": "2021-08-27T22:40:22.6573522Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Estelle N. Legault",
+            "Handedness": 0,
+            "BirthDateUtc": "1979-05-22T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Sampson's\r\n\r\nOccupation\r\n    Oral radiologist\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    5' 8\" (172 centimeters)\r\n\r\nWeight\r\n    132.0 pounds (60.0 kilograms)\r\n\r\nBlood type\r\n    O- "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4fb34k0w5f7vpr3cg3pec0665k",
+          "ContentItemVersionId": "4d9nkc4dnjsvrsawsbbgcg9wx0",
+          "ContentType": "PersonPage",
+          "DisplayText": "Beverly R. Chenoweth",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:41:45.7412316Z",
+          "PublishedUtc": "2021-08-27T22:41:45.7445346Z",
+          "CreatedUtc": "2021-08-27T22:41:45.7412316Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Beverly R. Chenoweth",
+            "Handedness": 0,
+            "BirthDateUtc": "1973-08-09T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Childrens Bargain Town\r\n\r\nOccupation\r\n    Payroll technician\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    5' 1\" (154 centimeters)\r\n\r\nWeight\r\n    137.9 pounds (62.7 kilograms)\r\n\r\nBlood type\r\n    A- "
+            }
+          }
+        },
+        {
+          "ContentItemId": "43h1ehp2738jyw30e1d3y8bynf",
+          "ContentItemVersionId": "401aqs29jyfc93w00pbfen58wb",
+          "ContentType": "PersonPage",
+          "DisplayText": "Susan S. Gariepy",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:42:26.8604068Z",
+          "PublishedUtc": "2021-08-27T22:42:26.8637399Z",
+          "CreatedUtc": "2021-08-27T22:42:26.8604068Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Susan S. Gariepy",
+            "Handedness": 0,
+            "BirthDateUtc": "1945-10-14T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    First Choice Yard Help\r\n\r\nOccupation\r\n    Ophthalmic medical assistant\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    5' 2\" (157 centimeters)\r\n\r\nWeight\r\n    153.3 pounds (69.7 kilograms)\r\n\r\nBlood type\r\n    B+ "
+            }
+          }
+        },
+        {
+          "ContentItemId": "4ymsg39nfs7fc102jf8bmqg45w",
+          "ContentItemVersionId": "4555bamy9r54p73hk1gvjrbaxt",
+          "ContentType": "PersonPage",
+          "DisplayText": "Thomas A. Gascon",
+          "Latest": true,
+          "Published": true,
+          "ModifiedUtc": "2021-08-27T22:42:58.785779Z",
+          "PublishedUtc": "2021-08-27T22:42:58.7901693Z",
+          "CreatedUtc": "2021-08-27T22:42:58.785779Z",
+          "Owner": "4m1q4e6y0gm5rxhagy12ywb0cw",
+          "Author": "admin",
+          "PersonPart": {
+            "Name": "Thomas A. Gascon",
+            "Handedness": 0,
+            "BirthDateUtc": "1967-03-14T00:00:00Z",
+            "Biography": {
+              "Text": "Employment\r\n\r\nCompany\r\n    Franklin Music\r\n\r\nOccupation\r\n    Quality control technician\r\n\r\nPhysical characteristics\r\n\r\nHeight\r\n    6' 2\" (188 centimeters)\r\n\r\nWeight\r\n    232.1 pounds (105.5 kilograms)\r\n\r\nBlood type\r\n    O+ "
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
