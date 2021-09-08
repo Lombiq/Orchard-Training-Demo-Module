@@ -1,0 +1,14 @@
+lockfileVersion: 5.3
+
+specifiers:
+  pickr-widget: 0.3.6
+
+dependencies:
+  pickr-widget: 0.3.6
+
+packages:
+
+  /pickr-widget/0.3.6:
+    resolution: {integrity: sha512-aSvMgVICjTaGzODVOp/B0xHqL3tMRMsGvVHkXmnn7vPWSNUwMsPY3a6+Y4YkTsGzzu+OPSmXmnMdPCUBv63vVA==}
+    deprecated: Module has been moved to organization, use npm i @simonwep/pickr
+    dev: false
