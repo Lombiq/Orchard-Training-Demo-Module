@@ -30,8 +30,9 @@ namespace Lombiq.TrainingDemo.Models
         // more complex functionality and also can contain a set of fields.
         // TextField is one of Orchard's many built-in fields. To utilize it you don't need to add a property for it to
         // the part (you just need to attach it to the content type, what we're doing from migrations) but having such
-        // a property is a nice shortcut to it.
-        public TextField Biography { get; set; }
+        // a property is a nice shortcut to it. You don't need to instantiate it either, why we do it here is to avoid
+        // null checks when working with the content item even without initializing it with IContentManager.LoadAsync().
+        public TextField Biography { get; set; } = new();
     }
 
     public enum Handedness
