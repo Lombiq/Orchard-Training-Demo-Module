@@ -149,7 +149,15 @@ namespace Lombiq.TrainingDemo
             // Event handlers
             services.AddScoped<ILoginFormEvent, LoginGreeting>();
         }
+    }
 
+    // A second Startup class, corresponding to our second feature (see Manifest.cs). Note how the Feature attribute
+    // tells Orchard to only activate the class if the feature is enabled. This way, you can register services
+    // corresponding to a feature only when necessary. Note that controllers aren't registered but activated
+    // automatically so you have to decorate them with the attribute too.
+    [Feature("Lombiq.TrainingDemo.Middlewares")]
+    public class MiddlewaresStartup : StartupBase
+    {
         public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) =>
             // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
             // don't need it you can skip overriding it. However, here we need it for our middleware.

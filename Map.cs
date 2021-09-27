@@ -39,10 +39,10 @@ namespace Lombiq.TrainingDemo
             // Recipes
             // Recipes/TrainingDemo.recipe.json
 
-            // Manifest.cs: module manifest and dependencies
+            // Manifest.cs: module manifest, features, dependencies
 
-            // Usage: require/include
-            // Views/PersonListDashboard
+            // Startup classes targeting multiple features
+            Pointer<Startup>();
 
             // Basic controller demonstrating localization, Notifier, Logger, routing
             Pointer<YourFirstOrchardCoreController>();

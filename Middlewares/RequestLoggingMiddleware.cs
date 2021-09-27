@@ -18,6 +18,8 @@ namespace Lombiq.TrainingDemo.Middlewares
     // This middleware will serve as a simple logger for requests and log each request with the site's name Note that
     // while this middleware is in its own class we could just write it as a delegate in the Startup class too. This way
     // Startup won't get cluttered.
+    // By the way, do you remember that we have a separate module feature declared in the Manifest for this middleware?
+    // If not, check out Manifest.cs again!
     public class RequestLoggingMiddleware
     {
         private readonly RequestDelegate _next;

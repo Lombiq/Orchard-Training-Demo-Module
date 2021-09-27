@@ -1,4 +1,6 @@
 {
+  // A simple setup recipe that sets up the site for playing with the Training Demo. For more info on how recipes work
+  // check out the official docs: https://docs.orchardcore.net/en/latest/docs/reference/modules/Recipes/.
   "name": "Lombiq.TrainingDemo",
   "displayName": "Training Demo",
   "description": "Demo Orchard Core site with the Lombiq.TrainingDemo module enabled.",
@@ -13,12 +15,14 @@
       "name": "feature",
       "disable": [],
       "enable": [
+        // Modules
         "Lombiq.TrainingDemo",
+        "Lombiq.TrainingDemo.Middlewares",
         "OrchardCore.Admin",
+        "OrchardCore.Features",
         "OrchardCore.HomeRoute",
         "OrchardCore.Layers",
         "OrchardCore.Localization",
-        "OrchardCore.Features",
         "OrchardCore.Navigation",
         "OrchardCore.Recipes",
         "OrchardCore.Resources",
