@@ -1,5 +1,5 @@
 /*
- * You can create pages for the Orchard Core dashboard  simply by naming your controller AdminController or putting an
+ * You can create pages for the Orchard Core dashboard simply by naming your controller AdminController or putting an
  * [Admin] attribute on the controller. In this section you will learn how to add pages to the dashboard and how to
  * create menu items as well.
  */
