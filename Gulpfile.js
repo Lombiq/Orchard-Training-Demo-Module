@@ -9,7 +9,7 @@
 
 // Note that this utilizes Lombiq's NPM MSBuild Targets (https://github.com/Lombiq/NPM-Targets) and Gulp Extensions
 // (https://github.com/Lombiq/Gulp-Extensions) projects to hook Gulp build up with the .NET build pipeline, as well as
-// to provide JS linting. Check out their documentations for more details!
+// to provide SCSS and JS linting. Check out their documentations for more details!
 
 const gulp = require('gulp');
 // Gulp watcher if needed when we are actively developing a resource.
@@ -56,6 +56,10 @@ gulp.task('watch', () => {
     watch(stylesBasePath + '**/*.scss', { verbose: true }, gulp.series('build:styles'));
     watch(assetsBasePath + 'Apps/**/*.js', { verbose: true }, gulp.series('build:vue'));
 });
+
+// Note that while we demonstrated a Gulp build that takes care of a lot of things here, if you just want to build SCSS
+// and/or JS, check out the shortcuts documented here:
+// https://github.com/Lombiq/Gulp-Extensions#tips-for-using-and-naming-multiple-gulp-tasks.
 
 // END OF TRAINING SECTION: Compiling resources using Gulp
 
