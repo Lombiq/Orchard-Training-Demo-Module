@@ -113,7 +113,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 await _mediaFileStore.CreateFileFromStreamAsync(mediaFilePath, stream);
             }
 
-            _notifier.Information(H["Successfully uploaded file!"]);
+            await _notifier.InformationAsync(H["Successfully uploaded file!"]);
 
             return RedirectToAction(nameof(UploadFileToMedia));
         }

@@ -70,7 +70,9 @@ namespace Lombiq.TrainingDemo.Controllers
                 _session.Save(book);
             }
 
+#pragma warning disable CS0618 // Type or member is obsolete
             _notifier.Information(H["Books have been created in the database."]);
+#pragma warning restore CS0618 // Type or member is obsolete
 
             return RedirectToAction(nameof(CreateBooks));
         }

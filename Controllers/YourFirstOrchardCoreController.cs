@@ -73,7 +73,9 @@ namespace Lombiq.TrainingDemo.Controllers
             // INotifier is an Orchard Core service to send messages to the user. This service can be used almost
             // everywhere in the code base not only in Controllers. This service requires a LocalizedHtmlString object
             // so the IHtmlLocalizer service needs to be used for localization.
+#pragma warning disable CS0618 // Type or member is obsolete
             _notifier.Information(H["Congratulations! You have been notified! Check the error log too!"]);
+#pragma warning restore CS0618 // Type or member is obsolete
 
             return View();
 

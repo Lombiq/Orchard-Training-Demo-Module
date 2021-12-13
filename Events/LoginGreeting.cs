@@ -31,7 +31,9 @@ namespace Lombiq.TrainingDemo.Events
 
         public Task LoggedInAsync(IUser user)
         {
+#pragma warning disable CS0618 // Type or member is obsolete
             _notifier.Success(H["Hi {0}!", user.UserName]);
+#pragma warning restore CS0618 // Type or member is obsolete
             return Task.CompletedTask;
         }
 
