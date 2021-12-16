@@ -12,7 +12,6 @@ using Lombiq.TrainingDemo.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
-using OrchardCore.Mvc.Utilities;
 using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers

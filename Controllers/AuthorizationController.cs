@@ -62,7 +62,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
             // To keep the demonstration short, only display a notification about the successful authorization and
             // return to the home page.
-            _notifier.Information(H["You are authorized to edit Person content items."]);
+            await _notifier.InformationAsync(H["You are authorized to edit Person content items."]);
 
             return Redirect("~/");
         }
@@ -79,7 +79,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 return Unauthorized();
             }
 
-            _notifier.Information(H["You are authorized to manage persons."]);
+            await _notifier.InformationAsync(H["You are authorized to manage persons."]);
 
             return Redirect("~/");
         }

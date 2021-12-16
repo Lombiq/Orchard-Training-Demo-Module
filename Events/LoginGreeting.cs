@@ -29,10 +29,11 @@ namespace Lombiq.TrainingDemo.Events
 
         public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
 
-        public Task LoggedInAsync(IUser user)
+        public async Task LoggedInAsync(IUser user)
         {
-            _notifier.Success(H["Hi {0}!", user.UserName]);
-            return Task.CompletedTask;
+            await _notifier.SuccessAsync(H["Hi {0}!", user.UserName]);
+
+            return;
         }
 
         public Task LoggingInAsync(string userName, Action<string, string> reportError) => Task.CompletedTask;

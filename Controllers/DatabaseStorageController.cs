@@ -56,7 +56,7 @@ namespace Lombiq.TrainingDemo.Controllers
         // in the form (check for the input field named __RequestVerificationToken in the HTML output) of the
         // CreateBooks view.
         [HttpPost, ActionName(nameof(CreateBooks)), ValidateAntiForgeryToken]
-        public ActionResult CreateBooksPost()
+        public async Task<ActionResult> CreateBooksPost()
         {
             // For demonstration purposes this will create 3 books and store them in the database one-by-one using the
             // ISession service. Note that you can even go to the database directly, circumventing YesSql too, by
@@ -70,7 +70,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 _session.Save(book);
             }
 
-            _notifier.Information(H["Books have been created in the database."]);
+            await _notifier.InformationAsync(H["Books have been created in the database."]);
 
             return RedirectToAction(nameof(CreateBooks));
         }
