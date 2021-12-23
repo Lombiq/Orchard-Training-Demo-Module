@@ -1,4 +1,4 @@
-﻿using GraphQL.Types;
+using GraphQL.Types;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Models;
 using OrchardCore.Apis.GraphQL.Queries;

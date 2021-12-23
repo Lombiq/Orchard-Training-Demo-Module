@@ -1,4 +1,4 @@
-﻿/* Orchard Core's GraphQL module gives you a lot of features out-of-the-box. Content types, fields and some built-in
+/* Orchard Core's GraphQL module gives you a lot of features out-of-the-box. Content types, fields and some built-in
  * parts are automatically included. So all you have to worry about is adding your custom content parts and filter
  * arguments to the GraphQL "schema".
  * Warning: GraphQL calls its properties "fields". To minimize confusion with Orchard Core's fields, we refer to the

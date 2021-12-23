@@ -1,4 +1,4 @@
-﻿using GraphQL.Types;
+using GraphQL.Types;
 using Lombiq.TrainingDemo.Models;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services
