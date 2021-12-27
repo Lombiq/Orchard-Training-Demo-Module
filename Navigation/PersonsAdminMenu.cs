@@ -40,7 +40,7 @@ namespace Lombiq.TrainingDemo.Navigation
                 // This means that the top-level menu item also will point to the action where its first child item
                 // points. Now that is conventional to do, however, it really depends on the Admin theme. The TheAdmin
                 // theme will never link it to the first child, it will always be a dropdown without a link.
-                .LinkToFirstChild(true)
+                .LinkToFirstChild(value: true)
                 // Now let's add the sub menu items with the same Add() method we used for the first-level item but
                 // chained to this one.
                 .Add(T["Test"], subitem => subitem
@@ -55,7 +55,7 @@ namespace Lombiq.TrainingDemo.Navigation
                 // Add another menu item that will display multiple Person items. However, branch this item to two
                 // different third-level items!
                 .Add(T["Person List"], subitem => subitem
-                    .LinkToFirstChild(true)
+                    .LinkToFirstChild(value: true)
 
                     .Add(T["Newest Items"], thirdLevelItem => thirdLevelItem
                         .Action(

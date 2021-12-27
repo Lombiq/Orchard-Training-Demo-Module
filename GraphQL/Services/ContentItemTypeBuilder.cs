@@ -1,6 +1,7 @@
 using GraphQL.Types;
 using OrchardCore.ContentManagement.GraphQL.Queries.Types;
 using OrchardCore.ContentManagement.Metadata.Models;
+using System;
 using System.Linq;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services
@@ -22,7 +23,7 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
             // You can check to see if the field has any specific sub-field, if you want to rely on its features. For
             // example if you only want to apply to ContentItem fields that have the "person" sub-field (i.e. those that
             // have a PersonPart). This is useful if you want to expand your content part field in another module.
-            if (contentItemType.Fields.All(field => field.Name != "person")) return;
+            if (contentItemType.Fields.All(field => !field.Name.EqualsOrdinal("person"))) return;
 
             // The resolved type can be anything that can be represented with JSON and has a known graph type, but we
             // stick with numbers for simplicity's sake. This one filters for equation.

@@ -38,7 +38,7 @@ namespace Lombiq.TrainingDemo.GraphQL.Services
             if (name != null && value is int age)
             {
                 var now = _clock.UtcNow;
-                if (name == "age") name = "age_eq";
+                if (name.EqualsOrdinal("age")) name = "age_eq";
                 var filterType = name[^2..]; // The name operator like gt, le, etc.
 
                 contentItems = contentItems.Where(item =>
