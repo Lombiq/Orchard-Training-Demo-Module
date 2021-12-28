@@ -12,7 +12,6 @@ using Lombiq.TrainingDemo.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using OrchardCore.ContentManagement;
-using System;
 using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers
@@ -62,7 +61,7 @@ namespace Lombiq.TrainingDemo.Controllers
             var contentItem = await _contentManager.GetAsync(contentItemId);
 
             // Only allow the retrieval of Person Page items.
-            if (contentItem?.ContentType?.EqualsOrdinal(ContentTypes.PersonPage) == false) contentItem = null;
+            if (contentItem?.ContentType != ContentTypes.PersonPage) contentItem = null;
 
             // The action will return the JSON representation of the content item automatically. You can then consume
             // that from a web SPA or a mobile app, for example.
