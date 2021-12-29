@@ -18,6 +18,7 @@ using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.Modules;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using YesSql;
@@ -155,7 +156,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
             // We add some identity to our new synthetic friend.
             var serialNumber = _clock.UtcNow.Ticks;
-            var name = $"X Doe #{serialNumber}";
+            var name = $"X Doe #{serialNumber.ToTechnicalString()}";
 
             // Again we can save date into parts like this:
             person.Alter<PersonPart>(part =>
