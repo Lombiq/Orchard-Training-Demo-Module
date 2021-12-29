@@ -7,6 +7,7 @@ using OrchardCore.ContentManagement.Display.Models;
 using OrchardCore.ContentManagement.Metadata.Models;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Views;
+using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -73,11 +74,14 @@ namespace Lombiq.TrainingDemo.Drivers
                 }
 
                 // Also some custom validation for our ColorField hex value.
-                if (!string.IsNullOrWhiteSpace(viewModel.Value) &&
-                    !Regex.IsMatch(viewModel.Value, "^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$"))
-                {
-                    updater.ModelState.AddModelError(Prefix, T["The given color is invalid."]);
-                }
+                var isInvalidHexColor = !string.IsNullOrWhiteSpace(viewModel.Value) &&
+                    !Regex.IsMatch(
+                        viewModel.Value,
+                        "^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
+                        RegexOptions.ExplicitCapture,
+                        TimeSpan.FromSeconds(1));
+
+                if (isInvalidHexColor) updater.ModelState.AddModelError(Prefix, T["The given color is invalid."]);
 
                 field.ColorName = viewModel.ColorName;
                 field.Value = viewModel.Value;

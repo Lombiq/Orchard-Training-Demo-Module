@@ -60,7 +60,7 @@ namespace Lombiq.TrainingDemo.Controllers
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there!")))
             {
                 // The third parameter here is optional - if true, it will override the file if already exists.
-                await _mediaFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, true);
+                await _mediaFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, overwrite: true);
             }
 
             // Use this method to check if the file exists (it will be null if the file doesn't exist). It's similar to
@@ -127,7 +127,7 @@ namespace Lombiq.TrainingDemo.Controllers
             // this time. The files will be created inside our CustomFiles folder as it was defined in Startup.cs.
             using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there in the custom file storage!")))
             {
-                await _customFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, true);
+                await _customFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, overwrite: true);
             }
 
             var fileInfo = await _customFileStore.GetFileInfoAsync(TestFileRelativePath);
