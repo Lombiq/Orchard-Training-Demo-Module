@@ -5,7 +5,7 @@
   "displayName": "Training Demo",
   "description": "Demo Orchard Core site with the Lombiq.TrainingDemo module enabled.",
   "author": "Lombiq",
-  "website": "https://lombiq.com",
+  "website": "https://github.com/Lombiq/Orchard-Training-Demo-Module",
   "version": "1.0",
   "issetuprecipe": true,
   "categories": [ "training" ],

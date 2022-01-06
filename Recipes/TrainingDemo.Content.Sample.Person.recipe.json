@@ -2,8 +2,8 @@
   "name": "Lombiq.TrainingDemo.Content.Sample.Person",
   "displayName": "Training Demo - Sample Content - Person",
   "description": "Randomly generated sample Person content items.",
-  "author": "Lombiq",
-  "website": "https://lombiq.com",
+  "author": "Lombiq Technologies",
+  "website": "https://github.com/Lombiq/Orchard-Training-Demo-Module",
   "version": "1.0",
   "issetuprecipe": false,
   "categories": [
