@@ -83,8 +83,8 @@ namespace Lombiq.TrainingDemo
             services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
             // Color Field
-            services.AddContentField<ColorField>();
-            services.AddScoped<IContentFieldDisplayDriver, ColorFieldDisplayDriver>();
+            services.AddContentField<ColorField>()
+                .UseDisplayDriver<ColorFieldDisplayDriver>();
             services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ColorFieldSettingsDriver>();
             services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
 
