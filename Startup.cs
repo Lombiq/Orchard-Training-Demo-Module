@@ -125,15 +125,16 @@ namespace Lombiq.TrainingDemo
                 var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
                 var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
 
+                // Necessary for the comment.
+#pragma warning disable SA1114 // Parameter list should follow declaration
                 var tenantFolderPath = PathExtensions.Combine(
                     // This is the absolute path of the "App_Data" folder.
-#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
                     shellOptions.ShellsApplicationDataPath,
-#pragma warning restore SA1114 // Parameter list should follow declaration
                     // This is the folder which contains the tenants which is Sites by default.
                     shellOptions.ShellsContainerName,
                     // This is the tenant name. We want our custom folder inside this folder.
                     shellSettings.Name);
+#pragma warning restore SA1114 // Parameter list should follow declaration
 
                 // And finally our full base path.
                 var customFolderPath = PathExtensions.Combine(tenantFolderPath, "CustomFiles");
