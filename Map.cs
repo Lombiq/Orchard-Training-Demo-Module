@@ -142,6 +142,9 @@ namespace Lombiq.TrainingDemo
             // executing shapes into HTML
             Pointer<ResourceFromShapeInjectingFilter>();
 
+            // IShapeTableProvider, hiding shapes, shape events
+            Pointer<ShapeHidigingShapeTableProvider>();
+
             // Memory Cache, Dynamic Cache
             // IMemoryCache, IDynamicCacheService, ITagCache
             Pointer<DateTimeCachingService>();

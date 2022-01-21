@@ -31,6 +31,7 @@ using OrchardCore.ContentManagement.Display.ContentDisplay;
 using OrchardCore.ContentTypes.Editors;
 using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement;
+using OrchardCore.DisplayManagement.Descriptors;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Environment.Shell.Configuration;
@@ -111,6 +112,9 @@ namespace Lombiq.TrainingDemo
                 options.Filters.Add(typeof(ResourceInjectionFilter));
                 options.Filters.Add(typeof(ResourceFromShapeInjectingFilter));
             });
+
+            // Shape table provider
+            services.AddScoped<IShapeTableProvider, ShapeHidigingShapeTableProvider>();
 
             // File System
             services.AddSingleton<ICustomFileStore>(serviceProvider =>

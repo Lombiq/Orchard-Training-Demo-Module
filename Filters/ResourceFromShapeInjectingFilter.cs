@@ -52,4 +52,4 @@ namespace Lombiq.TrainingDemo.Filters
 
 // END OF TRAINING SECTION: Utilizing action and result filters
 
-// NEXT STATION: Controllers/CacheController.cs
+// NEXT STATION: Services/ShapeHidigingShapeTableProvider.cs
