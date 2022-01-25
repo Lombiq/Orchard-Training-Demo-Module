@@ -119,6 +119,7 @@ namespace Lombiq.TrainingDemo.Controllers
                 ////person.Alter<BagPart>("The technical name of the BagPart instance.", part => ...);
                 // Or you can create a content part class inheriting from BagPart that has the same name as the BagPart
                 // instance.
+                // Similarly, instead of As<TPart>() you need to use Get<TPart>("TechnicalName").
 
                 // Once you're done you have to save the content item explicitly. Remember when we saved Books with
                 // ISession.Save()? This is something similar for content items.
