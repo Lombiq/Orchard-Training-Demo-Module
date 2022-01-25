@@ -109,10 +109,7 @@ namespace Lombiq.TrainingDemo.Controllers
                     part.BirthDateUtc = eighteenYearOld;
 
                     // You can also edit content fields:
-                    // It's actually a different instance concatenated with so the analyzer violation is incorrect.
-#pragma warning disable S1643 // Strings should not be concatenated using '+' in a loop
                     part.Biography.Text += " I'm young again!";
-#pragma warning restore S1643 // Strings should not be concatenated using '+' in a loop
                 });
 
                 // If you happen to use reusable/named parts like BagPart (see the docs on it here:
