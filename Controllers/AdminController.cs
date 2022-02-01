@@ -13,7 +13,6 @@ using OrchardCore.ContentManagement.Records;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using YesSql;
 
@@ -92,8 +91,8 @@ namespace Lombiq.TrainingDemo.Controllers
         private async Task<IEnumerable<IShape>> GetShapesAsync(IEnumerable<ContentItem> persons) =>
             // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items on
             // the dashboard.
-            await Task.WhenAll(persons.Select(async person =>
-                await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin")));
+            await persons.AwaitEachAsync(async person =>
+                await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin"));
     }
 }
 

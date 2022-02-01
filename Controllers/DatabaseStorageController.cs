@@ -19,7 +19,6 @@ using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Notify;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using YesSql;
 
@@ -90,10 +89,12 @@ namespace Lombiq.TrainingDemo.Controllers
 
             // Now this is what we possibly understand now, we will create a list of display shapes from the previously
             // fetched books.
-            var bookShapes = await Task.WhenAll(jkRowlingBooks.Select(async book =>
+            // Note how we use the AwaitEachAsync() extension to run async operations sequentially. This is important:
+            // You can't know if BuildDisplayAsync() is thread-safe so you shouldn't use e.g. Task.WhenAll().
+            var bookShapes = await jkRowlingBooks.AwaitEachAsync(async book =>
                 // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access via
                 // its accessor service. Later you'll also see how we'll use this to run validations in drivers.
-                await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater)));
+                await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater));
 
             // You can check out Views/DatabaseStorage/JKRowlingBooks.cshtml and come back here.
             return View(bookShapes);

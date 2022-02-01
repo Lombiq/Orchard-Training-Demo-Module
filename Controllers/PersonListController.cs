@@ -19,6 +19,7 @@ using OrchardCore.ContentManagement.Display;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.Modules;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using YesSql;
@@ -64,14 +65,14 @@ namespace Lombiq.TrainingDemo.Controllers
             // and ContentFields attached to the ContentItem have. This service will handle generating all the drivers
             // created for these parts and fields.
             // NEXT STATION: Drivers/PersonPartDisplayDriver
-            var shapes = await Task.WhenAll(people.Select(async person =>
+            var shapes = await people.AwaitEachAsync(async person =>
             {
                 // When you retrieve content items via ISession then you also need to run LoadAsync() on them to
                 // initialize everything.
                 await _contentManager.LoadAsync(person);
 
                 return await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary");
-            }));
+            });
 
             // Now assuming that you've already created a few Person content items on the dashboard and some of these
             // persons are more than 30 years old then this query will contain items to display.
