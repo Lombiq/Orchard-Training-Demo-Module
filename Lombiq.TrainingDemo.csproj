@@ -9,8 +9,6 @@
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**;Tests\**</DefaultItemExcludes>
-    <OrchardCoreLibrariesRoot Condition="Exists('$(SolutionDir)src\OrchardCore')">$(SolutionDir)src\OrchardCore</OrchardCoreLibrariesRoot>
-    <OrchardCoreModulesRoot Condition="Exists('$(SolutionDir)src\OrchardCore.Modules')">$(SolutionDir)src\OrchardCore.Modules</OrchardCoreModulesRoot>
   </PropertyGroup>
 
   <Import Project="..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
@@ -32,7 +30,7 @@
     <PackageReference Include="OrchardCore.Users.Abstractions" Version="1.2.2" />
   </ItemGroup>
 
-  <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' == '' AND '$(OrchardCoreModulesRoot)' == ''">
+  <ItemGroup>
     <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.2.2" />
     <PackageReference Include="OrchardCore.ContentFields" Version="1.2.2" />
     <PackageReference Include="OrchardCore.ContentManagement" Version="1.2.2" />
@@ -49,20 +47,6 @@
     same reason. -->
     <PackageReference Include="OrchardCore.ResourceManagement" Version="1.2.2" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.2.2" />
-  </ItemGroup>
-
-  <ItemGroup Condition="'$(OrchardCoreLibrariesRoot)' != '' AND '$(OrchardCoreModulesRoot)' != ''">
-    <ProjectReference Include="$(OrchardCoreModulesRoot)\OrchardCore.BackgroundTasks\OrchardCore.BackgroundTasks.csproj" />
-    <ProjectReference Include="$(OrchardCoreModulesRoot)\OrchardCore.ContentFields\OrchardCore.ContentFields.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.ContentTypes.Abstractions\OrchardCore.ContentTypes.Abstractions.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Data.Abstractions\OrchardCore.Data.Abstractions.csproj" />
-    <ProjectReference Include="$(OrchardCoreModulesRoot)\OrchardCore.DynamicCache\OrchardCore.DynamicCache.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.ContentManagement\OrchardCore.ContentManagement.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.FileStorage.FileSystem\OrchardCore.FileStorage.FileSystem.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Indexing.Abstractions\OrchardCore.Indexing.Abstractions.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Media.Abstractions\OrchardCore.Media.Abstractions.csproj" />
-    <ProjectReference Include="$(OrchardCoreLibrariesRoot)\OrchardCore.Module.Targets\OrchardCore.Module.Targets.csproj" />
   </ItemGroup>
 
   <ItemGroup>
