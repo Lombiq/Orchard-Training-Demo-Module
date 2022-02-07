@@ -81,4 +81,4 @@ namespace Lombiq.TrainingDemo.Tests.Services
 
 // END OF TRAINING SECTION: Unit and integration testing
 
-// NEXT STATION: Head back to the module project and check out Controllers/VueJsController.cs
+// NEXT STATION: Head back to the module project and check out Controllers/VueAppController.cs
