@@ -18,6 +18,9 @@
   <ItemGroup>
     <None Remove="node_modules\**" />
     <None Remove="Tests\**" />
+    <None Remove="Assets\Apps\demo\components\demo-component.js" />
+    <None Remove="Assets\Apps\demo\main.js" />
+    <None Remove="Assets\Apps\demo\options.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,7 +54,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.csproj" />
-    <ProjectReference Include="..\Lombiq.VueJs\Lombiq.VueJs.csproj" />
   </ItemGroup>
 
   <ItemGroup>
