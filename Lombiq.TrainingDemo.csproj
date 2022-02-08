@@ -14,13 +14,10 @@
   <Import Project="..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.props" />
   <Import Project="..\..\Utilities\Lombiq.Npm.Targets\Lombiq.Npm.Targets.targets" />
   <Import Project="..\..\Utilities\Lombiq.Gulp.Extensions\Lombiq.Gulp.Extensions.targets" />
-  
+
   <ItemGroup>
     <None Remove="node_modules\**" />
     <None Remove="Tests\**" />
-    <None Remove="Assets\Apps\demo\components\demo-component.js" />
-    <None Remove="Assets\Apps\demo\main.js" />
-    <None Remove="Assets\Apps\demo\options.js" />
   </ItemGroup>
 
   <ItemGroup>
