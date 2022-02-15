@@ -69,8 +69,6 @@ namespace Lombiq.TrainingDemo
             // Validating ContentPart fields
             Pointer<PersonPartViewModel>();
 
-            // IndexProvider, indexing simple obj
-
             // IndexProvider, indexing simple object or ContentPart in records
             Pointer<BookIndex>();
             Pointer<PersonPartIndex>();
