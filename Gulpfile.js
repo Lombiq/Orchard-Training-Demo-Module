@@ -20,7 +20,7 @@ const scssTargets = require('../../Utilities/Lombiq.Gulp.Extensions/Tasks/scss-t
 
 // This is a helper for generating a gulp pipeline for harvesting Vue applications from the current
 // project's Assets folder and compiling them to wwwroot.
-const vue = require('../Lombiq.VueJs/Assets/Scripts/helpers/vue-app-compiler-pipeline');
+const vue = require('../Lombiq.VueJs/Lombiq.VueJs/Assets/Scripts/helpers/vue-app-compiler-pipeline');
 
 // It's handy to define all the paths beforehand.
 const assetsBasePath = './Assets/';
