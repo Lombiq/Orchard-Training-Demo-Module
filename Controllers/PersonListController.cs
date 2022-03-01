@@ -68,7 +68,8 @@ namespace Lombiq.TrainingDemo.Controllers
             var shapes = await people.AwaitEachAsync(async person =>
             {
                 // When you retrieve content items via ISession then you also need to run LoadAsync() on them to
-                // initialize everything.
+                // initialize everything. This foremost includes running handlers, which are pretty much event handlers
+                // for content items (you'll see them in a minute with PersonPartHandler).
                 await _contentManager.LoadAsync(person);
 
                 return await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary");
