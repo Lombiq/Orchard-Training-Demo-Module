@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Title>Lombiq Training Demo for Orchard Core</Title>
     <Description>Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going through its source code.</Description>
