@@ -50,7 +50,11 @@ namespace Lombiq.TrainingDemo.Services
             // technical name of the task.
             // We use LogError() not because we're logging an error just so the message shows up in the log even with
             // log levels ignoring e.g. info or debug entries. Use the logging methods appropriately otherwise!
-            _logger.LogError($"Expected non-error - {(++_count).ToTechnicalString()}/{MaxCount}: Hello from {this.GetTaskName()}!");
+            _logger.LogError(
+                "Expected non-error - {Count}/{MaxCount}: Hello from {TaskName}!",
+                (++_count).ToTechnicalString(),
+                MaxCount,
+                this.GetTaskName());
 
             if (_count == MaxCount)
             {

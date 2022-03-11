@@ -44,7 +44,7 @@ namespace Lombiq.TrainingDemo.Middlewares
             // We use LogError() not because we're logging an error just so the message shows up in the log even with
             // log levels ignoring e.g. info or debug entries. Use the logging methods appropriately otherwise!
             logger.LogError(
-                "Expected non-error - The url {url} was just hit on the site {name}.",
+                "Expected non-error - The url {Url} was just hit on the site {Name}.",
                 UriHelper.GetDisplayUrl(context.Request),
                 (await siteService.GetSiteSettingsAsync()).SiteName);
         }
