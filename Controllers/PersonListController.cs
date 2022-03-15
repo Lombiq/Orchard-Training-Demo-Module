@@ -49,7 +49,7 @@ namespace Lombiq.TrainingDemo.Controllers
         }
 
         // See it under /Lombiq.TrainingDemo/PersonList/OlderThan30.
-        public async Task<ActionResult> OlderThan30()
+        public async Task<IActionResult> OlderThan30()
         {
             var thresholdDate = _clock.UtcNow.AddYears(-30);
             var people = await _session

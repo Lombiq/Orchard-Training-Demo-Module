@@ -49,13 +49,13 @@ namespace Lombiq.TrainingDemo.Controllers
         // A page with a button that will call the CreateBooks POST action. See it under
         // /Lombiq.TrainingDemo/DatabaseStorage/CreateBooks.
         [HttpGet]
-        public ActionResult CreateBooks() => View();
+        public IActionResult CreateBooks() => View();
 
         // Note the ValidateAntiForgeryToken attribute too: This validates the XSRF-prevention token automatically added
         // in the form (check for the input field named __RequestVerificationToken in the HTML output) of the
         // CreateBooks view.
         [HttpPost, ActionName(nameof(CreateBooks)), ValidateAntiForgeryToken]
-        public async Task<ActionResult> CreateBooksPost()
+        public async Task<IActionResult> CreateBooksPost()
         {
             // For demonstration purposes this will create 3 books and store them in the database one-by-one using the
             // ISession service. Note that you can even go to the database directly, circumventing YesSql too, by
@@ -76,7 +76,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
         // This page will display the books written by J.K. Rowling. See it under
         // /Lombiq.TrainingDemo/DatabaseStorage/JKRowlingBooks.
-        public async Task<ActionResult> JKRowlingBooks()
+        public async Task<IActionResult> JKRowlingBooks()
         {
             // ISession service is used for querying items.
             var jkRowlingBooks = await _session

@@ -35,7 +35,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
         // First, create a page that will display a summary and some additional data of the book. See it under
         // /Lombiq.TrainingDemo/DisplayManagement/DisplayBook.
-        public async Task<ActionResult> DisplayBook()
+        public async Task<IActionResult> DisplayBook()
         {
             // For demonstration purposes create a dummy book object.
             var book = CreateDemoBook();
@@ -51,7 +51,7 @@ namespace Lombiq.TrainingDemo.Controllers
 
         // Let's generate another Book display shape, but now with a display type. See it under
         // /Lombiq.TrainingDemo/DisplayManagement/DisplayBookDescription.
-        public async Task<ActionResult> DisplayBookDescription()
+        public async Task<IActionResult> DisplayBookDescription()
         {
             // Generate another book object to be used for demonstration purposes.
             var book = CreateDemoBook();
