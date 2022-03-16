@@ -12,34 +12,33 @@ using OrchardCore.Users.Events;
 using System;
 using System.Threading.Tasks;
 
-namespace Lombiq.TrainingDemo.Events
+namespace Lombiq.TrainingDemo.Events;
+
+// ILoginFormEvent exposes events of the, well, login form :). Useful to display a login greeting or anything even
+// more useful! The rest of it is pretty standard and we just use INotifier again.
+public class LoginGreeting : ILoginFormEvent
 {
-    // ILoginFormEvent exposes events of the, well, login form :). Useful to display a login greeting or anything even
-    // more useful! The rest of it is pretty standard and we just use INotifier again.
-    public class LoginGreeting : ILoginFormEvent
+    private readonly INotifier _notifier;
+    private readonly IHtmlLocalizer H;
+
+    public LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer)
     {
-        private readonly INotifier _notifier;
-        private readonly IHtmlLocalizer H;
-
-        public LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer)
-        {
-            _notifier = notifier;
-            H = htmlLocalizer;
-        }
-
-        public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
-
-        public async Task LoggedInAsync(IUser user)
-        {
-            await _notifier.SuccessAsync(H["Hi {0}!", user.UserName]);
-
-            return;
-        }
-
-        public Task LoggingInAsync(string userName, Action<string, string> reportError) => Task.CompletedTask;
-        public Task LoggingInFailedAsync(string userName) => Task.CompletedTask;
-        public Task LoggingInFailedAsync(IUser user) => Task.CompletedTask;
+        _notifier = notifier;
+        H = htmlLocalizer;
     }
+
+    public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
+
+    public async Task LoggedInAsync(IUser user)
+    {
+        await _notifier.SuccessAsync(H["Hi {0}!", user.UserName]);
+
+        return;
+    }
+
+    public Task LoggingInAsync(string userName, Action<string, string> reportError) => Task.CompletedTask;
+    public Task LoggingInFailedAsync(string userName) => Task.CompletedTask;
+    public Task LoggingInFailedAsync(IUser user) => Task.CompletedTask;
 }
 
 // END OF TRAINING SECTION: Event handlers

@@ -5,19 +5,18 @@
  * field.
  */
 
-namespace Lombiq.TrainingDemo.Settings
+namespace Lombiq.TrainingDemo.Settings;
+
+public class ColorFieldSettings
 {
-    public class ColorFieldSettings
-    {
-        // We'll use this setting to determine whether the value of the field is required to be given by the user.
-        public bool Required { get; set; }
+    // We'll use this setting to determine whether the value of the field is required to be given by the user.
+    public bool Required { get; set; }
 
-        // Hint text to be displayed on the editor.
-        public string Hint { get; set; }
+    // Hint text to be displayed on the editor.
+    public string Hint { get; set; }
 
-        // The label to be used on the editor and the display shape.
-        public string Label { get; set; }
-    }
+    // The label to be used on the editor and the display shape.
+    public string Label { get; set; }
 }
 
 // How can these settings be edited? If you attach a content field to a content part / content type from a migration you
