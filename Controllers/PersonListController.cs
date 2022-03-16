@@ -170,8 +170,8 @@ public class PersonListController : Controller
         var personPart = person.As<PersonPart>();
         personPart.Alter<TextField>(nameof(PersonPart.Biography), field => field.Text = "I'm sentient now!");
 
-        // This is the point where we actually save the content item into the database. Note that it's saved as a draft;
-        // you could also publish it right away but if you want to be safe and make sure that every part runs nicely
+        // This is the point where we actually save the content item into the database. Note that it's saved as a draft.
+        // You could also publish it right away but if you want to be safe and make sure that every part runs nicely
         // (like AutoroutePart, which we don't use on PersonPage, generates the permalink) it's safer to first create a
         // draft, then also update it, and finally publish it explicitly.
         await _contentManager.CreateAsync(person, VersionOptions.Draft);
