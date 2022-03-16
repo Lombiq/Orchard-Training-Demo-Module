@@ -25,8 +25,8 @@ public class PersonAgeGraphQLFilter : IGraphQLFilter<ContentItem>
     public Task<IQuery<ContentItem>> PreQueryAsync(IQuery<ContentItem> query, ResolveFieldContext context) =>
         Task.FromResult(query);
 
-    // You can use this method to filter offline or in separate requests. This is less efficient but it's necessary
-    // if the request can't be described as a single YesSql query. In this case we work off of a property that's not
+    // You can use this method to filter offline or in separate requests. This is less efficient but it's necessary if
+    // the request can't be described as a single YesSql query. In this case we work off of a property that's not
     // indexed for demonstration's sake.
     public Task<IEnumerable<ContentItem>> PostQueryAsync(
         IEnumerable<ContentItem> contentItems,

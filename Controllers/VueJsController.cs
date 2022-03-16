@@ -12,8 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-// This controller is for returning a Vue.js application in an MVC view, however, you could use any other ways of
-// doing it such as injecting as a shape or using widgets.
+// This controller is for returning a Vue.js application in an MVC view, however, you could use any other ways of doing
+// it such as injecting as a shape or using widgets.
 public class VueJsController : Controller
 {
     [HttpGet]

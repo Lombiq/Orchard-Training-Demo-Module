@@ -27,8 +27,8 @@ public class ShapeInjectionFilter : IAsyncResultFilter
     // To access the layout which contains the zones you need to use the ILayoutAccessor service.
     private readonly ILayoutAccessor _layoutAccessor;
 
-    // To generate ad-hoc shapes the IShapeFactory can be used. This is the same which is behind the New property
-    // in templates that you have previously seen in AdHocShape.cshtml.
+    // To generate ad-hoc shapes the IShapeFactory can be used. This is the same which is behind the New property in
+    // templates that you have previously seen in AdHocShape.cshtml.
     private readonly IShapeFactory _shapeFactory;
 
     public ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory shapeFactory)
@@ -55,8 +55,8 @@ public class ShapeInjectionFilter : IAsyncResultFilter
         // usually available in all themes and is the main zone in the middle of each page.
         var contentZone = layout.Zones["Content"];
         // Here you can add an ad-hoc generated shape to the Content zone. This works in the same way as we've seen
-        // previously when we talked about display management. You can find the template that'll render this shape
-        // under Views/InjectedShape.cshtml.
+        // previously when we talked about display management. You can find the template that'll render this shape under
+        // Views/InjectedShape.cshtml.
         await contentZone.AddAsync(await _shapeFactory.CreateAsync("InjectedShape"));
 
         await next();

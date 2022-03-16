@@ -18,17 +18,17 @@ namespace Lombiq.TrainingDemo.Controllers;
 
 public class DisplayManagementController : Controller, IUpdateModel
 {
-    // The core display management features can be used via the IDisplayManager service. The generic parameter will
-    // be the object that needs to be displayed on the UI somehow. Don't forget to register this generic class with
-    // the service provider (see: Startup.cs).
+    // The core display management features can be used via the IDisplayManager service. The generic parameter will be
+    // the object that needs to be displayed on the UI somehow. Don't forget to register this generic class with the
+    // service provider (see: Startup.cs).
     private readonly IDisplayManager<Book> _bookDisplayManager;
 
     public DisplayManagementController(IDisplayManager<Book> bookDisplayManager) => _bookDisplayManager = bookDisplayManager;
 
     // Before we learn how shapes are generated using the display manager let's see what are these shapes actually.
     // Ad-hoc shapes can be created anywhere without the display manager. In this example we'll see how to create an
-    // ad-hoc shape inside a view (or could be another shape). Later we'll see how to do it from a filter too. Open
-    // from under /Lombiq.TrainingDemo/DisplayManagement/AdHocShape.
+    // ad-hoc shape inside a view (or could be another shape). Later we'll see how to do it from a filter too. Open from
+    // under /Lombiq.TrainingDemo/DisplayManagement/AdHocShape.
     public ActionResult AdHocShape() => View();
 
     // NEXT STATION: Views/DisplayManagement/AdHocShape.cshtml
@@ -56,8 +56,8 @@ public class DisplayManagementController : Controller, IUpdateModel
         // Generate another book object to be used for demonstration purposes.
         var book = CreateDemoBook();
 
-        // This time give an additional parameter which is the display type. If display type is given then Orchard
-        // Core will search a cshtml file with a name [ClassName].[DisplayType].cshtml.
+        // This time give an additional parameter which is the display type. If display type is given then Orchard Core
+        // will search a cshtml file with a name [ClassName].[DisplayType].cshtml.
         var shape = await _bookDisplayManager.BuildDisplayAsync(book, this, "Description");
 
         // NEXT STATION: Go to Views/Book.Description.cshtml
@@ -80,4 +80,5 @@ public class DisplayManagementController : Controller, IUpdateModel
 // training.
 
 // END OF TRAINING SECTION: Display management
+
 // NEXT STATION: Controllers/DatabaseStorageController

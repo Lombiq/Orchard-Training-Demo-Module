@@ -39,8 +39,8 @@ public class AuthorizationController : Controller
         H = htmlLocalizer;
     }
 
-    // Here we will create a Person content item and check if the user has permission to edit it. It's very common
-    // to check if you can view or edit a specific item - it also happens if you use the built-in URLs like
+    // Here we will create a Person content item and check if the user has permission to edit it. It's very common to
+    // check if you can view or edit a specific item - it also happens if you use the built-in URLs like
     // /Contents/Item/Display/{id} to view a content item.
     public async Task<ActionResult> CanEditPerson()
     {
@@ -48,11 +48,11 @@ public class AuthorizationController : Controller
         var person = await _contentManager.NewAsync(ContentTypes.PersonPage);
 
         // Check if the user has permission to edit the content item. When you check content-related permissions
-        // (ViewContent, EditContent, PublishContent etc.) there is a difference between checking these for your
-        // content items (i.e. the owner is you) and others' content items. When you are the owner of the content
-        // item then the ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checked. This is
-        // automatic so you don't need to use them directly. For this newly created Person item the owner is null so
-        // the EditContent permission will be used.
+        // (ViewContent, EditContent, PublishContent etc.) there is a difference between checking these for your content
+        // items (i.e. the owner is you) and others' content items. When you are the owner of the content item then the
+        // ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checked. This is automatic so you
+        // don't need to use them directly. For this newly created Person item the owner is null so the EditContent
+        // permission will be used.
         if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.CommonPermissions.EditContent, person))
         {
             // Return 401 status code using this helper. Although it's a good practice to return 404 (NotFound())
@@ -60,8 +60,8 @@ public class AuthorizationController : Controller
             return Unauthorized();
         }
 
-        // To keep the demonstration short, only display a notification about the successful authorization and
-        // return to the home page.
+        // To keep the demonstration short, only display a notification about the successful authorization and return to
+        // the home page.
         await _notifier.InformationAsync(H["You are authorized to edit Person content items."]);
 
         return Redirect("~/");
@@ -71,9 +71,9 @@ public class AuthorizationController : Controller
 
     public async Task<ActionResult> CanManagePersons()
     {
-        // We've defined a ManagePersons earlier which is added to Administrator users by default. If the currently
-        // user doesn't have the Administrator role then you can add it on the dashboard. Since this permission can
-        // be checked without any object as a context the third parameter is left out.
+        // We've defined a ManagePersons earlier which is added to Administrator users by default. If the currently user
+        // doesn't have the Administrator role then you can add it on the dashboard. Since this permission can be
+        // checked without any object as a context the third parameter is left out.
         if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
         {
             return Unauthorized();

@@ -16,9 +16,9 @@ public class PersonPermissions : IPermissionProvider
         nameof(ManagePersons),
         "Manage Person content items.");
 
-    // Here's another permission that has a third parameter which is called "ImpliedBy". It means that everybody who
-    // has the ManagePersons permission also automatically possesses the AccessPersonListDashboard permission as
-    // well. Be aware that because of this AccessPersonListDashboard should be written after ManagePersons.
+    // Here's another permission that has a third parameter which is called "ImpliedBy". It means that everybody who has
+    // the ManagePersons permission also automatically possesses the AccessPersonListDashboard permission as well. Be
+    // aware that because of this AccessPersonListDashboard should be written after ManagePersons.
     public static readonly Permission AccessPersonListDashboard = new(
         nameof(AccessPersonListDashboard),
         "Access the Person List dashboard",
@@ -40,8 +40,7 @@ public class PersonPermissions : IPermissionProvider
             {
                 // Administrators will have all the permissions by default.
                 Name = "Administrator",
-                // Since AccessPersonListDashboard is implied by EditPersonList we don't have to list the former
-                // here.
+                // Since AccessPersonListDashboard is implied by EditPersonList we don't have to list the former here.
                 Permissions = new[] { ManagePersons },
             },
             new PermissionStereotype

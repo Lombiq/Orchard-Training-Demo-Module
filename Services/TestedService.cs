@@ -20,9 +20,9 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Services;
 
-// First we declare the interface of our service (as we've previously also done with IDateTimeCachingService). This
-// way other classes using the service will be able to inject it and depend on the interface instead of the
-// implementation, making them testable too!
+// First we declare the interface of our service (as we've previously also done with IDateTimeCachingService). This way
+// other classes using the service will be able to inject it and depend on the interface instead of the implementation,
+// making them testable too!
 [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "Just a simple sample.")]
 public interface ITestedService
 {
@@ -45,8 +45,7 @@ public class TestedService : ITestedService
             throw new ArgumentNullException(nameof(id), "The supplied content item ID was null or empty.");
         }
 
-        // This is factored out to adhere to the recommendations here:
-        // https://rules.sonarsource.com/csharp/RSPEC-4457.
+        // This is factored out to adhere to the recommendations here: https://rules.sonarsource.com/csharp/RSPEC-4457.
         return GetContentItemOrThrowInternalAsync(id);
     }
 

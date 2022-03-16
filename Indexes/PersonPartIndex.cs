@@ -29,15 +29,18 @@ public class PersonPartIndexProvider : IndexProvider<ContentItem>
             {
                 var personPart = contentItem.As<PersonPart>();
 
-                // Note that we can write any logic in here to determine when an index record should be created for
-                // a content item. Here we'll have a record for every content item possessing a PersonPart.
-                // However, we could e.g. only have an index for only published items (if you don't want to query
-                // on drafts; you can check contentItem.Published), or only on the latest ones (regardless of it
-                // being a draft or published version; contentItem.Latest shows this).
-                // Not cluttering up the index table with unnecessary rows can help with performance and makes
-                // managing the database easier overall.
-                // Also note that there is a lot more to index providers than just Map() (although this is what you
-                // need to use the most), see the YesSQL documentation: https://github.com/sebastienros/yessql/wiki/Tutorial
+                // Note that we can write any logic in here to determine when an index record should be created for a
+                // content item. Here we'll have a record for every content item possessing a PersonPart.
+
+                // However, we could e.g. only have an index for only published items (if you don't want to query on
+                // drafts; you can check contentItem.Published), or only on the latest ones (regardless of it being a
+                // draft or published version; contentItem.Latest shows this).
+
+                // Not cluttering up the index table with unnecessary rows can help with performance and makes managing
+                // the database easier overall.
+
+                // Also note that there is a lot more to index providers than just Map() (although this is what you need
+                // to use the most), see the YesSQL documentation: https://github.com/sebastienros/yessql/wiki/Tutorial.
                 return personPart == null
                     ? null
                     : new PersonPartIndex

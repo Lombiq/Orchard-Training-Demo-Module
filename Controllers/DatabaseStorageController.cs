@@ -51,18 +51,17 @@ public class DatabaseStorageController : Controller
     [HttpGet]
     public ActionResult CreateBooks() => View();
 
-    // Note the ValidateAntiForgeryToken attribute too: This validates the XSRF-prevention token automatically added
-    // in the form (check for the input field named __RequestVerificationToken in the HTML output) of the
-    // CreateBooks view.
+    // Note the ValidateAntiForgeryToken attribute too: This validates the XSRF-prevention token automatically added in
+    // the form (check for the input field named __RequestVerificationToken in the HTML output) of the CreateBooks view.
     [HttpPost, ActionName(nameof(CreateBooks)), ValidateAntiForgeryToken]
     public async Task<ActionResult> CreateBooksPost()
     {
         // For demonstration purposes this will create 3 books and store them in the database one-by-one using the
-        // ISession service. Note that you can even go to the database directly, circumventing YesSql too, by
-        // injecting the IDbConnectionAccessor service and access the underlying connection.
+        // ISession service. Note that you can even go to the database directly, circumventing YesSql too, by injecting
+        // the IDbConnectionAccessor service and access the underlying connection.
 
-        // Since storing them in the documents is not enough we need to index them to be able to filter them in a
-        // query. NEXT STATION: Indexes/BookIndex.cs
+        // Since storing them in the documents is not enough we need to index them to be able to filter them in a query.
+        // NEXT STATION: Indexes/BookIndex.cs
         foreach (var book in CreateDemoBooks())
         {
             // So now you understand what will happen in the background when this service is being called.
@@ -88,12 +87,11 @@ public class DatabaseStorageController : Controller
             .ListAsync();
 
         // Now this is what we possibly understand now, we will create a list of display shapes from the previously
-        // fetched books.
-        // Note how we use the AwaitEachAsync() extension to run async operations sequentially. This is important:
-        // You can't know if BuildDisplayAsync() is thread-safe so you shouldn't use e.g. Task.WhenAll().
+        // fetched books. Note how we use the AwaitEachAsync() extension to run async operations sequentially. This is
+        // important: You can't know if BuildDisplayAsync() is thread-safe so you shouldn't use e.g. Task.WhenAll().
         var bookShapes = await jkRowlingBooks.AwaitEachAsync(async book =>
-            // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access via
-            // its accessor service. Later you'll also see how we'll use this to run validations in drivers.
+            // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access via its
+            // accessor service. Later you'll also see how we'll use this to run validations in drivers.
             await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater));
 
         // You can check out Views/DatabaseStorage/JKRowlingBooks.cshtml and come back here.

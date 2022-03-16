@@ -17,8 +17,8 @@ namespace Lombiq.TrainingDemo.Drivers;
 public class DemoSettingsDisplayDriver : SectionDisplayDriver<ISite, DemoSettings>
 {
     // Since technically we have only one SiteSettings we have separate the editors using editor groups. It's a good
-    // idea to store the editor group ID in a publicly accessibly constant (would be much better to store it in a
-    // static class placed in a Constants folder).
+    // idea to store the editor group ID in a publicly accessibly constant (would be much better to store it in a static
+    // class placed in a Constants folder).
     public const string EditorGroupId = "Demo";
 
     private readonly IAuthorizationService _authorizationService;
@@ -30,14 +30,14 @@ public class DemoSettingsDisplayDriver : SectionDisplayDriver<ISite, DemoSetting
         _hca = hca;
     }
 
-    // Here's the EditAsync override to display editor for our site settings on the Dashboard. Note that it has a
-    // sync version too.
+    // Here's the EditAsync override to display editor for our site settings on the Dashboard. Note that it has a sync
+    // version too.
     public override async Task<IDisplayResult> EditAsync(DemoSettings section, BuildEditorContext context)
     {
-        // What you really don't want to is to let unauthorized users update site-level settings of your site so
-        // it's really advisable to create a separate permission for managing the settings or the feature related to
-        // this settings and use it here. We've created one that you can see in the
-        // Permissions/DemoSettingsPermissions.cs file.
+        // What you really don't want to is to let unauthorized users update site-level settings of your site so it's
+        // really advisable to create a separate permission for managing the settings or the feature related to this
+        // settings and use it here. We've created one that you can see in the Permissions/DemoSettingsPermissions.cs
+        // file.
         if (!await IsAuthorizedToManageDemoSettingsAsync())
         {
             // If not authorized then return null which means that nothing will be displayed that would've been
@@ -79,8 +79,8 @@ public class DemoSettingsDisplayDriver : SectionDisplayDriver<ISite, DemoSetting
 
     private async Task<bool> IsAuthorizedToManageDemoSettingsAsync()
     {
-        // Since the User object is not accessible here (as it was accessible in the Controller) we need to grab it
-        // from the HttpContext.
+        // Since the User object is not accessible here (as it was accessible in the Controller) we need to grab it from
+        // the HttpContext.
         var user = _hca.HttpContext?.User;
 
         return user != null && await _authorizationService.AuthorizeAsync(user, DemoSettingsPermissions.ManageDemoSettings);

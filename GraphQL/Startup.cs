@@ -17,26 +17,25 @@ using OrchardCore.Modules;
 namespace Lombiq.TrainingDemo.GraphQL;
 
 // By convention the GraphQL specific services should be placed inside the GraphQL directory of their module. Don't
-// forget the RequireFeatures attribute: the schema is built at startup in the singleton scope, so it would be
-// wasteful to let it run when GraphQL is disabled.
-// When the GraphQL feature is enabled you can go to Configuration > GraphiQL to inspect and play around with the
-// queries without needing an external query editor.
+// forget the RequireFeatures attribute: the schema is built at startup in the singleton scope, so it would be wasteful
+// to let it run when GraphQL is disabled. When the GraphQL feature is enabled you can go to Configuration > GraphiQL to
+// inspect and play around with the queries without needing an external query editor.
 [RequireFeatures("OrchardCore.Apis.GraphQL")]
 public class Startup : StartupBase
 {
     public override void ConfigureServices(IServiceCollection services)
     {
-        // The first 3 lines here add the "person" field to any ContentItem type field that has a PersonPart.
-        // Implement ObjectGraphType<TPart> to display a content part-specific field. This is required.
+        // The first 3 lines here add the "person" field to any ContentItem type field that has a PersonPart. Implement
+        // ObjectGraphType<TPart> to display a content part-specific field. This is required.
         services.AddObjectGraphType<PersonPart, PersonPartObjectGraphType>();
         // Optionally, if you have a content part index, implement WhereInputObjectGraphType<TPart> and
         // PartIndexAliasProvider<TPartIndex>. These will give you database-side filtering via the "where" argument.
         services.AddInputObjectGraphType<PersonPart, PersonPartWhereInputObjectGraphType>();
         services.AddTransient<IIndexAliasProvider, PersonPartIndexAliasProvider>();
 
-        // Sometimes you want more advanced filter logic or filtering that can't be expressed with YesSql queries.
-        // In this case you can add custom filter attributes by implementing IContentTypeBuilder and then evaluate
-        // their values in a class that implements IGraphQLFilter<ContentItem>.
+        // Sometimes you want more advanced filter logic or filtering that can't be expressed with YesSql queries. In
+        // this case you can add custom filter attributes by implementing IContentTypeBuilder and then evaluate their
+        // values in a class that implements IGraphQLFilter<ContentItem>.
         services.AddScoped<IContentTypeBuilder, ContentItemTypeBuilder>();
         services.AddTransient<IGraphQLFilter<ContentItem>, PersonAgeGraphQLFilter>();
     }

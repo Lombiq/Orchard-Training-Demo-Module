@@ -48,8 +48,8 @@ using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo;
 
-// While the startup class doesn't need to derive from StartupBase and can just use conventionally named methods
-// it's a bit less of a magic this way, and code analysis won't tell us to make it static.
+// While the startup class doesn't need to derive from StartupBase and can just use conventionally named methods it's a
+// bit less of a magic this way, and code analysis won't tell us to make it static.
 public class Startup : StartupBase
 {
     private readonly IShellConfiguration _shellConfiguration;
@@ -119,9 +119,9 @@ public class Startup : StartupBase
         // File System
         services.AddSingleton<ICustomFileStore>(serviceProvider =>
         {
-            // So our goal here is to have a custom folder in the tenant's own folder. The Media folder is also
-            // there but we won't use that. To get tenant-specific data we need to use the ShellOptions and
-            // ShellShettings objects.
+            // So our goal here is to have a custom folder in the tenant's own folder. The Media folder is also there
+            // but we won't use that. To get tenant-specific data we need to use the ShellOptions and ShellShettings
+            // objects.
             var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
             var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
 
@@ -156,15 +156,15 @@ public class Startup : StartupBase
     }
 }
 
-// A second Startup class, corresponding to our second feature (see Manifest.cs). Note how the Feature attribute
-// tells Orchard to only activate the class if the feature is enabled. This way, you can register services
-// corresponding to a feature only when necessary. Note that controllers aren't registered but activated
-// automatically so you have to decorate them with the attribute too.
+// A second Startup class, corresponding to our second feature (see Manifest.cs). Note how the Feature attribute tells
+// Orchard to only activate the class if the feature is enabled. This way, you can register services corresponding to a
+// feature only when necessary. Note that controllers aren't registered but activated automatically so you have to
+// decorate them with the attribute too.
 [Feature("Lombiq.TrainingDemo.Middlewares")]
 public class MiddlewaresStartup : StartupBase
 {
     public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) =>
-        // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
-        // don't need it you can skip overriding it. However, here we need it for our middleware.
+        // You can put service configuration here as you would do it in other ASP.NET Core applications. If you don't
+        // need it you can skip overriding it. However, here we need it for our middleware.
         app.UseMiddleware<RequestLoggingMiddleware>();
 }

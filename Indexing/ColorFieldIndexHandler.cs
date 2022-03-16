@@ -19,8 +19,8 @@ public class ColorFieldIndexHandler : ContentFieldIndexHandler<ColorField>
 
         foreach (var key in context.Keys)
         {
-            // The color name will be indexed. Keys identify a piece of text in the index document of a given
-            // content item. So for example two fields (named differently of course) will have different keys.
+            // The color name will be indexed. Keys identify a piece of text in the index document of a given content
+            // item. So for example two fields (named differently of course) will have different keys.
             context.DocumentIndex.Set(key, field.ColorName, options);
         }
 

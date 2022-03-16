@@ -38,20 +38,19 @@ public class AdminController : Controller
         _updateModelAccessor = updateModelAccessor;
     }
 
-    // Let's see how it will be displayed, just type the default URL (/Lombiq.TrainingDemo/Admin/Index) into the
-    // browser with an administrator account (or at least a user who has a role that has AccessAdmin permission).
-    // If you are anonymous then a login page will automatically appear. The permission check (i.e. has AccessAdmin
+    // Let's see how it will be displayed, just type the default URL (/Lombiq.TrainingDemo/Admin/Index) into the browser
+    // with an administrator account (or at least a user who has a role that has AccessAdmin permission). If you are
+    // anonymous then a login page will automatically appear. The permission check (i.e. has AccessAdmin
     // permission) will be automatic as well.
     public ActionResult Index() => View();
 
-    // You don't have to access the below two actions by typing in their URLs because we have admin menu items for
-    // them!
+    // You don't have to access the below two actions by typing in their URLs because we have admin menu items for them!
     // NEXT STATION: Navigation/PersonsAdminMenu.cs
 
     public async Task<ActionResult> PersonListNewest()
     {
-        // If the user needs to have a specific permission to access a page on the admin panel (besides the
-        // AccessAdmin permission) you need to check it here.
+        // If the user needs to have a specific permission to access a page on the admin panel (besides the AccessAdmin
+        // permission) you need to check it here.
         if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.AccessPersonListDashboard))
         {
             return Unauthorized();
@@ -65,8 +64,7 @@ public class AdminController : Controller
             .Take(10)
             .ListAsync();
 
-        // In the Views/Admin/PersonList.cshtml file you can see how shape lists (IEnumerable<dynamic>) are
-        // displayed.
+        // In the Views/Admin/PersonList.cshtml file you can see how shape lists (IEnumerable<dynamic>) are displayed.
         return View("PersonList", await GetShapesAsync(persons));
     }
 
@@ -89,8 +87,8 @@ public class AdminController : Controller
     }
 
     private async Task<IEnumerable<IShape>> GetShapesAsync(IEnumerable<ContentItem> persons) =>
-        // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items on
-        // the dashboard.
+        // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items on the
+        // dashboard.
         await persons.AwaitEachAsync(async person =>
             await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin"));
 }

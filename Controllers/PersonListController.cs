@@ -54,22 +54,22 @@ public class PersonListController : Controller
         var thresholdDate = _clock.UtcNow.AddYears(-30);
         var people = await _session
             // This will query for content items where the related PersonPartIndex.BirthDateUtc is lower than the
-            // threshold date. Notice that there is no Where method. The Query method has an overload for that which
-            // can be useful if you don't want to filter in multiple indexes.
+            // threshold date. Notice that there is no Where method. The Query method has an overload for that which can
+            // be useful if you don't want to filter in multiple indexes.
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
             .ListAsync();
 
-        // Now let's build the display shape for a content item! Notice that this is not the IDisplayManager
-        // service. The IContentItemDisplayManager is an abstraction over that and it's specifically for content
-        // items. The reason we need that is that a ContentItem doesn't have a DisplayDriver but the ContentParts
-        // and ContentFields attached to the ContentItem have. This service will handle generating all the drivers
-        // created for these parts and fields.
+        // Now let's build the display shape for a content item! Notice that this is not the IDisplayManager service.
+        // The IContentItemDisplayManager is an abstraction over that and it's specifically for content items. The
+        // reason we need that is that a ContentItem doesn't have a DisplayDriver but the ContentParts and ContentFields
+        // attached to the ContentItem have. This service will handle generating all the drivers created for these parts
+        // and fields.
         // NEXT STATION: Drivers/PersonPartDisplayDriver
         var shapes = await people.AwaitEachAsync(async person =>
         {
-            // When you retrieve content items via ISession then you also need to run LoadAsync() on them to
-            // initialize everything. This foremost includes running handlers, which are pretty much event handlers
-            // for content items (you'll see them in a minute with PersonPartHandler).
+            // When you retrieve content items via ISession then you also need to run LoadAsync() on them to initialize
+            // everything. This foremost includes running handlers, which are pretty much event handlers for content
+            // items (you'll see them in a minute with PersonPartHandler).
             await _contentManager.LoadAsync(person);
 
             return await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary");
@@ -87,8 +87,8 @@ public class PersonListController : Controller
     {
         // Here we'll modify content items directly from code and in the meantime we'll learn a lot of new things.
 
-        // Again we'll fetch content items with PersonPart but this time we'll retrieve old people and we'll make
-        // them younger!
+        // Again we'll fetch content items with PersonPart but this time we'll retrieve old people and we'll make them
+        // younger!
         var thresholdDate = _clock.UtcNow.AddYears(-90);
         var oldPeople = (await _session
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
@@ -102,8 +102,8 @@ public class PersonListController : Controller
 
             var eighteenYearOld = _clock.UtcNow.AddYears(-18);
 
-            // Don't just overwrite the part's property directly! That'll change the index record but not the
-            // document! Don't just do this:
+            // Don't just overwrite the part's property directly! That'll change the index record but not the document!
+            // Don't just do this:
             ////person.As<PersonPart>().BirthDateUtc = eighteenYearOld;
             // Instead, use Alter() as we do below:
             person.Alter<PersonPart>(part =>
@@ -115,13 +115,12 @@ public class PersonListController : Controller
             });
 
             // If you happen to use reusable/named parts like BagPart (see the docs on it here:
-            // https://docs.orchardcore.net/en/latest/docs/reference/modules/Flow/BagPart) then it gets a bit
-            // trickier since there can be more than one BagPart on the content item. You can then either access the
-            // part by also supplying its name like this:
+            // https://docs.orchardcore.net/en/latest/docs/reference/modules/Flow/BagPart) then it gets a bit trickier
+            // since there can be more than one BagPart on the content item. You can then either access the part by also
+            // supplying its name like this:
             ////person.Alter<BagPart>("The technical name of the BagPart instance.", part => ...);
             // Or you can create a content part class inheriting from BagPart that has the same name as the BagPart
-            // instance.
-            // Similarly, instead of As<TPart>() you need to use Get<TPart>("TechnicalName").
+            // instance. Similarly, instead of As<TPart>() you need to use Get<TPart>("TechnicalName").
 
             // Once you're done you have to save the content item explicitly. Remember when we saved Books with
             // ISession.Save()? This is something similar for content items.
@@ -140,9 +139,9 @@ public class PersonListController : Controller
                 string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 
-        // That was a quick intro to modifying content items from code. It's a lot more involved than this but it
-        // should get you going! Let's see an example of creating content items from scratch too: Follow up with the
-        // next action.
+        // That was a quick intro to modifying content items from code. It's a lot more involved than this but it should
+        // get you going! Let's see an example of creating content items from scratch too: Follow up with the next
+        // action.
     }
 
     // Open this under /Lombiq.TrainingDemo/PersonList/CreateAnAndroid.
@@ -171,10 +170,10 @@ public class PersonListController : Controller
         var personPart = person.As<PersonPart>();
         personPart.Alter<TextField>(nameof(PersonPart.Biography), field => field.Text = "I'm sentient now!");
 
-        // This is the point where we actually save the content item into the database. Note that it's saved as a
-        // draft; you could also publish it right away but if you want to be safe and make sure that every part runs
-        // nicely (like AutoroutePart, which we don't use on PersonPage, generates the permalink) it's safer to
-        // first create a draft, then also update it, and finally publish it explicitly.
+        // This is the point where we actually save the content item into the database. Note that it's saved as a draft;
+        // you could also publish it right away but if you want to be safe and make sure that every part runs nicely
+        // (like AutoroutePart, which we don't use on PersonPage, generates the permalink) it's safer to first create a
+        // draft, then also update it, and finally publish it explicitly.
         await _contentManager.CreateAsync(person, VersionOptions.Draft);
         await _contentManager.UpdateAsync(person);
         await _contentManager.PublishAsync(person);

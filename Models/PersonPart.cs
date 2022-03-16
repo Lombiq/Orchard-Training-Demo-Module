@@ -18,20 +18,19 @@ namespace Lombiq.TrainingDemo.Models;
 public class PersonPart : ContentPart
 {
     // A ContentPart is serialized as a JSON object so you need to keep this in mind when creating properties. For
-    // further information check the Json.NET documentation:
-    // https://www.newtonsoft.com/json/help/html/Introduction.htm
+    // further information check the Json.NET documentation: https://www.newtonsoft.com/json/help/html/Introduction.htm
     public string Name { get; set; }
 
     public Handedness Handedness { get; set; }
     public DateTime? BirthDateUtc { get; set; }
 
     // This is a content field. Content fields are similar to content parts, however, fields are a bit smaller
-    // components encapsulating a simple editor and display for a single piece of data. Content parts could provide
-    // more complex functionality and also can contain a set of fields.
-    // TextField is one of Orchard's many built-in fields. To utilize it you don't need to add a property for it to
-    // the part (you just need to attach it to the content type, what we're doing from migrations) but having such
-    // a property is a nice shortcut to it. You don't need to instantiate it either, why we do it here is to avoid
-    // null checks when working with the content item even without initializing it with IContentManager.LoadAsync().
+    // components encapsulating a simple editor and display for a single piece of data. Content parts could provide more
+    // complex functionality and also can contain a set of fields. TextField is one of Orchard's many built-in fields.
+    // To utilize it you don't need to add a property for it to the part (you just need to attach it to the content
+    // type, what we're doing from migrations) but having such a property is a nice shortcut to it. You don't need to
+    // instantiate it either, why we do it here is to avoid null checks when working with the content item even without
+    // initializing it with IContentManager.LoadAsync().
     public TextField Biography { get; set; } = new();
 }
 

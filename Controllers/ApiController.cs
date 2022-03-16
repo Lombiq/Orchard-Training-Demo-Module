@@ -16,9 +16,9 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-// This controller will retrieve a Person Page content item for us as a simple example that nevertheless showcases
-// the most important things you need to know. If you want to see a more complex example of such a controller do
-// check out the ApiController in the OrchardCore.Content module in the official source.
+// This controller will retrieve a Person Page content item for us as a simple example that nevertheless showcases the
+// most important things you need to know. If you want to see a more complex example of such a controller do check out
+// the ApiController in the OrchardCore.Content module in the official source.
 
 // Using attribute routing to have a proper route for all actions in this controller.
 [Route("api/Lombiq.TrainingDemo")]
@@ -26,8 +26,8 @@ namespace Lombiq.TrainingDemo.Controllers;
 // https://docs.microsoft.com/en-us/aspnet/core/web-api/#apicontroller-attribute
 [ApiController]
 // We'll handle authorization within the actions (i.e. API endpoints) so nothing else needed here. Note that API
-// endpoints should most of the time use the "Api" authentication scheme: This is not the same that standard users
-// are authenticated with (via cookies).
+// endpoints should most of the time use the "Api" authentication scheme: This is not the same that standard users are
+// authenticated with (via cookies).
 [Authorize(AuthenticationSchemes = "Api"), IgnoreAntiforgeryToken, AllowAnonymous]
 public class ApiController : Controller
 {
@@ -40,18 +40,18 @@ public class ApiController : Controller
         _contentManager = contentManager;
     }
 
-    // You can look up the ID of a Person Page that you've created previously (when you open one from the admin
-    // content item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to
-    // access this action under /api/Lombiq.TrainingDemo?contentItemId=<content item ID>. Note though that you'll
-    // only be able to authorize with a client ID and secret of an OpenID app set up from the Orchard admin. For
-    // more info see: https://docs.orchardcore.net/en/latest/docs/reference/modules/OpenId/.
-    // If you just want to quickly test this API then remove the Authorize attribute above.
+    // You can look up the ID of a Person Page that you've created previously (when you open one from the admin content
+    // item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access this
+    // action under /api/Lombiq.TrainingDemo?contentItemId=<content item ID>. Note though that you'll only be able to
+    // authorize with a client ID and secret of an OpenID app set up from the Orchard admin. For more info see:
+    // https://docs.orchardcore.net/en/latest/docs/reference/modules/OpenId/. If you just want to quickly test this API
+    // then remove the Authorize attribute above.
     public async Task<IActionResult> Get(string contentItemId)
     {
         // Authorization is important in API endpoints as well of course. We're re-using the previously created
-        // permission here. To authenticate with the API you can use any ASP.NET Core authentication scheme but
-        // Orchard offers various OpenID-based options. If you just want to quickly check out the API then grant the
-        // permission for the Anonymous role on the admin.
+        // permission here. To authenticate with the API you can use any ASP.NET Core authentication scheme but Orchard
+        // offers various OpenID-based options. If you just want to quickly check out the API then grant the permission
+        // for the Anonymous role on the admin.
         if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
         {
             return this.ChallengeOrForbid("Api");
@@ -63,8 +63,8 @@ public class ApiController : Controller
         // Only allow the retrieval of Person Page items.
         if (contentItem?.ContentType != ContentTypes.PersonPage) contentItem = null;
 
-        // The action will return the JSON representation of the content item automatically. You can then consume
-        // that from a web SPA or a mobile app, for example.
+        // The action will return the JSON representation of the content item automatically. You can then consume that
+        // from a web SPA or a mobile app, for example.
         return contentItem == null ? NotFound() : Ok(contentItem);
     }
 }

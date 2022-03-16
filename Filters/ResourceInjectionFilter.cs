@@ -26,8 +26,8 @@ public class ResourceInjectionFilter : IAsyncResultFilter
         }
 
         // You can register "stylesheet" or "script" resources. You can also set where they'll be rendered with the
-        // .AtHead() or .AtFoot() methods chained on the RegisterResource() method which obviously makes sense only
-        // if the resource is a script.
+        // .AtHead() or .AtFoot() methods chained on the RegisterResource() method which obviously makes sense only if
+        // the resource is a script.
         _resourceManager.RegisterResource("stylesheet", "Lombiq.TrainingDemo.Filtered");
 
         await next();

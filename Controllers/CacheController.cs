@@ -22,8 +22,8 @@ public class CacheController : Controller
 
     public CacheController(IDateTimeCachingService dateTimeCachingService) => _dateTimeCachingService = dateTimeCachingService;
 
-    // In this action we'll cache a DateTime three different ways.
-    // You can open it under /Lombiq.TrainingDemo/Cache/Index
+    // In this action we'll cache a DateTime three different ways. You can open it under
+    // /Lombiq.TrainingDemo/Cache/Index
     public async Task<ActionResult> Index()
     {
         // This one will be cached using the built-in ASP.NET Core IMemoryCache.
@@ -48,14 +48,13 @@ public class CacheController : Controller
     }
 
     // This action will result in the same page as Index, however, the route will be different so the route-specific
-    // cache can be tested.
-    // You can open it under /Lombiq.TrainingDemo/Cache/DifferentRoute
+    // cache can be tested. You can open it under /Lombiq.TrainingDemo/Cache/DifferentRoute
     public Task<ActionResult> DifferentRoute() =>
         Index();
 
-    // This action will invalidate the memory cache and all the route-specific caches. Calling this action will
-    // redirect back to the Index page and you will notice that the date value is updated.
-    // You can open it under /Lombiq.TrainingDemo/Cache/InvalidateDateTimeCache
+    // This action will invalidate the memory cache and all the route-specific caches. Calling this action will redirect
+    // back to the Index page and you will notice that the date value is updated. You can open it under
+    // /Lombiq.TrainingDemo/Cache/InvalidateDateTimeCache
     public async Task<ActionResult> InvalidateDateTimeCache()
     {
         await _dateTimeCachingService.InvalidateCachedDateTimeAsync();
@@ -63,9 +62,8 @@ public class CacheController : Controller
         return RedirectToAction("Index");
     }
 
-    // Now let's see how Orchard Core utilizes the Dynamic Cache the most. In this action you will see how shapes
-    // are cached.
-    // You can open it under /Lombiq.TrainingDemo/Cache/Shape
+    // Now let's see how Orchard Core utilizes the Dynamic Cache the most. In this action you will see how shapes are
+    // cached. You can open it under /Lombiq.TrainingDemo/Cache/Shape
     public ActionResult Shape() =>
         View();
 

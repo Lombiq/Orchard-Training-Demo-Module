@@ -25,20 +25,20 @@ public class SiteSettingsController : Controller
         _demoSettings = demoOptions.Value;
     }
 
-    // Here's a quick simple demonstration about how to use ISiteService. Orchard Core stores basic settings that
-    // are accessible right away in the ISite object. Here you will see how to access the site's name you gave when
-    // you set up your website.
+    // Here's a quick simple demonstration about how to use ISiteService. Orchard Core stores basic settings that are
+    // accessible right away in the ISite object. Here you will see how to access the site's name you gave when you set
+    // up your website.
     public async Task<string> SiteName() =>
         (await _siteService.GetSiteSettingsAsync()).SiteName;
 
     // NEXT STATION: Models/DemoSettings.cs
 
-    // Now let's see how we access the newly created site settings! Obviously it won't come with a value by default
-    // so give it a value on the Dashboard if you want to see something here.
+    // Now let's see how we access the newly created site settings! Obviously it won't come with a value by default so
+    // give it a value on the Dashboard if you want to see something here.
     public async Task<string> DemoSettings()
     {
-        // As mentioned the custom settings objects are serialized into the ISite object so use the .As<>() helper
-        // to access it as you see below.
+        // As mentioned the custom settings objects are serialized into the ISite object so use the .As<>() helper to
+        // access it as you see below.
         var messageFromSiteSettings = (await _siteService.GetSiteSettingsAsync()).As<DemoSettings>().Message;
 
         // But as you've seen in DemoSettings.cs our site settings are also Options so we can use it as such too:

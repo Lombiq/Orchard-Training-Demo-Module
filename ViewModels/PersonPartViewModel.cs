@@ -9,8 +9,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Lombiq.TrainingDemo.ViewModels;
 
-// IValidateObject is an ASP.NET Core feature to use on view models where the model binder will automatically
-// execute the Validate method which will return any validation error.
+// IValidateObject is an ASP.NET Core feature to use on view models where the model binder will automatically execute
+// the Validate method which will return any validation error.
 public class PersonPartViewModel : IValidatableObject
 {
     [Required]
@@ -27,8 +27,8 @@ public class PersonPartViewModel : IValidatableObject
 
     public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
     {
-        // To use GetService overload you need to add the Microsoft.Extensions.DependencyInjection NuGet package to
-        // your module. This way you can get any service you want just as you've injected them in a constructor.
+        // To use GetService overload you need to add the Microsoft.Extensions.DependencyInjection NuGet package to your
+        // module. This way you can get any service you want just as you've injected them in a constructor.
         var localizer = validationContext.GetService<IStringLocalizer<PersonPartViewModel>>();
         var clock = validationContext.GetService<IClock>();
 

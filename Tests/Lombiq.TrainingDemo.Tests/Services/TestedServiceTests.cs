@@ -9,8 +9,8 @@ using Xunit;
 
 namespace Lombiq.TrainingDemo.Tests.Services;
 
-// This will be our test class. If you're familiar with unit testing in xUnit then not much new will be here:
-// Testing services from Orchard modules is just any unit testing.
+// This will be our test class. If you're familiar with unit testing in xUnit then not much new will be here: Testing
+// services from Orchard modules is just any unit testing.
 public class TestedServiceTests
 {
     private const string TestContentId = "content ID";
@@ -24,8 +24,8 @@ public class TestedServiceTests
     {
         var service = CreateTestedService(out _);
 
-        // First we'll test that the service checks the input properly. Note that we're using the Shouldly library
-        // for nice assertions.
+        // First we'll test that the service checks the input properly. Note that we're using the Shouldly library for
+        // nice assertions.
 
         Should.Throw<ArgumentNullException>(() => service.GetContentItemOrThrowAsync(id));
     }
@@ -36,8 +36,8 @@ public class TestedServiceTests
         var service = CreateTestedService(out var mocker);
 
         // Let's see if the service properly throws an exception if there is no matching content item. Note that
-        // AutoMocker will inject an IContentManager mock that'll by default return the default values of every
-        // type, so IContentManager.GetAsync() will return null wrapped into a Task.
+        // AutoMocker will inject an IContentManager mock that'll by default return the default values of every type, so
+        // IContentManager.GetAsync() will return null wrapped into a Task.
 
         Should.Throw<InvalidOperationException>(() => service.GetContentItemOrThrowAsync(TestContentId));
 
@@ -69,9 +69,9 @@ public class TestedServiceTests
     private static TestedService CreateTestedService(out AutoMocker mocker)
     {
         // We're using a library called AutoMocker here. It extends the Moq mocking library with the ability to
-        // automatically substitute injected dependencies with a mocked instance. It's a bit like a special
-        // dependency injection container. This way, your tested classes will get all their dependencies injected
-        // even if you don't explicitly register a mock or stub for the.
+        // automatically substitute injected dependencies with a mocked instance. It's a bit like a special dependency
+        // injection container. This way, your tested classes will get all their dependencies injected even if you don't
+        // explicitly register a mock or stub for the.
 
         mocker = new AutoMocker();
         return mocker.CreateInstance<TestedService>();

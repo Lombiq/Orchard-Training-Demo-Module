@@ -14,8 +14,8 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Events;
 
-// ILoginFormEvent exposes events of the, well, login form :). Useful to display a login greeting or anything even
-// more useful! The rest of it is pretty standard and we just use INotifier again.
+// ILoginFormEvent exposes events of the, well, login form :). Useful to display a login greeting or anything even more
+// useful! The rest of it is pretty standard and we just use INotifier again.
 public class LoginGreeting : ILoginFormEvent
 {
     private readonly INotifier _notifier;
@@ -37,7 +37,9 @@ public class LoginGreeting : ILoginFormEvent
     }
 
     public Task LoggingInAsync(string userName, Action<string, string> reportError) => Task.CompletedTask;
+
     public Task LoggingInFailedAsync(string userName) => Task.CompletedTask;
+
     public Task LoggingInFailedAsync(IUser user) => Task.CompletedTask;
 }
 
