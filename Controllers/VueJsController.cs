@@ -10,16 +10,15 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace Lombiq.TrainingDemo.Controllers
-{
-    // This controller is for returning a Vue.js application in an MVC view, however, you could use any other ways of
-    // doing it such as injecting as a shape or using widgets.
-    public class VueJsController : Controller
-    {
-        [HttpGet]
-        // Open this from under /Lombiq.TrainingDemo/VueJs/DemoApp
-        public ActionResult DemoApp() => View();
+namespace Lombiq.TrainingDemo.Controllers;
 
-        // NEXT STATION: Views/VueJs/DemoApp.cshtml
-    }
+// This controller is for returning a Vue.js application in an MVC view, however, you could use any other ways of doing
+// it such as injecting as a shape or using widgets.
+public class VueJsController : Controller
+{
+    [HttpGet]
+    // Open this from under /Lombiq.TrainingDemo/VueJs/DemoApp
+    public ActionResult DemoApp() => View();
+
+    // NEXT STATION: Views/VueJs/DemoApp.cshtml
 }

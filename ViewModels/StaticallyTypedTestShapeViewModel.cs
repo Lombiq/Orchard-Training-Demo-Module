@@ -1,8 +1,7 @@
-namespace Lombiq.TrainingDemo.ViewModels
+namespace Lombiq.TrainingDemo.ViewModels;
+
+public class StaticallyTypedTestShapeViewModel
 {
-    public class StaticallyTypedTestShapeViewModel
-    {
-        public int SomeValue { get; set; }
-        public int SomeOtherValue { get; set; }
-    }
+    public int SomeValue { get; set; }
+    public int SomeOtherValue { get; set; }
 }
