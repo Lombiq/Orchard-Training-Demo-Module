@@ -25,170 +25,169 @@ using System.Diagnostics.CodeAnalysis;
  * This class is not doing anything and only serves as an easy to use table of contents.
  */
 
-namespace Lombiq.TrainingDemo
+namespace Lombiq.TrainingDemo;
+
+internal static class Map
 {
-    internal static class Map
-    {
 #pragma warning disable S3241 // Methods should not return values that are never used
-        private static T Pointer<T>() => default;
+    private static T Pointer<T>() => default;
 #pragma warning restore S3241 // Methods should not return values that are never used
 
-        [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It's used but by humans :).")]
-        private static void Treasure()
-        {
-            // Recipes
-            // Recipes/TrainingDemo.recipe.json
+    [SuppressMessage("CodeQuality", "IDE0051:Remove unused private members", Justification = "It's used but by humans :).")]
+    private static void Treasure()
+    {
+        // Recipes
+        // Recipes/TrainingDemo.recipe.json
 
-            // Manifest.cs: module manifest, features, dependencies
+        // Manifest.cs: module manifest, features, dependencies
 
-            // Startup classes targeting multiple features
-            Pointer<Startup>();
+        // Startup classes targeting multiple features
+        Pointer<Startup>();
 
-            // Basic controller demonstrating localization, Notifier, Logger, routing
-            Pointer<YourFirstOrchardCoreController>();
+        // Basic controller demonstrating localization, Notifier, Logger, routing
+        Pointer<YourFirstOrchardCoreController>();
 
-            // Display management, IDisplayManager, ad-hoc shapes, shape injection from template
-            Pointer<DisplayManagementController>();
+        // Display management, IDisplayManager, ad-hoc shapes, shape injection from template
+        Pointer<DisplayManagementController>();
 
-            // Display types, zones, placement
-            // Views/Book.cshtml
-            // Views/Book.Description.cshtml
-            Pointer<BookDisplayDriver>();
+        // Display types, zones, placement
+        // Views/Book.cshtml
+        // Views/Book.Description.cshtml
+        Pointer<BookDisplayDriver>();
 
-            // ContentPart, ContentField on ContentPart
-            Pointer<PersonPart>();
+        // ContentPart, ContentField on ContentPart
+        Pointer<PersonPart>();
 
-            // Displaying, editing and updating ContentPart
-            // Views/PersonPart.cshtml
-            // Views/PersonPart.Edit.cshtml
-            // Views/PersonPart.Summary.cshtml built-in Summary display type
-            // Views/PersonPart.SummaryAdmin.cshtml built-in SummaryAdmin display type
-            Pointer<PersonPartDisplayDriver>();
-            Pointer<PersonPartHandler>();
+        // Displaying, editing and updating ContentPart
+        // Views/PersonPart.cshtml
+        // Views/PersonPart.Edit.cshtml
+        // Views/PersonPart.Summary.cshtml built-in Summary display type
+        // Views/PersonPart.SummaryAdmin.cshtml built-in SummaryAdmin display type
+        Pointer<PersonPartDisplayDriver>();
+        Pointer<PersonPartHandler>();
 
-            // Validating ContentPart fields
-            Pointer<PersonPartViewModel>();
+        // Validating ContentPart fields
+        Pointer<PersonPartViewModel>();
 
-            // IndexProvider, indexing simple object or ContentPart in records
-            Pointer<BookIndex>();
-            Pointer<PersonPartIndex>();
+        // IndexProvider, indexing simple object or ContentPart in records
+        Pointer<BookIndex>();
+        Pointer<PersonPartIndex>();
 
-            // Content Type (standard and widget), ContentPart, ContentField, index record creation.
-            Pointer<PersonMigrations>();
+        // Content Type (standard and widget), ContentPart, ContentField, index record creation.
+        Pointer<PersonMigrations>();
 
-            // ISession, IContentItemDisplayManager, IClock, IContentManager
-            Pointer<DatabaseStorageController>();
-            Pointer<PersonListController>();
+        // ISession, IContentItemDisplayManager, IClock, IContentManager
+        Pointer<DatabaseStorageController>();
+        Pointer<PersonListController>();
 
-            // ContentField
-            Pointer<ColorField>();
+        // ContentField
+        Pointer<ColorField>();
 
-            // ContentFieldSettings
-            Pointer<ColorFieldSettings>();
+        // ContentFieldSettings
+        Pointer<ColorFieldSettings>();
 
-            // Editing and updating ContentFieldSettings
-            // Views/ColorFieldSettings.Edit.cshtml
-            Pointer<ColorFieldSettingsDriver>();
+        // Editing and updating ContentFieldSettings
+        // Views/ColorFieldSettings.Edit.cshtml
+        Pointer<ColorFieldSettingsDriver>();
 
-            // Displaying, editing and updating ContentField
-            // Views/ColorField.cshtml
-            // Views/ColorField.Edit.cshtml
-            // Views/ColorField.Option.cshtml default editor option name
-            // Views/ColorField-ColorPicker.Option.cshtml custom editor option name
-            // Views/ColorField-ColorPicker.Edit.cshtml custom editor option editor
-            Pointer<ColorFieldDisplayDriver>();
+        // Displaying, editing and updating ContentField
+        // Views/ColorField.cshtml
+        // Views/ColorField.Edit.cshtml
+        // Views/ColorField.Option.cshtml default editor option name
+        // Views/ColorField-ColorPicker.Option.cshtml custom editor option name
+        // Views/ColorField-ColorPicker.Edit.cshtml custom editor option editor
+        Pointer<ColorFieldDisplayDriver>();
 
-            // ContentFieldIndexHandler, indexing ContentField using custom index provider (e.g. Lucene).
-            Pointer<ColorFieldIndexHandler>();
+        // ContentFieldIndexHandler, indexing ContentField using custom index provider (e.g. Lucene).
+        Pointer<ColorFieldIndexHandler>();
 
-            // ResourceManifest, static resources, scripts, styles
-            // Views/ColorField-ColorPicker.Edit.cshtml resource injection
-            Pointer<ResourceManagementOptionsConfiguration>();
+        // ResourceManifest, static resources, scripts, styles
+        // Views/ColorField-ColorPicker.Edit.cshtml resource injection
+        Pointer<ResourceManagementOptionsConfiguration>();
 
-            // IAuthorizationService
-            Pointer<AuthorizationController>();
+        // IAuthorizationService
+        Pointer<AuthorizationController>();
 
-            // Permissions, PermissionProvider
-            Pointer<DemoSettingsPermissions>();
-            Pointer<PersonPermissions>();
+        // Permissions, PermissionProvider
+        Pointer<DemoSettingsPermissions>();
+        Pointer<PersonPermissions>();
 
-            // Admin attribute
-            Pointer<AdminController>();
+        // Admin attribute
+        Pointer<AdminController>();
 
-            // Menu, Admin menu, NavigationProvider
-            Pointer<DemoSettingsAdminMenu>();
-            Pointer<PersonsAdminMenu>();
+        // Menu, Admin menu, NavigationProvider
+        Pointer<DemoSettingsAdminMenu>();
+        Pointer<PersonsAdminMenu>();
 
-            // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
-            Pointer<DemoSettingsDisplayDriver>();
+        // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
+        Pointer<DemoSettingsDisplayDriver>();
 
-            // SiteSettings, ISite, ISiteService, Options
-            Pointer<SiteSettingsController>();
+        // SiteSettings, ISite, ISiteService, Options
+        Pointer<SiteSettingsController>();
 
-            // ResultFilter, IAsyncResultFilter
-            Pointer<ShapeInjectionFilter>();
-            Pointer<ResourceInjectionFilter>();
-            Pointer<ResourceFromShapeInjectingFilter>();
+        // ResultFilter, IAsyncResultFilter
+        Pointer<ShapeInjectionFilter>();
+        Pointer<ResourceInjectionFilter>();
+        Pointer<ResourceFromShapeInjectingFilter>();
 
-            // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection from filter
-            Pointer<ShapeInjectionFilter>();
+        // ILayoutAccessor, IShapeFactory, zones, ad-hoc shapes, shape injection from filter
+        Pointer<ShapeInjectionFilter>();
 
-            // IResourceManager, resource injection
-            Pointer<ResourceInjectionFilter>();
+        // IResourceManager, resource injection
+        Pointer<ResourceInjectionFilter>();
 
-            // IShapeFactory, IDisplayHelper, ad-hoc shapes, script shape injection from filter via resource manager,
-            // executing shapes into HTML
-            Pointer<ResourceFromShapeInjectingFilter>();
+        // IShapeFactory, IDisplayHelper, ad-hoc shapes, script shape injection from filter via resource manager,
+        // executing shapes into HTML
+        Pointer<ResourceFromShapeInjectingFilter>();
 
-            // IShapeTableProvider, hiding shapes, shape events
-            Pointer<ShapeHidigingShapeTableProvider>();
+        // IShapeTableProvider, hiding shapes, shape events
+        Pointer<ShapeHidigingShapeTableProvider>();
 
-            // Memory Cache, Dynamic Cache
-            // IMemoryCache, IDynamicCacheService, ITagCache
-            Pointer<DateTimeCachingService>();
+        // Memory Cache, Dynamic Cache
+        // IMemoryCache, IDynamicCacheService, ITagCache
+        Pointer<DateTimeCachingService>();
 
-            // ILocalClock
-            // Views/Cache/Index.cshtml
-            // Views/Cache/Shape.cshtml
-            // Views/CachedShape.cshtml
-            Pointer<DateTimeCachingService>();
+        // ILocalClock
+        // Views/Cache/Index.cshtml
+        // Views/Cache/Shape.cshtml
+        // Views/CachedShape.cshtml
+        Pointer<DateTimeCachingService>();
 
-            // IMediaFileStore, custom file store
-            Pointer<FileManagementController>();
+        // IMediaFileStore, custom file store
+        Pointer<FileManagementController>();
 
-            // FileSystemStore, IFileStore
-            Pointer<CustomFileStore>();
+        // FileSystemStore, IFileStore
+        Pointer<CustomFileStore>();
 
-            // BackgroundTask, BackgroundTaskSettings
-            Pointer<DemoBackgroundTask>();
+        // BackgroundTask, BackgroundTaskSettings
+        Pointer<DemoBackgroundTask>();
 
-            // Event handlers
-            Pointer<LoginGreeting>();
+        // Event handlers
+        Pointer<LoginGreeting>();
 
-            // Web API (RESTful API controller)
-            Pointer<ApiController>();
+        // Web API (RESTful API controller)
+        Pointer<ApiController>();
 
-            // Middleware
-            Pointer<RequestLoggingMiddleware>();
+        // Middleware
+        Pointer<RequestLoggingMiddleware>();
 
-            // Accessing services from other tenants
-            Pointer<CrossTenantServicesController>();
+        // Accessing services from other tenants
+        Pointer<CrossTenantServicesController>();
 
-            // Unit and integration testing
-            Pointer<TestedService>();
+        // Unit and integration testing
+        Pointer<TestedService>();
 
-            // Resource compilation, asset management, Gulp, Babel
-            // Gulpfile.babel.js
+        // Resource compilation, asset management, Gulp, Babel
+        // Gulpfile.babel.js
 
-            // GraphQL - content part
-            Pointer<PersonPartObjectGraphType>();
-            Pointer<PersonPartWhereInputObjectGraphType>();
-            Pointer<PersonPartIndexAliasProvider>();
-            Pointer<HandednessEnumerationGraphType>();
+        // GraphQL - content part
+        Pointer<PersonPartObjectGraphType>();
+        Pointer<PersonPartWhereInputObjectGraphType>();
+        Pointer<PersonPartIndexAliasProvider>();
+        Pointer<HandednessEnumerationGraphType>();
 
-            // GraphQL - filtering
-            Pointer<PersonAgeGraphQLFilter>();
-            Pointer<ContentItemTypeBuilder>();
-        }
+        // GraphQL - filtering
+        Pointer<PersonAgeGraphQLFilter>();
+        Pointer<ContentItemTypeBuilder>();
     }
 }

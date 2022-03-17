@@ -18,51 +18,49 @@ using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 
-namespace Lombiq.TrainingDemo.Services
+namespace Lombiq.TrainingDemo.Services;
+
+// First we declare the interface of our service (as we've previously also done with IDateTimeCachingService). This way
+// other classes using the service will be able to inject it and depend on the interface instead of the implementation,
+// making them testable too!
+[SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "Just a simple sample.")]
+public interface ITestedService
 {
-    // First we declare the interface of our service (as we've previously also done with IDateTimeCachingService). This
-    // way other classes using the service will be able to inject it and depend on the interface instead of the
-    // implementation, making them testable too!
-    [SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1600:Elements should be documented", Justification = "Just a simple sample.")]
-    public interface ITestedService
+    // Just a simple sample method that will retrieve a content item or throw an exception if it can't be found.
+    Task<ContentItem> GetContentItemOrThrowAsync(string id);
+}
+
+// The implementation of the service follows.
+public class TestedService : ITestedService
+{
+    private readonly IContentManager _contentManager;
+
+    public TestedService(IContentManager contentManager) => _contentManager = contentManager;
+
+    public Task<ContentItem> GetContentItemOrThrowAsync(string id)
     {
-        // Just a simple sample method that will retrieve a content item or throw an exception if it can't be found.
-        Task<ContentItem> GetContentItemOrThrowAsync(string id);
+        // As you can see we rigorously check the input. Something we'll surely need to test later!
+        if (string.IsNullOrEmpty(id))
+        {
+            throw new ArgumentNullException(nameof(id), "The supplied content item ID was null or empty.");
+        }
+
+        // This is factored out to adhere to the recommendations here: https://rules.sonarsource.com/csharp/RSPEC-4457.
+        return GetContentItemOrThrowInternalAsync(id);
     }
 
-    // The implementation of the service follows.
-    public class TestedService : ITestedService
+    private async Task<ContentItem> GetContentItemOrThrowInternalAsync(string id)
     {
-        private readonly IContentManager _contentManager;
+        // You already know how this works :).
+        var contentItem = await _contentManager.GetAsync(id);
 
-        public TestedService(IContentManager contentManager) => _contentManager = contentManager;
-
-        public Task<ContentItem> GetContentItemOrThrowAsync(string id)
+        // Checking content retrievals for null is always a good idea.
+        if (contentItem == null)
         {
-            // As you can see we rigorously check the input. Something we'll surely need to test later!
-            if (string.IsNullOrEmpty(id))
-            {
-                throw new ArgumentNullException(nameof(id), "The supplied content item ID was null or empty.");
-            }
-
-            // This is factored out to adhere to the recommendations here:
-            // https://rules.sonarsource.com/csharp/RSPEC-4457.
-            return GetContentItemOrThrowInternalAsync(id);
+            throw new InvalidOperationException($"The content item with the ID {id} doesn't exist.");
         }
 
-        private async Task<ContentItem> GetContentItemOrThrowInternalAsync(string id)
-        {
-            // You already know how this works :).
-            var contentItem = await _contentManager.GetAsync(id);
-
-            // Checking content retrievals for null is always a good idea.
-            if (contentItem == null)
-            {
-                throw new InvalidOperationException($"The content item with the ID {id} doesn't exist.");
-            }
-
-            return contentItem;
-        }
+        return contentItem;
     }
 }
 
