@@ -20,6 +20,7 @@ using OrchardCore.Modules.Manifest;
 // This is a big module so it has multiple features. What are features, you ask? You can divide a module into multiple
 // "features"; in the Orchard sense, a feature is a piece of functionality that you can individually turn on or off on
 // the admin. It's like a sub-module.
+
 // If you have multiple features in a module then you also have to have one for the base feature (otherwise you can't
 // turn that on). If you don't have multiple features then the Category and Dependencies configuration from below can
 // just directly go to the Module attribute.
