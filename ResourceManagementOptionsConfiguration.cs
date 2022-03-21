@@ -74,11 +74,6 @@ public class ResourceManagementOptionsConfiguration : IConfigureOptions<Resource
             .SetUrl(
                 "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.min.css",
                 "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.css");
-
-        // This resource will be required for our demo Vue.js application.
-        _manifest
-            .DefineScript("Lombiq.TrainingDemo.DemoApp")
-            .SetUrl("~/Lombiq.TrainingDemo/Apps/demo.min.js", "~/Lombiq.TrainingDemo/Apps/demo.js");
     }
 
     public void Configure(ResourceManagementOptions options) => options.ResourceManifests.Add(_manifest);
