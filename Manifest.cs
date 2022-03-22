@@ -44,7 +44,6 @@ using OrchardCore.Modules.Manifest;
     // is referenced in the project.
     Dependencies = new[]
     {
-        "Lombiq.VueJs",
         "OrchardCore.BackgroundTasks",
         "OrchardCore.Contents",
         "OrchardCore.ContentTypes",

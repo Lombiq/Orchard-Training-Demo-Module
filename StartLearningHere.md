@@ -59,6 +59,5 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 - [Middlewares](Middlewares/RequestLoggingMiddleware.cs)
 - [Accessing services from other tenants](Controllers/CrossTenantServicesController.cs)
 - [Unit and integration testing](Services/TestedService.cs)
-- [Writing Vue.js applications in Orchard Core modules](Controllers/VueJsController.cs)
 - [Compiling resources using Gulp](Gulpfile.js)
 - [GraphQL](GraphQL/Startup.cs)

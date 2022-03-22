@@ -177,11 +177,6 @@ internal static class Map
         // Unit and integration testing
         Pointer<TestedService>();
 
-        // Vue.js app, Vue.js component, Vue.js initialization
-        Pointer<VueJsController>();
-        // Views/VueJs/DemoApp.cshtml
-        // Views/VueComponents/Demo.Component.cshtml
-
         // Resource compilation, asset management, Gulp, Babel
         // Gulpfile.babel.js
 
