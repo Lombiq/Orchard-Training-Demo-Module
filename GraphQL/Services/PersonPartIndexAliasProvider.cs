@@ -1,4 +1,4 @@
-using Lombiq.HelpfulLibraries.Libraries.GraphQL;
+using Lombiq.HelpfulLibraries.OrchardCore.GraphQL;
 using Lombiq.TrainingDemo.Indexes;
 
 namespace Lombiq.TrainingDemo.GraphQL.Services;
