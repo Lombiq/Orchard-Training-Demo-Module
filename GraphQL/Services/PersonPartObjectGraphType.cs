@@ -8,9 +8,9 @@ public class PersonPartObjectGraphType : ObjectGraphType<PersonPart>
 {
     // These fields have counterparts in the index so we should include the same text in the
     // PersonPartWhereInputObjectGraphType without duplication.
-    internal static string BirthDateDescription = "The person's date of birth, if any.";
+    internal const string BirthDateDescription = "The person's date of birth, if any.";
 
-    internal static string HandednessDescription = "The person's dominant hand.";
+    internal const string HandednessDescription = "The person's dominant hand.";
 
     public PersonPartObjectGraphType()
     {
