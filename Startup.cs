@@ -98,8 +98,8 @@ public class Startup : StartupBase
         // Admin Menu
         services.AddScoped<INavigationProvider, PersonsAdminMenu>();
 
-            // Main Menu
-            services.AddScoped<INavigationProvider, TrainingDemoNavigationProvider>();
+        // Main Menu
+        services.AddScoped<INavigationProvider, TrainingDemoNavigationProvider>();
 
         // Demo Settings
         services.Configure<DemoSettings>(_shellConfiguration.GetSection("Lombiq_TrainingDemo"));
