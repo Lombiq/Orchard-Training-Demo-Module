@@ -8,24 +8,23 @@ using Lombiq.TrainingDemo.Fields;
 using OrchardCore.Indexing;
 using System.Threading.Tasks;
 
-namespace Lombiq.TrainingDemo.Indexing
+namespace Lombiq.TrainingDemo.Indexing;
+
+// Don't forget to register this class with the service provider (see: Startup.cs).
+public class ColorFieldIndexHandler : ContentFieldIndexHandler<ColorField>
 {
-    // Don't forget to register this class with the service provider (see: Startup.cs).
-    public class ColorFieldIndexHandler : ContentFieldIndexHandler<ColorField>
+    public override Task BuildIndexAsync(ColorField field, BuildFieldIndexContext context)
     {
-        public override Task BuildIndexAsync(ColorField field, BuildFieldIndexContext context)
+        var options = context.Settings.ToOptions();
+
+        foreach (var key in context.Keys)
         {
-            var options = context.Settings.ToOptions();
-
-            foreach (var key in context.Keys)
-            {
-                // The color name will be indexed. Keys identify a piece of text in the index document of a given
-                // content item. So for example two fields (named differently of course) will have different keys.
-                context.DocumentIndex.Set(key, field.ColorName, options);
-            }
-
-            return Task.CompletedTask;
+            // The color name will be indexed. Keys identify a piece of text in the index document of a given content
+            // item. So for example two fields (named differently of course) will have different keys.
+            context.DocumentIndex.Set(key, field.ColorName, options);
         }
+
+        return Task.CompletedTask;
     }
 }
 

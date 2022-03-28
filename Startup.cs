@@ -31,6 +31,7 @@ using OrchardCore.ContentManagement.Display.ContentDisplay;
 using OrchardCore.ContentTypes.Editors;
 using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement;
+using OrchardCore.DisplayManagement.Descriptors;
 using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Environment.Shell.Configuration;
@@ -45,122 +46,125 @@ using System;
 using System.IO;
 using YesSql.Indexes;
 
-namespace Lombiq.TrainingDemo
+namespace Lombiq.TrainingDemo;
+
+// While the startup class doesn't need to derive from StartupBase and can just use conventionally named methods it's a
+// bit less of a magic this way, and code analysis won't tell us to make it static.
+public class Startup : StartupBase
 {
-    // While the startup class doesn't need to derive from StartupBase and can just use conventionally named methods
-    // it's a bit less of a magic this way, and code analysis won't tell us to make it static.
-    public class Startup : StartupBase
+    private readonly IShellConfiguration _shellConfiguration;
+
+    public Startup(IShellConfiguration shellConfiguration) => _shellConfiguration = shellConfiguration;
+
+    public override void ConfigureServices(IServiceCollection services)
     {
-        private readonly IShellConfiguration _shellConfiguration;
-
-        public Startup(IShellConfiguration shellConfiguration) => _shellConfiguration = shellConfiguration;
-
-        public override void ConfigureServices(IServiceCollection services)
+        // To be able to access these view models in display shapes rendered by the Liquid markup engine you need to
+        // register them. To learn more about Liquid in Orchard Core see this documentation:
+        // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
+        services.Configure<TemplateOptions>(options =>
         {
-            // To be able to access these view models in display shapes rendered by the Liquid markup engine you need to
-            // register them. To learn more about Liquid in Orchard Core see this documentation:
-            // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
-            services.Configure<TemplateOptions>(options =>
-            {
-                options.MemberAccessStrategy.Register<PersonPartViewModel>();
-                options.MemberAccessStrategy.Register<ColorField>();
-                options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
-            });
+            options.MemberAccessStrategy.Register<PersonPartViewModel>();
+            options.MemberAccessStrategy.Register<ColorField>();
+            options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+        });
 
-            // NEXT STATION: Views/PersonPart.Edit.cshtml
+        // NEXT STATION: Views/PersonPart.Edit.cshtml
 
-            // Book
-            services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
-            services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
-            services.AddScoped<IDataMigration, BookMigrations>();
-            services.AddSingleton<IIndexProvider, BookIndexProvider>();
+        // Book
+        services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
+        services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
+        services.AddScoped<IDataMigration, BookMigrations>();
+        services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
-            // Person Part
-            services.AddContentPart<PersonPart>()
-                .UseDisplayDriver<PersonPartDisplayDriver>()
-                .AddHandler<PersonPartHandler>();
-            services.AddScoped<IDataMigration, PersonMigrations>();
-            services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
+        // Person Part
+        services.AddContentPart<PersonPart>()
+            .UseDisplayDriver<PersonPartDisplayDriver>()
+            .AddHandler<PersonPartHandler>();
+        services.AddScoped<IDataMigration, PersonMigrations>();
+        services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
-            // Color Field
-            services.AddContentField<ColorField>()
-                .UseDisplayDriver<ColorFieldDisplayDriver>();
-            services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ColorFieldSettingsDriver>();
-            services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
+        // Color Field
+        services.AddContentField<ColorField>()
+            .UseDisplayDriver<ColorFieldDisplayDriver>();
+        services.AddScoped<IContentPartFieldDefinitionDisplayDriver, ColorFieldSettingsDriver>();
+        services.AddScoped<IContentFieldIndexHandler, ColorFieldIndexHandler>();
 
-            // Resources
-            services.AddTransient<IConfigureOptions<ResourceManagementOptions>, ResourceManagementOptionsConfiguration>();
+        // Resources
+        services.AddTransient<IConfigureOptions<ResourceManagementOptions>, ResourceManagementOptionsConfiguration>();
 
-            // Permissions
-            services.AddScoped<IPermissionProvider, PersonPermissions>();
+        // Permissions
+        services.AddScoped<IPermissionProvider, PersonPermissions>();
 
-            // Admin Menu
-            services.AddScoped<INavigationProvider, PersonsAdminMenu>();
+        // Admin Menu
+        services.AddScoped<INavigationProvider, PersonsAdminMenu>();
 
-            // Demo Settings
-            services.Configure<DemoSettings>(_shellConfiguration.GetSection("Lombiq_TrainingDemo"));
-            services.AddTransient<IConfigureOptions<DemoSettings>, DemoSettingsConfiguration>();
-            services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
-            services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();
-            services.AddScoped<INavigationProvider, DemoSettingsAdminMenu>();
+        // Demo Settings
+        services.Configure<DemoSettings>(_shellConfiguration.GetSection("Lombiq_TrainingDemo"));
+        services.AddTransient<IConfigureOptions<DemoSettings>, DemoSettingsConfiguration>();
+        services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
+        services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();
+        services.AddScoped<INavigationProvider, DemoSettingsAdminMenu>();
 
-            // Filters
-            services.Configure<MvcOptions>((options) =>
-            {
-                options.Filters.Add(typeof(ShapeInjectionFilter));
-                options.Filters.Add(typeof(ResourceInjectionFilter));
-                options.Filters.Add(typeof(ResourceFromShapeInjectingFilter));
-            });
+        // Filters
+        services.Configure<MvcOptions>((options) =>
+        {
+            options.Filters.Add(typeof(ShapeInjectionFilter));
+            options.Filters.Add(typeof(ResourceInjectionFilter));
+            options.Filters.Add(typeof(ResourceFromShapeInjectingFilter));
+        });
 
-            // File System
-            services.AddSingleton<ICustomFileStore>(serviceProvider =>
-            {
-                // So our goal here is to have a custom folder in the tenant's own folder. The Media folder is also
-                // there but we won't use that. To get tenant-specific data we need to use the ShellOptions and
-                // ShellShettings objects.
-                var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
-                var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
+        // Shape table provider
+        services.AddScoped<IShapeTableProvider, ShapeHidigingShapeTableProvider>();
 
-                var tenantFolderPath = PathExtensions.Combine(
-                    // This is the absolute path of the "App_Data" folder.
-#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
-                    shellOptions.ShellsApplicationDataPath,
+        // File System
+        services.AddSingleton<ICustomFileStore>(serviceProvider =>
+        {
+            // So our goal here is to have a custom folder in the tenant's own folder. The Media folder is also there
+            // but we won't use that. To get tenant-specific data we need to use the ShellOptions and ShellShettings
+            // objects.
+            var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
+            var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
+
+            // Necessary for the comment.
+#pragma warning disable SA1114 // Parameter list should follow declaration
+            var tenantFolderPath = PathExtensions.Combine(
+                // This is the absolute path of the "App_Data" folder.
+                shellOptions.ShellsApplicationDataPath,
+                // This is the folder which contains the tenants which is Sites by default.
+                shellOptions.ShellsContainerName,
+                // This is the tenant name. We want our custom folder inside this folder.
+                shellSettings.Name);
 #pragma warning restore SA1114 // Parameter list should follow declaration
-                    // This is the folder which contains the tenants which is Sites by default.
-                    shellOptions.ShellsContainerName,
-                    // This is the tenant name. We want our custom folder inside this folder.
-                    shellSettings.Name);
 
-                // And finally our full base path.
-                var customFolderPath = PathExtensions.Combine(tenantFolderPath, "CustomFiles");
+            // And finally our full base path.
+            var customFolderPath = PathExtensions.Combine(tenantFolderPath, "CustomFiles");
 
-                // Now register our CustomFileStore instance with the path given.
-                return new CustomFileStore(customFolderPath);
+            // Now register our CustomFileStore instance with the path given.
+            return new CustomFileStore(customFolderPath);
 
-                // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
-            });
+            // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
+        });
 
-            // Caching
-            services.AddScoped<IDateTimeCachingService, DateTimeCachingService>();
+        // Caching
+        services.AddScoped<IDateTimeCachingService, DateTimeCachingService>();
 
-            // Background tasks. Note that these have to be singletons.
-            services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
+        // Background tasks. Note that these have to be singletons.
+        services.AddSingleton<IBackgroundTask, DemoBackgroundTask>();
 
-            // Event handlers
-            services.AddScoped<ILoginFormEvent, LoginGreeting>();
-        }
+        // Event handlers
+        services.AddScoped<ILoginFormEvent, LoginGreeting>();
     }
+}
 
-    // A second Startup class, corresponding to our second feature (see Manifest.cs). Note how the Feature attribute
-    // tells Orchard to only activate the class if the feature is enabled. This way, you can register services
-    // corresponding to a feature only when necessary. Note that controllers aren't registered but activated
-    // automatically so you have to decorate them with the attribute too.
-    [Feature("Lombiq.TrainingDemo.Middlewares")]
-    public class MiddlewaresStartup : StartupBase
-    {
-        public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) =>
-            // You can put service configuration here as you would do it in other ASP.NET Core applications. If you
-            // don't need it you can skip overriding it. However, here we need it for our middleware.
-            app.UseMiddleware<RequestLoggingMiddleware>();
-    }
+// A second Startup class, corresponding to our second feature (see Manifest.cs). Note how the Feature attribute tells
+// Orchard to only activate the class if the feature is enabled. This way, you can register services corresponding to a
+// feature only when necessary. Note that controllers aren't registered but activated automatically so you have to
+// decorate them with the attribute too.
+[Feature("Lombiq.TrainingDemo.Middlewares")]
+public class MiddlewaresStartup : StartupBase
+{
+    public override void Configure(IApplicationBuilder app, IEndpointRouteBuilder routes, IServiceProvider serviceProvider) =>
+        // You can put service configuration here as you would do it in other ASP.NET Core applications. If you don't
+        // need it you can skip overriding it. However, here we need it for our middleware.
+        app.UseMiddleware<RequestLoggingMiddleware>();
 }

@@ -1,7 +1,6 @@
-namespace Lombiq.TrainingDemo.ViewModels
+namespace Lombiq.TrainingDemo.ViewModels;
+
+public class DemoSettingsViewModel
 {
-    public class DemoSettingsViewModel
-    {
-        public string Message { get; set; }
-    }
+    public string Message { get; set; }
 }

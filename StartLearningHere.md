@@ -15,16 +15,16 @@ We've invested a lot of time creating this module. If you have ideas regarding i
 
 If you'd like to get trained instead of self-learning or you need help in form of mentoring sessions take a look at [Orchard Dojo's trainings](https://orcharddojo.net/orchard-training).
 
-After you complete this tutorial (or even during walking through it) you're encouraged to look at the built-in modules on how they solve similar tasks. If you choose to use the simpler way to add this project to Orchard Core then you should try the other way as well to have the whole Orchard source at your hands: let it be your tutor :-).
+After you complete this tutorial (or even during walking through it) you're encouraged to look at Orchard's built-in modules on how they solve similar tasks. Clone [the official repo](https://github.com/OrchardCMS/OrchardCore) and let it be your tutor :-).
 
 Later on, you may want to take a look at *Map.cs* (remember, "X marks the spot!") in the project root for reminders regarding specific solutions.
 
 
 ## Let's get started!
 
-**FIRST STATION**: First of all, let's discuss how a .NET Standard library becomes an Orchard Module. If you look into the Dependencies of this project you will find either a NuGet reference for the `OrchardCore.Module.Targets` package or if you go with the full Orchard Core source code way you can add this particular project as a Project reference.
+**FIRST STATION**: First of all, let's discuss how a .NET library becomes an Orchard Module. If you look into the Dependencies of this project you will find either the NuGet reference for the `OrchardCore.Module.Targets` package.
 
-On the other hand the module manifest file is also required. So...
+Furthermore, the module manifest file is also required. So...
 
 **NEXT STATION**: Head over to *Manifest.cs*. That file is the module's manifest; a *Manifest.cs* is required for Orchard modules.
 
@@ -35,29 +35,29 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 
 ## Training sections
 
-* [Module manifest](Manifest.cs)
-* [Map.cs for reminders regarding specific solutions](Map.cs)
-* [Your first OrchardCore Controller](Controllers/YourFirstOrchardCoreController.cs)
-* [Display management](Controllers/DisplayManagementController.cs)
-* [Storing data in document database and index records](Controllers/DatabaseStorageController.cs)
-* [Content Item and Content Part development](Models/PersonPart.cs)
-* [Content Item display management and querying/modifying content items from code](Controllers/PersonListController.cs)
-* [Content Field development](Fields/ColorField.cs)
-* [Indexing Content Fields in Lucene](Indexing/ColorFieldIndexHandler.cs)
-* [Content Field display and editor options](Views/ColorField.Option.cshtml)
-* [Resource management](ResourceManifest.cs)
-* [Permissions and authorization](Controllers/AuthorizationController.cs)
-* [Admin menus](Controllers/AdminController.cs)
-* [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
-* [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
-* [Caching objects and shapes](Controllers/CacheController.cs)
-* [File management](Controllers/FileManagementController.cs)
-* [Background tasks](Services/DemoBackgroundTask.cs)
-* [Event handlers](Events/LoginGreeting.cs)
-* [Web API](Controllers/ApiController.cs)
-* [Middlewares](Middlewares/RequestLoggingMiddleware.cs)
-* [Accessing services from other tenants](Controllers/CrossTenantServicesController.cs)
-* [Unit and integration testing](Services/TestedService.cs)
-* [Writing Vue.js applications in Orchard Core modules](Controllers/VueJsController.cs)
-* [Compiling resources using Gulp](Gulpfile.js)
-* [GraphQL](GraphQL/Startup.cs)
+- [Module manifest](Manifest.cs)
+- [Map.cs for reminders regarding specific solutions](Map.cs)
+- [Your first OrchardCore Controller](Controllers/YourFirstOrchardCoreController.cs)
+- [Display management](Controllers/DisplayManagementController.cs)
+- [Storing data in document database and index records](Controllers/DatabaseStorageController.cs)
+- [Content Item and Content Part development](Models/PersonPart.cs)
+- [Content Item display management and querying/modifying content items from code](Controllers/PersonListController.cs)
+- [Content Field development](Fields/ColorField.cs)
+- [Indexing Content Fields in Lucene](Indexing/ColorFieldIndexHandler.cs)
+- [Content Field display and editor options](Views/ColorField.Option.cshtml)
+- [Resource management](ResourceManagementOptionsConfiguration.cs)
+- [Permissions and authorization](Controllers/AuthorizationController.cs)
+- [Admin menus](Controllers/AdminController.cs)
+- [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
+- [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
+- [Shape tables](Services/ShapeHidigingShapeTableProvider.cs)
+- [Caching objects and shapes](Controllers/CacheController.cs)
+- [File management](Controllers/FileManagementController.cs)
+- [Background tasks](Services/DemoBackgroundTask.cs)
+- [Event handlers](Events/LoginGreeting.cs)
+- [Web API](Controllers/ApiController.cs)
+- [Middlewares](Middlewares/RequestLoggingMiddleware.cs)
+- [Accessing services from other tenants](Controllers/CrossTenantServicesController.cs)
+- [Unit and integration testing](Services/TestedService.cs)
+- [Compiling resources using Gulp](Gulpfile.js)
+- [GraphQL](GraphQL/Startup.cs)
