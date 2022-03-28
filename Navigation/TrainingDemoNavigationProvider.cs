@@ -27,74 +27,72 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
     {
         var context = _hca.HttpContext;
         builder
-            .Add(T["Helpful Libraries"], builder => builder
-                .Add(T["Controllers"], sectionBuilder => sectionBuilder
-                    .Add(T["Your First OrchardCore Controller"], itemBuilder => itemBuilder
-                        .Add(T["Index"], subMenu => subMenu
-                            .Action<YourFirstOrchardCoreController>(context, controller => controller.Index()))
-                        .Add(T["Notify Me"], subMenu => subMenu
-                            .ActionTask<YourFirstOrchardCoreController>(context, controller => controller.NotifyMe()))
-                    )
-                    .Add(T["Display Management"], itemBuilder => itemBuilder
-                        .Add(T["Display Book"], subMenu => subMenu
-                            .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBook()))
-                        .Add(T["Display Book Description"], subMenu => subMenu
-                            .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBookDescription()))
-                    )
-                    .Add(T["Database Storage"], itemBuilder => itemBuilder
-                        .Add(T["Create Books"], subMenu => subMenu
-                            .Action<DatabaseStorageController>(context, controller => controller.CreateBooks()))
-                        .Add(T["J. K. Rowling Books"], subMenu => subMenu
-                            .ActionTask<DatabaseStorageController>(context, controller => controller.JKRowlingBooks()))
-                    )
-                    .Add(T["Person List"], itemBuilder => itemBuilder
-                        .Add(T["Older Than 30"], subMenu => subMenu
-                            .ActionTask<PersonListController>(context, controller => controller.OlderThan30()))
-                        .Add(T["Fountain of Eternal Youth"], subMenu => subMenu
-                            .Action(
-                                nameof(PersonListController.FountainOfEternalYouth),
-                                typeof(PersonListController).ControllerName(),
-                                "Lombiq.TrainingDemo"))
-                        .Add(T["Create an Android"], subMenu => subMenu
-                            .Action(
-                                nameof(PersonListController.CreateAnAndroid),
-                                typeof(PersonListController).ControllerName(),
-                                "Lombiq.TrainingDemo"))
-                    )
-                    .Add(T["Authorization"], itemBuilder => itemBuilder
-                        .Add(T["CanEditPerson"], subMenu => subMenu
-                            .ActionTask<AuthorizationController>(context, controller => controller.CanEditPerson()))
-                        .Add(T["CanManagePersons"], subMenu => subMenu
-                            .ActionTask<AuthorizationController>(context, controller => controller.CanManagePersons()))
-                    )
-                    .Add(T["Admin"], itemBuilder => itemBuilder
-                        .Add(T["Index"], subMenu => subMenu
-                            .Action<AdminController>(context, controller => controller.Index()))
-                        .Add(T["Person List (Newest)"], subMenu => subMenu
-                            .ActionTask<AdminController>(context, controller => controller.PersonListNewest()))
-                        .Add(T["Person List (Oldest)"], subMenu => subMenu
-                            .ActionTask<AdminController>(context, controller => controller.PersonListOldest()))
-                    )
-                    .Add(T["Site Settings"], itemBuilder =>
-                        Add<SiteSettingsController>(
-                            itemBuilder,
-                            (T["Site Name"], nameof(SiteSettingsController.SiteName)),
-                            (T["Demo Settings"], nameof(SiteSettingsController.DemoSettings)))
-                    )
-                    .Add(T["File Management"], itemBuilder =>
-                        Add<FileManagementController>(
-                            itemBuilder,
-                            (T["Create File in Media Folder"], nameof(FileManagementController.CreateFileInMediaFolder)),
-                            (T["Read File from Media Folder"], nameof(FileManagementController.ReadFileFromMediaFolder)),
-                            (T["Upload File to Media"], nameof(FileManagementController.UploadFileToMedia)),
-                            (T["Create File in Custom Folder"], nameof(FileManagementController.CreateFileInCustomFolder)))
-                    )
-                    .Add(T["API (Not for front end.)"], _ => { })
-                    .Add(T["Cross Tenant Services"], itemBuilder =>
-                        Add<CrossTenantServicesController>(
-                            itemBuilder,
-                            (T["Index"], nameof(CrossTenantServicesController.Index)))
-                    )
+            .Add(T["Training Demo"], builder => builder
+                .Add(T["Your First OrchardCore Controller"], itemBuilder => itemBuilder
+                    .Add(T["Index"], subMenu => subMenu
+                        .Action<YourFirstOrchardCoreController>(context, controller => controller.Index()))
+                    .Add(T["Notify Me"], subMenu => subMenu
+                        .ActionTask<YourFirstOrchardCoreController>(context, controller => controller.NotifyMe()))
+                )
+                .Add(T["Display Management"], itemBuilder => itemBuilder
+                    .Add(T["Display Book"], subMenu => subMenu
+                        .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBook()))
+                    .Add(T["Display Book Description"], subMenu => subMenu
+                        .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBookDescription()))
+                )
+                .Add(T["Database Storage"], itemBuilder => itemBuilder
+                    .Add(T["Create Books"], subMenu => subMenu
+                        .Action<DatabaseStorageController>(context, controller => controller.CreateBooks()))
+                    .Add(T["J. K. Rowling Books"], subMenu => subMenu
+                        .ActionTask<DatabaseStorageController>(context, controller => controller.JKRowlingBooks()))
+                )
+                .Add(T["Person List"], itemBuilder => itemBuilder
+                    .Add(T["Older Than 30"], subMenu => subMenu
+                        .ActionTask<PersonListController>(context, controller => controller.OlderThan30()))
+                    .Add(T["Fountain of Eternal Youth"], subMenu => subMenu
+                        .Action(
+                            nameof(PersonListController.FountainOfEternalYouth),
+                            typeof(PersonListController).ControllerName(),
+                            "Lombiq.TrainingDemo"))
+                    .Add(T["Create an Android"], subMenu => subMenu
+                        .Action(
+                            nameof(PersonListController.CreateAnAndroid),
+                            typeof(PersonListController).ControllerName(),
+                            "Lombiq.TrainingDemo"))
+                )
+                .Add(T["Authorization"], itemBuilder => itemBuilder
+                    .Add(T["CanEditPerson"], subMenu => subMenu
+                        .ActionTask<AuthorizationController>(context, controller => controller.CanEditPerson()))
+                    .Add(T["CanManagePersons"], subMenu => subMenu
+                        .ActionTask<AuthorizationController>(context, controller => controller.CanManagePersons()))
+                )
+                .Add(T["Admin"], itemBuilder => itemBuilder
+                    .Add(T["Index"], subMenu => subMenu
+                        .Action<AdminController>(context, controller => controller.Index()))
+                    .Add(T["Person List (Newest)"], subMenu => subMenu
+                        .ActionTask<AdminController>(context, controller => controller.PersonListNewest()))
+                    .Add(T["Person List (Oldest)"], subMenu => subMenu
+                        .ActionTask<AdminController>(context, controller => controller.PersonListOldest()))
+                )
+                .Add(T["Site Settings"], itemBuilder =>
+                    Add<SiteSettingsController>(
+                        itemBuilder,
+                        (T["Site Name"], nameof(SiteSettingsController.SiteName)),
+                        (T["Demo Settings"], nameof(SiteSettingsController.DemoSettings)))
+                )
+                .Add(T["File Management"], itemBuilder =>
+                    Add<FileManagementController>(
+                        itemBuilder,
+                        (T["Create File in Media Folder"], nameof(FileManagementController.CreateFileInMediaFolder)),
+                        (T["Read File from Media Folder"], nameof(FileManagementController.ReadFileFromMediaFolder)),
+                        (T["Upload File to Media"], nameof(FileManagementController.UploadFileToMedia)),
+                        (T["Create File in Custom Folder"], nameof(FileManagementController.CreateFileInCustomFolder)))
+                )
+                .Add(T["API (Not for front end.)"], _ => { })
+                .Add(T["Cross Tenant Services"], itemBuilder =>
+                    Add<CrossTenantServicesController>(
+                        itemBuilder,
+                        (T["Index"], nameof(CrossTenantServicesController.Index)))
                 )
             );
     }
