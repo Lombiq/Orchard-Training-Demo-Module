@@ -15,13 +15,12 @@ namespace Lombiq.TrainingDemo.Navigation;
 // own. Yes, this is basically an ad for our other projects. :)
 public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
 {
-    private readonly IHttpContextAccessor _hca;
-
     public TrainingDemoNavigationProvider(
         IHttpContextAccessor hca,
         IStringLocalizer<TrainingDemoNavigationProvider> stringLocalizer)
-        : base(hca, stringLocalizer) =>
-        _hca = hca;
+        : base(hca, stringLocalizer)
+    {
+    }
 
     protected override void Build(NavigationBuilder builder)
     {
