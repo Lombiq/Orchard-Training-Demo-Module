@@ -93,6 +93,4 @@ public class AdminController : Controller
             await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin"));
 }
 
-// END OF TRAINING SECTION: Admin menus
-
-// NEXT STATION: Controllers/SiteSettingsController.cs
+// NEXT STATION: Services/

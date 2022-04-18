@@ -47,7 +47,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 - [Content Field display and editor options](Views/ColorField.Option.cshtml)
 - [Resource management](ResourceManagementOptionsConfiguration.cs)
 - [Permissions and authorization](Controllers/AuthorizationController.cs)
-- [Admin menus](Controllers/AdminController.cs)
+- [Navigation menus](Controllers/AdminController.cs)
 - [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
 - [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
 - [Shape tables](Services/ShapeHidigingShapeTableProvider.cs)

@@ -13,6 +13,9 @@ namespace Lombiq.TrainingDemo.Navigation;
 // returned by this method call and display a Bootstrap "navbar" wherever you need a menu. Or if you use a theme
 // which extends Lombiq.BaseTheme, then it already displays your "main" navigation entries as a MenuWidget on its
 // own. Yes, this is basically an ad for our other projects. :)
+//
+// For details on how to use them, see the Lombiq.BaseTheme.Samples project:
+// https://github.com/Lombiq/Orchard-Base-Theme/tree/issue/OSOE-62/Lombiq.BaseTheme.Samples
 public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
 {
     public TrainingDemoNavigationProvider(
@@ -106,3 +109,7 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
         }
     }
 }
+
+// END OF TRAINING SECTION: Navigation menus
+
+// NEXT STATION: Controllers/SiteSettingsController.cs
