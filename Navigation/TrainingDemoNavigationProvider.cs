@@ -31,25 +31,25 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
         var context = _hca.HttpContext;
         builder
             .Add(T["Training Demo"], builder => builder
-                .Add(T["Your First OrchardCore Controller"], Header)
+                .AddLabel(T["Your First OrchardCore Controller"])
                 .Add(T["Index"], subMenu => subMenu
                     .Action<YourFirstOrchardCoreController>(context, controller => controller.Index()))
                 .Add(T["Notify Me"], subMenu => subMenu
                     .ActionTask<YourFirstOrchardCoreController>(context, controller => controller.NotifyMe()))
                 .AddSeparator(T)
-                .Add(T["Display Management"], Header)
+                .AddLabel(T["Display Management"])
                 .Add(T["Display Book"], subMenu => subMenu
                     .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBook()))
                 .Add(T["Display Book Description"], subMenu => subMenu
                     .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBookDescription()))
                 .AddSeparator(T)
-                .Add(T["Database Storage"], Header)
+                .AddLabel(T["Database Storage"])
                 .Add(T["Create Books"], subMenu => subMenu
                     .Action<DatabaseStorageController>(context, controller => controller.CreateBooks()))
                 .Add(T["J. K. Rowling Books"], subMenu => subMenu
                     .ActionTask<DatabaseStorageController>(context, controller => controller.JKRowlingBooks()))
                 .AddSeparator(T)
-                .Add(T["Person List"], Header)
+                .AddLabel(T["Person List"])
                 .Add(T["Older Than 30"], subMenu => subMenu
                     .ActionTask<PersonListController>(context, controller => controller.OlderThan30()))
                 .Add(T["Fountain of Eternal Youth"], subMenu => subMenu
@@ -63,13 +63,13 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
                         typeof(PersonListController).ControllerName(),
                         "Lombiq.TrainingDemo"))
                 .AddSeparator(T)
-                .Add(T["Authorization"], Header)
+                .AddLabel(T["Authorization"])
                 .Add(T["CanEditPerson"], subMenu => subMenu
                     .ActionTask<AuthorizationController>(context, controller => controller.CanEditPerson()))
                 .Add(T["CanManagePersons"], subMenu => subMenu
                     .ActionTask<AuthorizationController>(context, controller => controller.CanManagePersons()))
                 .AddSeparator(T)
-                .Add(T["Admin"], Header)
+                .AddLabel(T["Admin"])
                 .Add(T["Index"], subMenu => subMenu
                     .Action<AdminController>(context, controller => controller.Index()))
                 .Add(T["Person List (Newest)"], subMenu => subMenu
@@ -77,22 +77,20 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
                 .Add(T["Person List (Oldest)"], subMenu => subMenu
                     .ActionTask<AdminController>(context, controller => controller.PersonListOldest()))
                 .AddSeparator(T)
-                .Add(T["Site Settings"], Header)
+                .AddLabel(T["Site Settings"])
                 .Add(T["Site Name"], Action<SiteSettingsController>(nameof(SiteSettingsController.SiteName)))
                 .Add(T["Demo Settings"], Action<SiteSettingsController>(nameof(SiteSettingsController.DemoSettings)))
                 .AddSeparator(T)
-                .Add(T["File Management"], Header)
+                .AddLabel(T["File Management"])
                 .Add(T["Create File in Media Folder"], Action<FileManagementController>(nameof(FileManagementController.CreateFileInMediaFolder)))
                 .Add(T["Read File from Media Folder"], Action<FileManagementController>(nameof(FileManagementController.ReadFileFromMediaFolder)))
                 .Add(T["Upload File to Media"], Action<FileManagementController>(nameof(FileManagementController.UploadFileToMedia)))
                 .Add(T["Create File in Custom Folder"], Action<FileManagementController>(nameof(FileManagementController.CreateFileInCustomFolder)))
                 .AddSeparator(T)
-                .Add(T["API (Not for front end.)"], Header)
+                .AddLabel(T["API (Not for front end.)"])
                 .AddSeparator(T)
                 .Add(T["Cross Tenant Services"], Action<CrossTenantServicesController>(nameof(CrossTenantServicesController.Index))));
     }
-
-    private void Header(NavigationItemBuilder subMenu) => subMenu.Url("#").AddClass("disabled menuWidget__link_title");
 
     private static Action<NavigationItemBuilder> Action<T>(string actionName) =>
         subMenu => subMenu.Action(actionName, typeof(T).ControllerName(), "Lombiq.TrainingDemo");
