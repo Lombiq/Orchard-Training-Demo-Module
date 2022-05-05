@@ -44,14 +44,25 @@ using OrchardCore.Modules.Manifest;
     // is referenced in the project.
     Dependencies = new[]
     {
+        "OrchardCore.Admin",
+        "OrchardCore.Apis.GraphQL",
         "OrchardCore.BackgroundTasks",
+        "OrchardCore.ContentFields",
         "OrchardCore.Contents",
         "OrchardCore.ContentTypes",
-        "OrchardCore.ContentFields",
         "OrchardCore.DynamicCache",
+        "OrchardCore.Features",
+        "OrchardCore.HomeRoute",
+        "OrchardCore.Layers",
+        "OrchardCore.Localization",
         "OrchardCore.Media",
         "OrchardCore.Navigation",
-        "OrchardCore.Apis.GraphQL",
+        "OrchardCore.Recipes",
+        "OrchardCore.Resources",
+        "OrchardCore.Roles",
+        "OrchardCore.Settings",
+        "OrchardCore.Themes",
+        "OrchardCore.Users",
     }
 )]
 

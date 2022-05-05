@@ -60,7 +60,7 @@ public class YourFirstOrchardCoreController : Controller
 
     // Let's see some custom routing here. This attribute will override the default route and use this one.
     [Route("TrainingDemo/NotifyMe")]
-    public async Task<ActionResult> NotifyMe()
+    public async Task<IActionResult> NotifyMe()
     {
         // ILogger is an ASP.NET Core service that will write something into the specific log files. In Orchard Core
         // NLog is used for logging and the error level is "Error" by default. You can find the error log in the

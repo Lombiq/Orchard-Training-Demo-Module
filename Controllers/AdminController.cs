@@ -42,12 +42,12 @@ public class AdminController : Controller
     // with an administrator account (or at least a user who has a role that has AccessAdmin permission). If you are
     // anonymous then a login page will automatically appear. The permission check (i.e. has AccessAdmin
     // permission) will be automatic as well.
-    public ActionResult Index() => View();
+    public IActionResult Index() => View();
 
     // You don't have to access the below two actions by typing in their URLs because we have admin menu items for them!
     // NEXT STATION: Navigation/PersonsAdminMenu.cs
 
-    public async Task<ActionResult> PersonListNewest()
+    public async Task<IActionResult> PersonListNewest()
     {
         // If the user needs to have a specific permission to access a page on the admin panel (besides the AccessAdmin
         // permission) you need to check it here.
@@ -68,7 +68,7 @@ public class AdminController : Controller
         return View("PersonList", await GetShapesAsync(persons));
     }
 
-    public async Task<ActionResult> PersonListOldest()
+    public async Task<IActionResult> PersonListOldest()
     {
         if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.AccessPersonListDashboard))
         {
@@ -93,6 +93,4 @@ public class AdminController : Controller
             await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin"));
 }
 
-// END OF TRAINING SECTION: Admin menus
-
-// NEXT STATION: Controllers/SiteSettingsController.cs
+// NEXT STATION: Navigation/TrainingDemoNavigationProvider.cs
