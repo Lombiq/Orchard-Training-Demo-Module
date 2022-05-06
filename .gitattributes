@@ -1,4 +1,4 @@
 * text=auto
 
-# Enforce Windows newlines for C# files to avoid false positives with IDE55 warning.
+# Enforce Windows newlines for C# files to avoid false positives with IDE0055 warning.
 *.cs text eol=crlf
