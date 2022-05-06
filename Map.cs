@@ -118,6 +118,7 @@ internal static class Map
         // Menu, Admin menu, NavigationProvider
         Pointer<DemoSettingsAdminMenu>();
         Pointer<PersonsAdminMenu>();
+        Pointer<TrainingDemoNavigationProvider>();
 
         // SectionDisplayDriver, ISite, DisplayDriver for SiteSettings
         Pointer<DemoSettingsDisplayDriver>();

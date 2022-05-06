@@ -42,7 +42,7 @@ public class AuthorizationController : Controller
     // Here we will create a Person content item and check if the user has permission to edit it. It's very common to
     // check if you can view or edit a specific item - it also happens if you use the built-in URLs like
     // /Contents/Item/Display/{id} to view a content item.
-    public async Task<ActionResult> CanEditPerson()
+    public async Task<IActionResult> CanEditPerson()
     {
         // Creating a content item for testing (won't be persisted).
         var person = await _contentManager.NewAsync(ContentTypes.PersonPage);
@@ -69,7 +69,7 @@ public class AuthorizationController : Controller
 
     // NEXT STATION: Permissions/PersonPermissions
 
-    public async Task<ActionResult> CanManagePersons()
+    public async Task<IActionResult> CanManagePersons()
     {
         // We've defined a ManagePersons earlier which is added to Administrator users by default. If the currently user
         // doesn't have the Administrator role then you can add it on the dashboard. Since this permission can be

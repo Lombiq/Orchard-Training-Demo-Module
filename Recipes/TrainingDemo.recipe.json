@@ -16,20 +16,11 @@
       "disable": [],
       "enable": [
         // Modules
+        // Don't include "OrchardCore.*" features here, instead add them to the Manifest.cs file as feature or module
+        // dependency. In this case they are in the "Lombiq.TrainingDemo" featrue's Dependencies. A module's
+        // dependencies are automatically enabled along with the module so you only need to enable your own modules.
         "Lombiq.TrainingDemo",
         "Lombiq.TrainingDemo.Middlewares",
-        "OrchardCore.Admin",
-        "OrchardCore.Features",
-        "OrchardCore.HomeRoute",
-        "OrchardCore.Layers",
-        "OrchardCore.Localization",
-        "OrchardCore.Navigation",
-        "OrchardCore.Recipes",
-        "OrchardCore.Resources",
-        "OrchardCore.Roles",
-        "OrchardCore.Settings",
-        "OrchardCore.Themes",
-        "OrchardCore.Users",
 
         // Themes
         "TheTheme",
