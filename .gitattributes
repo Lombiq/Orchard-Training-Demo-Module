@@ -1,1 +1,5 @@
 * text=auto
+
+# Enforce Windows newlines for C# files to avoid false positives with IDE0055 warning.
+# See https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions/issues/106 for more information.
+*.cs text eol=crlf
