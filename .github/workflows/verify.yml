@@ -3,10 +3,6 @@ name: Verify Pull Request
 on:
   pull_request:
 
-defaults:
-  run:
-    shell: pwsh
-
 jobs:
   call-verify-workflow:
-    uses: Lombiq/GitHub-Actions/.github/workflows/verify.yml@issue/OSOE-131
+    uses: Lombiq/GitHub-Actions/.github/workflows/verify.yml@dev
