@@ -11,7 +11,7 @@ using OrchardCore.Modules.Manifest;
     // Optionally you can add a website URL (e.g. your company's website, GitHub repository URL).
     Website = "https://github.com/Lombiq/Orchard-Training-Demo-Module",
     // Version of the module.
-    Version = "2.0.0",
+    Version = "0.0.1",
     // Short description of the module.
     Description = "Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going " +
         "through its source code."
