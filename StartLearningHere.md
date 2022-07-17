@@ -1,13 +1,10 @@
 # Hi there! - Learn Orchard Core module development
 
-
-
 ## Introduction
 
 Good to see you want to learn the ins and outs of Orchard Core module creation. Reading code is always a good way for this!
 
 We'll guide you on your journey to become an Orchard Core developer. Look for "NEXT STATION" comments in the code to see where to head next, otherwise look through the code as you like.
-
 
 ## Moving forward
 
@@ -19,8 +16,7 @@ After you complete this tutorial (or even during walking through it) you're enco
 
 Later on, you may want to take a look at *Map.cs* (remember, "X marks the spot!") in the project root for reminders regarding specific solutions.
 
-
-## Let's get started!
+## Let's get started
 
 **FIRST STATION**: First of all, let's discuss how a .NET library becomes an Orchard Module. If you look into the Dependencies of this project you will find either the NuGet reference for the `OrchardCore.Module.Targets` package.
 
@@ -31,7 +27,6 @@ Furthermore, the module manifest file is also required. So...
 Note that the module's [recipe file](https://docs.orchardcore.net/en/latest/docs/reference/modules/Recipes/) that you used during setup is in the *Recipes* folder. A lot of features included in this module are configured from there; you can check it out too.
 
 This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
-
 
 ## Training sections
 
