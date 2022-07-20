@@ -26,7 +26,7 @@ Furthermore, the module manifest file is also required. So...
 
 Note that the module's [recipe file](https://docs.orchardcore.net/en/latest/docs/reference/modules/Recipes/) that you used during setup is in the *Recipes* folder. A lot of features included in this module are configured from there; you can check it out too.
 
-This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
+This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](https://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
 
 ## Training sections
 
