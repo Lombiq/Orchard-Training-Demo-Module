@@ -43,7 +43,7 @@ Take a look at the Recipes menu in the Admin screen to load in additional sample
 
 ## Contributing and support
 
-Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
+Bug reports, feature requests, comments, questions, code contributions and love letters are warmly welcome. Please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
 When adding new tutorials please keep in mind the following:
 
