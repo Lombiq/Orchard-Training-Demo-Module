@@ -49,6 +49,6 @@ When adding new tutorials please keep in mind the following:
 
 - Insert tutorial steps into the existing flow, either at the end or between two existing ones. Use "NEXT STATION" comments to indicate the next file the reader should check out.
 - If it's a new training section then indicate as such by an "END OF TRAINING SECTION" comment at the end and add it to the list under [StartLearningHere.md](StartLearningHere.md).
-- Add pointers to its classes/files in *Map.cs*.
+- Add pointers to its classes/files in _Map.cs_.
 
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
