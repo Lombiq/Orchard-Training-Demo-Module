@@ -1,0 +1,11 @@
+[
+  {
+    "sources": [ "Assets/Images" ],
+    "target": "wwwroot/images"
+  },
+  {
+    "sources": [ "node_modules/pickr-widget/dist" ],
+    "pattern": "*",
+    "target": "wwwroot/pickr"
+  }
+]

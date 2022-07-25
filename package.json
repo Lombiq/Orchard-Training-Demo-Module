@@ -1,9 +1,12 @@
 {
-  "private": true,
+  "description": "All frontend asset processing is done by Lombiq's Node.js Extensions (https://github.com/Lombiq/NodeJs-Extensions).",
   "dependencies": {
     "pickr-widget": "0.3.6"
   },
   "scripts": {
-    "dotnet-prebuild": "gulp"
-  }
+    "build": "npm explore nodejs-extensions -- pnpm build",
+    "clean": "npm explore nodejs-extensions -- pnpm clean",
+    "watch": "npm explore nodejs-extensions -- pnpm watch:styles"
+  },
+  "private": true
 }
