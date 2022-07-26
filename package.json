@@ -8,5 +8,16 @@
     "clean": "npm explore nodejs-extensions -- pnpm clean",
     "watch": "npm explore nodejs-extensions -- pnpm watch:styles"
   },
-  "private": true
+  "assetsToCopy": [
+    {
+      "sources": [ "Assets/Images" ],
+      "target": "wwwroot/images"
+    },
+    {
+      "sources": [ "node_modules/pickr-widget/dist" ],
+      "pattern": "*",
+      "target": "wwwroot/pickr"
+    }
+  ],
+  "private": true,
 }
