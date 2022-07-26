@@ -20,4 +20,8 @@
     }
   ],
   "private": true,
+
+  "END OF TRAINING SECTION": "Processing frontend assets using npm scripts",
+
+  "NEXT STATION": "GraphQL/Startup.cs"
 }
