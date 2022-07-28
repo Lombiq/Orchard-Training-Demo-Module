@@ -1,13 +1,10 @@
 # Hi there! - Learn Orchard Core module development
 
-
-
 ## Introduction
 
 Good to see you want to learn the ins and outs of Orchard Core module creation. Reading code is always a good way for this!
 
 We'll guide you on your journey to become an Orchard Core developer. Look for "NEXT STATION" comments in the code to see where to head next, otherwise look through the code as you like.
-
 
 ## Moving forward
 
@@ -17,21 +14,19 @@ If you'd like to get trained instead of self-learning or you need help in form o
 
 After you complete this tutorial (or even during walking through it) you're encouraged to look at Orchard's built-in modules on how they solve similar tasks. Clone [the official repo](https://github.com/OrchardCMS/OrchardCore) and let it be your tutor :-).
 
-Later on, you may want to take a look at *Map.cs* (remember, "X marks the spot!") in the project root for reminders regarding specific solutions.
+Later on, you may want to take a look at _Map.cs_ (remember, "X marks the spot!") in the project root for reminders regarding specific solutions.
 
-
-## Let's get started!
+## Let's get started
 
 **FIRST STATION**: First of all, let's discuss how a .NET library becomes an Orchard Module. If you look into the Dependencies of this project you will find either the NuGet reference for the `OrchardCore.Module.Targets` package.
 
 Furthermore, the module manifest file is also required. So...
 
-**NEXT STATION**: Head over to *Manifest.cs*. That file is the module's manifest; a *Manifest.cs* is required for Orchard modules.
+**NEXT STATION**: Head over to _Manifest.cs_. That file is the module's manifest; a _Manifest.cs_ is required for Orchard modules.
 
-Note that the module's [recipe file](https://docs.orchardcore.net/en/latest/docs/reference/modules/Recipes/) that you used during setup is in the *Recipes* folder. A lot of features included in this module are configured from there; you can check it out too.
+Note that the module's [recipe file](https://docs.orchardcore.net/en/latest/docs/reference/modules/Recipes/) that you used during setup is in the _Recipes_ folder. A lot of features included in this module are configured from there; you can check it out too.
 
-This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](http://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
-
+This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](https://www.youtube.com/watch?v=MH9mcodTX-U) and brought to you by [Lombiq Technologies](https://lombiq.com/).
 
 ## Training sections
 

@@ -1,25 +1,22 @@
 # Lombiq Training Demo for Orchard Core
 
-
-
 ## About
 
-Demo [Orchard Core](https://www.orchardcore.net/) module for training purposes guiding you to become an Orchard developer. Note that this module also has an Orchard 1.x version in the [dev-orchard-1 branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev-orchard-1).
+Demo [Orchard Core](https://orchardcore.net/) module for training purposes guiding you to become an Orchard developer. Note that this module also has an Orchard 1.x version in the [dev-orchard-1 branch of the repository](https://github.com/Lombiq/Orchard-Training-Demo-Module/tree/dev-orchard-1).
 
 If you prefer tutorial videos more then check out the [Dojo Course 3, the complete Orchard Core tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial).
 
 **If you are interested in training materials and personalized Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
 
-
 ## How to start
 
 The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) and the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
 
-Before you dive deep into this module it'd be best if you make sure that you have done the following: 
+Before you dive deep into this module it'd be best if you make sure that you have done the following:
 
-* You know how ASP.NET Core MVC works. It's important that you understand how ASP.NET Core MVC works or generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at https://docs.microsoft.com/en-us/aspnet/core/tutorials/?view=aspnetcore-3.1.
-* You've read through the documentation under https://docs.orchardcore.net/ (at least the "About Orchard Core" section, but it would be great if you'd skim the whole documentation).
-* You know Orchard Core from a user's perspective and understand the fundamental concepts underlying the system. (The [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that.) 
+- You know how ASP.NET Core MVC works. It's important that you understand how ASP.NET Core MVC works or generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at <https://docs.microsoft.com/en-us/aspnet/core/tutorials/razor-pages/?view=aspnetcore-3.1>.
+- You've read through the documentation under <https://docs.orchardcore.net/en/latest/> (at least the "About Orchard Core" section, but it would be great if you'd skim the whole documentation).
+- You know Orchard Core from a user's perspective and understand the fundamental concepts underlying the system. (The [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that.)
 
 The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases a web app using Orchard Core from NuGet packages, and it includes this module too. Furthermore, it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! (Check them out for what we have already solved for you.) So, just use that to work with this module:
 
@@ -27,7 +24,6 @@ The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-
 2. Make sure the `Lombiq.OSOCE.Web` project is the startup project (it should be).
 3. Start the app with <kbd>Ctrl</kbd> + <kbd>F5</kbd>.
 4. Set up the website using the "Training Demo" recipe.
-
 
 ## Learning Orchard Core with this module
 
@@ -47,12 +43,12 @@ Take a look at the Recipes menu in the Admin screen to load in additional sample
 
 ## Contributing and support
 
-Bug reports, feature requests, comments, questions, code contributions, and love letters are warmly welcome, please do so via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
+Bug reports, feature requests, comments, questions, code contributions and love letters are warmly welcome. You can send them to us via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
 
 When adding new tutorials please keep in mind the following:
 
 - Insert tutorial steps into the existing flow, either at the end or between two existing ones. Use "NEXT STATION" comments to indicate the next file the reader should check out.
 - If it's a new training section then indicate as such by an "END OF TRAINING SECTION" comment at the end and add it to the list under [StartLearningHere.md](StartLearningHere.md).
-- Add pointers to its classes/files in *Map.cs*.
+- Add pointers to its classes/files in _Map.cs_.
 
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.
