@@ -1,4 +1,0 @@
-This file is necessary to be able to commit the wwwroot folder into source control while having the rest of it excluded.
-This in turn is required to allow Gulp-built static assets to be accessible when first starting the app during 
-development after a fresh build, instead of letting Gulp create the folder but the static file serving pipeline not 
-recognizing the new folder.
