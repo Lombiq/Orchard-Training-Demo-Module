@@ -3,23 +3,25 @@
   "dependencies": {
     "pickr-widget": "0.3.6"
   },
+  "private": true,
   "scripts": {
     "build": "npm explore nodejs-extensions -- pnpm build",
     "clean": "npm explore nodejs-extensions -- pnpm clean",
     "watch": "npm explore nodejs-extensions -- pnpm watch:styles"
   },
-  "assetsToCopy": [
-    {
-      "sources": [ "Assets/Images" ],
-      "target": "wwwroot/images"
-    },
-    {
-      "sources": [ "node_modules/pickr-widget/dist" ],
-      "pattern": "*",
-      "target": "wwwroot/pickr"
-    }
-  ],
-  "private": true,
+  "nodejsExtensions": {
+    "assetsToCopy": [
+      {
+        "sources": [ "Assets/Images" ],
+        "target": "wwwroot/images"
+      },
+      {
+        "sources": [ "node_modules/pickr-widget/dist" ],
+        "pattern": "*",
+        "target": "wwwroot/pickr"
+      }
+    ]
+  },
 
   "END OF TRAINING SECTION": "Processing frontend assets using npm scripts",
 
