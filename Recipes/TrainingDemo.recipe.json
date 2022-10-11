@@ -65,6 +65,108 @@
           "Description": "The widgets in this layer are only displayed on the homepage."
         }
       ]
+    },
+    {
+      "name": "WorkflowType",
+      "data": [
+        {
+          "WorkflowTypeId": "47gk2q35xcbc0xg59kxwz5tkw4",
+          "Name": "UsernameLogger",
+          "IsEnabled": true,
+          "IsSingleton": false,
+          "LockTimeout": 0,
+          "LockExpiration": 0,
+          "DeleteFinishedWorkflows": true,
+          "Activities": [
+            {
+              "ActivityId": "4w8zhbq9139e6zt4y2nb2gytdg",
+              "Name": "UserLoggedInEvent",
+              "X": 0,
+              "Y": 10,
+              "IsStart": true,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                }
+              }
+            },
+            {
+              "ActivityId": "4bhq8xgddpzppy2j5m96q9whwf",
+              "Name": "LogTask",
+              "X": 320,
+              "Y": 0,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "LogLevel": 3,
+                "Text": {
+                  "Expression": "{{ User.Identity.Name }} {{ \"logged in\" | t }}"
+                }
+              }
+            }
+          ],
+          "Transitions": [
+            {
+              "Id": 0,
+              "SourceActivityId": "4w8zhbq9139e6zt4y2nb2gytdg",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4bhq8xgddpzppy2j5m96q9whwf"
+            }
+          ]
+        },
+        {
+          "WorkflowTypeId": "4vtt0g09pbnt8x72gnc6557smk",
+          "Name": "ContentCreatedLogTask",
+          "IsEnabled": true,
+          "IsSingleton": false,
+          "LockTimeout": 0,
+          "LockExpiration": 0,
+          "DeleteFinishedWorkflows": false,
+          "Activities": [
+            {
+              "ActivityId": "4jgzsrtras0wt5byehn5s9j04h",
+              "Name": "LogTask",
+              "X": 290,
+              "Y": 0,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "LogLevel": 3,
+                "Text": {
+                  "Expression": "{{ User.Identity.Name }} added a content item"
+                }
+              }
+            },
+            {
+              "ActivityId": "4tr7a58h1qz7jvg2vz37hgprn1",
+              "Name": "ContentCreatedEvent",
+              "X": 0,
+              "Y": 0,
+              "IsStart": true,
+              "Properties": {
+                "ContentTypeFilter": [
+                  "PersonPage"
+                ],
+                "ActivityMetadata": {
+                  "Title": null
+                }
+              }
+            }
+          ],
+          "Transitions": [
+            {
+              "Id": 0,
+              "SourceActivityId": "4tr7a58h1qz7jvg2vz37hgprn1",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4jgzsrtras0wt5byehn5s9j04h"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
