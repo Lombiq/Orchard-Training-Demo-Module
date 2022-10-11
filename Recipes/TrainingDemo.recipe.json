@@ -71,7 +71,7 @@
       "data": [
         {
           "WorkflowTypeId": "47gk2q35xcbc0xg59kxwz5tkw4",
-          "Name": "UsernameLogger",
+          "Name": "LoginDateLogger",
           "IsEnabled": true,
           "IsSingleton": false,
           "LockTimeout": 0,
@@ -102,7 +102,7 @@
                 },
                 "LogLevel": 3,
                 "Text": {
-                  "Expression": "{{ User.Identity.Name }} {{ \"logged in\" | t }}"
+                  "Expression": "{{ \"User logged in on\" | t }} {{ \"now\" | local | date: \"%c\" }}"
                 }
               }
             }
