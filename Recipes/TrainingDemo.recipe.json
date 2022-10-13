@@ -75,7 +75,7 @@
       "data": [
         {
           "WorkflowTypeId": "47gk2q35xcbc0xg59kxwz5tkw4",
-          "Name": "UserLoginLogger",
+          "Name": "User Login Logger",
           "IsEnabled": true,
           "IsSingleton": false,
           "LockTimeout": 0,
@@ -122,7 +122,7 @@
         },
         {
           "WorkflowTypeId": "4vtt0g09pbnt8x72gnc6557smk",
-          "Name": "PersonPageContentItemCreatedLogger",
+          "Name": "Person Page Content Item Created Logger",
           "IsEnabled": true,
           "IsSingleton": false,
           "LockTimeout": 0,
@@ -141,7 +141,7 @@
                 },
                 "LogLevel": 4,
                 "Text": {
-                  "Expression": "{{ \"Expected non-error -\" | t }} {{ User.Identity.Name }} {{ \"created a new Person Page content item.\" | t }}"
+                  "Expression": "{{ \"Expected non-error -\" | t }} {{ User.Identity.Name }} {{ \"created a new Person Page content item.\" | t }} "
                 }
               }
             },
