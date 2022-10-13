@@ -141,7 +141,7 @@
                 },
                 "LogLevel": 4,
                 "Text": {
-                  "Expression": "{{ \"Expected non-error -\" | t }} {{ User.Identity.Name }} {{ \"created a new Person Page content item.\" | t }} "
+                  "Expression": "{{ \"Expected non-error -\" | t }} {{ User.Identity.Name }} {{ \"created a new Person Page content item.\" | t }}"
                 }
               }
             },
