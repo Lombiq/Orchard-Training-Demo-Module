@@ -1,0 +1,5 @@
+@using OrchardCore.Workflows.Helpers
+@model OrchardCore.Workflows.ViewModels.ActivityViewModel<Lombiq.TrainingDemo.Activities.ManagePersonsPermissionCheckerTask>
+<header>
+    <h4><i aria-hidden="true"></i>@Model.Activity.GetTitleOrDefault(() => T["Manage Persons Permission Checker"])</h4>
+</header>
