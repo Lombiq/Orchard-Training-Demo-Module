@@ -80,4 +80,4 @@ public class TestedServiceTests
 
 // END OF TRAINING SECTION: Unit and integration testing
 
-// NEXT STATION: Head back to the module project and check out Gulpfile.js
+// NEXT STATION: Head back to the module project and check out package.json.
