@@ -5,7 +5,7 @@ using OrchardCore.Workflows.Models;
 
 namespace Lombiq.TrainingDemo.Drivers;
 
-// ActivityDisplayDrivers are specifically for implementing Workflow Activity Tasks.
+// ActivityDisplayDriver is specifically for implementing Workflow Activity Tasks.
 // Don't forget to register this class with the service provider (see: Startup.cs).
 public class ManagePersonsPermissionCheckerTaskDisplayDriver :
     ActivityDisplayDriver<ManagePersonsPermissionCheckerTask, ManagePersonsPermissionCheckerTaskViewModel>
