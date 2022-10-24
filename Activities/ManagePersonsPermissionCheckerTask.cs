@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Activities;
 
+// A simple workflow activity task that accepts an username as a TextField input and checks whether the user has
+// ManagePersons Permission or not.
 public class ManagePersonsPermissionCheckerTask : TaskActivity
 {
     private readonly IStringLocalizer S;
@@ -46,10 +48,8 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
         set => SetProperty(value);
     }
 
-    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
-    {
-        return Outcomes(S["HasPermission"], S["NoPermission"]);
-    }
+    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext) =>
+        Outcomes(S["HasPermission"], S["NoPermission"]);
 
     public override async Task<ActivityExecutionResult> ExecuteAsync(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
     {
