@@ -123,7 +123,7 @@ public class Startup : StartupBase
         services.AddSingleton<ICustomFileStore>(serviceProvider =>
         {
             // So our goal here is to have a custom folder in the tenant's own folder. The Media folder is also there
-            // but we won't use that. To get tenant-specific data we need to use the ShellOptions and ShellShettings
+            // but we won't use that. To get tenant-specific data we need to use the ShellOptions and ShellSettings
             // objects.
             var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
             var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
