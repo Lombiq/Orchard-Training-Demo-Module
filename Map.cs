@@ -1,3 +1,4 @@
+using Lombiq.TrainingDemo.Activities;
 using Lombiq.TrainingDemo.Controllers;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Events;
@@ -190,5 +191,8 @@ internal static class Map
         // GraphQL - filtering
         Pointer<PersonAgeGraphQLFilter>();
         Pointer<ContentItemTypeBuilder>();
+
+        // Workflows - sample workflow activity task
+        Pointer<ManagePersonsPermissionCheckerTask>();
     }
 }

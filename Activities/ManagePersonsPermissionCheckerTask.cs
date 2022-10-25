@@ -1,74 +1,72 @@
+using Lombiq.TrainingDemo.Permissions;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
-using OrchardCore.Security.Services;
-using OrchardCore.Users.Models;
 using OrchardCore.Users.Services;
 using OrchardCore.Workflows.Abstractions.Models;
 using OrchardCore.Workflows.Activities;
 using OrchardCore.Workflows.Models;
 using OrchardCore.Workflows.Services;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Activities;
 
-// A simple workflow activity task that accepts an username as a TextField input and checks whether the user has
-// ManagePersons Permission or not.
+// A simple workflow task that accepts a username as a TextField input and checks whether the user has ManagePersons Permission or not.
 public class ManagePersonsPermissionCheckerTask : TaskActivity
 {
+    private readonly IAuthorizationService _authorizationService;
+    private readonly IUserService _userService;
+    private readonly IWorkflowExpressionEvaluator _expressionEvaluator;
     private readonly IStringLocalizer S;
 
-    private readonly IWorkflowExpressionEvaluator _expressionEvaluator;
-
-    private readonly IUserService _userService;
-
-    private readonly IRoleService _roleService;
-
-
     public ManagePersonsPermissionCheckerTask(
+        IAuthorizationService authorizationService,
         IUserService userService,
         IWorkflowExpressionEvaluator expressionEvaluator,
-        IRoleService roleService,
         IStringLocalizer<ManagePersonsPermissionCheckerTask> localizer)
     {
+        _authorizationService = authorizationService;
+        _userService = userService;
         _expressionEvaluator = expressionEvaluator;
         S = localizer;
-        _userService = userService;
-        _roleService = roleService;
     }
 
+    // The technical name of the activity. Activities on a workflow definition reference this name.
     public override string Name => nameof(ManagePersonsPermissionCheckerTask);
 
+    // The displayed name of the activity, so it can use localization.
     public override LocalizedString DisplayText => S["Manage Persons Permission Checker Task"];
 
+    // The category to which this activity belongs. The activity picker groups activities by this category.
     public override LocalizedString Category => S["User"];
+
+    // A description of this activity's purpose.
     public WorkflowExpression<string> UserName
     {
         get => GetProperty(() => new WorkflowExpression<string>());
         set => SetProperty(value);
     }
 
-    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext) =>
-        Outcomes(S["HasPermission"], S["NoPermission"]);
+    // Returns the possible outcomes of this activity.
+    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
+    {
+        return Outcomes(S["HasPermission"], S["NoPermission"]);
+    }
 
+    // This is the heart of the activity and actually performs the work to be done.
     public override async Task<ActivityExecutionResult> ExecuteAsync(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
     {
         var userName = await _expressionEvaluator.EvaluateAsync(UserName, workflowContext, null);
-        User user = (User)await _userService.GetUserAsync(userName);
+        var user = await _userService.GetUserAsync(userName);
+        var userClaim = await _userService.CreatePrincipalAsync(user);
 
-        if (user != null)
+        if (await _authorizationService.AuthorizeAsync(userClaim, PersonPermissions.ManagePersons))
         {
-            var permissions = user.RoleNames
-                .Select(async roleName => await _roleService.GetRoleClaimsAsync(roleName))
-                .SelectMany(claim => claim.Result)
-                .Where(claim => "Permission".Equals(claim.Type))
-                .Select(claim => claim.Value)
-                .Distinct()
-                .ToList();
-
-            return permissions.Contains("ManagePersons") ? Outcomes("HasPermission") : Outcomes("NoPermission");
+            return Outcomes("HasPermission");
         }
 
         return Outcomes("NoPermission");
     }
 }
+
+// NEXT STATION: ViewModels/ManagePersonsPermissionCheckerTaskViewModel.cs
