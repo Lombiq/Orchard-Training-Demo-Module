@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Lombiq.TrainingDemo.Liquid;
 
 // This liquid filter can be used like {{ Model.ContentItem.CreatedUtc | short_date }}
-// this will render the CreadetUtc in short date format.
+// this will render the CreatedUtc in short date format.
 
 public class ShortDateFilter : ILiquidFilter
 {
