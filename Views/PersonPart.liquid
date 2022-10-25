@@ -1,0 +1,21 @@
+{% comment %}
+    You see this template rendered if you delete the PersonPart.cshtml or you create a template with the same content
+    through the admin UI at Design/Templates. The name should be the file name without the extension.
+
+    Without the options.MemberAccessStrategy.Register<PersonPartViewModel>() in the startup you couldn't use the values
+    inside the viewmodel here, they would be null.
+
+    Note that the shortdate date formatting is not available by default in liquid, so we are using a custom short date
+    format. Liquid default date formatter uses http://strftime.net/ format.
+
+    You can write custom filters that e.g. would convert DateTime to short date format you can see that below.
+{% endcomment %}
+
+{% assign customDateFormat = Model.BirthDateUtc | date: "%m-%d-%Y" %}
+{% assign shortDate = Model.BirthDateUtc | short_date %}
+
+<div><strong>{{ Model.Name }}</strong></div>
+<div>{{ "Birth Date: {0}" | t: customDateFormat }}</div>
+<div>{{ "Birth Date short date: {0}" | t: shortDate }}</div>
+<div>{{ "Handedness: {0}" | t: Model.Handedness }}</div>
+<div>{{ "From liquid template." | t }}</div>

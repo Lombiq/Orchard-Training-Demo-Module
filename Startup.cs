@@ -12,6 +12,7 @@ using Lombiq.TrainingDemo.Filters;
 using Lombiq.TrainingDemo.Handlers;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Indexing;
+using Lombiq.TrainingDemo.Liquid;
 using Lombiq.TrainingDemo.Middlewares;
 using Lombiq.TrainingDemo.Migrations;
 using Lombiq.TrainingDemo.Models;
@@ -36,6 +37,7 @@ using OrchardCore.DisplayManagement.Handlers;
 using OrchardCore.Environment.Shell;
 using OrchardCore.Environment.Shell.Configuration;
 using OrchardCore.Indexing;
+using OrchardCore.Liquid;
 using OrchardCore.Modules;
 using OrchardCore.Navigation;
 using OrchardCore.ResourceManagement;
@@ -58,15 +60,17 @@ public class Startup : StartupBase
 
     public override void ConfigureServices(IServiceCollection services)
     {
-        // To be able to access these view models in display shapes rendered by the Liquid markup engine you need to
-        // register them. To learn more about Liquid in Orchard Core see this documentation:
+        // To be able to access the properties inside these view models in display shapes rendered by the Liquid markup
+        // engine you need to register them. To learn more about Liquid in Orchard Core see this documentation:
         // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
         services.Configure<TemplateOptions>(options =>
-        {
-            options.MemberAccessStrategy.Register<PersonPartViewModel>();
-            options.MemberAccessStrategy.Register<ColorField>();
-            options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
-        });
+            {
+                options.MemberAccessStrategy.Register<PersonPartViewModel>();
+                options.MemberAccessStrategy.Register<ColorField>();
+                options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+            })
+            // You can create custom liquid filters with the following, check out the logic inside the class.
+            .AddLiquidFilter<ShortDateFilter>("short_date");
 
         // NEXT STATION: Views/PersonPart.Edit.cshtml
 
