@@ -1,6 +1,8 @@
 using Lombiq.TrainingDemo.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
+using Microsoft.Extensions.Logging;
+using OrchardCore.Users.Models;
 using OrchardCore.Users.Services;
 using OrchardCore.Workflows.Abstractions.Models;
 using OrchardCore.Workflows.Activities;
@@ -57,12 +59,16 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
     public override async Task<ActivityExecutionResult> ExecuteAsync(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
     {
         var userName = await _expressionEvaluator.EvaluateAsync(UserName, workflowContext, null);
-        var user = await _userService.GetUserAsync(userName);
-        var userClaim = await _userService.CreatePrincipalAsync(user);
+        User user = (User)await _userService.GetUserAsync(userName);
 
-        if (await _authorizationService.AuthorizeAsync(userClaim, PersonPermissions.ManagePersons))
+        if (user != null)
         {
-            return Outcomes("HasPermission");
+            var userClaim = await _userService.CreatePrincipalAsync(user);
+
+            if (await _authorizationService.AuthorizeAsync(userClaim, PersonPermissions.ManagePersons))
+            {
+                return Outcomes("HasPermission");
+            }
         }
 
         return Outcomes("NoPermission");
