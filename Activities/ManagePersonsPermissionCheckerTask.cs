@@ -1,7 +1,6 @@
 using Lombiq.TrainingDemo.Permissions;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Localization;
-using Microsoft.Extensions.Logging;
 using OrchardCore.Users.Models;
 using OrchardCore.Users.Services;
 using OrchardCore.Workflows.Abstractions.Models;
@@ -42,7 +41,7 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
     // The category to which this activity belongs. The activity picker groups activities by this category.
     public override LocalizedString Category => S["User"];
 
-    // A description of this activity's purpose.
+    // The username to evaluate for ManagePersons permission.
     public WorkflowExpression<string> UserName
     {
         get => GetProperty(() => new WorkflowExpression<string>());
