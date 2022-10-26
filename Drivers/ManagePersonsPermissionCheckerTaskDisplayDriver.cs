@@ -17,8 +17,8 @@ public class ManagePersonsPermissionCheckerTaskDisplayDriver :
         activity.UserName = new WorkflowExpression<string>(model.UserName);
 }
 
-// Now you have to create the Razor files for the View. It's important to put these in a folder called Items.
-// NEXT STATION: Views/Items/ManagePersonsPermissionCheckerTask.Fields.Edit.cshtml, ManagePersonsPermissionCheckerTask.Fields.Design.cshtml,
-// ManagePersonsPermissionCheckerTask.Fields.Thumbnail.cshtml
+// NEXT STATION: Check out the following files to see how we make the activity visible on the admin, the come back here.
+// Views/Items/ManagePersonsPermissionCheckerTask.Fields.Edit.cshtml,
+// ManagePersonsPermissionCheckerTask.Fields.Design.cshtml, ManagePersonsPermissionCheckerTask.Fields.Thumbnail.cshtml
 
 // END OF TRAINING SECTION: Workflows
