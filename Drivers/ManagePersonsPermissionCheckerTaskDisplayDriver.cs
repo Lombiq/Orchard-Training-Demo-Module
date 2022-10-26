@@ -5,20 +5,31 @@ using OrchardCore.Workflows.Models;
 
 namespace Lombiq.TrainingDemo.Drivers;
 
-// ActivityDisplayDriver is specifically for implementing workflow tasks. It performs a simple mapping of a ManagePersonsPermissionCheckerTask
-// to a ManagePersonsPermissionCheckerTaskViewModel and vice versa. Don't forget to register this class with the service provider (see: Startup.cs).
-public class ManagePersonsPermissionCheckerTaskDisplayDriver : ActivityDisplayDriver<ManagePersonsPermissionCheckerTask,
+// ActivityDisplayDriver is specifically for implementing workflow tasks. It performs a simple mapping of a
+// ManagePersonsPermissionCheckerTask to a ManagePersonsPermissionCheckerTaskViewModel and vice versa. Don't forget to
+// register this class with the service provider (see: Startup.cs).
+public class ManagePersonsPermissionCheckerTaskDisplayDriver :
+    ActivityDisplayDriver<ManagePersonsPermissionCheckerTask,
     ManagePersonsPermissionCheckerTaskViewModel>
 {
-    protected override void EditActivity(ManagePersonsPermissionCheckerTask activity, ManagePersonsPermissionCheckerTaskViewModel model) =>
+    protected override void EditActivity(
+        ManagePersonsPermissionCheckerTask activity,
+        ManagePersonsPermissionCheckerTaskViewModel model) =>
         model.UserName = activity.UserName.Expression;
 
-    protected override void UpdateActivity(ManagePersonsPermissionCheckerTaskViewModel model, ManagePersonsPermissionCheckerTask activity) =>
+    protected override void UpdateActivity(
+        ManagePersonsPermissionCheckerTaskViewModel model,
+        ManagePersonsPermissionCheckerTask activity) =>
         activity.UserName = new WorkflowExpression<string>(model.UserName);
 }
 
-// Now you have to create the Razor files for the View. It's important to put these in a folder called Items.
-// NEXT STATION: Views/Items/ManagePersonsPermissionCheckerTask.Fields.Edit.cshtml, ManagePersonsPermissionCheckerTask.Fields.Design.cshtml,
-// ManagePersonsPermissionCheckerTask.Fields.Thumbnail.cshtml
+// NEXT STATION: Check out the following files to see how we make the activity visible on the admin, then come back here.
+// Views/Items/ManagePersonsPermissionCheckerTask.Fields.Edit.cshtml,
+// ManagePersonsPermissionCheckerTask.Fields.Design.cshtml, ManagePersonsPermissionCheckerTask.Fields.Thumbnail.cshtml
 
 // END OF TRAINING SECTION: Workflows
+
+// This is the end of the training. It is always hard to say goodbye so... don't do it. Let us know your thoughts about
+// this module or Orchard Core itself on GitHub (https://github.com/Lombiq/Orchard-Training-Demo-Module) or send us an
+// email to crew@lombiq.com instead. If you feel like you need some more training on developing Orchard Core web
+// applications, don't hesitate to contact us!

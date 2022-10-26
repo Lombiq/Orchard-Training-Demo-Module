@@ -1,7 +1,7 @@
 {
   "name": "Lombiq.TrainingDemo.Workflows.Sample",
   "displayName": "Training Demo - Sample Workflow - Person Page Content Item Created Logger",
-  "description": "A sample workflow that logs a message when a user creates a PersonPage Content Item.",
+  "description": "A sample workflow that logs a message when a user creates a PersonPage content item.",
   "author": "Lombiq Technologies",
   "website": "https://github.com/Lombiq/Orchard-Training-Demo-Module",
   "version": "1.0",

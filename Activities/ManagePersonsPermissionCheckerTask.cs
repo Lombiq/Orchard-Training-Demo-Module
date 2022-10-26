@@ -32,7 +32,7 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
         S = localizer;
     }
 
-    // The technical name of the activity. Activities on a workflow definition reference this name.
+    // The technical name of the activity. Activities in a workflow definition reference this name.
     public override string Name => nameof(ManagePersonsPermissionCheckerTask);
 
     // The displayed name of the activity, so it can use localization.
