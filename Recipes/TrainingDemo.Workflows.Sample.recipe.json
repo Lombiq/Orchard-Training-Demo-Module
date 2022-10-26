@@ -19,8 +19,8 @@
       "name": "WorkflowType",
       "data": [
         {
-          "WorkflowTypeId": "4vtt0g09pbnt8x72gnc6557smk",
-          "Name": "Person Page Content Item Created Logger",
+          "WorkflowTypeId": "4nrcf82q9wzwt2kf7p7dz2245b",
+          "Name": "Manage Persons Permission Checker",
           "IsEnabled": true,
           "IsSingleton": false,
           "LockTimeout": 0,
@@ -28,33 +28,62 @@
           "DeleteFinishedWorkflows": false,
           "Activities": [
             {
-              "ActivityId": "4jgzsrtras0wt5byehn5s9j04h",
-              "Name": "LogTask",
-              "X": 290,
+              "ActivityId": "4e4nwk4csmmgrr3gstrn726s4f",
+              "Name": "ManagePersonsPermissionCheckerTask",
+              "X": 330,
               "Y": 0,
               "IsStart": false,
               "Properties": {
                 "ActivityMetadata": {
                   "Title": null
                 },
-                "LogLevel": 4,
-                "Text": {
-                  "Expression": "{{ \"Expected non-error -\" | t }} {{ User.Identity.Name }} {{ \"created a new Person Page content item.\" | t }} "
+                "UserName": {
+                  "Expression": "{{ User.Identity.Name }}"
                 }
               }
             },
             {
-              "ActivityId": "4tr7a58h1qz7jvg2vz37hgprn1",
-              "Name": "ContentCreatedEvent",
+              "ActivityId": "4972p06gpmje4ycny23z6aqt41",
+              "Name": "ContentPublishedEvent",
               "X": 0,
               "Y": 0,
               "IsStart": true,
               "Properties": {
-                "ContentTypeFilter": [
-                  "PersonPage"
-                ],
+                "ContentTypeFilter": [],
                 "ActivityMetadata": {
                   "Title": null
+                }
+              }
+            },
+            {
+              "ActivityId": "4sjg6ztagzvsq2xvjrcp2capw7",
+              "Name": "NotifyTask",
+              "X": 380,
+              "Y": 230,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "NotificationType": 1,
+                "Message": {
+                  "Expression": "{{ \"You have no permission to manage Person Page content items.\" | t }} "
+                }
+              }
+            },
+            {
+              "ActivityId": "4093dwgzav0k35767qwjf7dtdm",
+              "Name": "NotifyTask",
+              "X": 780,
+              "Y": 0,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "NotificationType": 1,
+                "Message": {
+                  "Expression": "{{ \"You have permission to manage Person Page content items.\" | t }} "
                 }
               }
             }
@@ -62,9 +91,21 @@
           "Transitions": [
             {
               "Id": 0,
-              "SourceActivityId": "4tr7a58h1qz7jvg2vz37hgprn1",
+              "SourceActivityId": "4972p06gpmje4ycny23z6aqt41",
               "SourceOutcomeName": "Done",
-              "DestinationActivityId": "4jgzsrtras0wt5byehn5s9j04h"
+              "DestinationActivityId": "4e4nwk4csmmgrr3gstrn726s4f"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4e4nwk4csmmgrr3gstrn726s4f",
+              "SourceOutcomeName": "NoPermission",
+              "DestinationActivityId": "4sjg6ztagzvsq2xvjrcp2capw7"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4e4nwk4csmmgrr3gstrn726s4f",
+              "SourceOutcomeName": "HasPermission",
+              "DestinationActivityId": "4093dwgzav0k35767qwjf7dtdm"
             }
           ]
         }
