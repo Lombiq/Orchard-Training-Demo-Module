@@ -1,7 +1,7 @@
 {
   "name": "Lombiq.TrainingDemo.Workflows.Sample",
-  "displayName": "Training Demo - Sample Workflow - Person Page Content Item Created Logger",
-  "description": "A sample workflow that logs a message when a user creates a PersonPage content item.",
+  "displayName": "Training Demo - Sample Workflow - Manage Persons Permission Checker",
+  "description": "A sample workflow that sends a notification when a user publishes any type of content item about having Manage Persons permission or not.",
   "author": "Lombiq Technologies",
   "website": "https://github.com/Lombiq/Orchard-Training-Demo-Module",
   "version": "1.0",
