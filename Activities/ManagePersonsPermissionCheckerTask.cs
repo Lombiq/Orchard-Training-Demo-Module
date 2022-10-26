@@ -49,16 +49,14 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
     }
 
     // Returns the possible outcomes of this activity.
-    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
-    {
-        return Outcomes(S["HasPermission"], S["NoPermission"]);
-    }
+    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext) =>
+        Outcomes(S["HasPermission"], S["NoPermission"]);
 
     // This is the heart of the activity and actually performs the work to be done.
     public override async Task<ActivityExecutionResult> ExecuteAsync(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
     {
-        var userName = await _expressionEvaluator.EvaluateAsync(UserName, workflowContext, null);
-        User user = (User)await _userService.GetUserAsync(userName);
+        var userName = await _expressionEvaluator.EvaluateAsync(UserName, workflowContext, encoder: null);
+        var user = (User)await _userService.GetUserAsync(userName);
 
         if (user != null)
         {
