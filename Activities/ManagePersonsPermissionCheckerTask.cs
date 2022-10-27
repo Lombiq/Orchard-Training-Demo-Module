@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Activities;
 
-// A simple workflow task that accepts a username as a TextField input and checks whether the user has ManagePersons Permission or not.
+// A simple workflow task that accepts a username as a TextField input and checks whether the user has ManagePersons
+// Permission or not.
 public class ManagePersonsPermissionCheckerTask : TaskActivity
 {
     private readonly IAuthorizationService _authorizationService;
@@ -49,11 +50,15 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
     }
 
     // Returns the possible outcomes of this activity.
-    public override IEnumerable<Outcome> GetPossibleOutcomes(WorkflowExecutionContext workflowContext, ActivityContext activityContext) =>
+    public override IEnumerable<Outcome> GetPossibleOutcomes(
+        WorkflowExecutionContext workflowContext,
+        ActivityContext activityContext) =>
         Outcomes(S["HasPermission"], S["NoPermission"]);
 
     // This is the heart of the activity and actually performs the work to be done.
-    public override async Task<ActivityExecutionResult> ExecuteAsync(WorkflowExecutionContext workflowContext, ActivityContext activityContext)
+    public override async Task<ActivityExecutionResult> ExecuteAsync(
+        WorkflowExecutionContext workflowContext,
+        ActivityContext activityContext)
     {
         var userName = await _expressionEvaluator.EvaluateAsync(UserName, workflowContext, encoder: null);
         var user = (User)await _userService.GetUserAsync(userName);
@@ -72,4 +77,8 @@ public class ManagePersonsPermissionCheckerTask : TaskActivity
     }
 }
 
-// NEXT STATION: ViewModels/ManagePersonsPermissionCheckerTaskViewModel.cs
+// NEXT STATION: Now you have to create a ViewModel for the ActivityDisplayDriver. Check out the following file
+// and come back here.
+// ViewModels/ManagePersonsPermissionCheckerTaskViewModel.cs
+
+// NEXT STATION: Drivers/ManagePersonsPermissionCheckerTaskDisplayDriver.cs

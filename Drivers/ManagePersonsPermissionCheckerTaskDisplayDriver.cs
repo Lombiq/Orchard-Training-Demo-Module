@@ -27,6 +27,10 @@ public class ManagePersonsPermissionCheckerTaskDisplayDriver :
 // Views/Items/ManagePersonsPermissionCheckerTask.Fields.Edit.cshtml,
 // ManagePersonsPermissionCheckerTask.Fields.Design.cshtml, ManagePersonsPermissionCheckerTask.Fields.Thumbnail.cshtml
 
+// We created a simple workflow for the implemented activity to demonstrate how it works. It can be found under
+// Recipes/TrainingDemo.Workflows.Sample.recipe.json and you can also see how to import it to the setup recipe using
+// the recipe step in the TrainingDemo.recipe.json file.
+
 // END OF TRAINING SECTION: Workflows
 
 // This is the end of the training. It is always hard to say goodbye so... don't do it. Let us know your thoughts about
