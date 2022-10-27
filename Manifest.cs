@@ -63,6 +63,7 @@ using OrchardCore.Modules.Manifest;
         "OrchardCore.Settings",
         "OrchardCore.Themes",
         "OrchardCore.Users",
+        "OrchardCore.Workflows",
     }
 )]
 

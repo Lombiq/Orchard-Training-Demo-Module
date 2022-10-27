@@ -5,6 +5,7 @@
  */
 
 using Fluid;
+using Lombiq.TrainingDemo.Activities;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Events;
 using Lombiq.TrainingDemo.Fields;
@@ -42,6 +43,7 @@ using OrchardCore.ResourceManagement;
 using OrchardCore.Security.Permissions;
 using OrchardCore.Settings;
 using OrchardCore.Users.Events;
+using OrchardCore.Workflows.Helpers;
 using System;
 using System.IO;
 using YesSql.Indexes;
@@ -156,6 +158,9 @@ public class Startup : StartupBase
 
         // Event handlers
         services.AddScoped<ILoginFormEvent, LoginGreeting>();
+
+        // Workflows
+        services.AddActivity<ManagePersonsPermissionCheckerTask, ManagePersonsPermissionCheckerTaskDisplayDriver>();
     }
 }
 
