@@ -56,3 +56,4 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 - [Unit and integration testing](Services/TestedService.cs)
 - [Compiling resources using Gulp](Gulpfile.js)
 - [GraphQL](GraphQL/Startup.cs)
+- [Workflows](Activities/ManagePersonsPermissionCheckerTask.cs)

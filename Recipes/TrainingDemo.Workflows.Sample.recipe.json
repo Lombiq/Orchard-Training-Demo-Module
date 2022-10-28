@@ -1,0 +1,115 @@
+{
+  "name": "Lombiq.TrainingDemo.Workflows.Sample",
+  "displayName": "Training Demo - Sample Workflow - Manage Persons Permission Checker",
+  "description": "A sample workflow that sends a notification when a user publishes any type of content item about having Manage Persons permission or not.",
+  "author": "Lombiq Technologies",
+  "website": "https://github.com/Lombiq/Orchard-Training-Demo-Module",
+  "version": "1.0",
+  "issetuprecipe": false,
+  "categories": [
+    "training"
+  ],
+  "tags": [
+    "developer",
+    "training",
+    "sample"
+  ],
+  "steps": [
+    {
+      "name": "WorkflowType",
+      "data": [
+        {
+          "WorkflowTypeId": "4nrcf82q9wzwt2kf7p7dz2245b",
+          "Name": "Manage Persons Permission Checker",
+          "IsEnabled": true,
+          "IsSingleton": false,
+          "LockTimeout": 0,
+          "LockExpiration": 0,
+          "DeleteFinishedWorkflows": false,
+          "Activities": [
+            {
+              "ActivityId": "4e4nwk4csmmgrr3gstrn726s4f",
+              "Name": "ManagePersonsPermissionCheckerTask",
+              "X": 330,
+              "Y": 0,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "UserName": {
+                  "Expression": "{{ User.Identity.Name }}"
+                }
+              }
+            },
+            {
+              "ActivityId": "4972p06gpmje4ycny23z6aqt41",
+              "Name": "ContentPublishedEvent",
+              "X": 0,
+              "Y": 0,
+              "IsStart": true,
+              "Properties": {
+                "ContentTypeFilter": [],
+                "ActivityMetadata": {
+                  "Title": null
+                }
+              }
+            },
+            {
+              "ActivityId": "4sjg6ztagzvsq2xvjrcp2capw7",
+              "Name": "NotifyTask",
+              "X": 380,
+              "Y": 230,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "NotificationType": 1,
+                "Message": {
+                  "Expression": "{{ \"You have no permission to manage Person Page content items.\" | t }} "
+                }
+              }
+            },
+            {
+              "ActivityId": "4093dwgzav0k35767qwjf7dtdm",
+              "Name": "NotifyTask",
+              "X": 780,
+              "Y": 0,
+              "IsStart": false,
+              "Properties": {
+                "ActivityMetadata": {
+                  "Title": null
+                },
+                "NotificationType": 1,
+                "Message": {
+                  "Expression": "{{ \"You have permission to manage Person Page content items.\" | t }} "
+                }
+              }
+            }
+          ],
+          "Transitions": [
+            {
+              "Id": 0,
+              "SourceActivityId": "4972p06gpmje4ycny23z6aqt41",
+              "SourceOutcomeName": "Done",
+              "DestinationActivityId": "4e4nwk4csmmgrr3gstrn726s4f"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4e4nwk4csmmgrr3gstrn726s4f",
+              "SourceOutcomeName": "NoPermission",
+              "DestinationActivityId": "4sjg6ztagzvsq2xvjrcp2capw7"
+            },
+            {
+              "Id": 0,
+              "SourceActivityId": "4e4nwk4csmmgrr3gstrn726s4f",
+              "SourceOutcomeName": "HasPermission",
+              "DestinationActivityId": "4093dwgzav0k35767qwjf7dtdm"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
