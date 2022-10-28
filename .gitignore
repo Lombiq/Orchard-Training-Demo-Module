@@ -8,3 +8,7 @@ wwwroot/
 node_modules/
 *.user
 .pnpm-debug.log
+
+# Mac
+.DS_Store
+

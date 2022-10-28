@@ -56,3 +56,4 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 - [Unit and integration testing](Services/TestedService.cs)
 - [Processing frontend assets using `npm scripts`](package.json)
 - [GraphQL](GraphQL/Startup.cs)
+- [Workflows](Activities/ManagePersonsPermissionCheckerTask.cs)
