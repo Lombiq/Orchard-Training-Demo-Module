@@ -8,10 +8,15 @@
     Note that the short date formatting is not available by default in liquid, so we are using a custom short date
     format. Liquid default date formatter uses http://strftime.net/ format.
 
-    You can write custom filters that e.g. would convert DateTime to short date format you can see that below.
+    You can write custom filters as the example shows below for short_date.
 {% endcomment %}
 
 {% assign customDateFormat = Model.BirthDateUtc | date: "%m-%d-%Y" %}
+
+{% comment %}
+     The short_date filter converts DateTime to short date format string. Checkout Liquid/ShortDateFilter.cs to see how
+     it works.
+{% endcomment %}
 {% assign shortDate = Model.BirthDateUtc | short_date %}
 
 <div><strong>{{ Model.Name }}</strong></div>

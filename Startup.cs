@@ -62,18 +62,6 @@ public class Startup : StartupBase
 
     public override void ConfigureServices(IServiceCollection services)
     {
-        // To be able to access the properties inside these view models in display shapes rendered by the Liquid markup
-        // engine you need to register them. To learn more about Liquid in Orchard Core see this documentation:
-        // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
-        services.Configure<TemplateOptions>(options =>
-            {
-                options.MemberAccessStrategy.Register<PersonPartViewModel>();
-                options.MemberAccessStrategy.Register<ColorField>();
-                options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
-            })
-            // You can create custom liquid filters with the following, check out the logic inside the class.
-            .AddLiquidFilter<ShortDateFilter>("short_date");
-
         // NEXT STATION: Views/PersonPart.Edit.cshtml
 
         // Book
@@ -165,6 +153,20 @@ public class Startup : StartupBase
 
         // Workflows
         services.AddActivity<ManagePersonsPermissionCheckerTask, ManagePersonsPermissionCheckerTaskDisplayDriver>();
+
+        // Liquid
+        // To be able to access the properties inside these view models in display shapes rendered by the Liquid markup
+        // engine you need to register them. To learn more about Liquid in Orchard Core see this documentation:
+        // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
+        services.Configure<TemplateOptions>(options =>
+            {
+                options.MemberAccessStrategy.Register<PersonPartViewModel>();
+                options.MemberAccessStrategy.Register<ColorField>();
+                options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+            })
+            // You can create custom liquid filters with the following. You can check out Liquid/ShortDateFilter.cs and
+            // come back here.
+            .AddLiquidFilter<ShortDateFilter>("short_date");
     }
 }
 
