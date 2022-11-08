@@ -1,0 +1,8 @@
+name: Validate Pull Request
+
+on:
+  pull_request:
+
+jobs:
+  call-validate-workflow:
+    uses: Lombiq/GitHub-Actions/.github/workflows/validate-submodule-pull-request.yml@issue/OSOE-425
