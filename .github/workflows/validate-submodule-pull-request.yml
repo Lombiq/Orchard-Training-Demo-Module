@@ -5,4 +5,4 @@ on:
 
 jobs:
   call-validate-workflow:
-    uses: Lombiq/GitHub-Actions/.github/workflows/validate-submodule-pull-request.yml@issue/OSOE-425
+    uses: Lombiq/GitHub-Actions/.github/workflows/validate-submodule-pull-request.yml@dev
