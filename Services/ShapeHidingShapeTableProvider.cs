@@ -8,7 +8,7 @@ namespace Lombiq.TrainingDemo.Services;
 // is to hide shapes conditionally. Usually, you'd use some built-in placement mechanisms for this (see:
 // https://docs.orchardcore.net/en/latest/docs/reference/modules/Placements/) but sometimes you just need to apply some
 // custom logic. How can you do that? By implementing an IShapeTableProvider!
-internal class ShapeHidigingShapeTableProvider : IShapeTableProvider
+internal class ShapeHidingShapeTableProvider : IShapeTableProvider
 {
     // The whole thing starts with Discover(), and then you can target specific shapes with Describe(). Hiding a shape
     // can happen in one of the two ways demonstrated below but you don't need both.
