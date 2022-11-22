@@ -6,5 +6,3 @@ on:
 jobs:
   call-validate-workflow:
     uses: Lombiq/GitHub-Actions/.github/workflows/validate-submodule-pull-request.yml@dev
-    secrets:
-      JIRA_BASE_URL: ${{ secrets.DEFAULT_JIRA_BASE_URL }}
