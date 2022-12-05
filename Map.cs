@@ -143,7 +143,7 @@ internal static class Map
         Pointer<ResourceFromShapeInjectingFilter>();
 
         // IShapeTableProvider, hiding shapes, shape events
-        Pointer<ShapeHidigingShapeTableProvider>();
+        Pointer<ShapeHidingShapeTableProvider>();
 
         // Memory Cache, Dynamic Cache
         // IMemoryCache, IDynamicCacheService, ITagCache

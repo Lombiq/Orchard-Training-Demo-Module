@@ -111,7 +111,7 @@ public class Startup : StartupBase
         });
 
         // Shape table provider
-        services.AddScoped<IShapeTableProvider, ShapeHidigingShapeTableProvider>();
+        services.AddScoped<IShapeTableProvider, ShapeHidingShapeTableProvider>();
 
         // File System
         services.AddSingleton<ICustomFileStore>(serviceProvider =>
