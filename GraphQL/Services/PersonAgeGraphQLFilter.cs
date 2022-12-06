@@ -1,4 +1,4 @@
-using GraphQL.Types;
+using GraphQL;
 using Lombiq.TrainingDemo.Models;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.GraphQL.Queries;
@@ -22,7 +22,7 @@ public class PersonAgeGraphQLFilter : IGraphQLFilter<ContentItem>
 
     // While you can use this to execute some complex YesSql query it's best to stick with the IIndexAliasProvider
     // approach for such things.
-    public Task<IQuery<ContentItem>> PreQueryAsync(IQuery<ContentItem> query, ResolveFieldContext context) =>
+    public Task<IQuery<ContentItem>> PreQueryAsync(IQuery<ContentItem> query, IResolveFieldContext context) =>
         Task.FromResult(query);
 
     // You can use this method to filter offline or in separate requests. This is less efficient but it's necessary if
@@ -30,12 +30,12 @@ public class PersonAgeGraphQLFilter : IGraphQLFilter<ContentItem>
     // indexed for demonstration's sake.
     public Task<IEnumerable<ContentItem>> PostQueryAsync(
         IEnumerable<ContentItem> contentItems,
-        ResolveFieldContext context)
+        IResolveFieldContext context)
     {
         var (name, value) = context.Arguments.FirstOrDefault(
             argument => argument.Key.StartsWith(AgeFilterName, StringComparison.Ordinal));
 
-        if (name != null && value is int age)
+        if (name != null && value.Value is int age)
         {
             var now = _clock.UtcNow;
             if (name == "age") name = "age_eq";
