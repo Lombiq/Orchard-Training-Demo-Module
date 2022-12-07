@@ -34,7 +34,7 @@ public class CrossTenantServicesController : Controller
 
     // A simple route for convenience. You can access this from under /CrossTenantServices?contentItemId=ID. Here ID
     // needs to be a content item ID that you can get e.g. from the URL when you open an item to edit from the admin (it
-    // looks something like "4da2sme18cc2k2rpdgwx3d4cwj" which is NOT made by a cat walking across the keyboard!).
+    // looks something like "4da2sme18cc2k2r5d4w23d4cwj" which is NOT made by a cat walking across the keyboard!).
     [Route("CrossTenantServices")]
     public async Task<string> Index(string contentItemId)
     {

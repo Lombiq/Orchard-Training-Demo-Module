@@ -53,4 +53,4 @@ public class ResourceFromShapeInjectingFilter : IAsyncResultFilter
 
 // END OF TRAINING SECTION: Utilizing action and result filters
 
-// NEXT STATION: Services/ShapeHidigingShapeTableProvider.cs
+// NEXT STATION: Services/ShapeHidingShapeTableProvider.cs

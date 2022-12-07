@@ -70,7 +70,7 @@ public class DisplayManagementController : Controller, IUpdateModel
         {
             CoverPhotoUrl = "/Lombiq.TrainingDemo/images/HarryPotter.jpg",
             Title = "Harry Potter and The Sorcerer's Stone",
-            Author = "J.K. (Joanne) Rowling",
+            Author = "J.K. (Joanne) Rosenzweig",
             Description = "Harry hasn't had a birthday party in eleven years - but all that is about to change " +
                 "when a mysterious letter arrives with an invitation to an incredible place.",
         };

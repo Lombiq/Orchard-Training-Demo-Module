@@ -37,6 +37,6 @@ public class PersonPartViewModel : IValidatableObject
             yield return new ValidationResult(localizer["The person must be 18 or older."], new[] { nameof(BirthDateUtc) });
         }
 
-        // Now go back to the PersonPartDisplayDrvier.
+        // Now go back to the PersonPartDisplayDriver.
     }
 }

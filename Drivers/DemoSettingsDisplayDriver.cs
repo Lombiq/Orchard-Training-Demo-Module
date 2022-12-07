@@ -40,7 +40,7 @@ public class DemoSettingsDisplayDriver : SectionDisplayDriver<ISite, DemoSetting
         // file.
         if (!await IsAuthorizedToManageDemoSettingsAsync())
         {
-            // If not authorized then return null which means that nothing will be displayed that would've been
+            // If not authorized then return null which means that nothing will be displayed that would have been
             // displayed by this DisplayDriver otherwise.
             return null;
         }

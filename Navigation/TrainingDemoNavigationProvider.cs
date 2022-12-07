@@ -1,4 +1,4 @@
-﻿using Lombiq.HelpfulLibraries.OrchardCore.Navigation;
+using Lombiq.HelpfulLibraries.OrchardCore.Navigation;
 using Lombiq.TrainingDemo.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
@@ -46,8 +46,8 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
                 .AddLabel(T["Database Storage"])
                 .Add(T["Create Books"], subMenu => subMenu
                     .Action<DatabaseStorageController>(context, controller => controller.CreateBooks()))
-                .Add(T["J. K. Rowling Books"], subMenu => subMenu
-                    .ActionTask<DatabaseStorageController>(context, controller => controller.JKRowlingBooks()))
+                .Add(T["J. K. Rosenzweig Books"], subMenu => subMenu
+                    .ActionTask<DatabaseStorageController>(context, controller => controller.JKRosenzweigBooks()))
                 .AddSeparator(T)
                 .AddLabel(T["Person List"])
                 .Add(T["Older Than 30"], subMenu => subMenu

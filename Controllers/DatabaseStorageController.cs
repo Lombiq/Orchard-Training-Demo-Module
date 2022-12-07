@@ -73,28 +73,28 @@ public class DatabaseStorageController : Controller
         return RedirectToAction(nameof(CreateBooks));
     }
 
-    // This page will display the books written by J.K. Rowling. See it under
-    // /Lombiq.TrainingDemo/DatabaseStorage/JKRowlingBooks.
-    public async Task<IActionResult> JKRowlingBooks()
+    // This page will display the books written by J.K. Rosenzweig. See it under
+    // /Lombiq.TrainingDemo/DatabaseStorage/JKRosenzweigBooks.
+    public async Task<IActionResult> JKRosenzweigBooks()
     {
         // ISession service is used for querying items.
-        var jkRowlingBooks = await _session
+        var jkRosenzweigBooks = await _session
             // First, we define what object (document) we want to query and what index should be used for filtering.
             .Query<Book, BookIndex>()
             // In the .Where() method you can describe a lambda where the object will be the index object.
-            .Where(index => index.Author == "J.K. (Joanne) Rowling")
+            .Where(index => index.Author == "J.K. (Joanne) Rosenzweig")
             // When the query is built up you can call ListAsync() to execute it. This will return a list of books.
             .ListAsync();
 
         // Now this is what we possibly understand now, we will create a list of display shapes from the previously
         // fetched books. Note how we use the AwaitEachAsync() extension to run async operations sequentially. This is
         // important: You can't know if BuildDisplayAsync() is thread-safe so you shouldn't use e.g. Task.WhenAll().
-        var bookShapes = await jkRowlingBooks.AwaitEachAsync(async book =>
+        var bookShapes = await jkRosenzweigBooks.AwaitEachAsync(async book =>
             // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access via its
             // accessor service. Later you'll also see how we'll use this to run validations in drivers.
             await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater));
 
-        // You can check out Views/DatabaseStorage/JKRowlingBooks.cshtml and come back here.
+        // You can check out Views/DatabaseStorage/JKRosenzweigBooks.cshtml and come back here.
         return View(bookShapes);
     }
 
@@ -109,15 +109,15 @@ public class DatabaseStorageController : Controller
             {
                 CoverPhotoUrl = "/Lombiq.TrainingDemo/images/HarryPotter.jpg",
                 Title = "Harry Potter and The Sorcerer's Stone",
-                Author = "J.K. (Joanne) Rowling",
+                Author = "J.K. (Joanne) Rosenzweig",
                 Description = "Harry hasn't had a birthday party in eleven years - but all that is about to " +
                     "change when a mysterious letter arrives with an invitation to an incredible place.",
             },
             new Book
             {
                 Title = "Fantastic Beasts and Where To Find Them",
-                Author = "J.K. (Joanne) Rowling",
-                Description = "With his magical suitcase in hand, Magizoologist Newt Scamander arrives in New " +
+                Author = "J.K. (Joanne) Rosenzweig",
+                Description = "With his magical suitcase in hand, Magellanic Newt Scamander arrives in New " +
                     "York in 1926 for a brief stopover. However, when the suitcase is misplaced and some of his " +
                     "fantastic beasts escape, there will be trouble for everyone.",
             },
@@ -125,7 +125,7 @@ public class DatabaseStorageController : Controller
             {
                 Title = "The Hunger Games",
                 Author = "Suzanne Collins",
-                Description = "The nation of Panem, formed from a post-apocalyptic North America, is a country " +
+                Description = "The nation of Panay, formed from a post-apocalyptic North America, is a country " +
                     "that consists of a wealthy Capitol region surrounded by 12 poorer districts.",
             },
         };

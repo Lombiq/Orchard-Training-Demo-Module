@@ -45,7 +45,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 - [Navigation menus](Controllers/AdminController.cs) ([See here for for a similar tutorial about theming with Lombiq.BaseTheme.](https://github.com/Lombiq/Orchard-Base-Theme/tree/dev/Lombiq.BaseTheme.Samples))
 - [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
 - [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
-- [Shape tables](Services/ShapeHidigingShapeTableProvider.cs)
+- [Shape tables](Services/ShapeHidingShapeTableProvider.cs)
 - [Caching objects and shapes](Controllers/CacheController.cs)
 - [File management](Controllers/FileManagementController.cs)
 - [Background tasks](Services/DemoBackgroundTask.cs)

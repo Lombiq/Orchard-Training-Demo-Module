@@ -67,14 +67,14 @@ public class Startup : StartupBase
         // Book
         services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
         services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
-        services.AddScoped<IDataMigration, BookMigrations>();
+        services.AddDataMigration<BookMigrations>();
         services.AddSingleton<IIndexProvider, BookIndexProvider>();
 
         // Person Part
         services.AddContentPart<PersonPart>()
             .UseDisplayDriver<PersonPartDisplayDriver>()
             .AddHandler<PersonPartHandler>();
-        services.AddScoped<IDataMigration, PersonMigrations>();
+        services.AddDataMigration<PersonMigrations>();
         services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
 
         // Color Field
@@ -111,7 +111,7 @@ public class Startup : StartupBase
         });
 
         // Shape table provider
-        services.AddScoped<IShapeTableProvider, ShapeHidigingShapeTableProvider>();
+        services.AddScoped<IShapeTableProvider, ShapeHidingShapeTableProvider>();
 
         // File System
         services.AddSingleton<ICustomFileStore>(serviceProvider =>
