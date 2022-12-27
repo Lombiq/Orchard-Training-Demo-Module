@@ -46,7 +46,7 @@ public class PersonPartDisplayDriver : ContentPartDisplayDriver<PersonPart>
             .Location("Detail", "Content:1")
             .Location("Summary", "Content:1");
 
-    // This is something that wasn't implemented in the BookDisplayDriver (but could've been). It will generate the
+    // This is something that wasn't implemented in the BookDisplayDriver (but could have been). It will generate the
     // editor shape for the PersonPart.
     public override IDisplayResult Edit(PersonPart part, BuildPartEditorContext context) =>
         // Something similar to the Display method happens. GetEditorShapeType() will by default generate
