@@ -1,9 +1,9 @@
 using OrchardCore.Modules.Manifest;
 
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
 [assembly: Module(
     // Display name of the module. Will be displayed on the Modules page of the Dashboard if the module has just one
     // feature (see below).
-#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
     Name = "Lombiq Training Demo",
 #pragma warning restore SA1114 // Parameter list should follow declaration
     // Your name, company or any name that identifies the developers working on the project.
@@ -24,9 +24,9 @@ using OrchardCore.Modules.Manifest;
 // If you have multiple features in a module then you also have to have one for the base feature (otherwise you can't
 // turn that on). If you don't have multiple features then the Category and Dependencies configuration from below can
 // just directly go to the Module attribute.
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
 [assembly: Feature(
     // The technical ID of the feature. The base feature should have the same name as the module (i.e. its csproj file).
-#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
     Id = "Lombiq.TrainingDemo",
 #pragma warning restore SA1114 // Parameter list should follow declaration
     // Display name of the feature, displayed on the Modules page of the Dashboard.
@@ -68,9 +68,9 @@ using OrchardCore.Modules.Manifest;
 )]
 
 // And we also have a second feature!
+#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
 [assembly: Feature(
     // We commonly suffix the base feature/module ID and name for sub-features.
-#pragma warning disable SA1114 // Parameter list should follow declaration (necessary for the comment)
     Id = "Lombiq.TrainingDemo.Middlewares",
 #pragma warning restore SA1114 // Parameter list should follow declaration
     Name = "Lombiq Training Demo - Middlewares",
