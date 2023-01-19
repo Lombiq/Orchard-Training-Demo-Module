@@ -30,8 +30,9 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 
 ## Training sections
 
+[Here's also a handy map](Map.cs) for reminders about specific solutions, concepts, and keywords. You can use this to go directly to specific topics if you know what you're looking for.
+
 - [Module manifest](Manifest.cs)
-- [Map.cs for reminders regarding specific solutions](Map.cs)
 - [Your first OrchardCore Controller](Controllers/YourFirstOrchardCoreController.cs)
 - [Display management](Controllers/DisplayManagementController.cs)
 - [Storing data in document database and index records](Controllers/DatabaseStorageController.cs)
