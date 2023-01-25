@@ -1,9 +1,29 @@
 {
-  "private": true,
+  "description": "All frontend asset processing is done by Lombiq's Node.js Extensions (https://github.com/Lombiq/NodeJs-Extensions).",
   "dependencies": {
     "pickr-widget": "0.3.6"
   },
+  "private": true,
   "scripts": {
-    "dotnet-prebuild": "gulp"
-  }
+    "build": "npm explore nodejs-extensions -- pnpm build",
+    "clean": "npm explore nodejs-extensions -- pnpm clean",
+    "watch": "npm explore nodejs-extensions -- pnpm watch:styles"
+  },
+  "nodejsExtensions": {
+    "assetsToCopy": [
+      {
+        "sources": [ "Assets/Images" ],
+        "target": "wwwroot/images"
+      },
+      {
+        "sources": [ "node_modules/pickr-widget/dist" ],
+        "pattern": "*",
+        "target": "wwwroot/pickr"
+      }
+    ]
+  },
+
+  "END OF TRAINING SECTION": "Processing frontend assets using npm scripts",
+
+  "NEXT STATION": "GraphQL/Startup.cs"
 }

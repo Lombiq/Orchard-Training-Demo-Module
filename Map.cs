@@ -179,8 +179,8 @@ internal static class Map
         // Unit and integration testing
         Pointer<TestedService>();
 
-        // Resource compilation, asset management, Gulp, Babel
-        // Gulpfile.babel.js
+        // Resource compilation, asset management
+        // package.json
 
         // GraphQL - content part
         Pointer<PersonPartObjectGraphType>();

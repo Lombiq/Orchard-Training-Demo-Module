@@ -41,6 +41,13 @@ If you'd like to clean out comments from code files so you can just see the esse
 
 Take a look at the Recipes menu in the Admin screen to load in additional sample content. This is not included by default to reduce clutter.
 
+## Dependencies
+
+This module has the following dependencies:
+
+- [Lombiq Helpful Libraries for Orchard Core](https://github.com/Lombiq/Helpful-Libraries)
+- [Lombiq Node.js Extensions](https://gihub.com/Lombiq/NodeJs-Extensions)
+
 ## Contributing and support
 
 Bug reports, feature requests, comments, questions, code contributions and love letters are warmly welcome. You can send them to us via GitHub issues and pull requests. Please adhere to our [open-source guidelines](https://lombiq.com/open-source-guidelines) while doing so.
