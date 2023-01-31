@@ -3,8 +3,8 @@
  * by their sex.
  * It's OK to place the part and the part record into the same code file if neither of them are particularly big.
  * Make sure to read the corresponding documentation:
- * http://docs.orchardproject.net/Documentation/Creating-a-module-with-a-simple-text-editor
- * http://docs.orchardproject.net/Documentation/Writing-a-content-part
+ * http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Creating-a-module-with-a-simple-text-editor
+ * http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Writing-a-content-part
  * Also it's probably the best time to read Bertrand Le Roy's corresponding overview about Orchard's extensibility:
  * http://msdn.microsoft.com/en-us/magazine/hh708754.aspx
  */

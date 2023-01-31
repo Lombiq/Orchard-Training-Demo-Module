@@ -33,7 +33,7 @@ namespace OrchardHUN.TrainingDemo.Services
         //      Orchard instance only. ICacheManager is one of Orchard's core services, you can just use it. This cache
         //      won't deal with memory pressure, i.e. items will be kept in the cache even if free memory is low. Both
         // services are tenant-specific, i.e. if you cache something you'll only be able to access it from the same
-        // tenant (see http://docs.orchardproject.net/Documentation/Setting-up-a-multi-tenant-orchard-site for
+        // tenant (see https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Setting-up-a-multi-tenant-Orchard-site/ for
         // multi-tenancy). We'll compare the usage of both services. Most of the time you'll need ICacheService.
         private readonly ICacheService _cacheService;
         private readonly ICacheManager _cacheManager;

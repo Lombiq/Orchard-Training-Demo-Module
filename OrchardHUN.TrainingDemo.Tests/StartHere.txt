@@ -13,7 +13,7 @@ Other gotchas:
 
 If you don't really know what unit testing is about please study the topic first.
 
-There is no scaffolding command to create unit test projects (yet: http://orchard.codeplex.com/workitem/18696) so you have to create them by hand.
+There is no scaffolding command to create unit test projects (yet: https://www.google.com/search?q=Work+Item+Codeplex) so you have to create them by hand.
 This is not trivial as test projects need many references; this project has almost the absolute minimum amount of project references that are needed 
 to be able to correctly run unit tests. Some stubs and base classes are already implemented in the built-in test projects so those are referenced as
 well.

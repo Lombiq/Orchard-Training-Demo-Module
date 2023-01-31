@@ -1,7 +1,7 @@
 ﻿/*
  * Previously we've seen how to describe a record. We also have to declare how to store it as well. This is where we 
  * need migrations. (Again, make sure to read through this page: 
- * http://docs.orchardproject.net/Documentation/Understanding-data-access)
+ * http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Understanding-data-access)
  * Migrations are automatically run by the framework. You can use them to describe DB schema changes.
  */
 using Orchard.Data.Migration;

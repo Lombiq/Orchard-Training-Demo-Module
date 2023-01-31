@@ -27,7 +27,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
          *      access files stored in the Media folder of the tenant (each tenant has its own folder in the Media 
          *      directory). The Media directory is accessible to anyone!
          *      Also keep in mind that the Media folder's content is accessible from the dashboard through the Media module
-         *      (http://docs.orchardproject.net/Documentation/Adding-and-managing-media-content) so your users are able 
+         *      (http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Adding-and-managing-media-content) so your users are able 
          *      to directly access them.
          *      However a hidden, "technical" media folder is under consideration.
          * *    IMediaService: a higher level service to access the Media folder as well, but it also contains additional 
