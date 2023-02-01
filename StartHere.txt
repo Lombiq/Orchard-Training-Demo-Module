@@ -8,7 +8,8 @@ to head next, otherwise look throught the code as you like.
 
 Before you dive deep into this module it'd be best if you made sure that you have done the following:
 *	You know what MVC is about and how ASP.NET MVC works. It's important that you understand how ASP.NET MVC works or 
-	generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at https://www.asp.net/mvc.	
+	generally what MVC is about. If you are not familiar with the topic take a look at the tutorials at https://www.asp.net/mvc.
+	Or for a funnier start, watch this video: https://learn.microsoft.com/en-us/shows/asp-net-site-videos/5-minute-introduction-to-aspnet-mvc
 *	You've read through the documentation at https://docs.orchardcore.net/en/latest/ (at least the "Getting Started", "About
 	the project" and "Developer Tools and Guidelines" sections, but it would be great if you'd read the whole documentation).
 *	You know Orchard from a user's perspecive and understand the concepts underlying the system.
