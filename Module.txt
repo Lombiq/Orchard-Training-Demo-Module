@@ -6,7 +6,7 @@ Author: The Orchard Hungary Team / Lombiq
 Website: https://github.com/Lombiq/Orchard-Training-Demo-Module
 Version: 1.0
 OrchardVersion: 1.10.1
-Description: Demo Orchard module for training purposes. Based on Sipke Schoorstra's Orchard Harvest session (http://www.youtube.com/watch?v=MH9mcodTX-U).
+Description: Demo Orchard module for training purposes. Based on Sipke Schoorstra's Orchard Harvest session (https://www.youtube.com/watch?v=MH9mcodTX-U).
 Features:
     OrchardHUN.TrainingDemo:
         Name: Training Demo

@@ -1,5 +1,5 @@
 ﻿/*
- * We'll now add some settings to the dashboard (see: http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Modifying-site-settings).
+ * We'll now add some settings to the dashboard (see: https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Modifying-site-settings).
  * As pretty much everthing that counts, site settings are also content items in Orchard. More precisely, the site 
  * settings is a single content item of type Site. By adding a content part to this Site content type we can extend site 
  * settings.

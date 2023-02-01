@@ -4,7 +4,7 @@ using System.Web.Mvc;
 
 /* What you're now looking at is an extension point for the available filters in this Orchard application.
  * Filters in Orchard work based on MVC's filters, so please read the short tutorial available at
- * http://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/understanding-action-filters-cs if you're not 
+ * https://www.asp.net/mvc/tutorials/older-versions/controllers-and-routing/understanding-action-filters-cs if you're not 
  * yet familiar with the basic concept.
  * 
  * "Fast forwarding Memory to a more recent one."

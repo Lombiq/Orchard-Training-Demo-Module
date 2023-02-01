@@ -41,7 +41,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             }
             // Catching the base Exception looks ugly, but strictly speaking you can't assume more: you only know the
             // service's interface! More info:
-            // http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
+            // https://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
             // It will bubble through if it's e.g. an OutOfMemoryException.
             catch (Exception ex) when (!ex.IsFatal())
             {

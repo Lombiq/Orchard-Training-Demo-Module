@@ -164,7 +164,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
              * 
              * Content querying in Orchard goes through ContentQuery that you can access through the ContentManager. 
              * It's kind of a LINQ API. It's again very important that you understand the concepts behind content types: 
-             * http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Content-types
+             * https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Content-types
              * 
              * As you surely know now, content types and thus content items instantiated from them consist of multiple 
              * parts. When making content queries we can use the properties of these parts' records for filtering, 

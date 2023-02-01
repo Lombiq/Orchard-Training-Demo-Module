@@ -1,5 +1,5 @@
 ﻿/*
- * Make sure you understand what drivers are: http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Content-types
+ * Make sure you understand what drivers are: https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Content-types
  * Basically all the drivers of a content type's parts are called when building the display or editor shape of a content 
  * item (and also when importing/exporting).
  * Note that the same part can have multiple drivers: e.g. you could write a driver for even TitlePart.
@@ -31,7 +31,7 @@ namespace OrchardHUN.TrainingDemo.Drivers
                 // The namings are conventional.
                 ContentShape("Parts_PersonList",
                     // Here a display shape is built (see:
-                    // http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Accessing-and-rendering-shapes). The part is
+                    // https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Accessing-and-rendering-shapes). The part is
                     // automatically passed to it, but we can add arbitrary data to it just as we now do with displayType.
                     () =>
                     {

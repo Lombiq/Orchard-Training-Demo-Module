@@ -27,7 +27,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
          *      access files stored in the Media folder of the tenant (each tenant has its own folder in the Media 
          *      directory). The Media directory is accessible to anyone!
          *      Also keep in mind that the Media folder's content is accessible from the dashboard through the Media module
-         *      (http://docs.orchardcore.net/projects/O1/en/latest/Documentation/Adding-and-managing-media-content) 
+         *      (https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Adding-and-managing-media-content) 
          *      so your users are able to directly access them.
          *      However a hidden, "technical" media folder is under consideration.
          * *    IMediaService: a higher level service to access the Media folder as well, but it also contains additional 
@@ -111,7 +111,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
             }
             // Sometimes we can't know what type of exception a service can throw so the best we can do is catch
             // Exception and then check whether it's fatal. For clarification see:
-            // http://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
+            // https://english.orchardproject.hu/blog/orchard-gems-exception-fatality-check
             catch (Exception ex) when (!ex.IsFatal())
             {
                 return "Something went terribly wrong: " + ex.Message;

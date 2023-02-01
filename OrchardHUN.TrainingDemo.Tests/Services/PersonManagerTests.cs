@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,7 +23,7 @@ namespace OrchardHUN.TrainingDemo.Tests.Services
     {
         private IPersonManager _personManager;
 
-        // Building a testing dependency injection container with mocked and stubbed types. See: http://code.google.com/p/moq/
+        // Building a testing dependency injection container with mocked and stubbed types. See: https://github.com/Moq/moq4
         public override void Register(ContainerBuilder builder)
         {
             // If any unregistered type is requested from the container a dynamic mock will be created for it.
