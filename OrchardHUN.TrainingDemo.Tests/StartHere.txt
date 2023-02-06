@@ -13,12 +13,10 @@ Other gotchas:
 
 If you don't really know what unit testing is about please study the topic first.
 
-There is no scaffolding command to create unit test projects (yet: http://orchard.codeplex.com/workitem/18696) so you have to create them by hand.
-This is not trivial as test projects need many references; this project has almost the absolute minimum amount of project references that are needed 
-to be able to correctly run unit tests. Some stubs and base classes are already implemented in the built-in test projects so those are referenced as
-well.
+You can use the codegen moduletests scaffolding command to create unit test projects 
+(https://github.com/OrchardCMS/Orchard/blob/dev/src/Orchard.Web/Modules/Orchard.CodeGeneration/Commands/CodeGenerationCommands.cs#L134).
 
-To actually run unit tests you'll need a unit test runner. We advise you to check out the TestDriven.Net VS add-in (http://www.testdriven.net/)
+To actually run unit tests you'll need a unit test runner. We advise you to check out the TestDriven.Net VS add-in (https://www.testdriven.net/)
 that makes executing a test suite a matter of right click-click.
 
 You may have noticed that the structure of the unit test project is conveniently the same as the module's, e.g. tests for services are in the 

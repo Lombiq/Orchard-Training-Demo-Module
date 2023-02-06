@@ -3,7 +3,7 @@
  * store a person's data in a DB table.
  * We use such low-level storage if we want to store something in the DB what we don't want to use as part of content 
  * items. This includes data that e.g. our module uses internally and we don't really want to expose to the outside world.
- * Make sure to read the corresponding documentation (http://docs.orchardproject.net/Documentation/Understanding-data-access) 
+ * Make sure to read the corresponding documentation (https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Understanding-data-access) 
  * first!
  */
 

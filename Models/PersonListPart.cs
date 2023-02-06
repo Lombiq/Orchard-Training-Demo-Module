@@ -3,10 +3,10 @@
  * by their sex.
  * It's OK to place the part and the part record into the same code file if neither of them are particularly big.
  * Make sure to read the corresponding documentation:
- * http://docs.orchardproject.net/Documentation/Creating-a-module-with-a-simple-text-editor
- * http://docs.orchardproject.net/Documentation/Writing-a-content-part
+ * https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Creating-a-module-with-a-simple-text-editor
+ * https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Writing-a-content-part
  * Also it's probably the best time to read Bertrand Le Roy's corresponding overview about Orchard's extensibility:
- * http://msdn.microsoft.com/en-us/magazine/hh708754.aspx
+ * https://msdn.microsoft.com/en-us/magazine/hh708754.aspx
  */
 
 using Orchard.ContentManagement;
@@ -44,7 +44,7 @@ namespace OrchardHUN.TrainingDemo.Models
             // content item: it can be used to store arbitrary data. Because it's always loaded accessing its content is
             // very fast; by using these helpers the record will be only accessed when really needed (like when filtering
             // on its properties when querying), otherwise data is loaded from the infoset. For more information see:
-            // http://orcharddojo.net/orchard-resources/Library/Wiki/InfosetPart
+            // https://orcharddojo.net/orchard-resources/Library/Wiki/InfosetPart
             get => Retrieve(x => x.Sex);
             set => Store(x => x.Sex, value);
         }

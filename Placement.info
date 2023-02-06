@@ -1,6 +1,6 @@
 ﻿<!--
 Make sure that this file and any other non-cs files (like view templates) have the build action set to Content!
-Also make sure to read the corresponding documentation: http://docs.orchardproject.net/Documentation/Understanding-placement-info
+Also make sure to read the corresponding documentation: https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Understanding-placement-info
 This Placement.info is very simple, there are much more options.
 -->
 

@@ -1,6 +1,6 @@
 ﻿/*
  * We'll write a handler for our part so make sure you understand what handlers are: 
- * http://docs.orchardproject.net/Documentation/Understanding-content-handlers
+ * https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Understanding-content-handlers
  */
 
 using Orchard.ContentManagement.Handlers;

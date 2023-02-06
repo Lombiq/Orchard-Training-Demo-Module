@@ -1,5 +1,5 @@
 ﻿/*
- * This class will add some commands to the Orchard command line (http://docs.orchardproject.net/Documentation/Using-the-command-line-interface).
+ * This class will add some commands to the Orchard command line (https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Using-the-command-line-interface/).
  * 
  * With the commands exposed here we'll be able to modify the site settings we developed with DemoSettingsPart.
  */

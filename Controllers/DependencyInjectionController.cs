@@ -1,6 +1,6 @@
 ﻿/*
  * Another pretty simple controller, but here we get to know how dependency injection works within Orchard. If you're
- * not yet familiar with DI make sure to study the concept first: http://en.wikipedia.org/wiki/Dependency_injection.
+ * not yet familiar with DI make sure to study the concept first: https://en.wikipedia.org/wiki/Dependency_injection.
  * 
  * Orchard gives us built-in constructor injection for dependencies. This means that if you request a dependency by its 
  * interface in your class's constructor, Orchard will automatically inject an active implementation for you.
@@ -24,7 +24,7 @@ namespace OrchardHUN.TrainingDemo.Controllers
          * 
          * Take a look at the interface (just press F12 when the cursor is on the type). What's important for us that it 
          * derives from IDependency. IDependency is a marker interface used for the auto-discovery of dependencies. This 
-         * page: http://docs.orchardproject.net/Documentation/How-Orchard-works (look for the "Dependency Injection" 
+         * page: https://docs.orchardcore.net/projects/O1/en/latest/Documentation/How-Orchard-works (look for the "Dependency Injection" 
          * title) describes such marker interfaces in detail.
          * 
          * As this field will be set only in the ctor it can be read-only. Using an underscore for private fields is 
@@ -102,8 +102,8 @@ namespace OrchardHUN.TrainingDemo.Controllers
 
             // The notifier requires a localized string. This means if we'd have a corresponding entry for this string in
             // a .po file then it would appear in e.g. Hungarian if we would have the locale set to hu-HU.
-            // See: http://docs.orchardproject.net/Documentation/Creating-global-ready-applications Also, this is the way
-            // to have localized strings with dynamically injected content.
+            // See: https://docs.orchardcore.net/projects/O1/en/latest/Documentation/Creating-global-ready-applications
+            // Also, this is the way to have localized strings with dynamically injected content.
             _notifier.Information(T("Please continue testing. -- Subject name: {0}; Subject location: {1}", currentUserName, currentUrl));
 
             // This will get into the logs, really. Check the latest log in App_Data/Logs!

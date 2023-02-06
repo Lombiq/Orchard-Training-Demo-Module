@@ -1,6 +1,6 @@
 ﻿/*
  * Events are more than just a convenient way of calling into all the registered dependencies. Actually calls to event 
- * go through the so-called Orchard Event Bus (see: http://docs.orchardproject.net/Documentation/How-Orchard-works#EventBus). 
+ * go through the so-called Orchard Event Bus (see: https://docs.orchardcore.net/projects/O1/en/latest/Documentation/How-Orchard-works/#event-bus). 
  * A method call is not just a simple method call but really a message broadcasted on the event bus. This makes it 
  * possible such crazy things like handling an event without having a reference to it!
  */
