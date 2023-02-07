@@ -2,14 +2,14 @@ name: Create Jira issues for community activities
 
 on:
   discussion:
-    types: created
+    types: [created]
   issues:
-    types: opened
+    types: [opened]
   pull_request:
-    types: opened
+    types: [opened]
 
 jobs:
-  call-publish-workflow:
+  create-jira-issues-for-community-activities:
     uses: Lombiq/GitHub-Actions/.github/workflows/create-jira-issues-for-community-activities.yml@dev
     secrets:
       JIRA_BASE_URL: ${{ secrets.DEFAULT_JIRA_BASE_URL }}
