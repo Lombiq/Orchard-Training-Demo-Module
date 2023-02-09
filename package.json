@@ -29,11 +29,11 @@
   "END OF TRAINING SECTION": "Processing frontend assets using npm scripts",
   "NEXT STATION": "GraphQL/Startup.cs",
   "devDependencies": {
-    "eslint": "8.25.0",
-    "eslint-config-airbnb-base": "15.0.0",
-    "eslint-plugin-import": "2.26.0",
-    "eslint-plugin-node": "11.1.0",
-    "eslint-plugin-only-warn": "1.0.3",
-    "eslint-plugin-promise": "6.1.0"
+    "eslint": "^8.25.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-only-warn": "^1.0.3",
+    "eslint-plugin-promise": "^6.1.0"
   }
 }
