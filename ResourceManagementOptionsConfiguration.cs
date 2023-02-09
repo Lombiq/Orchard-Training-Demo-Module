@@ -60,8 +60,8 @@ public class ResourceManagementOptionsConfiguration : IConfigureOptions<Resource
             // specific and contains our namespace.
             .DefineStyle("Lombiq.TrainingDemo.ColorPicker")
             .SetUrl(
-                "~/Lombiq.TrainingDemo/css/trainingdemo-colorpicker.min.css", // #spell-check-ignore-line
-                "~/Lombiq.TrainingDemo/css/trainingdemo-colorpicker.css") // #spell-check-ignore-line
+                "~/Lombiq.TrainingDemo/css/trainingdemo-colorpicker.min.css",
+                "~/Lombiq.TrainingDemo/css/trainingdemo-colorpicker.css")
             // You can give a list of resource names to SetDependencies to force the loading of other resources when a
             // given resource is used. Here Pickr is a dependency.
             .SetDependencies("Pickr");
@@ -72,8 +72,8 @@ public class ResourceManagementOptionsConfiguration : IConfigureOptions<Resource
         _manifest
             .DefineStyle("Lombiq.TrainingDemo.Filtered")
             .SetUrl(
-                "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.min.css", // #spell-check-ignore-line
-                "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.css"); // #spell-check-ignore-line
+                "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.min.css",
+                "~/Lombiq.TrainingDemo/css/trainingdemo-filtered.css");
     }
 
     public void Configure(ResourceManagementOptions options) => options.ResourceManifests.Add(_manifest);
