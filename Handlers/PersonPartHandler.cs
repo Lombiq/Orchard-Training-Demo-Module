@@ -14,9 +14,9 @@ public class PersonPartHandler : ContentPartHandler<PersonPart>
     // person's name? This is because what's displayed there is the content item's DisplayText (you can think of it as a
     // universal title) that we actually set here. Here we implement UpdatedAsync() which runs every time after a
     // content item is updated. Check out all the other events that you can use!
-    public override Task UpdatedAsync(UpdateContentContext context, PersonPart instance)
+    public override Task UpdatedAsync(UpdateContentContext context, PersonPart part)
     {
-        context.ContentItem.DisplayText = instance.Name;
+        context.ContentItem.DisplayText = part.Name;
 
         return Task.CompletedTask;
     }
