@@ -49,7 +49,6 @@ using OrchardCore.Users.Events;
 using OrchardCore.Workflows.Helpers;
 using System;
 using System.IO;
-using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo;
 
