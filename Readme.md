@@ -35,7 +35,7 @@ Be sure to check out the [Orchard Dojo Library for Orchard Core](https://orchard
 
 You can also follow the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) if you like to learn from videos.
 
-Keep in mind that your best living reference of how to do something in Orchard is [the official repo](https://github.com/OrchardCMS/OrchardCore/) and our Open-Source Orchard Core Extensions solution. Clone both and keep the solutions open when you’re working on something so you can quickly look up anything.
+Keep in mind that your best living reference of how to do something in Orchard is [the official repo](https://github.com/OrchardCMS/OrchardCore) and our Open-Source Orchard Core Extensions solution. Clone both and keep the solutions open when you’re working on something so you can quickly look up anything.
 
 If you'd like to clean out comments from code files so you can just see the essence, then use the [Comment Remover VS extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommentRemover) to quickly do it.
 
