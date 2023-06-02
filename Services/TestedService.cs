@@ -52,14 +52,8 @@ public class TestedService : ITestedService
     private async Task<ContentItem> GetContentItemOrThrowInternalAsync(string id)
     {
         // You already know how this works :).
-        var contentItem = await _contentManager.GetAsync(id);
-
-        // Checking content retrievals for null is always a good idea.
-        if (contentItem == null)
-        {
-            throw new InvalidOperationException($"The content item with the ID {id} doesn't exist.");
-        }
-
+        var contentItem = await _contentManager.GetAsync(id)
+            ?? throw new InvalidOperationException($"The content item with the ID {id} doesn't exist.");
         return contentItem;
     }
 }
