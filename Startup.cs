@@ -31,6 +31,7 @@ using OrchardCore.BackgroundTasks;
 using OrchardCore.ContentManagement;
 using OrchardCore.ContentManagement.Display.ContentDisplay;
 using OrchardCore.ContentTypes.Editors;
+using OrchardCore.Data;
 using OrchardCore.Data.Migration;
 using OrchardCore.DisplayManagement;
 using OrchardCore.DisplayManagement.Descriptors;
@@ -48,7 +49,6 @@ using OrchardCore.Users.Events;
 using OrchardCore.Workflows.Helpers;
 using System;
 using System.IO;
-using YesSql.Indexes;
 
 namespace Lombiq.TrainingDemo;
 
@@ -68,14 +68,14 @@ public class Startup : StartupBase
         services.AddScoped<IDisplayDriver<Book>, BookDisplayDriver>();
         services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
         services.AddDataMigration<BookMigrations>();
-        services.AddSingleton<IIndexProvider, BookIndexProvider>();
+        services.AddIndexProvider<BookIndexProvider>();
 
         // Person Part
         services.AddContentPart<PersonPart>()
             .UseDisplayDriver<PersonPartDisplayDriver>()
             .AddHandler<PersonPartHandler>();
         services.AddDataMigration<PersonMigrations>();
-        services.AddSingleton<IIndexProvider, PersonPartIndexProvider>();
+        services.AddIndexProvider<PersonPartIndexProvider>();
 
         // Color Field
         services.AddContentField<ColorField>()
