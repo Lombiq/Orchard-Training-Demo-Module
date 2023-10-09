@@ -10,7 +10,7 @@ If you prefer tutorial videos more then check out the [Dojo Course 3, the comple
 
 ## How to start
 
-The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) and the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that). You should also be familiar with how to use Visual Studio (or any other C# IDE) and write C#, as well as the concepts of ASP.NET Core MVC.
+The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/) and the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that). You should also be familiar with how to use Visual Studio (or any other C# IDE) and write C#, as well as the concepts of ASP.NET Core MVC.
 
 Before you dive deep into this module it'd be best if you make sure that you have done the following:
 
