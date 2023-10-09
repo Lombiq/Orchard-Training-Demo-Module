@@ -10,7 +10,7 @@ If you prefer tutorial videos more then check out the [Dojo Course 3, the comple
 
 ## How to start
 
-The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) and the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that). You should also be familiar with how to use Visual Studio and write C#, as well as the concepts of ASP.NET Core MVC.
+The module assumes that you have a good understanding of basic Orchard concepts, and that you can get around the Orchard admin area (the [official documentation](https://docs.orchardcore.net/en/dev/) and the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) may help you with that). You should also be familiar with how to use Visual Studio (or any other C# IDE) and write C#, as well as the concepts of ASP.NET Core MVC.
 
 Before you dive deep into this module it'd be best if you make sure that you have done the following:
 
@@ -20,7 +20,7 @@ Before you dive deep into this module it'd be best if you make sure that you hav
 
 The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) repository showcases a web app using Orchard Core from NuGet packages, and it includes this module too. Furthermore, it also contains all of Lombiq's open-source Orchard themes and modules as a bonus! (Check them out for what we have already solved for you.) So, just use that to work with this module:
 
-1. Clone the repository to the latest `dev` branch. The repository uses submodules to include all the other projects like this one. Thus when first cloning it you'll need to initialize them: When using a GUI this should happen by default, and when using the command line use the `--recurse-submodules` switch.
+1. Complete [the repository's prerequisites](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions#prerequisites) and clone it to the latest `dev` branch.
 2. Make sure the `Lombiq.OSOCE.Web` project is the startup project (it should be).
 3. Start the app with <kbd>Ctrl</kbd> + <kbd>F5</kbd>.
 4. Set up the website using the "Training Demo" recipe.
