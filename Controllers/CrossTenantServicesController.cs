@@ -67,8 +67,11 @@ public class CrossTenantServicesController : Controller
             // error handling for missing content items here, or any authorization. It's up to you to add those :).
             var contentItem = await contentManager.GetAsync(contentItemId);
 
-            // DisplayText is what you've already learned about in PersonPartHandler.
-            title = contentItem.DisplayText;
+            if (contentItem != null)
+            {
+                // DisplayText is what you've already learned about in PersonPartHandler.
+                title = contentItem.DisplayText;
+            }
         });
 
         return title;

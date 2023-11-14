@@ -104,6 +104,8 @@ public class FileManagementController : Controller
     [HttpPost, ActionName(nameof(UploadFileToMedia)), ValidateAntiForgeryToken]
     public async Task<ActionResult> UploadFileToMediaPost(IFormFile file)
     {
+        if (file == null) return BadRequest();
+
         // You can use the Combine method to combine paths which is pretty much equivalent to the built-in method.
         var mediaFilePath = _mediaFileStore.Combine(UploadedFileFolderRelativePath, file.FileName);
 
