@@ -3,10 +3,12 @@ using Lombiq.TrainingDemo.Models;
 using OrchardCore.ContentFields.Fields;
 using OrchardCore.ContentFields.Settings;
 using OrchardCore.ContentManagement.Metadata;
+using OrchardCore.ContentManagement.Metadata.Builders;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
 using System;
 using YesSql.Sql;
+using static Lombiq.HelpfulLibraries.OrchardCore.Contents.ContentFieldEditorEnums;
 
 namespace Lombiq.TrainingDemo.Migrations;
 
@@ -29,7 +31,7 @@ public class PersonMigrations : DataMigration
             .WithField(nameof(PersonPart.Biography), field => field
                 .OfType(nameof(TextField))
                 .WithDisplayName("Biography")
-                .WithEditor("TextArea")
+                .WithEditor(TextFieldEditors.TextArea)
                 .WithSettings(new TextFieldSettings
                 {
                     Hint = "Person's biography",
