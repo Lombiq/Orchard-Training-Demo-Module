@@ -41,6 +41,8 @@ If you'd like to clean out comments from code files so you can just see the esse
 
 Take a look at the Recipes menu in the Admin screen to load in additional sample content. This is not included by default to reduce clutter.
 
+You can also take a look at our [Walkthroughs](https://github.com/Lombiq/Orchard-Walkthroughs) module, for step-by-step walkthroughs, which are guided by pop-up windows.
+
 ## Dependencies
 
 This module has the following dependencies:
