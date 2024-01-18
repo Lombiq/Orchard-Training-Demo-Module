@@ -8,6 +8,7 @@
 
 using Lombiq.TrainingDemo.Indexes;
 using OrchardCore.Data.Migration;
+using System.Threading.Tasks;
 using YesSql.Sql;
 
 namespace Lombiq.TrainingDemo.Migrations;
@@ -17,9 +18,9 @@ public class BookMigrations : DataMigration
 {
     // Migrations have Create() and UpdateFromX methods. When the module is first enabled the Create() is called so it
     // can set up DB tables.
-    public int Create()
+    public async Task<int> CreateAsync()
     {
-        SchemaBuilder.CreateMapIndexTable<BookIndex>(table => table
+        await SchemaBuilder.CreateMapIndexTableAsync<BookIndex>(table => table
             .Column<string>(nameof(BookIndex.Author))
             // Titles of books can be really long sometimes (even as long as 26000 characters:
             // https://www.guinnessworldrecords.com/world-records/358711-longest-title-of-a-book) so we have to make
@@ -31,7 +32,7 @@ public class BookMigrations : DataMigration
         // Let's suppose that we'll store many books, tens of thousands in the database. In this case, it's also advised
         // to add SQL indices to columns that are frequently queried on. In our case, Author is like this so we add an
         // index below. Note that you can only add indices in AlterTable().
-        SchemaBuilder.AlterTable(nameof(BookIndex), table => table
+        await SchemaBuilder.AlterTableAsync(nameof(BookIndex), table => table
             .CreateIndex($"IDX_{nameof(BookIndex)}_{nameof(BookIndex.Author)}", nameof(BookIndex.Author))
         );
 
@@ -44,13 +45,13 @@ public class BookMigrations : DataMigration
     // already enabled before and the create method was run (like when you update a module already running on an Orchard
     // site). The X in UpdateFromX is the version number of the update (the method's name is conventional). It means:
     // "run this update if the module's current migration version is X". This method will run if it's 1.
-    public int UpdateFrom1()
+    public async Task<int> UpdateFrom1Async()
     {
         // The initial version of our module did not store the book's title. We quickly fix the issue by pushing out an
         // update that modifies the schema to add the Name. Remember, we've returned 2 in the Create method so this
         // update method won't be executed in a fresh setup. This is why you need to include all these changes in the
         // Create method as well.
-        SchemaBuilder.AlterTable(nameof(BookIndex), table => table
+        await SchemaBuilder.AlterTableAsync(nameof(BookIndex), table => table
             .AddColumn<string>(nameof(BookIndex.Title))
         );
 

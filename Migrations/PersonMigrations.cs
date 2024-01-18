@@ -7,6 +7,7 @@ using OrchardCore.ContentManagement.Metadata.Builders;
 using OrchardCore.ContentManagement.Metadata.Settings;
 using OrchardCore.Data.Migration;
 using System;
+using System.Threading.Tasks;
 using YesSql.Sql;
 using static Lombiq.HelpfulLibraries.OrchardCore.Contents.ContentFieldEditorEnums;
 
@@ -22,10 +23,10 @@ public class PersonMigrations : DataMigration
 
     public PersonMigrations(IContentDefinitionManager contentDefinitionManager) => _contentDefinitionManager = contentDefinitionManager;
 
-    public int Create()
+    public async Task<int> CreateAsync()
     {
         // Now you can configure PersonPart. For example you can add content fields (as mentioned earlier) here.
-        _contentDefinitionManager.AlterPartDefinition(nameof(PersonPart), part => part
+        await _contentDefinitionManager.AlterPartDefinitionAsync(nameof(PersonPart), part => part
             // Each field has its own configuration. Here you will give a display name for it and add some additional
             // settings like a hint to be displayed in the editor.
             .WithField(nameof(PersonPart.Biography), field => field
@@ -39,7 +40,7 @@ public class PersonMigrations : DataMigration
         );
 
         // This one will create an index table for the PersonPartIndex as explained in the BookMigrations file.
-        SchemaBuilder.CreateMapIndexTable<PersonPartIndex>(table => table
+        await SchemaBuilder.CreateMapIndexTableAsync<PersonPartIndex>(table => table
             .Column<DateTime>(nameof(PersonPartIndex.BirthDateUtc))
             .Column<Handedness>(nameof(PersonPartIndex.Handedness))
             // The content item ID is always 26 characters.
@@ -51,7 +52,7 @@ public class PersonMigrations : DataMigration
         // https://docs.orchardcore.net/en/latest/docs/glossary/#content-type. The content type's name is arbitrary but
         // choose a meaningful one. Notice how we use a class with constants to store the type name so we prevent risky
         // copy-pasting.
-        _contentDefinitionManager.AlterTypeDefinition(ContentTypes.PersonPage, type => type
+        await _contentDefinitionManager.AlterTypeDefinitionAsync(ContentTypes.PersonPage, type => type
             .Creatable()
             .Listable()
             // We attach parts by specifying their name. For our own parts we use nameof(): This is not mandatory but
@@ -62,7 +63,7 @@ public class PersonMigrations : DataMigration
         // We can even create a widget with the same content part. Widgets are just content types as usual but with the
         // Stereotype set as "Widget". You'll notice that our site's configuration includes three zones on the frontend
         // that you can add widgets to, as well as two layers. Check them out on the admin!
-        _contentDefinitionManager.AlterTypeDefinition("PersonWidget", type => type
+        await _contentDefinitionManager.AlterTypeDefinitionAsync("PersonWidget", type => type
             .Stereotype("Widget")
             .WithPart(nameof(PersonPart))
         );
