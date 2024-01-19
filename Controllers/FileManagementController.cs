@@ -90,7 +90,7 @@ public class FileManagementController : Controller
         // If you want to extract the content of the file use a StreamReader to read the stream.
         using var stream = await _mediaFileStore.GetFileStreamAsync(TestFileRelativePath);
         using var streamReader = new StreamReader(stream);
-        var content = await streamReader.ReadToEndAsync();
+        var content = await streamReader.ReadToEndAsync(HttpContext.RequestAborted);
 
         return $"File content: {content}";
     }

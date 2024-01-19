@@ -1,6 +1,5 @@
 using Lombiq.TrainingDemo.Models;
 using Microsoft.Extensions.Options;
-using OrchardCore.Entities;
 using OrchardCore.Settings;
 
 namespace Lombiq.TrainingDemo.Services;
