@@ -24,14 +24,8 @@ namespace Lombiq.TrainingDemo.Controllers;
 // This is a controller just for the sake of easy demonstration, you can do the same thing anywhere. In the Index
 // action, we'll fetch content items from another tenant with the IContentManager service that you already know. This is
 // just an example though, really you can access any other service as well.
-public class CrossTenantServicesController : Controller
+public class CrossTenantServicesController(IShellHost shellHost) : Controller
 {
-    private readonly IShellHost _shellHost;
-
-    // We'll need IShellHost to access services from a currently running shell's dependency injection container (Service
-    // Provider).
-    public CrossTenantServicesController(IShellHost shellHost) => _shellHost = shellHost;
-
     // A simple route for convenience. You can access this from under /CrossTenantServices?contentItemId=ID. Here ID
     // needs to be a content item ID that you can get e.g. from the URL when you open an item to edit from the admin (it
     // looks something like "4da2sme18cc2k2r5d4w23d4cwj" which is NOT made by a cat walking across the keyboard!).
@@ -48,7 +42,7 @@ public class CrossTenantServicesController : Controller
         // First you have to retrieve the tenant's shell scope that contains the shell's Service Provider. Note that
         // there is also an IShellSettingsManager service that you can use to access the just shell settings for all
         // tenants (shell settings are a tenant's basic settings, like its technical name and its URL).
-        var shellScope = await _shellHost.GetScopeAsync("Default");
+        var shellScope = await shellHost.GetScopeAsync("Default");
 
         // We'll just return the title of the content item from this action but you can do anything else with the item
         // too, like displaying it.

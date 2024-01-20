@@ -15,27 +15,22 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class CacheController : Controller
+public class CacheController(IDateTimeCachingService dateTimeCachingService) : Controller
 {
-    // The actual caching is implemented in a service which we'll soon investigate.
-    private readonly IDateTimeCachingService _dateTimeCachingService;
-
-    public CacheController(IDateTimeCachingService dateTimeCachingService) => _dateTimeCachingService = dateTimeCachingService;
-
     // In this action we'll cache a DateTime three different ways. You can open it under
     // /Lombiq.TrainingDemo/Cache/Index
     public async Task<ActionResult> Index()
     {
         // This one will be cached using the built-in ASP.NET Core IMemoryCache.
-        var memoryCachedDateTime = await _dateTimeCachingService.GetMemoryCachedDateTimeAsync();
+        var memoryCachedDateTime = await dateTimeCachingService.GetMemoryCachedDateTimeAsync();
 
         // This one will be using the DynamicCache provided by Orchard Core. It will have a 30 second expiration.
         var dynamicCachedDateTimeWith30SecondsExpiry =
-            await _dateTimeCachingService.GetDynamicCachedDateTimeWith30SecondsExpiryAsync();
+            await dateTimeCachingService.GetDynamicCachedDateTimeWith30SecondsExpiryAsync();
 
         // Finally this date will be cached only for this route.
         var dynamicCachedDateTimeVariedByRoutes =
-            await _dateTimeCachingService.GetDynamicCachedDateTimeVariedByRoutesAsync();
+            await dateTimeCachingService.GetDynamicCachedDateTimeVariedByRoutesAsync();
 
         // NEXT STATION: Services/DateTimeCachingService.cs
 
@@ -57,7 +52,7 @@ public class CacheController : Controller
     // /Lombiq.TrainingDemo/Cache/InvalidateDateTimeCache
     public async Task<ActionResult> InvalidateDateTimeCache()
     {
-        await _dateTimeCachingService.InvalidateCachedDateTimeAsync();
+        await dateTimeCachingService.InvalidateCachedDateTimeAsync();
 
         return RedirectToAction("Index");
     }

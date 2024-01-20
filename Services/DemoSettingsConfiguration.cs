@@ -5,12 +5,8 @@ using OrchardCore.Settings;
 namespace Lombiq.TrainingDemo.Services;
 
 // This is a configuration class that'll load the options from site settings.
-public class DemoSettingsConfiguration : IConfigureOptions<DemoSettings>
+public class DemoSettingsConfiguration(ISiteService siteService) : IConfigureOptions<DemoSettings>
 {
-    private readonly ISiteService _siteService;
-
-    public DemoSettingsConfiguration(ISiteService siteService) => _siteService = siteService;
-
     public void Configure(DemoSettings options)
     {
         // The method parameter comes from the other configuration options, like the appsettings.json file if it's set,
@@ -38,7 +34,7 @@ public class DemoSettingsConfiguration : IConfigureOptions<DemoSettings>
         // out what we have there related to settings and come back!
 
         // Unfortunately, no async here so we need to run this synchronously.
-        var settings = _siteService.GetSiteSettingsAsync()
+        var settings = siteService.GetSiteSettingsAsync()
             .GetAwaiter().GetResult()
             .As<DemoSettings>();
 
