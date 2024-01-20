@@ -33,7 +33,10 @@ public class PersonListController(
     IUpdateModelAccessor updateModelAccessor,
     IContentManager contentManager) : Controller
 {
+#pragma warning disable CA2213 // Disposable fields should be disposed
+    // We don't need a dispose method in a controller.
     private readonly ISession _session = session;
+#pragma warning restore CA2213 // Disposable fields should be disposed
     private readonly IClock _clock = clock;
     private readonly IContentItemDisplayManager _contentItemDisplayManager = contentItemDisplayManager;
     private readonly IUpdateModelAccessor _updateModelAccessor = updateModelAccessor;
@@ -127,7 +130,7 @@ public class PersonListController(
         // IContentManager.GetAsync() instead.
 
         return "People modified: " +
-            (oldPeople.Any() ?
+            (oldPeople.Count != 0 ?
                 string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 
