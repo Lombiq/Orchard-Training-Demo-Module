@@ -12,16 +12,10 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class SiteSettingsController : Controller
+public class SiteSettingsController(ISiteService siteService, IOptionsSnapshot<DemoSettings> demoOptions) : Controller
 {
-    private readonly ISiteService _siteService;
-    private readonly DemoSettings _demoSettings;
-
-    public SiteSettingsController(ISiteService siteService, IOptionsSnapshot<DemoSettings> demoOptions)
-    {
-        _siteService = siteService;
-        _demoSettings = demoOptions.Value;
-    }
+    private readonly ISiteService _siteService = siteService;
+    private readonly DemoSettings _demoSettings = demoOptions.Value;
 
     // Here's a quick simple demonstration about how to use ISiteService. Orchard Core stores basic settings that are
     // accessible right away in the ISite object. Here you will see how to access the site's name you gave when you set

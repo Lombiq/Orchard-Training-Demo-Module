@@ -15,11 +15,9 @@ namespace Lombiq.TrainingDemo.Drivers;
 
 // You shouldn't be surprised - content fields also have display drivers. ContentFieldDisplayDriver is specifically for
 // content fields. Don't forget to register this class with the service provider (see: Startup.cs).
-public class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
+public class ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> stringLocalizer) : ContentFieldDisplayDriver<ColorField>
 {
-    private readonly IStringLocalizer T;
-
-    public ColorFieldDisplayDriver(IStringLocalizer<ColorFieldDisplayDriver> stringLocalizer) => T = stringLocalizer;
+    private readonly IStringLocalizer T = stringLocalizer;
 
     public override IDisplayResult Display(ColorField field, BuildFieldDisplayContext fieldDisplayContext) =>
         // Same Display method for generating display shapes but this time the Initialize shape helper is being used.

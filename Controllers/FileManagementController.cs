@@ -27,29 +27,21 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class FileManagementController : Controller
+public class FileManagementController(
+    IMediaFileStore mediaFileStore,
+    INotifier notifier,
+    IHtmlLocalizer<FileManagementController> htmlLocalizer,
+    ICustomFileStore customFileStore) : Controller
 {
     // Let's have the paths here in constants to avoid repeating ourselves.
     private const string TestFileRelativePath = "TrainingDemo/TestFile1.txt";
 
     private const string UploadedFileFolderRelativePath = "TrainingDemo/Uploaded";
 
-    private readonly IMediaFileStore _mediaFileStore;
-    private readonly INotifier _notifier;
-    private readonly IHtmlLocalizer H;
-    private readonly ICustomFileStore _customFileStore;
-
-    public FileManagementController(
-        IMediaFileStore mediaFileStore,
-        INotifier notifier,
-        IHtmlLocalizer<FileManagementController> htmlLocalizer,
-        ICustomFileStore customFileStore)
-    {
-        _mediaFileStore = mediaFileStore;
-        _notifier = notifier;
-        _customFileStore = customFileStore;
-        H = htmlLocalizer;
-    }
+    private readonly IMediaFileStore _mediaFileStore = mediaFileStore;
+    private readonly INotifier _notifier = notifier;
+    private readonly IHtmlLocalizer H = htmlLocalizer;
+    private readonly ICustomFileStore _customFileStore = customFileStore;
 
     // This action will demonstrate how to create a file in the Media folder and read it from there. See it under
     // /Lombiq.TrainingDemo/FileManagement/CreateFileInMediaFolder.

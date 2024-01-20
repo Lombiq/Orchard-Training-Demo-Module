@@ -22,20 +22,14 @@ using System.Threading.Tasks;
 namespace Lombiq.TrainingDemo.Filters;
 
 // Don't forget to add this filter to the filter collection in the Startup.cs file.
-public class ShapeInjectionFilter : IAsyncResultFilter
+public class ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory shapeFactory) : IAsyncResultFilter
 {
     // To access the layout which contains the zones you need to use the ILayoutAccessor service.
-    private readonly ILayoutAccessor _layoutAccessor;
+    private readonly ILayoutAccessor _layoutAccessor = layoutAccessor;
 
     // To generate ad-hoc shapes the IShapeFactory can be used. This is the same which is behind the New property in
     // templates that you have previously seen in AdHocShape.cshtml.
-    private readonly IShapeFactory _shapeFactory;
-
-    public ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory shapeFactory)
-    {
-        _layoutAccessor = layoutAccessor;
-        _shapeFactory = shapeFactory;
-    }
+    private readonly IShapeFactory _shapeFactory = shapeFactory;
 
     public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {

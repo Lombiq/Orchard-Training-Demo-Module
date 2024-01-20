@@ -9,56 +9,25 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Services;
 
-public class DateTimeCachingService : IDateTimeCachingService
+public class DateTimeCachingService(
+    IMemoryCache memoryCache,
+    ILocalClock localClock,
+    IDynamicCacheService dynamicCacheService,
+    ITagCache tagCache,
+    ISignal signal) : IDateTimeCachingService
 {
     public const string MemoryCacheKey = "Lombiq.TrainingDemo.MemoryCache.DateTime";
     public const string DynamicCacheKey = "Lombiq.TrainingDemo.DynamicCache.DateTime";
     public const string DynamicCacheTag = "Lombiq.TrainingDemo.DynamicCache.DateTime.Tag";
 
-    // You've already seen the IClock service for getting the current UTC date. This service can be used to get the
-    // current local date based on the site settings. Also dates can be converted from or to UTC.
-    private readonly ILocalClock _localClock;
-
-    // IMemoryCache service is a built-in service in ASP.NET Core. Use this if you want a fast cache that's local to the
-    // current process. Do note that if you app runs on multiple servers this cache won't be shared among nodes. To
-    // learn more about IMemoryCache visit https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory.
-    private readonly IMemoryCache _memoryCache;
-
-    // Dynamic Cache is implemented primarily for caching shapes. It is based on the built-in ASP.NET Core
-    // IDistributedCache service which by default is implemented by DistributedMemoryCache. If you just want to cache
-    // simple values like you'd do with IMemoryCache but in a way that also shares cache entries between servers when
-    // your app runs on multiple servers then use IDistributedCache directly. To learn more about distributed caching
-    // and IDistributedCache visit https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed.
-    private readonly IDynamicCacheService _dynamicCacheService;
-
-    // We're using ISignals to be able to send a signal to the memory cache to invalidate the given entry.
-    private readonly ISignal _signal;
-
-    // Tag cache is a service for tagging cached data and invalidating cache by their tags.
-    private readonly ITagCache _tagCache;
-
-    public DateTimeCachingService(
-        IMemoryCache memoryCache,
-        ILocalClock localClock,
-        IDynamicCacheService dynamicCacheService,
-        ITagCache tagCache,
-        ISignal signal)
-    {
-        _memoryCache = memoryCache;
-        _localClock = localClock;
-        _dynamicCacheService = dynamicCacheService;
-        _tagCache = tagCache;
-        _signal = signal;
-    }
-
     // This method will get or create the cached DateTime object using the IMemoryCache.
     public async Task<DateTime> GetMemoryCachedDateTimeAsync()
     {
-        if (!_memoryCache.TryGetValue(MemoryCacheKey, out DateTime cachedDate))
+        if (!memoryCache.TryGetValue(MemoryCacheKey, out DateTime cachedDate))
         {
-            cachedDate = (await _localClock.LocalNowAsync).DateTime;
+            cachedDate = (await localClock.LocalNowAsync).DateTime;
 
-            _memoryCache.Set(MemoryCacheKey, cachedDate, GetMemoryCacheChangeToken());
+            memoryCache.Set(MemoryCacheKey, cachedDate, GetMemoryCacheChangeToken());
         }
 
         return cachedDate;
@@ -91,33 +60,33 @@ public class DateTimeCachingService : IDateTimeCachingService
     {
         // As mentioned ISignal service is used to invalidate the memory cache. This will invalidate all cache entries
         // if there are multiple ones related to the token.
-        await _signal.SignalTokenAsync(MemoryCacheKey);
+        await signal.SignalTokenAsync(MemoryCacheKey);
 
         // ITagCache.RemoveTagAsync will invalidate all the dynamic caches which are tagged with the given tag.
-        await _tagCache.RemoveTagAsync(DynamicCacheTag);
+        await tagCache.RemoveTagAsync(DynamicCacheTag);
     }
 
     // This change token is generated based on the cache key using the ISignal service. It is used to invalidate the
     // memory cache. You can use this not just as another way to invalidate specific entries but also a way to
     // invalidate many at the same time: You can use tie multiple cache entries to the same signal too.
-    private IChangeToken GetMemoryCacheChangeToken() => _signal.GetToken(MemoryCacheKey);
+    private IChangeToken GetMemoryCacheChangeToken() => signal.GetToken(MemoryCacheKey);
 
     private async Task<DateTime> GetOrCreateDynamicCachedDateTimeAsync(CacheContext cacheContext)
     {
         // Now that we have a cache context we try to acquire the object. The objects always need to be strings.
-        var cachedDateTimeText = await _dynamicCacheService.GetCachedValueAsync(cacheContext);
+        var cachedDateTimeText = await dynamicCacheService.GetCachedValueAsync(cacheContext);
 
         // If the date time text is not null then parse it to DateTime otherwise use the ILocalClock service to set it
         // to the current date.
         var cachedDateTime = cachedDateTimeText != null ?
             DateTime.Parse(cachedDateTimeText, CultureInfo.InvariantCulture) :
-            (await _localClock.LocalNowAsync).DateTime;
+            (await localClock.LocalNowAsync).DateTime;
 
         // If the date time text is null (meaning it wasn't cached) cache the DateTime object (which in this case is the
         // current date).
         if (cachedDateTimeText == null)
         {
-            await _dynamicCacheService.SetCachedValueAsync(
+            await dynamicCacheService.SetCachedValueAsync(
                 cacheContext,
                 cachedDateTime.ToString(CultureInfo.InvariantCulture));
         }

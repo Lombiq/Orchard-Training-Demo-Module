@@ -6,25 +6,18 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Filters;
 
-public class ResourceFromShapeInjectingFilter : IAsyncResultFilter
+public class ResourceFromShapeInjectingFilter(
+    IResourceManager resourceManager,
+    IShapeFactory shapeFactory,
+    IDisplayHelper displayHelper) : IAsyncResultFilter
 {
     // We've seen IResourceManager and IShapeFactory before.
-    private readonly IResourceManager _resourceManager;
+    private readonly IResourceManager _resourceManager = resourceManager;
 
-    private readonly IShapeFactory _shapeFactory;
+    private readonly IShapeFactory _shapeFactory = shapeFactory;
 
     // IDisplayHelper is new, however. We'll use it to execute a shape into HTML and inject that as a head script!
-    private readonly IDisplayHelper _displayHelper;
-
-    public ResourceFromShapeInjectingFilter(
-        IResourceManager resourceManager,
-        IShapeFactory shapeFactory,
-        IDisplayHelper displayHelper)
-    {
-        _resourceManager = resourceManager;
-        _shapeFactory = shapeFactory;
-        _displayHelper = displayHelper;
-    }
+    private readonly IDisplayHelper _displayHelper = displayHelper;
 
     public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {

@@ -8,11 +8,9 @@ using System.Threading.Tasks;
 namespace Lombiq.TrainingDemo.Navigation;
 
 // To actually see the menu item on the admin menu we need to add a navigation provider to it.
-public class DemoSettingsAdminMenu : INavigationProvider
+public class DemoSettingsAdminMenu(IStringLocalizer<DemoSettingsAdminMenu> stringLocalizer) : INavigationProvider
 {
-    private readonly IStringLocalizer T;
-
-    public DemoSettingsAdminMenu(IStringLocalizer<DemoSettingsAdminMenu> stringLocalizer) => T = stringLocalizer;
+    private readonly IStringLocalizer T = stringLocalizer;
 
     public Task BuildNavigationAsync(string name, NavigationBuilder builder)
     {

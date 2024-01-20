@@ -26,27 +26,18 @@ using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class PersonListController : Controller
+public class PersonListController(
+    ISession session,
+    IClock clock,
+    IContentItemDisplayManager contentItemDisplayManager,
+    IUpdateModelAccessor updateModelAccessor,
+    IContentManager contentManager) : Controller
 {
-    private readonly ISession _session;
-    private readonly IClock _clock;
-    private readonly IContentItemDisplayManager _contentItemDisplayManager;
-    private readonly IUpdateModelAccessor _updateModelAccessor;
-    private readonly IContentManager _contentManager;
-
-    public PersonListController(
-        ISession session,
-        IClock clock,
-        IContentItemDisplayManager contentItemDisplayManager,
-        IUpdateModelAccessor updateModelAccessor,
-        IContentManager contentManager)
-    {
-        _session = session;
-        _clock = clock;
-        _contentItemDisplayManager = contentItemDisplayManager;
-        _updateModelAccessor = updateModelAccessor;
-        _contentManager = contentManager;
-    }
+    private readonly ISession _session = session;
+    private readonly IClock _clock = clock;
+    private readonly IContentItemDisplayManager _contentItemDisplayManager = contentItemDisplayManager;
+    private readonly IUpdateModelAccessor _updateModelAccessor = updateModelAccessor;
+    private readonly IContentManager _contentManager = contentManager;
 
     // See it under /Lombiq.TrainingDemo/PersonList/OlderThan30.
     public async Task<IActionResult> OlderThan30()

@@ -17,15 +17,10 @@ namespace Lombiq.TrainingDemo.Navigation;
 //
 // For details on how to use them, see the Lombiq.BaseTheme.Samples project:
 // https://github.com/Lombiq/Orchard-Base-Theme/tree/issue/OSOE-62/Lombiq.BaseTheme.Samples
-public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
+public class TrainingDemoNavigationProvider(
+    IHttpContextAccessor hca,
+    IStringLocalizer<TrainingDemoNavigationProvider> stringLocalizer) : MainMenuNavigationProviderBase(hca, stringLocalizer)
 {
-    public TrainingDemoNavigationProvider(
-        IHttpContextAccessor hca,
-        IStringLocalizer<TrainingDemoNavigationProvider> stringLocalizer)
-        : base(hca, stringLocalizer)
-    {
-    }
-
     protected override void Build(NavigationBuilder builder)
     {
         var context = _hca.HttpContext;

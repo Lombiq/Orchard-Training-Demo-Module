@@ -16,16 +16,10 @@ namespace Lombiq.TrainingDemo.Events;
 
 // ILoginFormEvent exposes events of the, well, login form :). Useful to display a login greeting or anything even more
 // useful! The rest of it is pretty standard and we just use INotifier again.
-public class LoginGreeting : ILoginFormEvent
+public class LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer) : ILoginFormEvent
 {
-    private readonly INotifier _notifier;
-    private readonly IHtmlLocalizer H;
-
-    public LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer)
-    {
-        _notifier = notifier;
-        H = htmlLocalizer;
-    }
+    private readonly INotifier _notifier = notifier;
+    private readonly IHtmlLocalizer H = htmlLocalizer;
 
     public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
 

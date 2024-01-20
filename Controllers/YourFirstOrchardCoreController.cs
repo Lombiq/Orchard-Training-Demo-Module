@@ -17,31 +17,19 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class YourFirstOrchardCoreController : Controller
+public class YourFirstOrchardCoreController(
+    INotifier notifier,
+    IStringLocalizer<YourFirstOrchardCoreController> stringLocalizer,
+    IHtmlLocalizer<YourFirstOrchardCoreController> htmlLocalizer,
+    ILogger<YourFirstOrchardCoreController> logger) : Controller
 {
-    private readonly INotifier _notifier;
-    private readonly IStringLocalizer T;
-    private readonly IHtmlLocalizer H;
+    private readonly INotifier _notifier = notifier;
+    private readonly IStringLocalizer T = stringLocalizer;
+    private readonly IHtmlLocalizer H = htmlLocalizer;
 
     // You can use the non-generic counterpart of ILogger once injected just be sure to inject the generic one otherwise
     // the log entries won't contain the name of the class.
-    private readonly ILogger _logger;
-
-    // Orchard Core uses the built in dependency injection feature coming with ASP.NET Core. You can use the module's
-    // Startup class to register your own services with the service provider. To learn more see:
-    // https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
-    public YourFirstOrchardCoreController(
-        INotifier notifier,
-        IStringLocalizer<YourFirstOrchardCoreController> stringLocalizer,
-        IHtmlLocalizer<YourFirstOrchardCoreController> htmlLocalizer,
-        ILogger<YourFirstOrchardCoreController> logger)
-    {
-        _notifier = notifier;
-        _logger = logger;
-
-        T = stringLocalizer;
-        H = htmlLocalizer;
-    }
+    private readonly ILogger _logger = logger;
 
     // Here's a simple action that will return some message. Nothing special here just demonstrates that this will work
     // in Orchard Core right after enabling the module. The route for this action will be

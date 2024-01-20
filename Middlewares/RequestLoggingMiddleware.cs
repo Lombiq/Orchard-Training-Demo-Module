@@ -21,12 +21,9 @@ namespace Lombiq.TrainingDemo.Middlewares;
 
 // By the way, do you remember that we have a separate module feature declared in the Manifest for this middleware? If
 // not, check out Manifest.cs again!
-public class RequestLoggingMiddleware
+public class RequestLoggingMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next;
-
-    // You need to inject a RequestDelegate instance here.
-    public RequestLoggingMiddleware(RequestDelegate next) => _next = next;
+    private readonly RequestDelegate _next = next;
 
     // This method is the actual middleware. Note that apart from the first parameter obligatorily being HttpContext
     // further parameters can be injected Orchard services.

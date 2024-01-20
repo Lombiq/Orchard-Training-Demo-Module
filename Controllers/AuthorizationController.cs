@@ -20,24 +20,13 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class AuthorizationController : Controller
+public class AuthorizationController(
+    IAuthorizationService authorizationService,
+    IContentManager contentManager,
+    INotifier notifier,
+    IHtmlLocalizer<AuthorizationController> htmlLocalizer) : Controller
 {
-    private readonly IAuthorizationService _authorizationService;
-    private readonly IContentManager _contentManager;
-    private readonly INotifier _notifier;
-    private readonly IHtmlLocalizer H;
-
-    public AuthorizationController(
-        IAuthorizationService authorizationService,
-        IContentManager contentManager,
-        INotifier notifier,
-        IHtmlLocalizer<AuthorizationController> htmlLocalizer)
-    {
-        _authorizationService = authorizationService;
-        _contentManager = contentManager;
-        _notifier = notifier;
-        H = htmlLocalizer;
-    }
+    private readonly IHtmlLocalizer H = htmlLocalizer;
 
     // Here we will create a Person content item and check if the user has permission to edit it. It's very common to
     // check if you can view or edit a specific item - it also happens if you use the built-in URLs like
@@ -45,7 +34,7 @@ public class AuthorizationController : Controller
     public async Task<IActionResult> CanEditPerson()
     {
         // Creating a content item for testing (won't be persisted).
-        var person = await _contentManager.NewAsync(ContentTypes.PersonPage);
+        var person = await contentManager.NewAsync(ContentTypes.PersonPage);
 
         // Check if the user has permission to edit the content item. When you check content-related permissions
         // (ViewContent, EditContent, PublishContent etc.) there is a difference between checking these for your content
@@ -53,7 +42,7 @@ public class AuthorizationController : Controller
         // ViewOwnContent, EditOwnContent, PublishOwnContent etc. permissions will be checked. This is automatic so you
         // don't need to use them directly. For this newly created Person item the owner is null so the EditContent
         // permission will be used.
-        if (!await _authorizationService.AuthorizeAsync(User, OrchardCore.Contents.CommonPermissions.EditContent, person))
+        if (!await authorizationService.AuthorizeAsync(User, OrchardCore.Contents.CommonPermissions.EditContent, person))
         {
             // Return 401 status code using this helper. Although it's a good practice to return 404 (NotFound())
             // instead to prevent enumeration attacks.
@@ -62,7 +51,7 @@ public class AuthorizationController : Controller
 
         // To keep the demonstration short, only display a notification about the successful authorization and return to
         // the home page.
-        await _notifier.InformationAsync(H["You are authorized to edit Person content items."]);
+        await notifier.InformationAsync(H["You are authorized to edit Person content items."]);
 
         return Redirect("~/");
     }
@@ -74,12 +63,12 @@ public class AuthorizationController : Controller
         // We've defined a ManagePersons earlier which is added to Administrator users by default. If the currently user
         // doesn't have the Administrator role then you can add it on the dashboard. Since this permission can be
         // checked without any object as a context the third parameter is left out.
-        if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
+        if (!await authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
         {
             return Unauthorized();
         }
 
-        await _notifier.InformationAsync(H["You are authorized to manage persons."]);
+        await notifier.InformationAsync(H["You are authorized to manage persons."]);
 
         return Redirect("~/");
     }
