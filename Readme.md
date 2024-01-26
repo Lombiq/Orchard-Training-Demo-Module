@@ -25,7 +25,7 @@ The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-
 3. Start the app with <kbd>Ctrl</kbd> + <kbd>F5</kbd> (_see note *_).
 4. Set up the website using the "Training Demo" recipe.
 
-> _* Note:_ to avoid compile errors, the first run of <kbd>Lombiq.OSOCE.Web</kbd> must be done with <kbd>Ctrl</kbd> + <kbd>F5</kbd>. **Do not use** the Visual Studio "IIS Express" (play button) or compile with <kbd>Ctrl</kbd> + <kbd>B</kbd> initially. After the initial "setup", once you have created the admin user, you can then run it using the Visual Studio "IIS Express" (play button).
+> _* Note:_ to avoid build errors, the first run of <kbd>Lombiq.OSOCE.Web</kbd> must be done with <kbd>Ctrl</kbd> + <kbd>F5</kbd>. **Do not use** the Visual Studio "IIS Express" (play) button or compile with <kbd>Ctrl</kbd> + <kbd>B</kbd> initially. After the initial "setup", once you have created the admin user, you can then run it using the Visual Studio "IIS Express" (play button).
 
 ## Learning Orchard Core with this module
 
