@@ -18,9 +18,7 @@ Later on, you may want to take a look at _Map.cs_ (remember, "X marks the spot!"
 
 ## Let's get started
 
-**FIRST STATION**: First of all, let's discuss how a .NET library becomes an Orchard Module. If you look into the Dependencies of this project you will find either the NuGet reference for the `OrchardCore.Module.Targets` package.
-
-Furthermore, the module manifest file is also required. So...
+**FIRST STATION**: First of all, let's discuss how a .NET library becomes an Orchard Module. If you look into the Dependencies of this project you will find the NuGet reference for the `OrchardCore.Module.Targets` package. That's step one. Then, the module manifest file is also required. So...
 
 **NEXT STATION**: Head over to _Manifest.cs_. That file is the module's manifest; a _Manifest.cs_ is required for Orchard modules.
 
