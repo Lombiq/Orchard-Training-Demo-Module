@@ -29,7 +29,9 @@ The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-
 
 ## Learning Orchard Core with this module
 
-Once the app is running, head over to the **[StartLearningHere.md](StartLearningHere.md)** file and start exploring all the great things you can do in Orchard Core.
+Once the app is running, head over to the **[StartLearningHere.md](StartLearningHere.md)** file (_see note *_) and start exploring all the great things you can do in Orchard Core.
+
+> _* Note:_ The "**StartLearningHere.md**" file introduces the <kbd>Lombiq.TrainingDemo</kbd> project. You can find the <kbd>Lombiq.TrainingDemo</kbd> folder inside the <kbd>src</kbd> > <kbd>Modules</kbd> directory of the "Open-Source-Orchard-Core-Extensions" (OSOCE) repository previously cloned (point number 1 of [How to start](#how-to-start) section).
 
 Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in. [StartLearningHere.md](StartLearningHere.md) also has training sections linked so you can go to a broader section.
 
