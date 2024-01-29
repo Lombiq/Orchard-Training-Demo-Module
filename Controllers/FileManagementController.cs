@@ -38,10 +38,7 @@ public class FileManagementController(
 
     private const string UploadedFileFolderRelativePath = "TrainingDemo/Uploaded";
 
-    private readonly IMediaFileStore _mediaFileStore = mediaFileStore;
-    private readonly INotifier _notifier = notifier;
     private readonly IHtmlLocalizer H = htmlLocalizer;
-    private readonly ICustomFileStore _customFileStore = customFileStore;
 
     // This action will demonstrate how to create a file in the Media folder and read it from there. See it under
     // /Lombiq.TrainingDemo/FileManagement/CreateFileInMediaFolder.
@@ -52,16 +49,16 @@ public class FileManagementController(
         using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there!")))
         {
             // The third parameter here is optional - if true, it will override the file if already exists.
-            await _mediaFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, overwrite: true);
+            await mediaFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, overwrite: true);
         }
 
         // Use this method to check if the file exists (it will be null if the file doesn't exist). It's similar to the
         // built-in FileInfo class but not that robust.
-        var fileInfo = await _mediaFileStore.GetFileInfoAsync(TestFileRelativePath);
+        var fileInfo = await mediaFileStore.GetFileInfoAsync(TestFileRelativePath);
 
         // The IMediaFileStore has its own specific methods such as mapping the file path to a public URL. Since the
         // files in the Media folder are accessible from the outside this can be handy.
-        var publicUrl = _mediaFileStore.MapPathToPublicUrl(TestFileRelativePath);
+        var publicUrl = mediaFileStore.MapPathToPublicUrl(TestFileRelativePath);
 
         return $"Successfully created file! File size: {fileInfo.Length} bytes. Public URL: {publicUrl}";
     }
@@ -74,13 +71,13 @@ public class FileManagementController(
     public async Task<string> ReadFileFromMediaFolder()
     {
         // This way you can check if the given file exists.
-        if (await _mediaFileStore.GetFileInfoAsync(TestFileRelativePath) == null)
+        if (await mediaFileStore.GetFileInfoAsync(TestFileRelativePath) == null)
         {
             return "Create the file first!";
         }
 
         // If you want to extract the content of the file use a StreamReader to read the stream.
-        using var stream = await _mediaFileStore.GetFileStreamAsync(TestFileRelativePath);
+        using var stream = await mediaFileStore.GetFileStreamAsync(TestFileRelativePath);
         using var streamReader = new StreamReader(stream);
         var content = await streamReader.ReadToEndAsync(HttpContext.RequestAborted);
 
@@ -99,15 +96,15 @@ public class FileManagementController(
         if (file == null) return BadRequest();
 
         // You can use the Combine method to combine paths which is pretty much equivalent to the built-in method.
-        var mediaFilePath = _mediaFileStore.Combine(UploadedFileFolderRelativePath, file.FileName);
+        var mediaFilePath = mediaFileStore.Combine(UploadedFileFolderRelativePath, file.FileName);
 
         // In this case you already have a stream so use it to create the file.
         using (var stream = file.OpenReadStream())
         {
-            await _mediaFileStore.CreateFileFromStreamAsync(mediaFilePath, stream);
+            await mediaFileStore.CreateFileFromStreamAsync(mediaFilePath, stream);
         }
 
-        await _notifier.InformationAsync(H["Successfully uploaded file!"]);
+        await notifier.InformationAsync(H["Successfully uploaded file!"]);
 
         return RedirectToAction(nameof(UploadFileToMedia));
     }
@@ -121,10 +118,10 @@ public class FileManagementController(
         // time. The files will be created inside our CustomFiles folder as it was defined in Startup.cs.
         using (var stream = new MemoryStream(Encoding.UTF8.GetBytes("Hi there in the custom file storage!")))
         {
-            await _customFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, overwrite: true);
+            await customFileStore.CreateFileFromStreamAsync(TestFileRelativePath, stream, overwrite: true);
         }
 
-        var fileInfo = await _customFileStore.GetFileInfoAsync(TestFileRelativePath);
+        var fileInfo = await customFileStore.GetFileInfoAsync(TestFileRelativePath);
 
         return $"Successfully created file in the custom file storage! File size: {fileInfo.Length} bytes.";
     }

@@ -16,13 +16,11 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
+// The core display management features can be used via the IDisplayManager service. The generic parameter will be
+// the object that needs to be displayed on the UI somehow. Don't forget to register this generic class with the
+// service provider (see: Startup.cs).
 public class DisplayManagementController(IDisplayManager<Book> bookDisplayManager) : Controller, IUpdateModel
 {
-    // The core display management features can be used via the IDisplayManager service. The generic parameter will be
-    // the object that needs to be displayed on the UI somehow. Don't forget to register this generic class with the
-    // service provider (see: Startup.cs).
-    private readonly IDisplayManager<Book> _bookDisplayManager = bookDisplayManager;
-
     // Before we learn how shapes are generated using the display manager let's see what are these shapes actually.
     // Ad-hoc shapes can be created anywhere without the display manager. In this example we'll see how to create an
     // ad-hoc shape inside a view (or could be another shape). Later we'll see how to do it from a filter too. Open from
@@ -39,7 +37,7 @@ public class DisplayManagementController(IDisplayManager<Book> bookDisplayManage
         var book = CreateDemoBook();
 
         // This method will generate a shape primarily for displaying information about the given object.
-        var shape = await _bookDisplayManager.BuildDisplayAsync(book, this);
+        var shape = await bookDisplayManager.BuildDisplayAsync(book, this);
 
         // We will see how this display shape is generated and what will contain but first let's see how is this
         // rendered in the MVC view. NEXT STATION: Go to Views/DisplayManagement/DisplayBook.cshtml.
@@ -56,7 +54,7 @@ public class DisplayManagementController(IDisplayManager<Book> bookDisplayManage
 
         // This time give an additional parameter which is the display type. If display type is given then Orchard Core
         // will search a cshtml file with a name [ClassName].[DisplayType].cshtml.
-        var shape = await _bookDisplayManager.BuildDisplayAsync(book, this, "Description");
+        var shape = await bookDisplayManager.BuildDisplayAsync(book, this, "Description");
 
         // NEXT STATION: Go to Views/Book.Description.cshtml
 
