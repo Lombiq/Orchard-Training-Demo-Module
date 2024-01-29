@@ -9,6 +9,18 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Services;
 
+// You've already seen the IClock service for getting the current UTC date. This service can be used to get the
+// current local date based on the site settings. Also dates can be converted from or to UTC.
+// IMemoryCache service is a built-in service in ASP.NET Core. Use this if you want a fast cache that's local to the
+// current process. Do note that if you app runs on multiple servers this cache won't be shared among nodes. To
+// learn more about IMemoryCache visit https://docs.microsoft.com/en-us/aspnet/core/performance/caching/memory.
+// Dynamic Cache is implemented primarily for caching shapes. It is based on the built-in ASP.NET Core
+// IDistributedCache service which by default is implemented by DistributedMemoryCache. If you just want to cache
+// simple values like you'd do with IMemoryCache but in a way that also shares cache entries between servers when
+// your app runs on multiple servers then use IDistributedCache directly. To learn more about distributed caching
+// and IDistributedCache visit https://docs.microsoft.com/en-us/aspnet/core/performance/caching/distributed.
+// We're using ISignals to be able to send a signal to the memory cache to invalidate the given entry.
+// Tag cache is a service for tagging cached data and invalidating cache by their tags.
 public class DateTimeCachingService(
     IMemoryCache memoryCache,
     ILocalClock localClock,

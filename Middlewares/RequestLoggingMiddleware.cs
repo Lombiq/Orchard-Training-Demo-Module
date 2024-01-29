@@ -21,6 +21,7 @@ namespace Lombiq.TrainingDemo.Middlewares;
 
 // By the way, do you remember that we have a separate module feature declared in the Manifest for this middleware? If
 // not, check out Manifest.cs again!
+// You need to inject a RequestDelegate instance here.
 public class RequestLoggingMiddleware(RequestDelegate next)
 {
     // This method is the actual middleware. Note that apart from the first parameter obligatorily being HttpContext
