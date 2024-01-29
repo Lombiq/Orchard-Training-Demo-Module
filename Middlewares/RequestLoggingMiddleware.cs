@@ -23,8 +23,6 @@ namespace Lombiq.TrainingDemo.Middlewares;
 // not, check out Manifest.cs again!
 public class RequestLoggingMiddleware(RequestDelegate next)
 {
-    private readonly RequestDelegate _next = next;
-
     // This method is the actual middleware. Note that apart from the first parameter obligatorily being HttpContext
     // further parameters can be injected Orchard services.
     public async Task InvokeAsync(
@@ -34,7 +32,7 @@ public class RequestLoggingMiddleware(RequestDelegate next)
     {
         // We let the next middleware run, but this is not mandatory: if this middleware would return a cached page for
         // example then we would write the cached response to the HttpContext and leave this out.
-        await _next(context);
+        await next(context);
         // Think twice when wrapping this call into a try-catch: here you'd catch all exceptions from the next
         // middleware that would normally result in a 404 or an 503, so it's maybe better to always let them bubble up.
         // But keep in mind that any uncaught exception here in your code will result in an error page.

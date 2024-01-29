@@ -15,6 +15,7 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
+// The actual caching is implemented in a service which we'll soon investigate.
 public class CacheController(IDateTimeCachingService dateTimeCachingService) : Controller
 {
     // In this action we'll cache a DateTime three different ways. You can open it under

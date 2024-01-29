@@ -18,14 +18,13 @@ namespace Lombiq.TrainingDemo.Events;
 // useful! The rest of it is pretty standard and we just use INotifier again.
 public class LoginGreeting(INotifier notifier, IHtmlLocalizer<LoginGreeting> htmlLocalizer) : ILoginFormEvent
 {
-    private readonly INotifier _notifier = notifier;
     private readonly IHtmlLocalizer H = htmlLocalizer;
 
     public Task IsLockedOutAsync(IUser user) => Task.CompletedTask;
 
     public async Task LoggedInAsync(IUser user)
     {
-        await _notifier.SuccessAsync(H["Hi {0}!", user.UserName]);
+        await notifier.SuccessAsync(H["Hi {0}!", user.UserName]);
 
         return;
     }

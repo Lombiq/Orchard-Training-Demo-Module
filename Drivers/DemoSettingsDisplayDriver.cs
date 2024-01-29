@@ -22,9 +22,6 @@ public class DemoSettingsDisplayDriver(IAuthorizationService authorizationServic
     // class placed in a Constants folder).
     public const string EditorGroupId = "Demo";
 
-    private readonly IAuthorizationService _authorizationService = authorizationService;
-    private readonly IHttpContextAccessor _hca = hca;
-
     // Here's the EditAsync override to display editor for our site settings on the Dashboard. Note that it has a sync
     // version too.
     public override async Task<IDisplayResult> EditAsync(DemoSettings section, BuildEditorContext context)
@@ -76,9 +73,9 @@ public class DemoSettingsDisplayDriver(IAuthorizationService authorizationServic
     {
         // Since the User object is not accessible here (as it was accessible in the Controller) we need to grab it from
         // the HttpContext.
-        var user = _hca.HttpContext?.User;
+        var user = hca.HttpContext?.User;
 
-        return user != null && await _authorizationService.AuthorizeAsync(user, DemoSettingsPermissions.ManageDemoSettings);
+        return user != null && await authorizationService.AuthorizeAsync(user, DemoSettingsPermissions.ManageDemoSettings);
     }
 }
 

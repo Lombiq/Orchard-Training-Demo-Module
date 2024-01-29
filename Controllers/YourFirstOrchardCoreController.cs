@@ -17,19 +17,17 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
+// Orchard Core uses the built in dependency injection feature coming with ASP.NET Core. You can use the module's
+// Startup class to register your own services with the service provider. To learn more see:
+// https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection
 public class YourFirstOrchardCoreController(
     INotifier notifier,
     IStringLocalizer<YourFirstOrchardCoreController> stringLocalizer,
     IHtmlLocalizer<YourFirstOrchardCoreController> htmlLocalizer,
     ILogger<YourFirstOrchardCoreController> logger) : Controller
 {
-    private readonly INotifier _notifier = notifier;
     private readonly IStringLocalizer T = stringLocalizer;
     private readonly IHtmlLocalizer H = htmlLocalizer;
-
-    // You can use the non-generic counterpart of ILogger once injected just be sure to inject the generic one otherwise
-    // the log entries won't contain the name of the class.
-    private readonly ILogger _logger = logger;
 
     // Here's a simple action that will return some message. Nothing special here just demonstrates that this will work
     // in Orchard Core right after enabling the module. The route for this action will be
@@ -57,12 +55,12 @@ public class YourFirstOrchardCoreController(
         // Extension it'll provide you a handy Error Log Watcher which lights up if there's a new error! Check it out
         // here:
         // https://marketplace.visualstudio.com/items?itemName=LombiqVisualStudioExtension.LombiqOrchardVisualStudioExtension
-        _logger.LogError("You have been notified about some error!");
+        logger.LogError("You have been notified about some error!");
 
         // INotifier is an Orchard Core service to send messages to the user. This service can be used almost everywhere
         // in the code base not only in Controllers. This service requires a LocalizedHtmlString object so the
         // IHtmlLocalizer service needs to be used for localization.
-        await _notifier.InformationAsync(H["Congratulations! You have been notified! Check the error log too!"]);
+        await notifier.InformationAsync(H["Congratulations! You have been notified! Check the error log too!"]);
 
         return View();
 

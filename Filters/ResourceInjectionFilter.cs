@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 namespace Lombiq.TrainingDemo.Filters;
 
 // Don't forget to add this filter to the filter collection in the Startup.cs file.
+// To register resources you can use the IResourceManager service.
 public class ResourceInjectionFilter(IResourceManager resourceManager) : IAsyncResultFilter
 {
-    // To register resources you can use the IResourceManager service.
-    private readonly IResourceManager _resourceManager = resourceManager;
-
     public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
         // Let's decide when the filter should be executed. It wouldn't make sense to inject resources if this is a
@@ -26,7 +24,7 @@ public class ResourceInjectionFilter(IResourceManager resourceManager) : IAsyncR
         // You can register "stylesheet" or "script" resources. You can also set where they'll be rendered with the
         // .AtHead() or .AtFoot() methods chained on the RegisterResource() method which obviously makes sense only if
         // the resource is a script.
-        _resourceManager.RegisterResource("stylesheet", "Lombiq.TrainingDemo.Filtered");
+        resourceManager.RegisterResource("stylesheet", "Lombiq.TrainingDemo.Filtered");
 
         await next();
     }

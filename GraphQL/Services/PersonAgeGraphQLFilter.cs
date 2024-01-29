@@ -16,8 +16,6 @@ namespace Lombiq.TrainingDemo.GraphQL.Services;
 // IGraphQLFilters can append conditions to the YesSql query, alter its result, or do both.
 public class PersonAgeGraphQLFilter(IClock clock) : IGraphQLFilter<ContentItem>
 {
-    private readonly IClock _clock = clock;
-
     // While you can use this to execute some complex YesSql query it's best to stick with the IIndexAliasProvider
     // approach for such things.
     public Task<IQuery<ContentItem>> PreQueryAsync(IQuery<ContentItem> query, IResolveFieldContext context) =>
@@ -35,7 +33,7 @@ public class PersonAgeGraphQLFilter(IClock clock) : IGraphQLFilter<ContentItem>
 
         if (name != null && value.Value is int age)
         {
-            var now = _clock.UtcNow;
+            var now = clock.UtcNow;
             if (name == "age") name = "age_eq";
             var filterType = name[^2..]; // The name operator like gt, le, etc.
 

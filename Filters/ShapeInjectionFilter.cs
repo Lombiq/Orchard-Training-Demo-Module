@@ -22,15 +22,11 @@ using System.Threading.Tasks;
 namespace Lombiq.TrainingDemo.Filters;
 
 // Don't forget to add this filter to the filter collection in the Startup.cs file.
+// To access the layout which contains the zones you need to use the ILayoutAccessor service.
+// To generate ad-hoc shapes the IShapeFactory can be used. This is the same which is behind the New property in
+// templates that you have previously seen in AdHocShape.cshtml.
 public class ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory shapeFactory) : IAsyncResultFilter
 {
-    // To access the layout which contains the zones you need to use the ILayoutAccessor service.
-    private readonly ILayoutAccessor _layoutAccessor = layoutAccessor;
-
-    // To generate ad-hoc shapes the IShapeFactory can be used. This is the same which is behind the New property in
-    // templates that you have previously seen in AdHocShape.cshtml.
-    private readonly IShapeFactory _shapeFactory = shapeFactory;
-
     public async Task OnResultExecutionAsync(ResultExecutingContext context, ResultExecutionDelegate next)
     {
         // You can decide when the filter should be executed here. If this is not a ViewResult or PageResult the shape
@@ -43,7 +39,7 @@ public class ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory 
         }
 
         // We first retrieve the layout.
-        var layout = await _layoutAccessor.GetLayoutAsync();
+        var layout = await layoutAccessor.GetLayoutAsync();
 
         // The Layout object will contain a Zones dictionary that you can use to access a zone. The Content zone is
         // usually available in all themes and is the main zone in the middle of each page.
@@ -51,7 +47,7 @@ public class ShapeInjectionFilter(ILayoutAccessor layoutAccessor, IShapeFactory 
         // Here you can add an ad-hoc generated shape to the Content zone. This works in the same way as we've seen
         // previously when we talked about display management. You can find the template that'll render this shape under
         // Views/InjectedShape.cshtml.
-        await contentZone.AddAsync(await _shapeFactory.CreateAsync("InjectedShape"));
+        await contentZone.AddAsync(await shapeFactory.CreateAsync("InjectedShape"));
 
         await next();
     }
