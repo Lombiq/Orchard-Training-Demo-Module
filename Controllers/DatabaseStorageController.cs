@@ -102,7 +102,7 @@ public class DatabaseStorageController : Controller
 
     // NEXT STATION: Models/PersonPart.cs
 
-    private static IEnumerable<Book> CreateDemoBooks() =>
+    private static Book[] CreateDemoBooks() =>
         new[]
         {
             new Book
