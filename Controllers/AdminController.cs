@@ -19,12 +19,25 @@ using YesSql;
 namespace Lombiq.TrainingDemo.Controllers;
 
 // If you have multiple admin controllers then name them whatever you want but put an [Admin] attribute on them.
-public class AdminController(
-    IContentItemDisplayManager contentItemDisplayManager,
-    ISession session,
-    IAuthorizationService authorizationService,
-    IUpdateModelAccessor updateModelAccessor) : Controller
+public class AdminController : Controller
 {
+    private readonly IContentItemDisplayManager _contentItemDisplayManager;
+    private readonly ISession _session;
+    private readonly IAuthorizationService _authorizationService;
+    private readonly IUpdateModelAccessor _updateModelAccessor;
+
+    public AdminController(
+        IContentItemDisplayManager contentItemDisplayManager,
+        ISession session,
+        IAuthorizationService authorizationService,
+        IUpdateModelAccessor updateModelAccessor)
+    {
+        _contentItemDisplayManager = contentItemDisplayManager;
+        _session = session;
+        _authorizationService = authorizationService;
+        _updateModelAccessor = updateModelAccessor;
+    }
+
     // Let's see how it will be displayed, just type the default URL (/Lombiq.TrainingDemo/Admin/Index) into the browser
     // with an administrator account (or at least a user who has a role that has AccessAdmin permission). If you are
     // anonymous then a login page will automatically appear. The permission check (i.e. has AccessAdmin
@@ -38,13 +51,13 @@ public class AdminController(
     {
         // If the user needs to have a specific permission to access a page on the admin panel (besides the AccessAdmin
         // permission) you need to check it here.
-        if (!await authorizationService.AuthorizeAsync(User, PersonPermissions.AccessPersonListDashboard))
+        if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.AccessPersonListDashboard))
         {
             return Unauthorized();
         }
 
         // Nothing special here just display the last 10 Person Page content items.
-        var persons = await session
+        var persons = await _session
             .Query<ContentItem, ContentItemIndex>()
             .Where(index => index.ContentType == ContentTypes.PersonPage)
             .OrderByDescending(index => index.CreatedUtc)
@@ -57,13 +70,13 @@ public class AdminController(
 
     public async Task<IActionResult> PersonListOldest()
     {
-        if (!await authorizationService.AuthorizeAsync(User, PersonPermissions.AccessPersonListDashboard))
+        if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.AccessPersonListDashboard))
         {
             return Unauthorized();
         }
 
         // Display the first 10 Person Page content items.
-        var persons = await session
+        var persons = await _session
             .Query<ContentItem, ContentItemIndex>()
             .Where(index => index.ContentType == ContentTypes.PersonPage)
             .OrderBy(index => index.CreatedUtc)
@@ -77,7 +90,7 @@ public class AdminController(
         // Notice the "SummaryAdmin" display type which is a built in display type specifically for listing items on the
         // dashboard.
         await persons.AwaitEachAsync(async person =>
-            await contentItemDisplayManager.BuildDisplayAsync(person, updateModelAccessor.ModelUpdater, "SummaryAdmin"));
+            await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "SummaryAdmin"));
 }
 
 // NEXT STATION: Navigation/TrainingDemoNavigationProvider.cs

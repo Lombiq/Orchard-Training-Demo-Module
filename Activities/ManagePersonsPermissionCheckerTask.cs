@@ -14,13 +14,24 @@ namespace Lombiq.TrainingDemo.Activities;
 
 // A simple workflow task that accepts a username as a TextField input and checks whether the user has ManagePersons
 // Permission or not.
-public class ManagePersonsPermissionCheckerTask(
-    IAuthorizationService authorizationService,
-    IUserService userService,
-    IWorkflowExpressionEvaluator expressionEvaluator,
-    IStringLocalizer<ManagePersonsPermissionCheckerTask> localizer) : TaskActivity
+public class ManagePersonsPermissionCheckerTask : TaskActivity
 {
-    private readonly IStringLocalizer S = localizer;
+    private readonly IAuthorizationService _authorizationService;
+    private readonly IUserService _userService;
+    private readonly IWorkflowExpressionEvaluator _expressionEvaluator;
+    private readonly IStringLocalizer S;
+
+    public ManagePersonsPermissionCheckerTask(
+        IAuthorizationService authorizationService,
+        IUserService userService,
+        IWorkflowExpressionEvaluator expressionEvaluator,
+        IStringLocalizer<ManagePersonsPermissionCheckerTask> localizer)
+    {
+        _authorizationService = authorizationService;
+        _userService = userService;
+        _expressionEvaluator = expressionEvaluator;
+        S = localizer;
+    }
 
     // The technical name of the activity. Activities in a workflow definition reference this name.
     public override string Name => nameof(ManagePersonsPermissionCheckerTask);
@@ -49,14 +60,14 @@ public class ManagePersonsPermissionCheckerTask(
         WorkflowExecutionContext workflowContext,
         ActivityContext activityContext)
     {
-        var userName = await expressionEvaluator.EvaluateAsync(UserName, workflowContext, encoder: null);
-        var user = (User)await userService.GetUserAsync(userName);
+        var userName = await _expressionEvaluator.EvaluateAsync(UserName, workflowContext, encoder: null);
+        var user = (User)await _userService.GetUserAsync(userName);
 
         if (user != null)
         {
-            var userClaim = await userService.CreatePrincipalAsync(user);
+            var userClaim = await _userService.CreatePrincipalAsync(user);
 
-            if (await authorizationService.AuthorizeAsync(userClaim, PersonPermissions.ManagePersons))
+            if (await _authorizationService.AuthorizeAsync(userClaim, PersonPermissions.ManagePersons))
             {
                 return Outcomes("HasPermission");
             }

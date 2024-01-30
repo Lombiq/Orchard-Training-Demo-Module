@@ -31,8 +31,12 @@ public interface ITestedService
 }
 
 // The implementation of the service follows.
-public class TestedService(IContentManager contentManager) : ITestedService
+public class TestedService : ITestedService
 {
+    private readonly IContentManager _contentManager;
+
+    public TestedService(IContentManager contentManager) => _contentManager = contentManager;
+
     public Task<ContentItem> GetContentItemOrThrowAsync(string id)
     {
         // As you can see we rigorously check the input. Something we'll surely need to test later!
@@ -47,7 +51,7 @@ public class TestedService(IContentManager contentManager) : ITestedService
 
     private async Task<ContentItem> GetContentItemOrThrowInternalAsync(string id) =>
         // You already know how this works :).
-        await contentManager.GetAsync(id)
+        await _contentManager.GetAsync(id)
             ?? throw new InvalidOperationException($"The content item with the ID {id} doesn't exist.");
 }
 

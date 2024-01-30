@@ -54,8 +54,12 @@ namespace Lombiq.TrainingDemo;
 
 // While the startup class doesn't need to derive from StartupBase and can just use conventionally named methods it's a
 // bit less of a magic this way, and code analysis won't tell us to make it static.
-public class Startup(IShellConfiguration shellConfiguration) : StartupBase
+public class Startup : StartupBase
 {
+    private readonly IShellConfiguration _shellConfiguration;
+
+    public Startup(IShellConfiguration shellConfiguration) => _shellConfiguration = shellConfiguration;
+
     public override void ConfigureServices(IServiceCollection services)
     {
         // NEXT STATION: Views/PersonPart.Edit.cshtml
@@ -92,7 +96,7 @@ public class Startup(IShellConfiguration shellConfiguration) : StartupBase
         services.AddScoped<INavigationProvider, TrainingDemoNavigationProvider>();
 
         // Demo Settings
-        services.Configure<DemoSettings>(shellConfiguration.GetSection("Lombiq_TrainingDemo"));
+        services.Configure<DemoSettings>(_shellConfiguration.GetSection("Lombiq_TrainingDemo"));
         services.AddTransient<IConfigureOptions<DemoSettings>, DemoSettingsConfiguration>();
         services.AddScoped<IDisplayDriver<ISite>, DemoSettingsDisplayDriver>();
         services.AddScoped<IPermissionProvider, DemoSettingsPermissions>();

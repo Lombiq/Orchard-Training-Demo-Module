@@ -24,14 +24,27 @@ using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class DatabaseStorageController(
-    ISession session,
-    IDisplayManager<Book> bookDisplayManager,
-    INotifier notifier,
-    IHtmlLocalizer<DatabaseStorageController> htmlLocalizer,
-    IUpdateModelAccessor updateModelAccessor) : Controller
+public class DatabaseStorageController : Controller
 {
-    private readonly IHtmlLocalizer H = htmlLocalizer;
+    private readonly ISession _session;
+    private readonly IDisplayManager<Book> _bookDisplayManager;
+    private readonly INotifier _notifier;
+    private readonly IHtmlLocalizer H;
+    private readonly IUpdateModelAccessor _updateModelAccessor;
+
+    public DatabaseStorageController(
+        ISession session,
+        IDisplayManager<Book> bookDisplayManager,
+        INotifier notifier,
+        IHtmlLocalizer<DatabaseStorageController> htmlLocalizer,
+        IUpdateModelAccessor updateModelAccessor)
+    {
+        _session = session;
+        _bookDisplayManager = bookDisplayManager;
+        _notifier = notifier;
+        _updateModelAccessor = updateModelAccessor;
+        H = htmlLocalizer;
+    }
 
     // A page with a button that will call the CreateBooks POST action. See it under
     // /Lombiq.TrainingDemo/DatabaseStorage/CreateBooks.
@@ -52,10 +65,10 @@ public class DatabaseStorageController(
         foreach (var book in CreateDemoBooks())
         {
             // So now you understand what will happen in the background when this service is being called.
-            await session.SaveAsync(book);
+            await _session.SaveAsync(book);
         }
 
-        await notifier.InformationAsync(H["Books have been created in the database."]);
+        await _notifier.InformationAsync(H["Books have been created in the database."]);
 
         return RedirectToAction(nameof(CreateBooks));
     }
@@ -65,7 +78,7 @@ public class DatabaseStorageController(
     public async Task<IActionResult> JKRosenzweigBooks()
     {
         // ISession service is used for querying items.
-        var jkRosenzweigBooks = await session
+        var jkRosenzweigBooks = await _session
             // First, we define what object (document) we want to query and what index should be used for filtering.
             .Query<Book, BookIndex>()
             // In the .Where() method you can describe a lambda where the object will be the index object.
@@ -79,7 +92,7 @@ public class DatabaseStorageController(
         var bookShapes = await jkRosenzweigBooks.AwaitEachAsync(async book =>
             // We'll need to pass an IUpdateModel (used for model validation) to the method, which we can access via its
             // accessor service. Later you'll also see how we'll use this to run validations in drivers.
-            await bookDisplayManager.BuildDisplayAsync(book, updateModelAccessor.ModelUpdater));
+            await _bookDisplayManager.BuildDisplayAsync(book, _updateModelAccessor.ModelUpdater));
 
         // You can check out Views/DatabaseStorage/JKRosenzweigBooks.cshtml and come back here.
         return View(bookShapes);
@@ -89,7 +102,7 @@ public class DatabaseStorageController(
 
     // NEXT STATION: Models/PersonPart.cs
 
-    private static Book[] CreateDemoBooks() =>
+    private static IEnumerable<Book> CreateDemoBooks() =>
         new[]
         {
             new Book

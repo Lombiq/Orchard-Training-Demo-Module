@@ -29,8 +29,17 @@ namespace Lombiq.TrainingDemo.Controllers;
 // endpoints should most of the time use the "Api" authentication scheme: This is not the same that standard users are
 // authenticated with (via cookies).
 [Authorize(AuthenticationSchemes = "Api"), IgnoreAntiforgeryToken, AllowAnonymous]
-public class ApiController(IAuthorizationService authorizationService, IContentManager contentManager) : Controller
+public class ApiController : Controller
 {
+    private readonly IAuthorizationService _authorizationService;
+    private readonly IContentManager _contentManager;
+
+    public ApiController(IAuthorizationService authorizationService, IContentManager contentManager)
+    {
+        _authorizationService = authorizationService;
+        _contentManager = contentManager;
+    }
+
     // You can look up the ID of a Person Page that you've created previously (when you open one from the admin content
     // item list the URL will contain it as /Admin/Contents/ContentItems/<content item ID>) and use it to access this
     // action under /api/Lombiq.TrainingDemo?contentItemId=<content item ID>. Note though that you'll only be able to
@@ -43,13 +52,13 @@ public class ApiController(IAuthorizationService authorizationService, IContentM
         // permission here. To authenticate with the API you can use any ASP.NET Core authentication scheme but Orchard
         // offers various OpenID-based options. If you just want to quickly check out the API then grant the permission
         // for the Anonymous role on the admin.
-        if (!await authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
+        if (!await _authorizationService.AuthorizeAsync(User, PersonPermissions.ManagePersons))
         {
             return this.ChallengeOrForbid("Api");
         }
 
         // Just the usual stuff again.
-        var contentItem = await contentManager.GetAsync(contentItemId);
+        var contentItem = await _contentManager.GetAsync(contentItemId);
 
         // Only allow the retrieval of Person Page items.
         if (contentItem?.ContentType != ContentTypes.PersonPage) contentItem = null;

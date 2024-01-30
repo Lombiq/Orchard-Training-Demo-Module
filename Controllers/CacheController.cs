@@ -15,23 +15,27 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-// The actual caching is implemented in a service which we'll soon investigate.
-public class CacheController(IDateTimeCachingService dateTimeCachingService) : Controller
+public class CacheController : Controller
 {
+    // The actual caching is implemented in a service which we'll soon investigate.
+    private readonly IDateTimeCachingService _dateTimeCachingService;
+
+    public CacheController(IDateTimeCachingService dateTimeCachingService) => _dateTimeCachingService = dateTimeCachingService;
+
     // In this action we'll cache a DateTime three different ways. You can open it under
     // /Lombiq.TrainingDemo/Cache/Index
     public async Task<ActionResult> Index()
     {
         // This one will be cached using the built-in ASP.NET Core IMemoryCache.
-        var memoryCachedDateTime = await dateTimeCachingService.GetMemoryCachedDateTimeAsync();
+        var memoryCachedDateTime = await _dateTimeCachingService.GetMemoryCachedDateTimeAsync();
 
         // This one will be using the DynamicCache provided by Orchard Core. It will have a 30 second expiration.
         var dynamicCachedDateTimeWith30SecondsExpiry =
-            await dateTimeCachingService.GetDynamicCachedDateTimeWith30SecondsExpiryAsync();
+            await _dateTimeCachingService.GetDynamicCachedDateTimeWith30SecondsExpiryAsync();
 
         // Finally this date will be cached only for this route.
         var dynamicCachedDateTimeVariedByRoutes =
-            await dateTimeCachingService.GetDynamicCachedDateTimeVariedByRoutesAsync();
+            await _dateTimeCachingService.GetDynamicCachedDateTimeVariedByRoutesAsync();
 
         // NEXT STATION: Services/DateTimeCachingService.cs
 
@@ -53,7 +57,7 @@ public class CacheController(IDateTimeCachingService dateTimeCachingService) : C
     // /Lombiq.TrainingDemo/Cache/InvalidateDateTimeCache
     public async Task<ActionResult> InvalidateDateTimeCache()
     {
-        await dateTimeCachingService.InvalidateCachedDateTimeAsync();
+        await _dateTimeCachingService.InvalidateCachedDateTimeAsync();
 
         return RedirectToAction("Index");
     }
