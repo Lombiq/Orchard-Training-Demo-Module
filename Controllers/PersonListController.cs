@@ -136,7 +136,7 @@ public class PersonListController : Controller
         // IContentManager.GetAsync() instead.
 
         return "People modified: " +
-            (oldPeople.Any() ?
+            (oldPeople.Count != 0 ?
                 string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 
