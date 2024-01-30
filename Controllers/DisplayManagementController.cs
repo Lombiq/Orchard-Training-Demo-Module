@@ -16,11 +16,13 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
+public class DisplayManagementController : Controller, IUpdateModel
 // The core display management features can be used via the IDisplayManager service. The generic parameter will be
 // the object that needs to be displayed on the UI somehow. Don't forget to register this generic class with the
 // service provider (see: Startup.cs).
-public class DisplayManagementController(IDisplayManager<Book> bookDisplayManager) : Controller, IUpdateModel
-{
+    private readonly IDisplayManager<Book> _bookDisplayManager;
+
+    public DisplayManagementController(IDisplayManager<Book> bookDisplayManager) => _bookDisplayManager = bookDisplayManager;
     // Before we learn how shapes are generated using the display manager let's see what are these shapes actually.
     // Ad-hoc shapes can be created anywhere without the display manager. In this example we'll see how to create an
     // ad-hoc shape inside a view (or could be another shape). Later we'll see how to do it from a filter too. Open from

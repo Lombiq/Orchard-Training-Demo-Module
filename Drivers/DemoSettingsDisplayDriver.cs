@@ -14,13 +14,21 @@ namespace Lombiq.TrainingDemo.Drivers;
 // Now this display driver abstraction is different from the one you've seen before. In Orchard Core you can connect
 // different objects to a master object that will be connected in the database when storing them. Site settings are
 // handled this way.
-public class DemoSettingsDisplayDriver(IAuthorizationService authorizationService, IHttpContextAccessor hca)
-    : SectionDisplayDriver<ISite, DemoSettings>
+public class DemoSettingsDisplayDriver : SectionDisplayDriver<ISite, DemoSettings>
 {
     // Since technically we have only one SiteSettings we have separate the editors using editor groups. It's a good
     // idea to store the editor group ID in a publicly accessibly constant (would be much better to store it in a static
     // class placed in a Constants folder).
     public const string EditorGroupId = "Demo";
+
+    private readonly IAuthorizationService _authorizationService;
+    private readonly IHttpContextAccessor _hca;
+
+    public DemoSettingsDisplayDriver(IAuthorizationService authorizationService, IHttpContextAccessor hca)
+    {
+        _authorizationService = authorizationService;
+        _hca = hca;
+    }
 
     // Here's the EditAsync override to display editor for our site settings on the Dashboard. Note that it has a sync
     // version too.
@@ -73,9 +81,9 @@ public class DemoSettingsDisplayDriver(IAuthorizationService authorizationServic
     {
         // Since the User object is not accessible here (as it was accessible in the Controller) we need to grab it from
         // the HttpContext.
-        var user = hca.HttpContext?.User;
+        var user = _hca.HttpContext?.User;
 
-        return user != null && await authorizationService.AuthorizeAsync(user, DemoSettingsPermissions.ManageDemoSettings);
+        return user != null && await _authorizationService.AuthorizeAsync(user, DemoSettingsPermissions.ManageDemoSettings);
     }
 }
 

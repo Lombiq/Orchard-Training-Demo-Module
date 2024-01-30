@@ -26,18 +26,33 @@ using YesSql;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class PersonListController(
-    ISession session,
-    IClock clock,
-    IContentItemDisplayManager contentItemDisplayManager,
-    IUpdateModelAccessor updateModelAccessor,
-    IContentManager contentManager) : Controller
+public class PersonListController : Controller
 {
+    private readonly ISession _session;
+    private readonly IClock _clock;
+    private readonly IContentItemDisplayManager _contentItemDisplayManager;
+    private readonly IUpdateModelAccessor _updateModelAccessor;
+    private readonly IContentManager _contentManager;
+
+    public PersonListController(
+        ISession session,
+        IClock clock,
+        IContentItemDisplayManager contentItemDisplayManager,
+        IUpdateModelAccessor updateModelAccessor,
+        IContentManager contentManager)
+    {
+        _session = session;
+        _clock = clock;
+        _contentItemDisplayManager = contentItemDisplayManager;
+        _updateModelAccessor = updateModelAccessor;
+        _contentManager = contentManager;
+    }
+
     // See it under /Lombiq.TrainingDemo/PersonList/OlderThan30.
     public async Task<IActionResult> OlderThan30()
     {
-        var thresholdDate = clock.UtcNow.AddYears(-30);
-        var people = await session
+        var thresholdDate = _clock.UtcNow.AddYears(-30);
+        var people = await _session
             // This will query for content items where the related PersonPartIndex.BirthDateUtc is lower than the
             // threshold date. Notice that there is no Where method. The Query method has an overload for that which can
             // be useful if you don't want to filter in multiple indexes.
@@ -55,9 +70,9 @@ public class PersonListController(
             // When you retrieve content items via ISession then you also need to run LoadAsync() on them to initialize
             // everything. This foremost includes running handlers, which are pretty much event handlers for content
             // items (you'll see them in a minute with PersonPartHandler).
-            await contentManager.LoadAsync(person);
+            await _contentManager.LoadAsync(person);
 
-            return await contentItemDisplayManager.BuildDisplayAsync(person, updateModelAccessor.ModelUpdater, "Summary");
+            return await _contentItemDisplayManager.BuildDisplayAsync(person, _updateModelAccessor.ModelUpdater, "Summary");
         });
 
         // Now assuming that you've already created a few Person content items on the dashboard and some of these
@@ -74,8 +89,8 @@ public class PersonListController(
 
         // Again we'll fetch content items with PersonPart but this time we'll retrieve old people and we'll make them
         // younger!
-        var thresholdDate = clock.UtcNow.AddYears(-90);
-        var oldPeople = (await session
+        var thresholdDate = _clock.UtcNow.AddYears(-90);
+        var oldPeople = (await _session
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
             .ListAsync())
             .ToList();
@@ -83,9 +98,9 @@ public class PersonListController(
         foreach (var person in oldPeople)
         {
             // Have to run LoadAsync() here too.
-            await contentManager.LoadAsync(person);
+            await _contentManager.LoadAsync(person);
 
-            var eighteenYearOld = clock.UtcNow.AddYears(-18);
+            var eighteenYearOld = _clock.UtcNow.AddYears(-18);
 
             // Don't just overwrite the part's property directly! That'll change the index record but not the document!
             // Don't just do this:
@@ -110,18 +125,18 @@ public class PersonListController(
 
             // Once you're done you have to save the content item explicitly. Remember when we saved Books with
             // ISession.Save()? This is something similar for content items.
-            await contentManager.UpdateAsync(person);
+            await _contentManager.UpdateAsync(person);
 
             // After saving the content item with UpdateAsync() you also need to publish it to make sure that even a
             // draftable content item gets updated.
-            await contentManager.PublishAsync(person);
+            await _contentManager.PublishAsync(person);
         }
 
         // If you want to manage just one content item or a couple of them that you know by ID then fetch them with
         // IContentManager.GetAsync() instead.
 
         return "People modified: " +
-            (oldPeople.Count != 0 ?
+            (oldPeople.Any() ?
                 string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 
@@ -137,17 +152,17 @@ public class PersonListController(
 
         // First you need to instantiate the new content item. This just creates an object for now, nothing is yet
         // persisted into the database.
-        var person = await contentManager.NewAsync(ContentTypes.PersonPage);
+        var person = await _contentManager.NewAsync(ContentTypes.PersonPage);
 
         // We add some identity to our new synthetic friend.
-        var serialNumber = clock.UtcNow.Ticks;
+        var serialNumber = _clock.UtcNow.Ticks;
         var name = $"X Doe #{serialNumber.ToTechnicalString()}";
 
         // Again we can save date into parts like this:
         person.Alter<PersonPart>(part =>
         {
             part.Name = name;
-            part.BirthDateUtc = clock.UtcNow;
+            part.BirthDateUtc = _clock.UtcNow;
             part.Handedness = Handedness.Right; // Actually ambidextrous.
         });
 
@@ -160,9 +175,9 @@ public class PersonListController(
         // You could also publish it right away but if you want to be safe and make sure that every part runs nicely
         // (like AutoroutePart, which we don't use on PersonPage, generates the permalink) it's safer to first create a
         // draft, then also update it, and finally publish it explicitly.
-        await contentManager.CreateAsync(person, VersionOptions.Draft);
-        await contentManager.UpdateAsync(person);
-        await contentManager.PublishAsync(person);
+        await _contentManager.CreateAsync(person, VersionOptions.Draft);
+        await _contentManager.UpdateAsync(person);
+        await _contentManager.PublishAsync(person);
 
         // You should see a new content item, check it out from the admin!
 

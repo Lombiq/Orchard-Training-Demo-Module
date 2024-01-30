@@ -12,15 +12,22 @@ using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Controllers;
 
-public class SiteSettingsController(ISiteService siteService, IOptionsSnapshot<DemoSettings> demoOptions) : Controller
+public class SiteSettingsController : Controller
 {
-    private readonly DemoSettings _demoSettings = demoOptions.Value;
+    private readonly ISiteService _siteService;
+    private readonly DemoSettings _demoSettings;
+
+    public SiteSettingsController(ISiteService siteService, IOptionsSnapshot<DemoSettings> demoOptions)
+    {
+        _siteService = siteService;
+        _demoSettings = demoOptions.Value;
+    }
 
     // Here's a quick simple demonstration about how to use ISiteService. Orchard Core stores basic settings that are
     // accessible right away in the ISite object. Here you will see how to access the site's name you gave when you set
     // up your website.
     public async Task<string> SiteName() =>
-        (await siteService.GetSiteSettingsAsync()).SiteName;
+        (await _siteService.GetSiteSettingsAsync()).SiteName;
 
     // NEXT STATION: Models/DemoSettings.cs
 
@@ -30,7 +37,7 @@ public class SiteSettingsController(ISiteService siteService, IOptionsSnapshot<D
     {
         // As mentioned the custom settings objects are serialized into the ISite object so use the .As<>() helper to
         // access it as you see below.
-        var messageFromSiteSettings = (await siteService.GetSiteSettingsAsync()).As<DemoSettings>().Message;
+        var messageFromSiteSettings = (await _siteService.GetSiteSettingsAsync()).As<DemoSettings>().Message;
 
         // But as you've seen in DemoSettings.cs our site settings are also Options so we can use it as such too:
         var messageFromOptions = _demoSettings.Message;

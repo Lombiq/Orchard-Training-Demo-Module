@@ -17,9 +17,11 @@ namespace Lombiq.TrainingDemo.Migrations;
 // and configure content parts. Don't forget to register this class with the service provider (see Startup.cs). You can
 // also generate such migration steps with the Code Generation feature of our Helpful Extensions module, check it out
 // here: https://github.com/Lombiq/Helpful-Extensions
-public class PersonMigrations(IContentDefinitionManager contentDefinitionManager) : DataMigration
+public class PersonMigrations : DataMigration
 {
-    private readonly IContentDefinitionManager _contentDefinitionManager = contentDefinitionManager;
+    private readonly IContentDefinitionManager _contentDefinitionManager;
+
+    public PersonMigrations(IContentDefinitionManager contentDefinitionManager) => _contentDefinitionManager = contentDefinitionManager;
 
     public async Task<int> CreateAsync()
     {

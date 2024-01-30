@@ -27,16 +27,18 @@ namespace Lombiq.TrainingDemo.Services;
 // Tasks admin page. Also you can set Enabled to false if you don't want it start right after application start. These
 // settings can be updated entirely on the Background Tasks admin page.
 [BackgroundTask(Schedule = "*/2 * * * *", Description = "Demo background task that runs every 2 minutes.")]
-public class DemoBackgroundTask(ILogger<DemoBackgroundTask> logger) : IBackgroundTask
+public class DemoBackgroundTask : IBackgroundTask
 {
     // Setting a maximum time this background task will be executed.
     private const int MaxCount = 5;
 
-    private readonly ILogger<DemoBackgroundTask> _logger = logger;
+    private readonly ILogger<DemoBackgroundTask> _logger;
 
     // Storing execution times in a private field. Since background tasks are singleton objects this will keep its value
     // while the application runs.
     private int _count;
+
+    public DemoBackgroundTask(ILogger<DemoBackgroundTask> logger) => _logger = logger;
 
     // Since background tasks are singletons we'll need this IServiceProvider instance to resolve every non-singleton
     // service. When in doubt, just use this IServiceProvider instance to resolve everything instead of injecting a
