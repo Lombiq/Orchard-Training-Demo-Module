@@ -110,7 +110,6 @@ public class PersonListController : Controller
             {
                 part.BirthDateUtc = eighteenYearOld;
 
-                // False alarm, this is not a loop.
                 // You can also edit content fields:
                 part.Biography.Text += " I'm young again!";
             });
