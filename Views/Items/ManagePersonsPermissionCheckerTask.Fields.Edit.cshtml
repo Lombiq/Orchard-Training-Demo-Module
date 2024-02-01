@@ -1,7 +1,7 @@
 @model ManagePersonsPermissionCheckerTaskViewModel
 
 <div class="mb-3" asp-validation-class-for="UserName">
-    <label asp-for="UserName">@T["Username"]</label>
+    <label class="form-label" asp-for="UserName">@T["Username"]</label>
     <input type="text" asp-for="UserName" class="form-control code" />
     <span asp-validation-for="UserName"></span>
     <span class="hint">@T["The user's name to be checked for ManagePersons permission."]</span>

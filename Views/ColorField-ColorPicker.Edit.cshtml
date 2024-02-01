@@ -24,7 +24,7 @@
 <fieldset class="form-group @BlockName @(BlockName)_editor_colorPicker">
     <legend class="@(BlockName)__displayName">@Model.PartFieldDefinition.DisplayName()</legend>
 
-    <label asp-for="ColorName" class="@(BlockName)__label">@T["Color name"]</label>
+    <label asp-for="ColorName" class="form-label @(BlockName)__label">@T["Color name"]</label>
     <input asp-for="ColorName" class="form-control @(BlockName)__input" />
 
     <div id="@pickerElementId" class="@(BlockName)__picker"></div>
