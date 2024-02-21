@@ -7,8 +7,6 @@
 using Lombiq.TrainingDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using OrchardCore.ContentManagement;
-using OrchardCore.Entities;
 using OrchardCore.Settings;
 using System.Threading.Tasks;
 

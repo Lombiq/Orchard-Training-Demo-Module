@@ -110,11 +110,8 @@ public class PersonListController : Controller
             {
                 part.BirthDateUtc = eighteenYearOld;
 
-                // False alarm, this is not a loop.
-#pragma warning disable S1643 // Strings should not be concatenated using '+' in a loop
                 // You can also edit content fields:
                 part.Biography.Text += " I'm young again!";
-#pragma warning restore S1643 // Strings should not be concatenated using '+' in a loop
             });
 
             // If you happen to use reusable/named parts like BagPart (see the docs on it here:
@@ -138,7 +135,7 @@ public class PersonListController : Controller
         // IContentManager.GetAsync() instead.
 
         return "People modified: " +
-            (oldPeople.Any() ?
+            (oldPeople.Count != 0 ?
                 string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 

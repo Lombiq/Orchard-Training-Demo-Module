@@ -7,7 +7,6 @@ using OrchardCore.ContentManagement.Display.Models;
 using OrchardCore.ContentManagement.Metadata.Models;
 using OrchardCore.DisplayManagement.ModelBinding;
 using OrchardCore.DisplayManagement.Views;
-using System;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
@@ -15,7 +14,7 @@ namespace Lombiq.TrainingDemo.Drivers;
 
 // You shouldn't be surprised - content fields also have display drivers. ContentFieldDisplayDriver is specifically for
 // content fields. Don't forget to register this class with the service provider (see: Startup.cs).
-public class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
+public partial class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
 {
     private readonly IStringLocalizer T;
 
@@ -75,11 +74,7 @@ public class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
 
             // Also some custom validation for our ColorField hex value.
             var isInvalidHexColor = !string.IsNullOrWhiteSpace(viewModel.Value) &&
-                !Regex.IsMatch(
-                    viewModel.Value,
-                    "^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$",
-                    RegexOptions.ExplicitCapture,
-                    TimeSpan.FromSeconds(1));
+                !RegexExpression().IsMatch(viewModel.Value);
 
             if (isInvalidHexColor) updater.ModelState.AddModelError(Prefix, T["The given color is invalid."]);
 
@@ -89,6 +84,9 @@ public class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorField>
 
         return await EditAsync(field, context);
     }
+
+    [GeneratedRegex("^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", RegexOptions.ExplicitCapture, matchTimeoutMilliseconds: 1000)]
+    private static partial Regex RegexExpression();
 }
 
 // END OF TRAINING SECTION: Content Field development

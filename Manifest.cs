@@ -42,8 +42,8 @@ using OrchardCore.Modules.Manifest;
     // feature then you need to include them in this list. Orchard Core will make sure to enable all dependent features
     // when you enable a feature that has dependencies. Without this some features would not work even if the assembly
     // is referenced in the project.
-    Dependencies = new[]
-    {
+    Dependencies =
+    [
         "OrchardCore.Admin",
         "OrchardCore.Apis.GraphQL",
         "OrchardCore.BackgroundTasks",
@@ -64,7 +64,7 @@ using OrchardCore.Modules.Manifest;
         "OrchardCore.Themes",
         "OrchardCore.Users",
         "OrchardCore.Workflows",
-    }
+    ]
 )]
 
 // And we also have a second feature!
@@ -77,10 +77,10 @@ using OrchardCore.Modules.Manifest;
     Category = "Training",
     Description = "Demonstrates how to write middlewares in a separate feature.",
     // It's usual for sub-features to depend on the base feature but this is not mandatory.
-    Dependencies = new[]
-    {
+    Dependencies =
+    [
         "Lombiq.TrainingDemo",
-    }
+    ]
 )]
 
 // How do you distinguish what's activated when turning on a feature? With the same Feature attribute! Check out the

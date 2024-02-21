@@ -12,10 +12,10 @@
 <fieldset class="form-group colorFieldEditor">
     <legend>@Model.PartFieldDefinition.DisplayName()</legend>
 
-    <label asp-for="ColorName" class="colorFieldEditor__label">@T["Color name"]</label>
+    <label asp-for="ColorName" class="form-label colorFieldEditor__label">@T["Color name"]</label>
     <input asp-for="ColorName" class="form-control content-preview-text colorFieldEditor__input" />
 
-    <label asp-for="Value" class="colorFieldEditor__label">@T["Hexadecimal value"]</label>
+    <label asp-for="Value" class="form-label colorFieldEditor__label">@T["Hexadecimal value"]</label>
     <input asp-for="Value" class="form-control content-preview-text colorFieldEditor__input" />
     @if (!string.IsNullOrEmpty(settings.Hint))
     {

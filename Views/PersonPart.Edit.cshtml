@@ -7,18 +7,18 @@
     here, because (as mentioned) it has its own editor and display shape so no need to worry about that. *@
 
 <fieldset class="form-group" asp-validation-class-for="Name">
-    <label asp-for="Name">@T["Name"] <span asp-validation-for="Name"></span></label>
+    <label class="form-label" asp-for="Name">@T["Name"] <span asp-validation-for="Name"></span></label>
     <input asp-for="Name" class="form-control" />
     <span class="hint">@T["Person's name"]</span>
 </fieldset>
 
 <fieldset class="form-group" asp-validation-class-for="BirthDateUtc">
-    <label asp-for="BirthDateUtc">@T["Birth date"] <span asp-validation-for="BirthDateUtc"></span></label>
+    <label class="form-label" asp-for="BirthDateUtc">@T["Birth date"] <span asp-validation-for="BirthDateUtc"></span></label>
     <input asp-for="BirthDateUtc" type="date" class="form-control" />
 </fieldset>
 
 <fieldset class="form-group" asp-validation-class-for="Handedness">
-    <label asp-for="Handedness">@T["Handedness"] <span asp-validation-for="Handedness"></span></label>
+    <label class="form-label" asp-for="Handedness">@T["Handedness"] <span asp-validation-for="Handedness"></span></label>
     <select asp-for="Handedness" asp-items="Html.GetEnumSelectList<Handedness>()" class="form-control"></select>
 </fieldset>
 

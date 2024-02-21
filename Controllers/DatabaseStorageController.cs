@@ -65,7 +65,7 @@ public class DatabaseStorageController : Controller
         foreach (var book in CreateDemoBooks())
         {
             // So now you understand what will happen in the background when this service is being called.
-            _session.Save(book);
+            await _session.SaveAsync(book);
         }
 
         await _notifier.InformationAsync(H["Books have been created in the database."]);
@@ -102,7 +102,7 @@ public class DatabaseStorageController : Controller
 
     // NEXT STATION: Models/PersonPart.cs
 
-    private static IEnumerable<Book> CreateDemoBooks() =>
+    private static Book[] CreateDemoBooks() =>
         new[]
         {
             new Book
