@@ -22,27 +22,27 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
-    <PackageReference Include="OrchardCore.Users.Abstractions" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="1.8.1" />
+    <PackageReference Include="OrchardCore.Users.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="1.8.2" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.DynamicCache" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="1.8.1" />
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="1.8.2" />
     <!-- Note that you need to add a reference to OrchardCore.ResourceManagement for the basic tag helpers like <style>
     and <script> to properly work when the app is built for production (and thus Razor Runtime Compilation is turned
     off. OrchardCore.DisplayManagement is needed for a variety of things but also for the <shape> tag helper for the
     same reason. -->
-    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.1" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.1" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="1.8.2" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
   </ItemGroup>
 
   <!-- The two Helpful Libraries inclusions are necessary to support using the module both from its standalone solution,
