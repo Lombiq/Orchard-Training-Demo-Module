@@ -49,10 +49,7 @@ You can also take a look at our [Walkthroughs](https://github.com/Lombiq/Orchard
 
 ## Dependencies
 
-This module has the following dependencies:
-
-- [Lombiq Helpful Libraries for Orchard Core](https://github.com/Lombiq/Helpful-Libraries)
-- [Lombiq Node.js Extensions](https://gihub.com/Lombiq/NodeJs-Extensions)
+This module uses [Lombiq Helpful Libraries for Orchard Core](https://github.com/Lombiq/Helpful-Libraries) to make a few things simpler. But don't worry, we'll explain it.
 
 ## Contributing and support
 

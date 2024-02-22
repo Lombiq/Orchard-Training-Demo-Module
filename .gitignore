@@ -181,10 +181,10 @@ nuget.exe
 # Exclude node modules
 node_modules/
 
-# Exclude wwwroot and add exceptions
-**/wwwroot/*
-!**/wwwroot/favicon.ico
-!**/wwwroot/.placeholder
+# Exclude Web project wwwroot and add exceptions
+Lombiq.TrainingDemo.Web/wwwroot/*
+!Lombiq.TrainingDemo.Web/wwwroot/favicon.ico
+!Lombiq.TrainingDemo.Web/wwwroot/.placeholder
 
 *.Web/Localization
 /.editorconfig
