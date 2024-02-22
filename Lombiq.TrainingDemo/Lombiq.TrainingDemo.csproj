@@ -24,9 +24,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="OrchardCore.Users.Abstractions" Version="1.8.2" />
     <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="1.8.2" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.8.2" />
     <PackageReference Include="OrchardCore.ContentFields" Version="1.8.2" />
     <PackageReference Include="OrchardCore.ContentManagement" Version="1.8.2" />
