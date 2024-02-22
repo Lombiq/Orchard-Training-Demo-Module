@@ -6,7 +6,7 @@ Demo [Orchard Core](https://orchardcore.net/) module for training purposes guidi
 
 If you prefer tutorial videos more then check out the [Dojo Course 3, the complete Orchard Core tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial).
 
-**If you are interested in training materials and personalized Orchard trainings please visit [Orchard Dojo](https://orcharddojo.net/).**
+**If you are interested in training materials and personalized Orchard training please visit [Orchard Dojo](https://orcharddojo.net/).**
 
 ## Prerequisites
 
@@ -26,7 +26,7 @@ The module comes with its own standalone solution and web app. So, to run it, si
 2. Open the solution in your favorite IDE, like Visual Studio.
 3. Make sure the `Lombiq.TrainingDemo.Web` project is the startup project (it should be).
 4. Start the app. In Visual Studio, you can do this with <kbd>Ctrl</kbd> + <kbd>F5</kbd>. From the .NET CLI, run `dotnet run` in the _Lombiq.TrainingDemo.Web_ folder and then open <https://localhost:5001/> in a browser.
-5. The site will be automatically set up with "Training Demo" recipe (since we use Orchard Core's [Auto Setup feature](https://docs.orchardcore.net/en/latest/docs/reference/modules/AutoSetup/)). You'll be able to log in with the username "admin" and password "Password1!".
+5. The site will be automatically set up with the "Training Demo" recipe (since we use Orchard Core's [Auto Setup feature](https://docs.orchardcore.net/en/latest/docs/reference/modules/AutoSetup/)). You'll be able to log in with the username "admin" and password "Password1!".
 
 Once the app is running:
 
@@ -42,18 +42,18 @@ Some further reading if you're hungry for more knowledge.
 
 - You can also follow the [Dojo Course 3 tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial) if you like to learn from videos.
 - This module is not about showing you how to create an Orchard Core application from scratch. For that, we recommend you use the `Initialize-OrchardCoreSolution` script from ouf [Utility Scripts project](https://github.com/Lombiq/Utility-Scripts).
-- Keep in mind that your best living reference of how to do something in Orchard is [the official repo](https://github.com/OrchardCMS/OrchardCore) and our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) (OSOCE) solution. Clone both and keep the solutions open when you’re working on something so you can quickly look up anything. As a bonus, OSOCE also contains all of Lombiq's open-source Orchard themes and modules! Check it out for what we've already solved for you.
+- Keep in mind that your best living reference for how to do something in Orchard is [the official repo](https://github.com/OrchardCMS/OrchardCore) and our [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions) (OSOCE) solution. Clone both and keep the solutions open when you’re working on something so you can quickly look up anything. As a bonus, OSOCE also contains all of Lombiq's open-source Orchard themes and modules! Check it out for what we've already solved for you.
 - You can also take a look at our [Walkthroughs](https://github.com/Lombiq/Orchard-Walkthroughs) module, for step-by-step walkthroughs, which are guided by pop-up windows right there in the UI.
 - Be sure to check out the [Orchard Dojo Library for Orchard Core](https://orcharddojo.net/orchard-resources/CoreLibrary/) for a wealth of Orchard Core guidelines, best practices, development utilities (like scripts and snippets), and more as well!
-- This project utilizes several [GitHub Actions](https://docs.github.com/en/actions) workflows, like [Build and Test Orchard Core solution](https://github.com/Lombiq/GitHub-Actions/blob/dev/Docs/Workflows/BuildDotNetCoreOrchardCore/BuildAndTestOrchardCoreSolution.md) to provide CI builds. We recommend using such workflows form our [Lombiq GitHub Actions project](https://github.com/Lombiq/GitHub-Actions) for automation.
+- This project utilizes several [GitHub Actions](https://docs.github.com/en/actions) workflows, like [Build and Test Orchard Core solution](https://github.com/Lombiq/GitHub-Actions/blob/dev/Docs/Workflows/BuildDotNetCoreOrchardCore/BuildAndTestOrchardCoreSolution.md) to provide CI builds. We recommend using such workflows from our [Lombiq GitHub Actions project](https://github.com/Lombiq/GitHub-Actions) for automation.
 - If you're ready to make a jump to fully automated Quality Assurance beyond unit testing as demonstrated here, check out the following projects:
   - [Lombiq .NET Analyzers](https://github.com/Lombiq/.NET-Analyzers): Orchard Core-optimized static code analysis of all C# code during editing and build.
-  - [Lombiq Node.js Extensions](https://github.com/Lombiq/NodeJs-Extensions): Linting, build, and minification of SCSS, JS, and Markdown files, integrated into the .NET build.
+  - [Lombiq Node.js Extensions](https://github.com/Lombiq/NodeJs-Extensions): Linting, build, and minification of SCSS/JS/Markdown files, integrated into the .NET build.
   - [Lombiq Testing Toolbox for Orchard Core](https://github.com/Lombiq/Testing-Toolbox): Helps you write unit tests for Orchard Core projects.
   - [Lombiq UI Testing Toolbox for Orchard Core](https://github.com/Lombiq/UI-Testing-Toolbox): Web UI testing toolbox for Orchard Core applications. Everything you need to do UI testing with Selenium for an Orchard app is there, including accessibility checks and security scanning.
   - [Lombiq GitHub Actions](https://github.com/Lombiq/GitHub-Actions): Ready-to-use, developer-friendly GitHub Actions CI/CD workflows that build Orchard Core projects, run static code analysis, execute unit/UI tests, and provide reports and artifacts. Automation for deploying and operating Azure-hosted apps is also included, as well as YAML linting.
   - [Lombiq PowerShell Analyzers](https://github.com/Lombiq/PowerShell-Analyzers): Static code analysis for PowerShell scripts, even if the scripts are part of an Orchard Core solution.
-  - [Lombiq Hosting - Azure Application Insights for Orchard Core](https://github.com/Lombiq/Orchard-Azure-Application-Insights):  Orchard Core module that enables easy integration of Azure Application Insights into Orchard. Detailed telemetry is collected about the app, enriched with Orchard-specific data points.
+  - [Lombiq Hosting - Azure Application Insights for Orchard Core](https://github.com/Lombiq/Orchard-Azure-Application-Insights): Orchard Core module that enables easy integration of Azure Application Insights into Orchard. Detailed telemetry is collected about the app, enriched with Orchard-specific data points.
 
 ## Contributing and support
 
