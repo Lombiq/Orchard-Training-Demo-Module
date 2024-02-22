@@ -29,11 +29,11 @@ The [Open-Source Orchard Core Extensions](https://github.com/Lombiq/Open-Source-
 
 ## Learning Orchard Core with this module
 
-Once the app is running, head over to the **[StartLearningHere.md](StartLearningHere.md)** file (_see note *_) and start exploring all the great things you can do in Orchard Core.
+Once the app is running, head over to the **[Lombiq.TrainingDemo/StartLearningHere.md](Lombiq.TrainingDemo/StartLearningHere.md)** file (_see note *_) and start exploring all the great things you can do in Orchard Core.
 
-> _* Note:_ The "**StartLearningHere.md**" file introduces the <kbd>Lombiq.TrainingDemo</kbd> project. You can find the <kbd>Lombiq.TrainingDemo</kbd> folder inside the <kbd>src</kbd> > <kbd>Modules</kbd> directory of the "Open-Source-Orchard-Core-Extensions" (OSOCE) repository previously cloned (point number 1 of [How to start](#how-to-start) section).
+> _* Note:_ The "**Lombiq.TrainingDemo/StartLearningHere.md**" file introduces the <kbd>Lombiq.TrainingDemo</kbd> project. You can find the <kbd>Lombiq.TrainingDemo</kbd> folder inside the <kbd>src</kbd> > <kbd>Modules</kbd> directory of the "Open-Source-Orchard-Core-Extensions" (OSOCE) repository previously cloned (point number 1 of [How to start](#how-to-start) section).
 
-Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in. [StartLearningHere.md](StartLearningHere.md) also has training sections linked so you can go to a broader section.
+Also if you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **Map.cs** file and jump to any class you are interested in. [Lombiq.TrainingDemo/StartLearningHere.md](Lombiq.TrainingDemo/StartLearningHere.md) also has training sections linked so you can go to a broader section.
 
 Be sure to check out the [Orchard Dojo Library for Orchard Core](https://orcharddojo.net/orchard-resources/CoreLibrary/) for a wealth of Orchard Core guidelines, best practices, development utilities (like scripts and snippets), and more as well!
 
@@ -61,7 +61,7 @@ Bug reports, feature requests, comments, questions, code contributions and love 
 When adding new tutorials please keep in mind the following:
 
 - Insert tutorial steps into the existing flow, either at the end or between two existing ones. Use "NEXT STATION" comments to indicate the next file the reader should check out.
-- If it's a new training section then indicate as such by an "END OF TRAINING SECTION" comment at the end and add it to the list under [StartLearningHere.md](StartLearningHere.md).
+- If it's a new training section then indicate as such by an "END OF TRAINING SECTION" comment at the end and add it to the list under [Lombiq.TrainingDemo/StartLearningHere.md](Lombiq.TrainingDemo/StartLearningHere.md).
 - Add pointers to its classes/files in _Map.cs_.
 
 This project is developed by [Lombiq Technologies](https://lombiq.com/). Commercial-grade support is available through Lombiq.

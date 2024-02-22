@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Lombiq.TrainingDemo.csproj" />
+    <ProjectReference Include="..\Lombiq.TrainingDemo\Lombiq.TrainingDemo.csproj" />
   </ItemGroup>
 
 </Project>
