@@ -6,7 +6,7 @@ Demo [Orchard Core](https://orchardcore.net/) module for training purposes guidi
 
 If you prefer tutorial videos more then check out the [Dojo Course 3, the complete Orchard Core tutorial series](https://orcharddojo.net/orchard-training/dojo-course-3-the-full-orchard-core-tutorial).
 
-**If you are interested in training materials and personalized Orchard training please visit [Orchard Dojo](https://orcharddojo.net/).**
+**If you are interested in training resources and personalized Orchard training please visit [Orchard Dojo](https://orcharddojo.net/).**
 
 ## Prerequisites
 
