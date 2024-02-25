@@ -15,6 +15,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.gitignore = .gitignore
 		License.md = License.md
 		Readme.md = Readme.md
+		Reset-Local.ps1 = Reset-Local.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{C209F02F-E88D-48DC-8645-BD859AA4521A}"
