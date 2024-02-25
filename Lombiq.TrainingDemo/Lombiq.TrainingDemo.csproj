@@ -42,8 +42,9 @@
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.8.2" />
   </ItemGroup>
 
-  <!-- The two Helpful Libraries inclusions are necessary to support using the module both from its standalone solution,
-  as well as from https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions. -->
+  <!-- This module requires Lombiq.HelpfulLibraries.OrchardCore, and it can be included two ways. The PackageReference
+  is used by the standalone solution, while ProjectReference is needed when including the module in
+  https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions. Only one of the two is ever active. -->
   
   <ItemGroup Condition="Exists('..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj')">
     <ProjectReference Include="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
