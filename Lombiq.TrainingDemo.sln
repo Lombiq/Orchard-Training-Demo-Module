@@ -1,0 +1,58 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.TrainingDemo.Web", "Lombiq.TrainingDemo.Web\Lombiq.TrainingDemo.Web.csproj", "{B6A88DC8-1AC4-40A7-A059-2DB542D7F30F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.TrainingDemo", "Lombiq.TrainingDemo\Lombiq.TrainingDemo.csproj", "{7E07D978-9E9D-42DF-B723-30751AD0AE37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lombiq.TrainingDemo.Tests", "Lombiq.TrainingDemo.Tests\Lombiq.TrainingDemo.Tests.csproj", "{67AD97B2-F18E-48E2-8DB6-9D6D16B1CCE7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{308DEE3A-FE61-4599-9954-0EE0BF9F7BFD}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		License.md = License.md
+		Readme.md = Readme.md
+		Reset-Local.ps1 = Reset-Local.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{C209F02F-E88D-48DC-8645-BD859AA4521A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{1BED0174-67AC-4155-BA45-AF690BDA553B}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\build-and-test-orchard.yml = .github\workflows\build-and-test-orchard.yml
+		.github\workflows\create-jira-issues-for-community-activities.yml = .github\workflows\create-jira-issues-for-community-activities.yml
+		.github\workflows\validate-pull-request.yml = .github\workflows\validate-pull-request.yml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B6A88DC8-1AC4-40A7-A059-2DB542D7F30F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A88DC8-1AC4-40A7-A059-2DB542D7F30F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A88DC8-1AC4-40A7-A059-2DB542D7F30F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A88DC8-1AC4-40A7-A059-2DB542D7F30F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E07D978-9E9D-42DF-B723-30751AD0AE37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E07D978-9E9D-42DF-B723-30751AD0AE37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E07D978-9E9D-42DF-B723-30751AD0AE37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E07D978-9E9D-42DF-B723-30751AD0AE37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67AD97B2-F18E-48E2-8DB6-9D6D16B1CCE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67AD97B2-F18E-48E2-8DB6-9D6D16B1CCE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67AD97B2-F18E-48E2-8DB6-9D6D16B1CCE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67AD97B2-F18E-48E2-8DB6-9D6D16B1CCE7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1BED0174-67AC-4155-BA45-AF690BDA553B} = {C209F02F-E88D-48DC-8645-BD859AA4521A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {925CBCBE-6BFD-40C5-A1B6-5698683F0941}
+	EndGlobalSection
+EndGlobal
