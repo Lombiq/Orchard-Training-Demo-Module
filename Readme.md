@@ -30,7 +30,7 @@ The module comes with its own standalone solution and web app. So, to run it, si
 
 Once the app is running:
 
-- Head over to the **[StartLearningHere.md](Lombiq.TrainingDemo/StartLearningHere.md)** file (_see note *_) and start exploring all the great things you can do in Orchard Core.
+- Head over to the **[StartLearningHere.md](Lombiq.TrainingDemo/StartLearningHere.md)** file and start exploring all the great things you can do in Orchard Core.
 - If you are brave enough to not follow any guide or you want to start the guide from somewhere else then go to the **[Map.cs](Lombiq.TrainingDemo/Map.cs)** file and jump to any class you are interested in. [StartLearningHere.md](Lombiq.TrainingDemo/StartLearningHere.md) also has training sections linked so you can go to a broader section.
 - If you'd like to clean out comments from code files so you can just see the essence, then use the [Comment Remover VS extension](https://marketplace.visualstudio.com/items?itemName=MadsKristensen.CommentRemover) to quickly do it.
 - Take a look at the Recipes menu in the Admin screen to load in additional sample content. This is not included by default to reduce clutter.
