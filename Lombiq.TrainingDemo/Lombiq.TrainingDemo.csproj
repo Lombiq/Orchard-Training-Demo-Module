@@ -1,7 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Razor">
 
-  <Import Project="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.props" />
-
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -10,12 +8,11 @@
     <PackageLicenseUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module/blob/dev/License.md</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
-    <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**;Tests\**</DefaultItemExcludes>
+    <DefaultItemExcludes>$(DefaultItemExcludes);.git*;node_modules\**</DefaultItemExcludes>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="node_modules\**" />
-    <None Remove="Tests\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,9 +24,6 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
     <PackageReference Include="OrchardCore.Users.Abstractions" Version="1.9.0-preview-18056" />
     <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="1.9.0-preview-18056" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="OrchardCore.BackgroundTasks" Version="1.9.0-preview-18056" />
     <PackageReference Include="OrchardCore.ContentFields" Version="1.9.0-preview-18056" />
     <PackageReference Include="OrchardCore.ContentManagement" Version="1.9.0-preview-18056" />
@@ -48,11 +42,16 @@
     <PackageReference Include="OrchardCore.DisplayManagement" Version="1.9.0-preview-18056" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
-    <ProjectReference Include="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.csproj" />
+  <!-- This module requires Lombiq.HelpfulLibraries.OrchardCore, and it can be included two ways. The PackageReference
+  is used by the standalone solution, while ProjectReference is needed when including the module in
+  https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions. Only one of the two is ever active. -->
+  
+  <ItemGroup Condition="Exists('..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj')">
+    <ProjectReference Include="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
   </ItemGroup>
 
-  <Import Project="..\..\Utilities\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions\Lombiq.NodeJs.Extensions.targets" />
+  <ItemGroup Condition="!Exists('..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj')">
+    <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="9.1.0" />
+  </ItemGroup>
 
 </Project>
