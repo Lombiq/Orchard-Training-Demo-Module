@@ -5,9 +5,11 @@
  * field.
  */
 
+using Lombiq.HelpfulLibraries.Common.Utilities;
+
 namespace Lombiq.TrainingDemo.Settings;
 
-public class ColorFieldSettings
+public class ColorFieldSettings : ICopier<ColorFieldSettings>
 {
     // We'll use this setting to determine whether the value of the field is required to be given by the user.
     public bool Required { get; set; }
@@ -17,6 +19,15 @@ public class ColorFieldSettings
 
     // The label to be used on the editor and the display shape.
     public string Label { get; set; }
+
+    // Copy the values of the settings into another instance. This is used to populate the view-model in
+    // ColorFieldSettingsDriver's Edit method.
+    public void CopyTo(ColorFieldSettings target)
+    {
+        target.Required = Required;
+        target.Hint = Hint;
+        target.Label = Label;
+    }
 }
 
 // How can these settings be edited? If you attach a content field to a content part / content type from a migration you
