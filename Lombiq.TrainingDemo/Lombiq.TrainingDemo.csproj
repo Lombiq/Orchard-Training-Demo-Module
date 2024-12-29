@@ -20,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="OrchardCore.Users.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.BackgroundTasks" Version="2.1.0" />
