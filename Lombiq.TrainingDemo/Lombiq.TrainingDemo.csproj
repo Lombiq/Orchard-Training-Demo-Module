@@ -50,7 +50,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj')">
-    <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="12.0.0" />
+    <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="12.1.0" />
   </ItemGroup>
 
 </Project>

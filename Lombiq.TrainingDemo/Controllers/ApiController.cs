@@ -49,7 +49,7 @@ public sealed class ApiController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Get(string contentItemId)
     {
-        // Authorization is important in API endpoints as well of course. We're re-using the previously created
+        // Authorization is important in API endpoints as well of course. We're reusing the previously created
         // permission here. To authenticate with the API you can use any ASP.NET Core authentication scheme but Orchard
         // offers various OpenID-based options. If you just want to quickly check out the API then grant the permission
         // for the Anonymous role on the admin.
