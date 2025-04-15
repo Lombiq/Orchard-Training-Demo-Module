@@ -20,9 +20,6 @@
   <ItemGroup>
     <PackageReference Include="OrchardCore.Logging.NLog" Version="2.1.2" />
     <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="2.1.2" />
-    <!-- This reference is not strictly needed here but included so if the web and the module projects' Orchard Core
-    versions go out of sync, the CI build's package consolidation validation will fail. -->
-    <PackageReference Include="OrchardCore.ContentManagement" Version="2.1.2" />
   </ItemGroup>
 
   <ItemGroup>
