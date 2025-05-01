@@ -61,8 +61,6 @@ public sealed class Startup : StartupBase
 
     public override void ConfigureServices(IServiceCollection services)
     {
-        // NEXT STATION: Views/PersonPart.Edit.cshtml
-
         // Book
         services.AddDisplayDriver<Book, BookDisplayDriver>();
         services.AddScoped<IDisplayManager<Book>, DisplayManager<Book>>();
@@ -154,19 +152,23 @@ public sealed class Startup : StartupBase
         services.AddActivity<ManagePersonsPermissionCheckerTask, ManagePersonsPermissionCheckerTaskDisplayDriver>();
 
         // Liquid
-        // To be able to access the properties inside these view models in display shapes rendered by the Liquid markup
-        // engine you need to register them. To learn more about Liquid in Orchard Core see this documentation:
-        // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/
-        services.Configure<TemplateOptions>(options =>
-            {
-                options.MemberAccessStrategy.Register<PersonPartViewModel>();
-                options.MemberAccessStrategy.Register<ColorField>();
-                options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
-            })
-            // You can create custom liquid filters with the following. You can check out Liquid/ShortDateFilter.cs and
-            // come back here.
-            .AddLiquidFilter<ShortDateFilter>("short_date");
+        SetUpLiquid(services);
     }
+
+    // To be able to access the properties inside these view models in display shapes rendered by the Liquid markup
+    // engine you need to register them. To learn more about Liquid in Orchard Core see this documentation:
+    // https://docs.orchardcore.net/en/latest/docs/reference/modules/Liquid/.
+    public static void SetUpLiquid(IServiceCollection services) =>
+        services.Configure<TemplateOptions>(options =>
+        {
+            options.MemberAccessStrategy.Register<PersonPartViewModel>();
+            options.MemberAccessStrategy.Register<ColorField>();
+            options.MemberAccessStrategy.Register<DisplayColorFieldViewModel>();
+        })
+        // You can create custom Liquid filters as follows. You can check out Liquid/ShortDateFilter.cs and come back
+        // here.
+        .AddLiquidFilter<ShortDateFilter>("short_date");
+    // NEXT STATION: Views/PersonPart.Edit.cshtml
 }
 
 // A second Startup class, corresponding to our second feature (see Manifest.cs). Note how the Feature attribute tells
