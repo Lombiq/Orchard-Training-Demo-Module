@@ -69,7 +69,7 @@ public sealed class PersonPartDisplayDriver : ContentPartDisplayDriver<PersonPar
         // NEXT STATION: placement.json (needs to be lowercase) then come back here.
         Initialize<PersonPartViewModel>(GetEditorShapeType(context), viewModel => PopulateViewModel(part, viewModel));
 
-    // NEXT STATION: Startup.cs and find the static constructor.
+    // NEXT STATION: Startup.cs and the SetUpLiquid() method.
 
     // So we had an Edit (or EditAsync) method that generates the editor shape. Now it's time to do the content
     // part-specific model binding and validation.
