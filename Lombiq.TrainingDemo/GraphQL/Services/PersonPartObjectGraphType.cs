@@ -4,7 +4,7 @@ using Lombiq.TrainingDemo.Models;
 namespace Lombiq.TrainingDemo.GraphQL.Services;
 
 // We add a model for the content part to the GraphQL schema. Content Types are added by Orchard Core automatically.
-public class PersonPartObjectGraphType : ObjectGraphType<PersonPart>
+public sealed class PersonPartObjectGraphType : ObjectGraphType<PersonPart>
 {
     // These fields have counterparts in the index so we should include the same text in the
     // PersonPartWhereInputObjectGraphType without duplication.
