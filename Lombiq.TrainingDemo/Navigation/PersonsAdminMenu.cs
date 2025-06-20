@@ -24,7 +24,7 @@ public sealed class PersonsAdminMenu : AdminMenuNavigationProviderBase
             // used if you want to override the menu item shape in order to add a nice looking icon.
             .AddClass("persons").Id("persons")
             // This means that the top-level menu item also will point to the action where its first child item points.
-            .LinkToFirstChild(true)
+            .LinkToFirstChild(value: true)
 
             // Now let's add the sub menu items.
             .Add(T["Test"], subitem => subitem
@@ -35,7 +35,7 @@ public sealed class PersonsAdminMenu : AdminMenuNavigationProviderBase
             )
 
             .Add(T["Person List"], subitem => subitem
-                .LinkToFirstChild(true)
+                .LinkToFirstChild(value: true)
 
                 .Add(T["Newest Items"], thirdLevelItem => thirdLevelItem
                     .Action(
