@@ -20,7 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <!-- Required for AdminMenuNavigationProviderBase and general DI extensions -->
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Localization.Abstractions" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
+
+    <!-- Orchard Core dependencies -->
     <PackageReference Include="OrchardCore.Users.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.BackgroundTasks" Version="2.1.0" />
@@ -33,18 +38,14 @@
     <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Media.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Module.Targets" Version="2.1.0" />
-    <!-- Note that you need to add a reference to OrchardCore.ResourceManagement for the basic tag helpers like <style>
-    and <script> to properly work when the app is built for production (and thus Razor Runtime Compilation is turned
-    off. OrchardCore.DisplayManagement is needed for a variety of things but also for the <shape> tag helper for the
-    same reason. -->
     <PackageReference Include="OrchardCore.ResourceManagement" Version="2.1.0" />
     <PackageReference Include="OrchardCore.DisplayManagement" Version="2.1.0" />
+    <PackageReference Include="OrchardCore.Navigation" Version="2.1.0" />
   </ItemGroup>
 
   <!-- This module requires Lombiq.HelpfulLibraries.OrchardCore, and it can be included two ways. The PackageReference
   is used by the standalone solution, while ProjectReference is needed when including the module in
   https://github.com/Lombiq/Open-Source-Orchard-Core-Extensions. Only one of the two is ever active. -->
-
   <ItemGroup Condition="Exists('..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj')">
     <ProjectReference Include="..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj" />
   </ItemGroup>

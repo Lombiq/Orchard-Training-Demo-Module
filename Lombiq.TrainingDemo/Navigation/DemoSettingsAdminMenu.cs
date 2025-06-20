@@ -1,23 +1,21 @@
+using Lombiq.HelpfulLibraries.OrchardCore.Navigation;
 using Lombiq.TrainingDemo.Drivers;
 using Lombiq.TrainingDemo.Permissions;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Localization;
 using OrchardCore.Navigation;
-using System;
-using System.Threading.Tasks;
 
 namespace Lombiq.TrainingDemo.Navigation;
 
 // To actually see the menu item on the admin menu we need to add a navigation provider to it.
-public sealed class DemoSettingsAdminMenu : INavigationProvider
+public sealed class DemoSettingsAdminMenu : AdminMenuNavigationProviderBase
 {
-    private readonly IStringLocalizer T;
-
-    public DemoSettingsAdminMenu(IStringLocalizer<DemoSettingsAdminMenu> stringLocalizer) => T = stringLocalizer;
-
-    public ValueTask BuildNavigationAsync(string name, NavigationBuilder builder)
+    public DemoSettingsAdminMenu(IHttpContextAccessor hca, IStringLocalizer<DemoSettingsAdminMenu> stringLocalizer)
+        : base(hca, stringLocalizer)
     {
-        if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase)) return ValueTask.CompletedTask;
+    }
 
+    protected override void Build(NavigationBuilder builder) =>
         // If you want to put a menu item to a deeper lever under an existing menu item you just need to build your menu
         // using the menu text of the existing items. Here the Configuration and Settings menu items are already
         // existing items and this is the place you should put your site settings, however, you could use any other
@@ -34,9 +32,6 @@ public sealed class DemoSettingsAdminMenu : INavigationProvider
                     // It's a third-level menu item so put it on local navigation if it's supported.
                     .LocalNav()
                 )));
-
-        return ValueTask.CompletedTask;
-    }
 }
 
 // NEXT STATION: Let's head back to Controllers/SiteSettingsController!
