@@ -5,6 +5,7 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <OrchardCoreVersion>2.2.0</OrchardCoreVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,8 +19,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="OrchardCore.Logging.NLog" Version="2.1.7" />
-    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="2.1.7" />
+    <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.Logging.NLog" Version="$(OrchardCoreVersion)" />
   </ItemGroup>
 
   <ItemGroup>
