@@ -16,8 +16,8 @@ namespace Lombiq.TrainingDemo.Migrations;
 // Don't forget to register this class with the service provider (see: Startup.cs).
 public sealed class BookMigrations : DataMigration
 {
-    // Migrations have Create() and UpdateFromX methods. When the module is first enabled the Create() is called so it
-    // can set up DB tables.
+    // Migrations have CreateAsync() and UpdateFromXAsync() methods. When the module is first enabled the CreateAsync()
+    // is called so it can set up DB tables.
     public async Task<int> CreateAsync()
     {
         await SchemaBuilder.CreateMapIndexTableAsync<BookIndex>(table => table
@@ -43,7 +43,7 @@ public sealed class BookMigrations : DataMigration
 
     // This is an update method. It is used to modify an existing schema. Update methods will be run when the module was
     // already enabled before and the create method was run (like when you update a module already running on an Orchard
-    // site). The X in UpdateFromX is the version number of the update (the method's name is conventional). It means:
+    // site). The X in UpdateFromXAsync is the version number of the update (the method's name is conventional). It means:
     // "run this update if the module's current migration version is X". This method will run if it's 1.
     public async Task<int> UpdateFrom1Async()
     {
