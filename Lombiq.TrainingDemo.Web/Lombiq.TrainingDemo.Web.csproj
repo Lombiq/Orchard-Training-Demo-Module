@@ -5,7 +5,7 @@
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <OrchardCoreVersion>2.2.0</OrchardCoreVersion>
+    <OrchardCoreVersion>2.2.1</OrchardCoreVersion>
   </PropertyGroup>
 
   <ItemGroup>
