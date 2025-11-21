@@ -1,0 +1,11 @@
+{
+  "version": "3.0",
+  "defaultProvider": "jsdelivr",
+  "defaultDestination": "wwwroot/vendors/[Name]",
+  "libraries": [
+    {
+      "library": "@simonwep/pickr@1.9.1",
+      "files": [ "dist/pickr.min.js", "dist/themes/monolith.min.css" ]
+    }
+  ]
+}
