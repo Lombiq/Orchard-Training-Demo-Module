@@ -191,5 +191,8 @@ Lombiq.TrainingDemo.Web/wwwroot/*
 !Lombiq.TrainingDemo.Web/wwwroot/favicon.ico
 !Lombiq.TrainingDemo.Web/wwwroot/.placeholder
 
+# Exclude vendor libraries
+Lombiq.TrainingDemo/wwwroot/vendors/
+
 *.Web/Localization
 /.editorconfig

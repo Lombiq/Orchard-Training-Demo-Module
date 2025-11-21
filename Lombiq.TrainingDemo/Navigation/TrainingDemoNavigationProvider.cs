@@ -12,11 +12,11 @@ namespace Lombiq.TrainingDemo.Navigation;
 // it from custom code. You can retrieve them with INavigationManager.BuildMenuAsync("main", ActionContext). If you
 // use the Lombiq.HelpfulExtensions.Widgets feature, it has a MenuWidget which can accept the MenuItem collection
 // returned by this method call and display a Bootstrap "navbar" wherever you need a menu. Or if you use a theme
-// which extends Lombiq.BaseTheme, then it already displays your "main" navigation entries as a MenuWidget on its
+// which extends Lombiq.BaseTheme.Core, then it already displays your "main" navigation entries as a MenuWidget on its
 // own. Yes, this is basically an ad for our other projects. :)
 //
 // For details on how to use them, see the Lombiq.BaseTheme.Samples project:
-// https://github.com/Lombiq/Orchard-Base-Theme/tree/issue/OSOE-62/Lombiq.BaseTheme.Samples
+// https://github.com/Lombiq/Orchard-Base-Theme/tree/dev/Lombiq.BaseTheme.Native.Samples
 public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
 {
     public TrainingDemoNavigationProvider(

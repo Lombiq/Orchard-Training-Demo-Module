@@ -6,9 +6,8 @@
     var settings = Model.PartFieldDefinition.GetSettings<ColorFieldSettings>();
 
     const string BlockName = "colorField";
-
-    var pickerInputElementId = Html.IdFor(m => m.Value);
-    var pickerElementId = $"{pickerInputElementId}-ColorPicker";
+    const string PickerElementName = BlockName + "__picker";
+    const string ValueElementName = BlockName + "__value";
 }
 
 @* Script and styling resources can be used in these shapes. We'll get to it really soon but first go through this file
@@ -18,8 +17,8 @@
     "Head" by default (and Foot doesn't really make sense). For scripts it will be a local script if the "at" attribute is
     missing.*@
 
-<script asp-name="Pickr" at="Head"></script>
 <style asp-name="Lombiq.TrainingDemo.ColorPicker"></style>
+<script asp-name="Pickr" at="Foot"></script>
 
 <fieldset class="form-group @BlockName @(BlockName)_editor_colorPicker">
     <legend class="@(BlockName)__displayName">@Model.PartFieldDefinition.DisplayName()</legend>
@@ -27,39 +26,65 @@
     <label asp-for="ColorName" class="form-label @(BlockName)__label">@T["Color name"]</label>
     <input asp-for="ColorName" class="form-control @(BlockName)__input" />
 
-    <div id="@pickerElementId" class="@(BlockName)__picker"></div>
-    <input asp-for="Value" type="hidden" class="@(BlockName)__input" readonly />
+    <div class="@PickerElementName"></div>
+    <input asp-for="Value" type="hidden" class="@(BlockName)__input @ValueElementName" readonly />
     @if (!string.IsNullOrEmpty(settings.Hint))
     {
         <span class="hint @(BlockName)__hint">@settings.Hint</span>
     }
 </fieldset>
 
-@* The following script will contain the initialization for the color picker. The at="Foot" will make it rendered in
-    the end of the body tag. *@
+@* The following script contains the initialization for the color picker. The at="Foot" makes it render at the end of
+   the body tag, so it's usually not necessary to include logic that waits for page load in these scripts. We make it a
+   named resource by adding the asp-name attribute. This way only one will display even if there are multiple fields
+   rendered. This way you can iterate through each and you don't have to worry about ensuring unique IDs. *@
 
-<script at="Foot" type="text/javascript">
-    //<![CDATA[
-    (function () {
-        new Pickr({
-            el: '#@pickerElementId',
-            default: '@Model.Value',
+<script asp-name="ColorField-ColorPicker" at="Foot" depends-on="Pickr">
+    document.querySelectorAll('.@BlockName').forEach((blockElement) => {
+        const valueElement = blockElement.querySelector('.@ValueElementName');
+        const picker = new Pickr({
+            el: blockElement.querySelector('.@PickerElementName'),
+            theme: 'monolith',
+            swatches: [
+                'rgba(244, 67, 54, 1)',
+                'rgba(233, 30, 99, 0.95)',
+                'rgba(156, 39, 176, 0.9)',
+                'rgba(103, 58, 183, 0.85)',
+                'rgba(63, 81, 181, 0.8)',
+                'rgba(33, 150, 243, 0.75)',
+                'rgba(3, 169, 244, 0.7)',
+                'rgba(0, 188, 212, 0.7)',
+                'rgba(0, 150, 136, 0.75)',
+                'rgba(76, 175, 80, 0.8)',
+                'rgba(139, 195, 74, 0.85)',
+                'rgba(205, 220, 57, 0.9)',
+                'rgba(255, 235, 59, 0.95)',
+                'rgba(255, 193, 7, 1)'
+            ],
             components: {
                 preview: true,
                 opacity: true,
                 hue: true,
                 interaction: {
+                    hex: true,
+                    rgba: true,
                     input: true,
                     clear: true,
                     save: true
                 }
             },
-            onSave(hsva) {
-                document.getElementById('@pickerInputElementId').value = hsva ? hsva.toHEX().toString() : '';
-            }
+
+            // Always sanitize user provided strings, even if the users are admins. Avoid just pasting a value into a JS
+            // string, unless it's a guaranteed safe value like the element name above. Converting the string to JSON is
+            // the easiest and safest way to do this.
+            default: @Json.Serialize(Model.Value),
         });
-    })();
-    //]]>
+
+        picker.on('save', (color, instance) => {
+            const hex = color?.toHEXA();
+            valueElement.value = Array.isArray(hex) && hex.length > 0 ? `#${hex.join('')}` : '';
+        });
+    });
 </script>
 
 @* END OF TRAINING SECTION: Content Field display and editor options *@
