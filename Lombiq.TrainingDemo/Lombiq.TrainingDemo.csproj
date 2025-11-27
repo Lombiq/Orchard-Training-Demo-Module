@@ -1,5 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
+  <Import Project="../../../../tools/Lombiq.MSBuild.Targets/Lombiq.MSBuild.LibMan.Targets/Lombiq.MSBuild.LibMan.Targets.props"
+          Condition="'$(NuGetBuild)' != 'true' "/>
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
@@ -10,10 +13,6 @@
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*</DefaultItemExcludes>
   </PropertyGroup>
-
-  <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" />
-  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\Readme.md" Link="Readme.md" />
@@ -32,7 +31,6 @@
     <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="2.1.0" />
     <PackageReference Include="OrchardCore.Media.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="2.1.0" />
     <!-- Note that you need to add a reference to OrchardCore.ResourceManagement for the basic tag helpers like <style>
     and <script> to properly work when the app is built for production (and thus Razor Runtime Compilation is turned
     off. OrchardCore.DisplayManagement is needed for a variety of things but also for the <shape> tag helper for the
