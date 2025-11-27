@@ -36,9 +36,10 @@ public class ResourceManagementOptionsConfiguration : IConfigureOptions<Resource
             // this case be sure to use one variant for both the local and CDN URL, or two for both so there is no
             // confusion.
             // Note the very specific path used for this resource. It's an external NPM package acquired using Microsoft
-            // Library Manager (libman). To set this up is very simple: add the "Microsoft.Web.LibraryManager.Build"
-            // package to your project and include a libman.json file that lists the resources to be downloaded from a
-            // CDN such as jsDelivr. For more information, see https://github.com/aspnet/LibraryManager.
+            // Library Manager (libman). To set this up is very simple: add the "Lombiq.MSBuild.Targets" NuGet package
+            // to your project and include a libman.json file that lists the resources to be downloaded from a CDN such
+            // as jsDelivr. For more information, see
+            // https://github.com/Lombiq/MSBuild-Targets/Lombiq.MSBuild.LibMan.Targets/Readme.md.
             .SetUrl("~/Lombiq.TrainingDemo/vendors/pickr/dist/pickr.min.js")
             // You can also use a CDN (or just a CDN) if you want to optimize static resource loading. If a resource has
             // both a local and CDN version then you can decide when including it which one to use or you can set this
