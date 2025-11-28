@@ -54,7 +54,8 @@
     <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="12.5.0" />
   </ItemGroup>
 
-  <!--  Needed for deployment of assets downloaded by Microsoft Library Manager (LibMan).  -->
+  <!-- Needed for deployment of assets downloaded by Microsoft Library Manager (LibMan). This is not necessary if you
+       use Lombiq.MSBuild.LibMan.Targets. -->
   <Target Name="AddVendors" AfterTargets="LibraryManagerRestore">
     <ItemGroup>
       <Content Include="wwwroot\vendors\**">
