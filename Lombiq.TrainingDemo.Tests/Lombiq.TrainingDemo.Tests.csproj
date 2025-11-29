@@ -2,14 +2,10 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <OutputType>Exe</OutputType>
   </PropertyGroup>
 
   <ItemGroup>
     <None Remove="Readme.md" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Include="Readme.md">
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </EmbeddedResource>
