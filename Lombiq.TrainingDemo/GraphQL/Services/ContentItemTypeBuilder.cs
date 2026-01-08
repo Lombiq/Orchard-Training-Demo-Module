@@ -39,6 +39,9 @@ public class ContentItemTypeBuilder : IContentTypeBuilder
 
         AddFilter(contentQuery, "_ne");
     }
+    public void Clear()
+    {
+    }
 
     private static void AddFilter(FieldType contentQuery, string suffix)
     {
