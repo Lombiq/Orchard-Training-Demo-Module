@@ -1,6 +1,7 @@
 using GraphQL.Types;
 using Lombiq.TrainingDemo.Indexes;
 using Lombiq.TrainingDemo.Models;
+using Microsoft.Extensions.Localization;
 using OrchardCore.Apis.GraphQL.Queries;
 using static Lombiq.TrainingDemo.GraphQL.Services.PersonPartObjectGraphType;
 
@@ -10,7 +11,8 @@ namespace Lombiq.TrainingDemo.GraphQL.Services;
 // automatically generate YesSql logic for database-side filtering.
 public class PersonPartWhereInputObjectGraphType : WhereInputObjectGraphType<PersonPart>
 {
-    public PersonPartWhereInputObjectGraphType()
+    public PersonPartWhereInputObjectGraphType(IStringLocalizer<PersonPartWhereInputObjectGraphType> stringLocalizer)
+        : base(stringLocalizer)
     {
         // Since filters depend on the index, we use their "nameof" as reference.
         AddScalarFilterFields<DateTimeGraphType>(nameof(PersonPartIndex.BirthDateUtc), BirthDateDescription);
