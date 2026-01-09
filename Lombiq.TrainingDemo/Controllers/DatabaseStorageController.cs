@@ -84,7 +84,7 @@ public sealed class DatabaseStorageController : Controller
             // In the .Where() method you can describe a lambda where the object will be the index object.
             .Where(index => index.Author == "J.K. (Joanne) Rosenzweig")
             // When the query is built up you can call ListAsync() to execute it. This will return a list of books.
-            .ListAsync();
+            .ListAsync(HttpContext.RequestAborted);
 
         // Now this is what we possibly understand now, we will create a list of display shapes from the previously
         // fetched books. Note how we use the AwaitEachAsync() extension to run async operations sequentially. This is

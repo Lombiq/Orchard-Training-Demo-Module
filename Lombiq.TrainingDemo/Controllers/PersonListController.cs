@@ -57,7 +57,7 @@ public sealed class PersonListController : Controller
             // threshold date. Notice that there is no Where method. The Query method has an overload for that which can
             // be useful if you don't want to filter in multiple indexes.
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
-            .ListAsync();
+            .ListAsync(HttpContext.RequestAborted);
 
         // Now let's build the display shape for a content item! Notice that this is not the IDisplayManager service.
         // The IContentItemDisplayManager is an abstraction over that and it's specifically for content items. The
@@ -92,7 +92,7 @@ public sealed class PersonListController : Controller
         var thresholdDate = _clock.UtcNow.AddYears(-90);
         var oldPeople = (await _session
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
-            .ListAsync())
+            .ListAsync(HttpContext.RequestAborted))
             .ToList();
 
         foreach (var person in oldPeople)
