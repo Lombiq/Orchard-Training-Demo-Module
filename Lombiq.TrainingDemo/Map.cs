@@ -28,7 +28,7 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace Lombiq.TrainingDemo;
 
-internal static class Map
+public static class Map
 {
 #pragma warning disable S3241 // Methods should not return values that are never used
     private static T Pointer<T>() => default;
