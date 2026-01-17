@@ -38,7 +38,7 @@ public class DemoSettingsConfiguration : IConfigureOptions<DemoSettings>
         // out what we have there related to settings and come back!
 
         // Unfortunately, no async here so we need to run this synchronously.
-        var settings = _siteService.GetSettingsAsync<DemoSettings>().GetAwaiter().GetResult();
+        var settings = _siteService.GetSettings<DemoSettings>();
 
         options.Message = settings.Message;
     }
