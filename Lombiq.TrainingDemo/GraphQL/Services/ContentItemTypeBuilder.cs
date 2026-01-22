@@ -42,6 +42,7 @@ public class ContentItemTypeBuilder : IContentTypeBuilder
 
     public void Clear()
     {
+        // Nothing to do here.
     }
 
     private static void AddFilter(FieldType contentQuery, string suffix)
