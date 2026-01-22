@@ -102,9 +102,9 @@ public sealed class Startup : StartupBase
         // Filters
         services.Configure<MvcOptions>((options) =>
         {
-            options.Filters.Add(typeof(ShapeInjectionFilter));
-            options.Filters.Add(typeof(ResourceInjectionFilter));
-            options.Filters.Add(typeof(ResourceFromShapeInjectingFilter));
+            options.Filters.Add<ShapeInjectionFilter>();
+            options.Filters.Add<ResourceInjectionFilter>();
+            options.Filters.Add<ResourceFromShapeInjectingFilter>();
         });
 
         // Shape table provider
