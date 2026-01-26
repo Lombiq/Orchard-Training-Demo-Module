@@ -17,7 +17,7 @@ public class PersonPartHandler : ContentPartHandler<PersonPart>
     public override Task UpdatedAsync(UpdateContentContext context, PersonPart part)
     {
         // Note that the Title Part already does this specific thing. So if that's all you wanted from a handler than
-        // using Title Part instead of a custom field and handler combination makes more sense. 
+        // using Title Part instead of a custom field and handler combination makes more sense.
         context.ContentItem.DisplayText = part.Name;
 
         return Task.CompletedTask;
