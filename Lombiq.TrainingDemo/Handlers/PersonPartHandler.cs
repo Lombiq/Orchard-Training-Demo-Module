@@ -6,7 +6,7 @@ namespace Lombiq.TrainingDemo.Handlers;
 
 // Handlers are basically event handlers for content parts and content items. When you ask something like "how can I run
 // my code when my content part is published?" most possibly the answer will be to write a handler. This one here is a
-// handler for a content part but you could similarly have a handler for whole content items by inheriting from
+// handler for a content part, but you could similarly have a handler for whole content items by inheriting from
 // ContentHandlerBase.
 public class PersonPartHandler : ContentPartHandler<PersonPart>
 {
