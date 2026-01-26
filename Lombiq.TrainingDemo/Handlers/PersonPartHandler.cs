@@ -20,6 +20,12 @@ public class PersonPartHandler : ContentPartHandler<PersonPart>
 
         return Task.CompletedTask;
     }
+
+    // If you've ever used Orchard Core before 3.0, "UpdatedAsync" used to be called during content item creation as
+    // well. Since 3.0 it's intentionally not the case, so you have to apply such a bridge code if you use "Updating*"
+    // or "Updated*" methods. Alternatively, put the shared code in a private method and call it from both.
+    public override Task CreatedAsync(CreateContentContext context, PersonPart part) =>
+        UpdatedAsync(new UpdateContentContext(context.ContentItem), part);
 }
 
 // END OF TRAINING SECTION: Content Item display management and queries
