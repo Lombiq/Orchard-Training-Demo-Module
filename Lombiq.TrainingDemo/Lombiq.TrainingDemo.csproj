@@ -21,24 +21,24 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="3.0.71" />
-    <PackageReference Include="OrchardCore.Users.Abstractions" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.BackgroundTasks" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.Data.Abstractions" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.DynamicCache" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="3.0.0-preview-18896" />
+    <PackageReference Include="OrchardCore.Users.Abstractions" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="3.0.0-preview-18906" />
     <!-- Note that you need to add a reference to OrchardCore.ResourceManagement for the basic tag helpers like <style>
     and <script> to properly work when the app is built for production (and thus Razor Runtime Compilation is turned
     off. OrchardCore.DisplayManagement is needed for a variety of things but also for the <shape> tag helper for the
     same reason. -->
-    <PackageReference Include="OrchardCore.ResourceManagement" Version="3.0.0-preview-18896" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="3.0.0-preview-18896" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="3.0.0-preview-18906" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="3.0.0-preview-18906" />
   </ItemGroup>
 
   <!-- This module requires Lombiq.HelpfulLibraries.OrchardCore, and it can be included two ways. The PackageReference
