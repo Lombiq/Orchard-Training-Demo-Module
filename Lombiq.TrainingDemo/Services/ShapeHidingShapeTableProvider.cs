@@ -40,7 +40,7 @@ internal sealed class ShapeHidingShapeTableProvider : IShapeTableProvider
             // Another option is to override the shape's placement, completely disabling the shape. This way, its factory
             // won't be executed either. However, there's only very little context available. We target the "Hidden"
             // DisplayType here, otherwise all our PersonParts would be hidden.
-            .Placement(context => context.DisplayType == "Hidden" ? new PlacementInfo { Location = "-" } : null);
+            .Placement(context => context.DisplayType == "Hidden" ? new PlacementInfo("-") : null);
 
         return ValueTask.CompletedTask;
     }
