@@ -12,11 +12,11 @@ namespace Lombiq.TrainingDemo.Navigation;
 // it from custom code. You can retrieve them with INavigationManager.BuildMenuAsync("main", ActionContext). If you
 // use the Lombiq.HelpfulExtensions.Widgets feature, it has a MenuWidget which can accept the MenuItem collection
 // returned by this method call and display a Bootstrap "navbar" wherever you need a menu. Or if you use a theme
-// which extends Lombiq.BaseTheme, then it already displays your "main" navigation entries as a MenuWidget on its
+// which extends Lombiq.BaseTheme.Core, then it already displays your "main" navigation entries as a MenuWidget on its
 // own. Yes, this is basically an ad for our other projects. :)
 //
 // For details on how to use them, see the Lombiq.BaseTheme.Samples project:
-// https://github.com/Lombiq/Orchard-Base-Theme/tree/issue/OSOE-62/Lombiq.BaseTheme.Samples
+// https://github.com/Lombiq/Orchard-Base-Theme/tree/dev/Lombiq.BaseTheme.Native.Samples
 public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
 {
     public TrainingDemoNavigationProvider(
@@ -36,19 +36,19 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
                     .Action<YourFirstOrchardCoreController>(context, controller => controller.Index()))
                 .Add(T["Notify Me"], subMenu => subMenu
                     .ActionTask<YourFirstOrchardCoreController>(context, controller => controller.NotifyMe()))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["Display Management"])
                 .Add(T["Display Book"], subMenu => subMenu
                     .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBook()))
                 .Add(T["Display Book Description"], subMenu => subMenu
                     .ActionTask<DisplayManagementController>(context, controller => controller.DisplayBookDescription()))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["Database Storage"])
                 .Add(T["Create Books"], subMenu => subMenu
                     .Action<DatabaseStorageController>(context, controller => controller.CreateBooks()))
                 .Add(T["J. K. Rosenzweig Books"], subMenu => subMenu
                     .ActionTask<DatabaseStorageController>(context, controller => controller.JKRosenzweigBooks()))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["Person List"])
                 .Add(T["Older Than 30"], subMenu => subMenu
                     .ActionTask<PersonListController>(context, controller => controller.OlderThan30()))
@@ -62,13 +62,13 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
                         nameof(PersonListController.CreateAnAndroid),
                         typeof(PersonListController).ControllerName(),
                         "Lombiq.TrainingDemo"))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["Authorization"])
                 .Add(T["CanEditPerson"], subMenu => subMenu
                     .ActionTask<AuthorizationController>(context, controller => controller.CanEditPerson()))
                 .Add(T["CanManagePersons"], subMenu => subMenu
                     .ActionTask<AuthorizationController>(context, controller => controller.CanManagePersons()))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["Admin"])
                 .Add(T["Index"], subMenu => subMenu
                     .Action<AdminController>(context, controller => controller.Index()))
@@ -76,19 +76,19 @@ public class TrainingDemoNavigationProvider : MainMenuNavigationProviderBase
                     .ActionTask<AdminController>(context, controller => controller.PersonListNewest()))
                 .Add(T["Person List (Oldest)"], subMenu => subMenu
                     .ActionTask<AdminController>(context, controller => controller.PersonListOldest()))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["Site Settings"])
                 .Add(T["Site Name"], Action<SiteSettingsController>(nameof(SiteSettingsController.SiteName)))
                 .Add(T["Demo Settings"], Action<SiteSettingsController>(nameof(SiteSettingsController.DemoSettings)))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["File Management"])
                 .Add(T["Create File in Media Folder"], Action<FileManagementController>(nameof(FileManagementController.CreateFileInMediaFolder)))
                 .Add(T["Read File from Media Folder"], Action<FileManagementController>(nameof(FileManagementController.ReadFileFromMediaFolder)))
                 .Add(T["Upload File to Media"], Action<FileManagementController>(nameof(FileManagementController.UploadFileToMedia)))
                 .Add(T["Create File in Custom Folder"], Action<FileManagementController>(nameof(FileManagementController.CreateFileInCustomFolder)))
-                .AddSeparator(T)
+                .AddSeparator()
                 .AddLabel(T["API (Not for front end.)"])
-                .AddSeparator(T)
+                .AddSeparator()
                 .Add(T["Cross Tenant Services"], Action<CrossTenantServicesController>(nameof(CrossTenantServicesController.Index))));
     }
 

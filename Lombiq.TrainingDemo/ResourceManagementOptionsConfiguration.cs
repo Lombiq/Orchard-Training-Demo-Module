@@ -35,11 +35,15 @@ public class ResourceManagementOptionsConfiguration : IConfigureOptions<Resource
             // (the one commonly minified) and the other one the debug variant (non-minified, for local development). In
             // this case be sure to use one variant for both the local and CDN URL, or two for both so there is no
             // confusion.
-            .SetUrl("~/Lombiq.TrainingDemo/pickr/pickr.min.js")
+            // Note the very specific path used for this resource. It's an external NPM package acquired using Microsoft
+            // Library Manager (libman). To set this up is very simple: add the "Microsoft.Web.LibraryManager.Build"
+            // package to your project and include a libman.json file that lists the resources to be downloaded from a
+            // CDN such as jsDelivr. For more information, see https://github.com/aspnet/LibraryManager.
+            .SetUrl("~/Lombiq.TrainingDemo/vendors/pickr/dist/pickr.min.js")
             // You can also use a CDN (or just a CDN) if you want to optimize static resource loading. If a resource has
             // both a local and CDN version then you can decide when including it which one to use or you can set this
             // globally under General Settings from the admin.
-            .SetCdn("https://cdn.jsdelivr.net/npm/pickr-widget@0.3.6/dist/pickr.min.js")
+            .SetCdn("https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/pickr.min.js")
             // In case of a CDN make sure to also utilize Subresource Integrity so the script can't be changed on the
             // CDN and potentially harm your site! For more info on SRI see:
             // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity. You can create such hashes
@@ -47,13 +51,14 @@ public class ResourceManagementOptionsConfiguration : IConfigureOptions<Resource
             .SetCdnIntegrity("sha384-9QkVz27WSgTpBfZqt9HJh4LIH88MjcPx4wGafm3SZOHXnje8A5mIeWwQ332WZxS/")
             // You can also define a version for a resource. Multiple resources with the same name but different version
             // can exist and when including the resource you can decide which one to use.
-            .SetVersion("0.3.6");
+            .SetVersion("1.9.1");
 
         _manifest
             // With the DefineStyle method you can define a stylesheet. The way of doing this is very similar to
             // defining scripts.
             .DefineStyle("Pickr")
-            .SetUrl("~/Lombiq.TrainingDemo/pickr/pickr.min.css");
+            .SetUrl("~/Lombiq.TrainingDemo/vendors/pickr/dist/themes/monolith.min.css")
+            .SetCdn("https://cdn.jsdelivr.net/npm/@simonwep/pickr@1.9.1/dist/themes/monolith.min.css");
 
         _manifest
             // Finally let's see an example for defining a resource for our custom code. You can see the naming is more

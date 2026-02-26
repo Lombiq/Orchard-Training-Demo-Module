@@ -41,7 +41,7 @@ This demo is heavily inspired by [Sipke Schoorstra's Orchard Harvest session](ht
 - [Content Field display and editor options](Views/ColorField.Option.cshtml)
 - [Resource management](ResourceManagementOptionsConfiguration.cs)
 - [Permissions and authorization](Controllers/AuthorizationController.cs)
-- [Navigation menus](Controllers/AdminController.cs) ([See here for for a similar tutorial about theming with Lombiq.BaseTheme.](https://github.com/Lombiq/Orchard-Base-Theme/tree/dev/Lombiq.BaseTheme.Samples))
+- [Navigation menus](Controllers/AdminController.cs) ([See here for a similar tutorial about theming with Lombiq.BaseTheme.Native.](https://github.com/Lombiq/Orchard-Base-Theme/tree/dev/Lombiq.BaseTheme.Native.Samples))
 - [Site settings and `IConfiguration`](Controllers/SiteSettingsController.cs)
 - [Utilizing action and result filters](Filters/ShapeInjectionFilter.cs)
 - [Shape tables](Services/ShapeHidingShapeTableProvider.cs)
