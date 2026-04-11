@@ -42,7 +42,7 @@ public class PersonAgeGraphQLFilter : IGraphQLFilter<ContentItem>
             var filterType = name[^2..]; // The name operator like gt, le, etc.
 
             contentItems = contentItems.Where(item =>
-                item.GetOrCreate<PersonPart>()?.BirthDateUtc is { } birthDateUtc &&
+                item.GetMaybe<PersonPart>()?.BirthDateUtc is { } birthDateUtc &&
                 Filter((now - birthDateUtc).TotalYears(), age, filterType));
         }
 
