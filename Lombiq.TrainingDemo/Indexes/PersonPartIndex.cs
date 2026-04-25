@@ -37,7 +37,7 @@ public class PersonPartIndexProvider : IndexProvider<ContentItem>
             // https://github.com/sebastienros/yessql/wiki/Tutorial
             .Map(contentItem =>
             {
-                var personPart = contentItem.As<PersonPart>();
+                var personPart = contentItem.GetOrCreate<PersonPart>();
 
                 return new PersonPartIndex
                 {

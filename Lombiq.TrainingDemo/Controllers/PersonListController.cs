@@ -136,7 +136,7 @@ public sealed class PersonListController : Controller
 
         return "People modified: " +
             (oldPeople.Count != 0 ?
-                string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
+                string.Join(", ", oldPeople.Select(person => person.GetOrCreate<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 
         // That was a quick intro to modifying content items from code. It's a lot more involved than this but it should
@@ -167,7 +167,7 @@ public sealed class PersonListController : Controller
 
         // Watch out, this is different compared to editing existing content items! You can't do this within
         // person.Alter<PersonPart>(). You have to fetch the content part anew and alter the fields like this:
-        var personPart = person.As<PersonPart>();
+        var personPart = person.GetOrCreate<PersonPart>();
         personPart.Alter<TextField>(nameof(PersonPart.Biography), field => field.Text = "I'm sentient now!");
 
         // This is the point where we actually save the content item into the database. Note that it's saved as a draft.
