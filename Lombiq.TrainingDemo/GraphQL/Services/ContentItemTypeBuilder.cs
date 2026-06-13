@@ -47,7 +47,10 @@ public class ContentItemTypeBuilder : IContentTypeBuilder
 
     private static void AddFilter(FieldType contentQuery, string suffix)
     {
+#pragma warning disable CA1825 // Avoid unnecessary zero-length array allocations. False positive, this is not an array.
         contentQuery.Arguments ??= [];
+#pragma warning restore CA1825 // Avoid unnecessary zero-length array allocations. False positive, this is not an array.
+
         contentQuery.Arguments!.Add(new QueryArgument<IntGraphType>
         {
             Name = AgeFilterName + suffix,
