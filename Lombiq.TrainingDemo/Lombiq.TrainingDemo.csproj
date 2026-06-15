@@ -9,7 +9,7 @@
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*</DefaultItemExcludes>
-    <OrchardCoreVersion>3.0.0-preview-19045</OrchardCoreVersion>
+    <OrchardCoreVersion>3.0.0-preview-19047</OrchardCoreVersion>
   </PropertyGroup>
 
   <ItemGroup>
