@@ -12,13 +12,6 @@
     <OrchardCoreVersion>3.0.0</OrchardCoreVersion>
   </PropertyGroup>
 
-  <!-- Temporarily disabled "NU1903: Package 'SQLitePCLRaw.lib.e_sqlite3' 2.1.11 has a known high severity
-       vulnerability, https://github.com/advisories/GHSA-2m69-gcr7-jv3q" until a newer version is released. -->
-  <PropertyGroup>
-    <NoWarn Condition="'$(NoWarn)' == ''">NU1903</NoWarn>
-    <NoWarn Condition="'$(NoWarn)' != ''">$(NoWarn)%3BNU1903</NoWarn>
-  </PropertyGroup>
-
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
@@ -28,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="11.0.0-preview.5.26302.115" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="3.0.71" />
     <PackageReference Include="OrchardCore.Users.Abstractions" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="$(OrchardCoreVersion)" />
