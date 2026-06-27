@@ -21,6 +21,7 @@
   <ItemGroup>
     <PackageReference Include="OrchardCore.Application.Cms.Targets" Version="$(OrchardCoreVersion)" />
     <PackageReference Include="OrchardCore.Logging.NLog" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="11.0.0-preview.3.26207.106" />
   </ItemGroup>
 
   <ItemGroup>
