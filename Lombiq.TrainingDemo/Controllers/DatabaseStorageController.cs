@@ -65,7 +65,7 @@ public sealed class DatabaseStorageController : Controller
         foreach (var book in CreateDemoBooks())
         {
             // So now you understand what will happen in the background when this service is being called.
-            await _session.SaveAsync(book);
+            await _session.SaveAsync(book, cancellationToken: HttpContext.RequestAborted);
         }
 
         await _notifier.InformationAsync(H["Books have been created in the database."]);
