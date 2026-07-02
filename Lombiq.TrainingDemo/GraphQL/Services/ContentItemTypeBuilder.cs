@@ -42,12 +42,20 @@ public class ContentItemTypeBuilder : IContentTypeBuilder
 
     private static void AddFilter(FieldType contentQuery, string suffix)
     {
-        contentQuery.Arguments ??= [];
-        contentQuery.Arguments!.Add(new QueryArgument<IntGraphType>
+        var argument = new QueryArgument<IntGraphType>
         {
             Name = AgeFilterName + suffix,
             ResolvedType = new IntGraphType(),
-        });
+        };
+
+        if (contentQuery.Arguments is null)
+        {
+            contentQuery.Arguments = new QueryArguments(argument);
+        }
+        else
+        {
+            contentQuery.Arguments.Add(argument);
+        }
     }
 }
 
