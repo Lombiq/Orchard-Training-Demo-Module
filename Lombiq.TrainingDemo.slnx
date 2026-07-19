@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/.github/" />
+  <Folder Name="/.github/workflows/">
+    <File Path=".github/workflows/build-and-test.yml" />
+    <File Path=".github/workflows/create-jira-issues-for-community-activities.yml" />
+    <File Path=".github/workflows/validate-pull-request.yml" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".gitattributes" />
+    <File Path=".gitignore" />
+    <File Path="License.md" />
+    <File Path="NuGet.config" />
+    <File Path="Readme.md" />
+    <File Path="Reset-Local.ps1" />
+  </Folder>
+  <Project Path="Lombiq.TrainingDemo.Tests/Lombiq.TrainingDemo.Tests.csproj" />
+  <Project Path="Lombiq.TrainingDemo.Web/Lombiq.TrainingDemo.Web.csproj" />
+  <Project Path="Lombiq.TrainingDemo/Lombiq.TrainingDemo.csproj" />
+</Solution>

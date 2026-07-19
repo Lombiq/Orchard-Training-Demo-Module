@@ -74,7 +74,7 @@ public partial class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorFi
 
         // Also some custom validation for our ColorField hex value.
         var isInvalidHexColor = !string.IsNullOrWhiteSpace(viewModel.Value) &&
-                                !RegexExpression().IsMatch(viewModel.Value);
+                                !RegexExpression.IsMatch(viewModel.Value);
 
         if (isInvalidHexColor) updater.ModelState.AddModelError(Prefix, T["The given color is invalid."]);
 
@@ -85,7 +85,7 @@ public partial class ColorFieldDisplayDriver : ContentFieldDisplayDriver<ColorFi
     }
 
     [GeneratedRegex("^#([A-Fa-f0-9]{8}|[A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$", RegexOptions.ExplicitCapture, matchTimeoutMilliseconds: 1000)]
-    private static partial Regex RegexExpression();
+    private static partial Regex RegexExpression { get; }
 }
 
 // END OF TRAINING SECTION: Content Field development

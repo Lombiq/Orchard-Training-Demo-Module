@@ -57,7 +57,7 @@ public sealed class PersonListController : Controller
             // threshold date. Notice that there is no Where method. The Query method has an overload for that which can
             // be useful if you don't want to filter in multiple indexes.
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
-            .ListAsync();
+            .ListAsync(HttpContext.RequestAborted);
 
         // Now let's build the display shape for a content item! Notice that this is not the IDisplayManager service.
         // The IContentItemDisplayManager is an abstraction over that and it's specifically for content items. The
@@ -92,7 +92,7 @@ public sealed class PersonListController : Controller
         var thresholdDate = _clock.UtcNow.AddYears(-90);
         var oldPeople = (await _session
             .Query<ContentItem, PersonPartIndex>(index => index.BirthDateUtc < thresholdDate)
-            .ListAsync())
+            .ListAsync(HttpContext.RequestAborted))
             .ToList();
 
         foreach (var person in oldPeople)
@@ -136,7 +136,7 @@ public sealed class PersonListController : Controller
 
         return "People modified: " +
             (oldPeople.Count != 0 ?
-                string.Join(", ", oldPeople.Select(person => person.As<PersonPart>().Name)) :
+                string.Join(", ", oldPeople.Select(person => person.GetOrCreate<PersonPart>().Name)) :
                 "Nobody. Did you create people older than 90?");
 
         // That was a quick intro to modifying content items from code. It's a lot more involved than this but it should
@@ -167,7 +167,7 @@ public sealed class PersonListController : Controller
 
         // Watch out, this is different compared to editing existing content items! You can't do this within
         // person.Alter<PersonPart>(). You have to fetch the content part anew and alter the fields like this:
-        var personPart = person.As<PersonPart>();
+        var personPart = person.GetOrCreate<PersonPart>();
         personPart.Alter<TextField>(nameof(PersonPart.Biography), field => field.Text = "I'm sentient now!");
 
         // This is the point where we actually save the content item into the database. Note that it's saved as a draft.

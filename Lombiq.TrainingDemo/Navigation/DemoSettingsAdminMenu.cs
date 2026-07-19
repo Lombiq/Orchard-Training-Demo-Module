@@ -19,10 +19,9 @@ public sealed class DemoSettingsAdminMenu : INavigationProvider
         if (!string.Equals(name, "admin", StringComparison.OrdinalIgnoreCase)) return ValueTask.CompletedTask;
 
         // If you want to put a menu item to a deeper lever under an existing menu item you just need to build your menu
-        // using the menu text of the existing items. Here the Configuration and Settings menu items are already
-        // existing items and this is the place you should put your site settings, however, you could use any other
-        // place if you want.
-        builder.Add(T["Configuration"], configuration => configuration
+        // using the menu text of the existing items. Here the Settings menu item already exists and this is the place
+        // you should put your site settings. However, you could use any other place if you want.
+        builder
             .Add(T["Settings"], settings => settings
                 .Add(T["Demo"], T["Demo"], demo => demo
                     // The Action will be the AdminController.Index action in the OrchardCore.Settings module. It will
@@ -33,7 +32,7 @@ public sealed class DemoSettingsAdminMenu : INavigationProvider
                     .Permission(DemoSettingsPermissions.ManageDemoSettings)
                     // It's a third-level menu item so put it on local navigation if it's supported.
                     .LocalNav()
-                )));
+                ));
 
         return ValueTask.CompletedTask;
     }

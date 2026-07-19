@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Razor">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFramework>net10.0</TargetFramework>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
     <Title>Lombiq Training Demo for Orchard Core</Title>
     <Description>Orchard Core training demo module for teaching Orchard Core fundamentals primarily by going through its source code.</Description>
@@ -9,6 +9,7 @@
     <PackageProjectUrl>https://github.com/Lombiq/Orchard-Training-Demo-Module</PackageProjectUrl>
     <PackageTags>Orchard Core, Orchard CMS, training</PackageTags>
     <DefaultItemExcludes>$(DefaultItemExcludes);.git*</DefaultItemExcludes>
+    <OrchardCoreVersion>3.0.1</OrchardCoreVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,26 +21,25 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="3.0.114" />
-    <PackageReference Include="OrchardCore.Users.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.BackgroundTasks" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.ContentFields" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.ContentManagement" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Data.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.DynamicCache" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Media.Abstractions" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.Module.Targets" Version="2.1.0" />
+    <PackageReference Include="OrchardCore.Users.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.Workflows.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.BackgroundTasks" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.ContentFields" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.ContentManagement" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.ContentTypes.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.Data.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.DynamicCache" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.FileStorage.FileSystem" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.Indexing.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.Media.Abstractions" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.Module.Targets" Version="$(OrchardCoreVersion)" />
     <!-- Note that you need to add a reference to OrchardCore.ResourceManagement for the basic tag helpers like <style>
     and <script> to properly work when the app is built for production (and thus Razor Runtime Compilation is turned
     off. OrchardCore.DisplayManagement is needed for a variety of things but also for the <shape> tag helper for the
     same reason. -->
-    <PackageReference Include="OrchardCore.ResourceManagement" Version="2.1.0" />
-    <PackageReference Include="OrchardCore.DisplayManagement" Version="2.1.0" />
+    <PackageReference Include="OrchardCore.ResourceManagement" Version="$(OrchardCoreVersion)" />
+    <PackageReference Include="OrchardCore.DisplayManagement" Version="$(OrchardCoreVersion)" />
   </ItemGroup>
 
   <!-- This module requires Lombiq.HelpfulLibraries.OrchardCore, and it can be included two ways. The PackageReference
@@ -51,7 +51,7 @@
   </ItemGroup>
 
   <ItemGroup Condition="!Exists('..\..\..\Libraries\Lombiq.HelpfulLibraries\Lombiq.HelpfulLibraries.OrchardCore\Lombiq.HelpfulLibraries.OrchardCore.csproj')">
-    <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="12.5.1-alpha.1.osoe-754" />
+    <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="13.0.0" />
   </ItemGroup>
 
 </Project>

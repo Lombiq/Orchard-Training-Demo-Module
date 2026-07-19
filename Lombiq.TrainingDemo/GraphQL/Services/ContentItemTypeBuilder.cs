@@ -40,6 +40,11 @@ public class ContentItemTypeBuilder : IContentTypeBuilder
         AddFilter(contentQuery, "_ne");
     }
 
+    public void Clear()
+    {
+        // Nothing to do here.
+    }
+
     private static void AddFilter(FieldType contentQuery, string suffix)
     {
         var argument = new QueryArgument<IntGraphType>

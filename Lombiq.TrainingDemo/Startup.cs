@@ -26,6 +26,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using OrchardCore.BackgroundTasks;
 using OrchardCore.ContentManagement;
@@ -102,9 +103,9 @@ public sealed class Startup : StartupBase
         // Filters
         services.Configure<MvcOptions>((options) =>
         {
-            options.Filters.Add(typeof(ShapeInjectionFilter));
-            options.Filters.Add(typeof(ResourceInjectionFilter));
-            options.Filters.Add(typeof(ResourceFromShapeInjectingFilter));
+            options.Filters.Add<ShapeInjectionFilter>();
+            options.Filters.Add<ResourceInjectionFilter>();
+            options.Filters.Add<ResourceFromShapeInjectingFilter>();
         });
 
         // Shape table provider
@@ -118,6 +119,7 @@ public sealed class Startup : StartupBase
             // objects.
             var shellOptions = serviceProvider.GetRequiredService<IOptions<ShellOptions>>().Value;
             var shellSettings = serviceProvider.GetRequiredService<ShellSettings>();
+            var logger = serviceProvider.GetRequiredService<ILogger<CustomFileStore>>();
 
             // Necessary for the comment.
 #pragma warning disable SA1114 // Parameter list should follow declaration
@@ -134,7 +136,7 @@ public sealed class Startup : StartupBase
             var customFolderPath = PathExtensions.Combine(tenantFolderPath, "CustomFiles");
 
             // Now register our CustomFileStore instance with the path given.
-            return new CustomFileStore(customFolderPath);
+            return new CustomFileStore(customFolderPath, logger);
 
             // NEXT STATION: Controllers/FileManagementController and find the CreateFileInCustomFolder method.
         });

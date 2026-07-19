@@ -62,7 +62,7 @@ public sealed class AdminController : Controller
             .Where(index => index.ContentType == ContentTypes.PersonPage)
             .OrderByDescending(index => index.CreatedUtc)
             .Take(10)
-            .ListAsync();
+            .ListAsync(HttpContext.RequestAborted);
 
         // In the Views/Admin/PersonList.cshtml file you can see how shape lists (IEnumerable<dynamic>) are displayed.
         return View("PersonList", await GetShapesAsync(persons));
@@ -81,7 +81,7 @@ public sealed class AdminController : Controller
             .Where(index => index.ContentType == ContentTypes.PersonPage)
             .OrderBy(index => index.CreatedUtc)
             .Take(10)
-            .ListAsync();
+            .ListAsync(HttpContext.RequestAborted);
 
         return View("PersonList", await GetShapesAsync(persons));
     }
