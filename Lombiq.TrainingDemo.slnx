@@ -14,6 +14,6 @@
     <File Path="Reset-Local.ps1" />
   </Folder>
   <Project Path="Lombiq.TrainingDemo.Tests/Lombiq.TrainingDemo.Tests.csproj" />
-  <Project Path="Lombiq.TrainingDemo.Web/Lombiq.TrainingDemo.Web.csproj" />
+  <Project Path="Lombiq.TrainingDemo.Web/Lombiq.TrainingDemo.Web.csproj" DefaultStartup="true" />
   <Project Path="Lombiq.TrainingDemo/Lombiq.TrainingDemo.csproj" />
 </Solution>
