@@ -8,6 +8,6 @@ You may have noticed that the structure of the unit test project is conveniently
 
 We use the [xUnit framework](https://xunit.net/) for testing, because it's great and Orchard's tests use it too. You could of course use any other unit testing framework if you'd like to but you're on your own :-).
 
-It's worth noting how such tests can be executed: If you're using Visual Studio then the tests will simply show up in the Test Explorer window and you can right click on them and select Run. Otherwise, you can just run the executable built from this project, or you can use a test runner; check out the [xUnit docs](https://xunit.net/) for details. Note that for this to work the project should reference the `xunit.runner.visualstudio` and `xunit` packages (but you need that anyway to write xUnit tests :-)).
+Run these tests from Test Explorer in an IDE with Microsoft Testing Platform support, or use `dotnet test --project Lombiq.TrainingDemo.Tests.csproj` with .NET SDK 10 or later. You can also run the built executable directly. The project references `xunit.v3` and enables the Microsoft Testing Platform runner. The repository's _global.json_ selects this runner for `dotnet test`; see the [xUnit documentation](https://xunit.net/docs/getting-started/v3/microsoft-testing-platform) for details.
 
 To start, head over to _Services/TestedServiceTests_!
