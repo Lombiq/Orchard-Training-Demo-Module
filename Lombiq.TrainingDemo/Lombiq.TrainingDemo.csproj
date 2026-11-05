@@ -54,6 +54,11 @@
     <PackageReference Include="Lombiq.HelpfulLibraries.OrchardCore" Version="13.0.1-alpha.5.osoe-344" />
   </ItemGroup>
 
+  <!-- Security Updates for Orchard Core - make sure to check if these are still necessary -->
+  <ItemGroup Condition="'$(ManagePackageVersionsCentrally)' != 'true'">
+    <PackageReference Include="MySqlConnector" Version="2.6.2" NoWarn="NU1510" />
+  </ItemGroup>
+
   <!-- Suppresses vulnerabilities in 'SixLabors.ImageSharp' version 3.1.12, until the Orchard Core upgrade to v4 is
   released that drops ImageSharp. -->
   <ItemGroup Condition="'$(LombiqSdkName)' == ''">
